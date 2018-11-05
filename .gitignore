@@ -1,0 +1,12 @@
+.git
+
+# IntelliJ.
+.idea/
+*.iml
+*.ipr
+*.iws
+
+workspace.xml
+build/
+out/
+.gradle
