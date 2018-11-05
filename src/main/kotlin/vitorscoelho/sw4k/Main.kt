@@ -5,8 +5,11 @@ import vitorscoelho.sw4k.comutils.byRef
 import vitorscoelho.sw4k.sap14.SapObject
 import vitorscoelho.sw4k.sap14.enums.*
 import kotlin.math.pow
+import vitorscoelho.sw4k.comutils.dlls.LoaderJacobDll
 
 fun main() {
+    LoaderJacobDll.load()
+
     println("Hello")
     //Iniciando o SAP2000
     val sapObject = SapObject()
