@@ -1,8 +1,101 @@
 package vitorscoelho.sw4k.comutils
 
-import com.jacob.com.SafeArray
-import com.jacob.com.Variant
+import vitorscoelho.sw4k.sap14.enums.EnumWithSapId
+import vitorscoelho.sw4k.sap14.enums.EnumWithSapIdInt
+import vitorscoelho.sw4k.sap14.enums.EnumWithSapIdString
+import vitorscoelho.sw4k.sap14.enums.MatType
 
+internal interface ByRefType<S> {
+    var value: S
+}
+
+internal interface SapEnumByteByRef<S : EnumWithSapIdInt> : ByRefType<S> {
+    fun setValue(value: Int)
+}
+
+internal interface SapEnumStringByRef<S : EnumWithSapIdString> : ByRefType<S> {
+    fun setValue(value: String)
+}
+
+class IntByRef(override var value: Int = 0) : ByRefType<Int>
+class StringByRef(override var value: String = "") : ByRefType<String>
+//class EnumWithSapIdByteByRef<S : EnumWithSapIdInt>(override var value: EnumWithSapIdInt) : ByRefType<EnumWithSapIdInt>()
+//class EnumWithSapIdStringByRef<S : EnumWithSapIdString>(override var value: S) : ByRefType<S>()
+class MatTypeByRef(override var value: MatType = MatType.NULL) : SapEnumByteByRef<MatType> {
+    override fun setValue(value: Int) {
+        this.value = map[value]!!
+    }
+
+    companion object {
+        private val map by lazy { MatType.values().associate { it.sapId to it } }
+    }
+}
+
+internal interface ByRefArray1D<S> {
+    /** Returns the array element at the given [index]. This method can be called using the index operator. */
+    operator fun get(index: Int): S?
+
+    /** Sets the element at the given [index] to the given [value]. This method can be called using the index operator. */
+    operator fun set(index: Int, value: S)
+
+    /**
+     * Returns the value of elements in the array.
+     */
+    val size: Int
+}
+
+class EnumArrayByRef<S : EnumWithSapId<*>>(override val size: Int) : ByRefArray1D<S> {
+    private val array = arrayListOf<S>()
+    override fun get(index: Int): S? = array[index]
+
+    override fun set(index: Int, value: S) {
+        array[index] = value
+    }
+}
+
+class DoubleArrayByRef(override val size: Int) : ByRefArray1D<Double> {
+    private val array = DoubleArray(size = size)
+    override fun get(index: Int) = array[index]
+
+    override fun set(index: Int, value: Double) {
+        array[index] = value
+    }
+
+    fun forEach(action: (Double) -> Unit) = array.forEach(action)
+    fun forEachIndexed(action: (index: Int, Double) -> Unit) = array.forEachIndexed(action)
+}
+
+fun DoubleArray.byRef(): DoubleArrayByRef = DoubleArrayByRef(size = size).apply { this@byRef.forEachIndexed { index, value -> this[index] = value } }
+
+class IntArrayByRef(override val size: Int) : ByRefArray1D<Int> {
+    private val array = IntArray(size = size)
+    override fun get(index: Int) = array[index]
+
+    override fun set(index: Int, value: Int) {
+        array[index] = value
+    }
+
+    fun forEach(action: (Int) -> Unit) = array.forEach(action)
+    fun forEachIndexed(action: (index: Int, Int) -> Unit) = array.forEachIndexed(action)
+}
+
+fun IntArray.byRef(): IntArrayByRef = IntArrayByRef(size = size).apply { this@byRef.forEachIndexed { index, value -> this[index] = value } }
+
+class StringArrayByRef(override val size: Int) : ByRefArray1D<String> {
+    private val array = Array<String>(size = size) { "" }
+    override fun get(index: Int) = array[index]
+
+    override fun set(index: Int, value: String) {
+        array[index] = value
+    }
+
+    fun forEach(action: (String) -> Unit) = array.forEach(action)
+    fun forEachIndexed(action: (index: Int, String) -> Unit) = array.forEachIndexed(action)
+}
+
+fun Array<String>.byRef(): StringArrayByRef = StringArrayByRef(size = size).apply { this@byRef.forEachIndexed { index, value -> this[index] = value } }
+
+/*
 abstract class ByRefType internal constructor() {
     abstract val variant: Variant
 }
@@ -57,7 +150,7 @@ class DoubleArrayByRef(size: Int) : ByRefArray<Double>() {
 
 fun DoubleArray.byRef() = DoubleArrayByRef(size).apply { this@byRef.forEachIndexed { index, value -> this[index] = value } }
 
-/*class ArrayByRef<S>(size: Int) : ByRefArray<S>() {
+/*class EnumArrayByRef<S>(size: Int) : ByRefArray<S>() {
     override val safeArray= SafeArray(Variant.Variant.toInt(),size)
 
     override fun get(index: Int): S =safeArray.get
@@ -65,4 +158,4 @@ fun DoubleArray.byRef() = DoubleArrayByRef(size).apply { this@byRef.forEachIndex
     override fun set(index: Int, value: S) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
-}*/
+}*/*/

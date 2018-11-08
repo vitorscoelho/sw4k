@@ -1,6 +1,6 @@
 package vitorscoelho.sw4k.sap14.enums
 
-enum class Units(val value: Byte) {
+enum class Units(override val sapId: Int) : EnumWithSapIdInt {
     lb_in_F(1),
     lb_ft_F(2),
     kip_in_F(3),

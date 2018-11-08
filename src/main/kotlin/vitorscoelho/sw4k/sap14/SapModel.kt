@@ -1,5 +1,6 @@
 package vitorscoelho.sw4k.sap14
 
+import vitorscoelho.sw4k.comutils.SapComponent
 import vitorscoelho.sw4k.sap14.definitions.LoadCases
 import vitorscoelho.sw4k.sap14.definitions.LoadPatterns
 import vitorscoelho.sw4k.sap14.definitions.properties.PropFrame
@@ -24,5 +25,5 @@ class SapModel internal constructor(val sapObject: SapObject) : SapComponent("${
      * @return zero if a new model is successfully initialized, otherwise it returns a nonzero value.
      */
     fun initializeNewModel(units: Units = Units.kip_in_F): Int =
-            callFunction("InitializeNewModel", units.value).int
+            callFunctionInt("InitializeNewModel", units)
 }

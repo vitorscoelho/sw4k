@@ -1,6 +1,6 @@
 package vitorscoelho.sw4k.sap14.enums
 
-enum class LoadPatternType(val value: Byte) {
+enum class LoadPatternType(override val sapId: Int) : EnumWithSapIdInt {
     LTYPE_DEAD(1),
     LTYPE_SUPERDEAD(2),
     LTYPE_LIVE(3),

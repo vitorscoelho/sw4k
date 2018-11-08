@@ -1,6 +1,6 @@
 package vitorscoelho.sw4k.sap14.enums
 
-enum class ItemType(val value: Byte) {
+enum class ItemType(override val sapId: Int) : EnumWithSapIdInt {
     /**
      * The assignment is made to the frame object specified by the Name item.
      */

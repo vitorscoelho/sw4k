@@ -1,5 +1,6 @@
 package vitorscoelho.sw4k.sap14
 
+import vitorscoelho.sw4k.comutils.SapComponent
 import vitorscoelho.sw4k.sap14.enums.Units
 
 class SapObject : SapComponent("Sap2000.SapObject") {
@@ -17,7 +18,7 @@ class SapObject : SapComponent("Sap2000.SapObject") {
      * @return zero if the application successfully starts and nonzero if it fails.
      */
     fun applicationStart(units: Units = Units.kip_in_F, visible: Boolean = true, fileName: String = ""): Int =
-            callFunction("ApplicationStart", units.value, visible, fileName).int
+            callFunctionInt("ApplicationStart", units, visible, fileName)
 
     /*val sapModel: ActiveXComponent by lazy { ActiveXComponent("$sapObjectString.cSapModel") }
     val file: ActiveXComponent by lazy { ActiveXComponent("$sapObjectString.cFile") }

@@ -1,11 +1,24 @@
 package vitorscoelho.sw4k.sap14.definitions.properties
 
-import vitorscoelho.sw4k.sap14.SapComponent
+import vitorscoelho.sw4k.comutils.*
+import vitorscoelho.sw4k.comutils.SapComponent
 import vitorscoelho.sw4k.sap14.SapModel
 import vitorscoelho.sw4k.sap14.enums.MatType
 import vitorscoelho.sw4k.sap14.enums.MyOption
 
 class PropMaterial internal constructor(sapModel: SapModel) : SapComponent("${sapModel.sapObject.sapObjectString}.cPropMaterial") {
+
+    /**
+     * This function retrieves some basic material property data.
+     * @param name The name of an existing material property.
+     * @param matType [MatTypeByRef]
+     * @param color The display color assigned to the material.
+     * @param notes The notes, if any, assigned to the material.
+     * @param GUID The GUID (global unique identifier), if any, assigned to the material.
+     * @return zero if the material is successfully retrieved; otherwise it returns a nonzero value.
+     */
+    fun getMaterial(name: String, matType: MatTypeByRef, color: IntByRef, notes: StringByRef, GUID: StringByRef): Int =
+            callFunctionInt("GetMaterial", name, matType, color, notes, GUID)
 
     /**
      * This function initializes a material property. If this function is called for an existing material property, all items for the material are reset to their default value.
@@ -17,7 +30,7 @@ class PropMaterial internal constructor(sapModel: SapModel) : SapComponent("${sa
      * @return zero if the material is successfully initialized; otherwise it returns a nonzero value.
      */
     fun setMaterial(name: String, matType: MatType, color: Int = -1, notes: String = "", GUID: String = ""): Int =
-            callFunction("SetMaterial", name, matType.value, color, notes, GUID).int
+            callFunctionInt("SetMaterial", name, matType, color, notes, GUID)
 
     /**
      * This function sets the material directional symmetry type to isotropic, and assigns the isotropic mechanical properties.
@@ -29,7 +42,7 @@ class PropMaterial internal constructor(sapModel: SapModel) : SapComponent("${sa
      * @return zero if the data is successfully assigned; otherwise it returns a nonzero value.
      */
     fun setMPIsotropic(name: String, e: Double, u: Double, a: Double, temp: Double = 0.0): Int =
-            callFunction("SetMPIsotropic", name, e, u, a, temp).int
+            callFunctionInt("SetMPIsotropic", name, e, u, a, temp)
 
     /**
      * This function assigns weight per unit volume or mass per unit volume to a material property.
@@ -40,5 +53,5 @@ class PropMaterial internal constructor(sapModel: SapModel) : SapComponent("${sa
      * @return zero if the data is successfully assigned; otherwise it returns a nonzero value.
      */
     fun setWeightAndMass(name: String, myOption: MyOption, value: Double, temp: Double = 0.0): Int =
-            callFunction("SetWeightAndMass", name, myOption.value, value, temp).int
+            callFunctionInt("SetWeightAndMass", name, myOption, value, temp)
 }

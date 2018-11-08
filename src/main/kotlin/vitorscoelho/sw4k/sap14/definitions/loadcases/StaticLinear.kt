@@ -1,6 +1,6 @@
 package vitorscoelho.sw4k.sap14.definitions.loadcases
 
-import vitorscoelho.sw4k.sap14.SapComponent
+import vitorscoelho.sw4k.comutils.SapComponent
 import vitorscoelho.sw4k.sap14.definitions.LoadCases
 
 class StaticLinear(loadCases: LoadCases) : SapComponent("${loadCases.sapModel.sapObject.sapObjectString}.cCaseStaticLinear") {
@@ -9,8 +9,8 @@ class StaticLinear(loadCases: LoadCases) : SapComponent("${loadCases.sapModel.sa
      * @param name The name of an existing or new load case. If this is an existing case, that case is modified; otherwise, a new case is added.
      * @return zero if the load case is successfully initialized; otherwise it returns a nonzero value.
      */
-    fun setCase(name: String): Int =
-            callFunction("SetCase", name).int
+//    fun setCase(name: String): Int =
+//            callFunction("SetCase", name).int
 
     /**
      * This function sets the load data for the specified analysis case.

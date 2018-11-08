@@ -1,6 +1,6 @@
 package vitorscoelho.sw4k.sap14.enums
 
-enum class Dir(val value: Byte) {
+enum class Dir(override val sapId: Int) :  EnumWithSapIdInt {
     /**Local 1 axis (only applies when CSys is Local)*/
     LOCAL_1_AXIS(1),
     /**Local 2 axis (only applies when CSys is Local)*/

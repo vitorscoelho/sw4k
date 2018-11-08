@@ -1,7 +1,6 @@
 package vitorscoelho.sw4k.sap14.objectmodel
 
-import vitorscoelho.sw4k.comutils.StringByRef
-import vitorscoelho.sw4k.sap14.SapComponent
+import vitorscoelho.sw4k.comutils.SapComponent
 import vitorscoelho.sw4k.sap14.SapModel
 import vitorscoelho.sw4k.sap14.enums.Dir
 import vitorscoelho.sw4k.sap14.enums.DistributedLoadType
@@ -24,8 +23,8 @@ class FrameObj internal constructor(sapModel: SapModel) : SapComponent("${sapMod
      * @param cSys The name of the coordinate system in which the frame object end point coordinates are defined.
      * @return zero if the frame object is successfully added, otherwise it returns a nonzero value.
      */
-    fun addByCoord(xi: Double, yi: Double, zi: Double, xj: Double, yj: Double, zj: Double, name: StringByRef = StringByRef.NONE, propName: String = "Default", userName: String = "", cSys: String = "Global"): Int =
-            callFunction("AddByCoord", xi, yi, zi, xj, yj, zj, name.variant, propName, userName, cSys).int
+//    fun addByCoord(xi: Double, yi: Double, zi: Double, xj: Double, yj: Double, zj: Double, name: StringByRef = StringByRef.NONE, propName: String = "Default", userName: String = "", cSys: String = "Global"): Int =
+//            callFunction("AddByCoord", xi, yi, zi, xj, yj, zj, name.variant, propName, userName, cSys).int
 
     /**
      * This function adds a new frame object whose end points are specified by name.
@@ -36,8 +35,8 @@ class FrameObj internal constructor(sapModel: SapModel) : SapComponent("${sapMod
      * @param userName This is an optional user specified name for the frame object. If a UserName is specified and that name is already used for another frame object, the program ignores the UserName.
      * @return zero if the frame object is successfully added, otherwise it returns a nonzero value.
      */
-    fun addByPoint(point1: String, point2: String, name: StringByRef = StringByRef.NONE, propName: String = "Default", userName: String = ""): Int =
-            callFunction("AddByPoint", point1, point2, name.variant, propName, userName).int
+//    fun addByPoint(point1: String, point2: String, name: StringByRef = StringByRef.NONE, propName: String = "Default", userName: String = ""): Int =
+//            callFunction("AddByPoint", point1, point2, name.variant, propName, userName).int
 
     /**
      * This function assigns distributed loads to frame objects.
@@ -55,8 +54,8 @@ class FrameObj internal constructor(sapModel: SapModel) : SapComponent("${sapMod
      * @param itemType [ItemType]
      * @return zero if the loads are successfully assigned, otherwise it returns a nonzero value.
      */
-    fun setLoadDistributed(name: String, loadPat: String, myType: DistributedLoadType, dir: Dir, dist1: Double, dist2: Double, val1: Double, val2: Double, cSys: String = "Global", relDist: Boolean = true, replace: Boolean = true, itemType: ItemType = ItemType.OBJECT): Int =
-            callFunction("SetLoadDistributed", name, loadPat, myType.value, dir.value, dist1, dist2, val1, val2, cSys, relDist, replace, itemType.value).int
+//    fun setLoadDistributed(name: String, loadPat: String, myType: DistributedLoadType, dir: Dir, dist1: Double, dist2: Double, val1: Double, val2: Double, cSys: String = "Global", relDist: Boolean = true, replace: Boolean = true, itemType: ItemType = ItemType.OBJECT): Int =
+//            callFunction("SetLoadDistributed", name, loadPat, myType.value, dir.value, dist1, dist2, val1, val2, cSys, relDist, replace, itemType.value).int
 
     /**
      * This function assigns frame object output station data.
@@ -69,6 +68,6 @@ class FrameObj internal constructor(sapModel: SapModel) : SapComponent("${sapMod
      * @param itemType [ItemType]
      * @return zero if the data is successfully assigned, otherwise it returns a nonzero value.
      */
-    fun setOutputStations(name: String, myType: MyType, maxSegSize: Double, minSections: Int, noOutPutAndDesignAtElementEnds: Boolean = false, noOutPutAndDesignAtPointLoads: Boolean = false, itemType: ItemType = ItemType.OBJECT): Int =
-            callFunction("SetOutputStations", name, myType.value, maxSegSize, minSections, noOutPutAndDesignAtElementEnds, noOutPutAndDesignAtPointLoads, itemType.value).int
+//    fun setOutputStations(name: String, myType: MyType, maxSegSize: Double, minSections: Int, noOutPutAndDesignAtElementEnds: Boolean = false, noOutPutAndDesignAtPointLoads: Boolean = false, itemType: ItemType = ItemType.OBJECT): Int =
+//            callFunction("SetOutputStations", name, myType.value, maxSegSize, minSections, noOutPutAndDesignAtElementEnds, noOutPutAndDesignAtPointLoads, itemType.value).int
 }

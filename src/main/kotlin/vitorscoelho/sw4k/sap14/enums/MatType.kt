@@ -1,6 +1,7 @@
 package vitorscoelho.sw4k.sap14.enums
 
-enum class MatType(val value: Byte) {
+enum class MatType(override val sapId: Int) : EnumWithSapIdInt {
+    NULL(Int.MIN_VALUE),
     MATERIAL_STEEL(1),
     MATERIAL_CONCRETE(2),
     MATERIAL_NODESIGN(3),
