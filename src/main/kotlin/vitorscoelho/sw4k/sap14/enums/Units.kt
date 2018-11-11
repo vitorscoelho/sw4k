@@ -16,5 +16,14 @@ enum class Units(override val sapId: Int) : EnumWithSapIdInt {
     kN_cm_C(13),
     kgf_cm_C(14),
     N_cm_C(15),
-    Ton_cm_C(16)
+    Ton_cm_C(16);
+
+    companion object {
+        private val map by lazy { values().associate { it.sapId to it } }
+        fun get(sapId: Int) = map.getOrElse(key = sapId) { throw IllegalArgumentException("Units with sapId=$sapId nonexistent.") }
+    }
 }
+
+fun Array<Units>.toSapId() = this.map { it.sapId }.toIntArray()
+fun IntArray.toUnits() = Array(size = this.size) { ComboType.get(sapId = it) }
+fun Int.toUnits() = Units.get(sapId = this)

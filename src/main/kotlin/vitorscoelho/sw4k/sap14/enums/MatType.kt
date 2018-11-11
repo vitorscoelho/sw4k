@@ -10,7 +10,11 @@ enum class MatType(override val sapId: Int) : EnumWithSapIdInt {
     MATERIAL_TENDON(7);
 
     companion object {
-        private val map = values().associate { it.sapId to it }
+        private val map by lazy { values().associate { it.sapId to it } }
         fun get(sapId: Int) = map.getOrElse(key = sapId) { throw IllegalArgumentException("MatType with sapId=$sapId nonexistent.") }
     }
 }
+
+fun Array<MatType>.toSapId() = this.map { it.sapId }.toIntArray()
+fun IntArray.toMatType() = Array(size = this.size) { ComboType.get(sapId = it) }
+fun Int.toMatType() = MatType.get(sapId = this)

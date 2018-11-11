@@ -39,5 +39,14 @@ enum class LoadPatternType(override val sapId: Int) : EnumWithSapIdInt {
     LTYPE_BOUYANCY(36),
     LTYPE_STREAMFLOW(37),
     LTYPE_IMPACT(38),
-    LTYPE_CONSTRUCTION(39)
+    LTYPE_CONSTRUCTION(39);
+
+    companion object {
+        private val map by lazy { values().associate { it.sapId to it } }
+        fun get(sapId: Int) = map.getOrElse(key = sapId) { throw IllegalArgumentException("LoadPatternType with sapId=$sapId nonexistent.") }
+    }
 }
+
+fun Array<LoadPatternType>.toSapId() = this.map { it.sapId }.toIntArray()
+fun IntArray.toLoadPatternType() = Array(size = this.size) { ComboType.get(sapId = it) }
+fun Int.toLoadPatternType() = LoadPatternType.get(sapId = this)

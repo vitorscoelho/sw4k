@@ -4,74 +4,65 @@ internal interface ByRefType<S> {
     var value: S
 }
 
+class DoubleByRef(override var value: Double = 0.0) : ByRefType<Double>
 class IntByRef(override var value: Int = 0) : ByRefType<Int>
+class BooleanByRef(override var value: Boolean = true) : ByRefType<Boolean>
 class StringByRef(override var value: String = "") : ByRefType<String>
 
-internal interface ByRefArray1D<S> {
+fun Double.byRef() = DoubleByRef(this)
+fun Int.byRef() = IntByRef(this)
+fun Boolean.byRef() = BooleanByRef(this)
+fun String.byRef() = StringByRef(this)
+
+internal interface ByRefArray1D<S, T> : ByRefType<S> {
     /** Returns the array element at the given [index]. This method can be called using the index operator. */
-    operator fun get(index: Int): S?
+    operator fun get(index: Int): T
 
     /** Sets the element at the given [index] to the given [value]. This method can be called using the index operator. */
-    operator fun set(index: Int, value: S)
+    operator fun set(index: Int, value: T)
 
     /**
      * Returns the value of elements in the array.
      */
-    val size: Int
+    fun size(): Int
 }
 
-class DoubleArrayByRef(override val size: Int) : ByRefArray1D<Double> {
-    private val array = DoubleArray(size = size)
-    override fun get(index: Int) = array[index]
-
-    override fun set(index: Int, value: Double) {
-        array[index] = value
-    }
-
-    fun forEach(action: (Double) -> Unit) = array.forEach(action)
-    fun forEachIndexed(action: (index: Int, Double) -> Unit) = array.forEachIndexed(action)
+class DoubleArrayByRef(override var value: DoubleArray = doubleArrayOf()) : ByRefArray1D<DoubleArray, Double> {
+    override fun get(index: Int): Double = value[index]
+    override fun set(index: Int, value: Double) = this@DoubleArrayByRef.value.set(index, value)
+    override fun size(): Int = this.value.size
+    fun forEach(action: (Double) -> Unit) = value.forEach(action)
+    fun forEachIndexed(action: (index: Int, Double) -> Unit) = value.forEachIndexed(action)
 }
 
-fun DoubleArray.byRef(): DoubleArrayByRef = DoubleArrayByRef(size = size).apply { this@byRef.forEachIndexed { index, value -> this[index] = value } }
+fun DoubleArray.byRef(): DoubleArrayByRef = DoubleArrayByRef(this)
 
-class IntArrayByRef(override val size: Int) : ByRefArray1D<Int> {
-    private val array = IntArray(size = size)
-    override fun get(index: Int) = array[index]
-
-    override fun set(index: Int, value: Int) {
-        array[index] = value
-    }
-
-    fun forEach(action: (Int) -> Unit) = array.forEach(action)
-    fun forEachIndexed(action: (index: Int, Int) -> Unit) = array.forEachIndexed(action)
+class IntArrayByRef(override var value: IntArray = intArrayOf()) : ByRefArray1D<IntArray, Int> {
+    override fun get(index: Int): Int = value[index]
+    override fun set(index: Int, value: Int) = this@IntArrayByRef.value.set(index, value)
+    override fun size(): Int = this.value.size
+    fun forEach(action: (Int) -> Unit) = value.forEach(action)
+    fun forEachIndexed(action: (index: Int, Int) -> Unit) = value.forEachIndexed(action)
 }
 
-fun IntArray.byRef(): IntArrayByRef = IntArrayByRef(size = size).apply { this@byRef.forEachIndexed { index, value -> this[index] = value } }
+fun IntArray.byRef(): IntArrayByRef = IntArrayByRef(this)
 
-class BooleanArrayByRef(override val size: Int) : ByRefArray1D<Boolean> {
-    private val array = BooleanArray(size = size)
-    override fun get(index: Int) = array[index]
-
-    override fun set(index: Int, value: Boolean) {
-        array[index] = value
-    }
-
-    fun forEach(action: (Boolean) -> Unit) = array.forEach(action)
-    fun forEachIndexed(action: (index: Int, Boolean) -> Unit) = array.forEachIndexed(action)
+class BooleanArrayByRef(override var value: BooleanArray = booleanArrayOf()) : ByRefArray1D<BooleanArray, Boolean> {
+    override fun get(index: Int): Boolean = value[index]
+    override fun set(index: Int, value: Boolean) = this@BooleanArrayByRef.value.set(index, value)
+    override fun size(): Int = this.value.size
+    fun forEach(action: (Boolean) -> Unit) = value.forEach(action)
+    fun forEachIndexed(action: (index: Int, Boolean) -> Unit) = value.forEachIndexed(action)
 }
 
-fun BooleanArray.byRef(): BooleanArrayByRef = BooleanArrayByRef(size = size).apply { this@byRef.forEachIndexed { index, value -> this[index] = value } }
+fun BooleanArray.byRef(): BooleanArrayByRef = BooleanArrayByRef(this)
 
-class StringArrayByRef(override val size: Int) : ByRefArray1D<String> {
-    private val array = Array<String>(size = size) { "" }
-    override fun get(index: Int) = array[index]
-
-    override fun set(index: Int, value: String) {
-        array[index] = value
-    }
-
-    fun forEach(action: (String) -> Unit) = array.forEach(action)
-    fun forEachIndexed(action: (index: Int, String) -> Unit) = array.forEachIndexed(action)
+class StringArrayByRef(override var value: Array<String> = emptyArray()) : ByRefArray1D<Array<String>, String> {
+    override fun get(index: Int): String = value[index]
+    override fun set(index: Int, value: String) = this@StringArrayByRef.value.set(index, value)
+    override fun size(): Int = this.value.size
+    fun forEach(action: (String) -> Unit) = value.forEach(action)
+    fun forEachIndexed(action: (index: Int, String) -> Unit) = value.forEachIndexed(action)
 }
 
-fun Array<String>.byRef(): StringArrayByRef = StringArrayByRef(size = size).apply { this@byRef.forEachIndexed { index, value -> this[index] = value } }
+fun Array<String>.byRef(): StringArrayByRef = StringArrayByRef(this)

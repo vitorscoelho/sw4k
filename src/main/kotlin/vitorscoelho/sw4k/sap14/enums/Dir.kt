@@ -1,6 +1,6 @@
 package vitorscoelho.sw4k.sap14.enums
 
-enum class Dir(override val sapId: Int) :  EnumWithSapIdInt {
+enum class Dir(override val sapId: Int) : EnumWithSapIdInt {
     /**Local 1 axis (only applies when CSys is Local)*/
     LOCAL_1_AXIS(1),
     /**Local 2 axis (only applies when CSys is Local)*/
@@ -28,5 +28,14 @@ enum class Dir(override val sapId: Int) :  EnumWithSapIdInt {
      * Projected Gravity direction (only applies when CSys is Global)
      * The positive gravity direction is in the negative Global Z direction.
      * */
-    PROJECTED_GRAVITY_DIRECTION(11)
+    PROJECTED_GRAVITY_DIRECTION(11);
+
+    companion object {
+        private val map by lazy { values().associate { it.sapId to it } }
+        fun get(sapId: Int) = map.getOrElse(key = sapId) { throw IllegalArgumentException("Dir with sapId=$sapId nonexistent.") }
+    }
 }
+
+fun Array<Dir>.toSapId() = this.map { it.sapId }.toIntArray()
+fun IntArray.toDir() = Array(size = this.size) { ComboType.get(sapId = it) }
+fun Int.toDir() = Dir.get(sapId = this)
