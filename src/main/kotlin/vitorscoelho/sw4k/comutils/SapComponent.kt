@@ -4,14 +4,51 @@ import com.jacob.activeX.ActiveXComponent
 import com.jacob.com.Dispatch
 import com.jacob.com.SafeArray
 import com.jacob.com.Variant
-import vitorscoelho.sw4k.sap14.enums.EnumWithSapId
-import java.lang.IllegalArgumentException
 
 private const val VARIANT_DOUBLE_CODE = Variant.VariantDouble.toInt()
+private const val VARIANT_INT_CODE = Variant.VariantInt.toInt()
+private const val VARIANT_BOOLEAN_CODE = Variant.VariantBoolean.toInt()
+private const val VARIANT_STRING_CODE = Variant.VariantString.toInt()
 
 private class VariantSafeArray(val safeArray: SafeArray) : Variant() {
     init {
         this.putSafeArrayRef(safeArray)
+    }
+
+    companion object {
+        private val VARIANT_DOUBLE_CODE: Int by lazy { Variant.VariantDouble.toInt() }
+        private val VARIANT_INT_CODE: Int by lazy { Variant.VariantInt.toInt() }
+        private val VARIANT_BOOLEAN_CODE: Int by lazy { Variant.VariantBoolean.toInt() }
+        private val VARIANT_STRING_CODE: Int by lazy { Variant.VariantString.toInt() }
+
+        fun fromCallAttribute(attribute: ByRefArray1D<*>): VariantSafeArray {
+            val safeArray = when (attribute) {
+                is DoubleArrayByRef -> SafeArray(VARIANT_DOUBLE_CODE, attribute.size).apply {
+                    attribute.forEachIndexed { index, value -> this.setDouble(index, value) }
+                }
+                is IntArrayByRef -> SafeArray(VARIANT_INT_CODE, attribute.size).apply {
+                    attribute.forEachIndexed { index, value -> this.setInt(index, value) }
+                }
+                is BooleanArrayByRef -> SafeArray(VARIANT_BOOLEAN_CODE, attribute.size).apply {
+                    attribute.forEachIndexed { index, value -> this.setBoolean(index, value) }
+                }
+                is StringArrayByRef -> SafeArray(VARIANT_STRING_CODE, attribute.size).apply {
+                    attribute.forEachIndexed { index, value -> this.setString(index, value) }
+                }
+                else -> throw IllegalArgumentException("Array Type ${attribute.javaClass} not supported.")
+            }
+            return VariantSafeArray(safeArray = safeArray)
+        }
+
+        fun populateArrayWithReturn(attribute: ByRefArray1D<*>, variant: VariantSafeArray) {
+            when (attribute) {
+                is DoubleArrayByRef -> (0 until attribute.size).forEach { indexAttribute -> attribute[indexAttribute] = variant.safeArray.getDouble(indexAttribute) }
+                is IntArrayByRef -> (0 until attribute.size).forEach { indexAttribute -> attribute[indexAttribute] = variant.safeArray.getInt(indexAttribute) }
+                is BooleanArrayByRef -> (0 until attribute.size).forEach { indexAttribute -> attribute[indexAttribute] = variant.safeArray.getBoolean(indexAttribute) }
+                is StringArrayByRef -> (0 until attribute.size).forEach { indexAttribute -> attribute[indexAttribute] = variant.safeArray.getString(indexAttribute) }
+                else -> throw IllegalArgumentException("Array Type ${attribute.javaClass} not supported.")
+            }
+        }
     }
 }
 
@@ -22,14 +59,7 @@ abstract class SapComponent internal constructor(activeXComponentName: String) {
         val attributesToCall = Array(size = attributes.size) { index ->
             val attribute = attributes[index]
             when (attribute) {
-                is DoubleArrayByRef -> {
-                    val safeArray = SafeArray(VARIANT_DOUBLE_CODE, attribute.size).apply {
-                        attribute.forEachIndexed { index, value -> this.setDouble(index, value) }
-                    }
-                    VariantSafeArray(safeArray)
-                }
-                is EnumWithSapId<*> -> attribute.sapId!!
-                is SapEnumByteByRef<*> -> Variant(attribute.value.sapId, true)
+                is ByRefArray1D<*> -> VariantSafeArray.fromCallAttribute(attribute = attribute)
                 is ByRefType<*> -> Variant(attribute.value, true)
                 else -> attribute
             }
@@ -37,20 +67,12 @@ abstract class SapComponent internal constructor(activeXComponentName: String) {
         val callReturn = Dispatch.call(activeXComponent, name, *attributesToCall)
         attributes.forEachIndexed { index, attribute ->
             if (attribute is ByRefArray1D<*>) {
-                val safeArray1D = (attributesToCall[index] as VariantSafeArray).safeArray
-                when (attribute) {
-                    is DoubleArrayByRef -> {
-                        (0 until attribute.size).forEach { indexAttribute -> attribute[indexAttribute] = safeArray1D.getDouble(indexAttribute) }
-                    }
-                    else -> throw IllegalArgumentException("|EnumArrayByRef| ${attribute.javaClass} not supported.")
-                }
+                VariantSafeArray.populateArrayWithReturn(attribute = attribute, variant = attributesToCall[index] as VariantSafeArray)
             } else if (attribute is ByRefType<*>) {
                 val variant = attributesToCall[index] as Variant
                 when (attribute) {
-                    is SapEnumByteByRef<*> -> attribute.setValue(value = variant.intRef)
                     is IntByRef -> attribute.value = variant.intRef
                     is StringByRef -> attribute.value = variant.stringRef
-//                    is EnumWithSapIdByteByRef<*>->attribute.value=variant//TODO O que retornar?? Tenho que arrumar uma maneira de retornar o Enum, não o sapId dele
                     else -> throw IllegalArgumentException("|ByRefType| ${attribute.javaClass} not supported.")
                 }
             }
