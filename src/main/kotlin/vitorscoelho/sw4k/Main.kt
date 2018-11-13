@@ -1,6 +1,5 @@
 package vitorscoelho.sw4k
 
-import com.jacob.com.ComThread
 import vitorscoelho.sw4k.comutils.*
 import vitorscoelho.sw4k.sap14.SapObject
 import vitorscoelho.sw4k.comutils.dlls.LoaderJacobDll
@@ -175,11 +174,6 @@ fun main() {
     )}")
     println("Qtd. resultados= ${numberResults.value}")
     println("x= ${elmSta[10]} -> momento= ${m3ByRef[10]}")
-
-    //Tentando desfazer a "ponte" entre Jacob e SAP2000
-    ComThread.InitSTA() // or ComThread.InitMTA()
-    ComThread.Release()
-
 
     //Destrava a análise
 //    sapModel.setModelIsLocked(lockIt = false)

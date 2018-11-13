@@ -1,14 +1,10 @@
 package vitorscoelho.sw4k.comutils
 
 import com.jacob.activeX.ActiveXComponent
+import com.jacob.com.ComThread
 import com.jacob.com.Dispatch
 import com.jacob.com.SafeArray
 import com.jacob.com.Variant
-
-private const val VARIANT_DOUBLE_CODE = Variant.VariantDouble.toInt()
-private const val VARIANT_INT_CODE = Variant.VariantInt.toInt()
-private const val VARIANT_BOOLEAN_CODE = Variant.VariantBoolean.toInt()
-private const val VARIANT_STRING_CODE = Variant.VariantString.toInt()
 
 private class VariantSafeArray(val safeArray: SafeArray) : Variant() {
     init {
@@ -53,10 +49,9 @@ private class VariantSafeArray(val safeArray: SafeArray) : Variant() {
     }
 }
 
-abstract class SapComponent internal constructor(activeXComponentName: String) {
-    private val activeXComponent = ActiveXComponent(activeXComponentName)
-    fun callFunctionInt(name: String, vararg attributes: Any): Int = callFunction(name = name, attributes = *attributes).int
-    private fun callFunction(name: String, vararg attributes: Any): Variant {
+abstract class SapComponent internal constructor(private val activeXComponentName: String) {
+    fun callFunctionInt(name: String, vararg attributes: Any): Int {
+        ComThread.InitMTA()
         val attributesToCall = Array(size = attributes.size) { index ->
             val attribute = attributes[index]
             when (attribute) {
@@ -65,6 +60,7 @@ abstract class SapComponent internal constructor(activeXComponentName: String) {
                 else -> attribute
             }
         }
+        val activeXComponent = ActiveXComponent(activeXComponentName)
         val callReturn = Dispatch.call(activeXComponent, name, *attributesToCall)
         attributes.forEachIndexed { index, attribute ->
             if (attribute is ByRefArray1D<*, *>) {
@@ -78,6 +74,9 @@ abstract class SapComponent internal constructor(activeXComponentName: String) {
                 }
             }
         }
-        return callReturn
+        val intReturn = callReturn.int
+        activeXComponent.safeRelease()
+        ComThread.Release()
+        return intReturn
     }
 }
