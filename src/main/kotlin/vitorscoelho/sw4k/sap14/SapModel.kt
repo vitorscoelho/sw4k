@@ -2,26 +2,48 @@ package vitorscoelho.sw4k.sap14
 
 import vitorscoelho.sw4k.comutils.SapComponent
 import vitorscoelho.sw4k.sap14.analysisresults.Results
-import vitorscoelho.sw4k.sap14.definitions.LoadCases
-import vitorscoelho.sw4k.sap14.definitions.LoadPatterns
-import vitorscoelho.sw4k.sap14.definitions.RespCombo
+import vitorscoelho.sw4k.sap14.analysisresults.ResultsV14
+import vitorscoelho.sw4k.sap14.definitions.*
 import vitorscoelho.sw4k.sap14.definitions.properties.PropFrame
+import vitorscoelho.sw4k.sap14.definitions.properties.PropFrameV14
 import vitorscoelho.sw4k.sap14.definitions.properties.PropMaterial
+import vitorscoelho.sw4k.sap14.definitions.properties.PropMaterialV14
 import vitorscoelho.sw4k.sap14.enums.Units
 import vitorscoelho.sw4k.sap14.objectmodel.FrameObj
+import vitorscoelho.sw4k.sap14.objectmodel.FrameObjV14
 import vitorscoelho.sw4k.sap14.objectmodel.PointObj
+import vitorscoelho.sw4k.sap14.objectmodel.PointObjV14
 
-class SapModel internal constructor(val sapObject: SapObject) : SapComponent("${sapObject.sapObjectString}.cSapModel") {
-    val file = File(this)
-    val propMaterial = PropMaterial(this)
-    val propFrame = PropFrame(this)
-    val pointObj = PointObj(this)
-    val frameObj = FrameObj(this)
-    val loadPatterns = LoadPatterns(this)
-    val loadCases = LoadCases(this)
-    val respCombo = RespCombo(this)
-    val analyze = Analyze(this)
-    val results=Results(this)
+class SapModel internal constructor(val sapObject: SapObject) : SapComponent("${sapObject.sapObjectString}.cSapModel"), SapModelV14 {
+    override val file = File(this)
+    override val propMaterial = PropMaterial(this)
+    override val propFrame = PropFrame(this)
+    override val pointObj = PointObj(this)
+    override val frameObj = FrameObj(this)
+    override val loadPatterns = LoadPatterns(this)
+    override val loadCases = LoadCases(this)
+    override val respCombo = RespCombo(this)
+    override val analyze = Analyze(this)
+    override val results = Results(this)
+
+    override fun initializeNewModel(units: Int): Int =
+            callFunctionInt("InitializeNewModel", units)
+
+    override fun setModelIsLocked(lockIt: Boolean): Int =
+            callFunctionInt("SetModelIsLocked", lockIt)
+}
+
+interface SapModelV14 {
+    val file: FileV14
+    val propMaterial: PropMaterialV14
+    val propFrame: PropFrameV14
+    val pointObj: PointObjV14
+    val frameObj: FrameObjV14
+    val loadPatterns: LoadPatternsV14
+    val loadCases: LoadCasesV14
+    val respCombo: RespComboV14
+    val analyze: AnalyzeV14
+    val results: ResultsV14
 
     /**
      * This function clears the previous model and initializes the program for a new model. If it is later needed, you should save your previous model prior to calling this function.
@@ -45,14 +67,12 @@ class SapModel internal constructor(val sapObject: SapObject) : SapComponent("${
      * * Ton_cm_C = 16
      * @return zero if a new model is successfully initialized, otherwise it returns a nonzero value.
      */
-    fun initializeNewModel(units: Int = Units.kip_in_F.sapId): Int =
-            callFunctionInt("InitializeNewModel", units)
+    fun initializeNewModel(units: Int = Units.kip_in_F.sapId): Int
 
     /**
      * With some exceptions, definitions and assignments can not be changed in a model while the model is locked. If an attempt is made to change a definition or assignment while the model is locked and that change is not allowed in a locked model, an error will be returned.
      * @param lockIt The item is True if the model is to be locked and False if it is to be unlocked.
      * @return zero if the locked status of the model is successfully set. Otherwise it returns a nonzero value.
      */
-    fun setModelIsLocked(lockIt: Boolean): Int =
-            callFunctionInt("SetModelIsLocked", lockIt)
+    fun setModelIsLocked(lockIt: Boolean): Int
 }

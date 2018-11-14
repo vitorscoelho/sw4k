@@ -11,7 +11,7 @@ fun main() {
 
     println("Hello")
     //Iniciando o SAP2000
-    val sapObject = SapObject()
+    val sapObject = SapObject.v14()
     val sapModel = sapObject.sapModel
     sapObject.applicationStart()
     sapModel.initializeNewModel(units = Units.kN_cm_C.sapId)

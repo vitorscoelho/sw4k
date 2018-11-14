@@ -7,7 +7,21 @@ import vitorscoelho.sw4k.sap14.enums.ItemType
 import vitorscoelho.sw4k.sap14.enums.Dir
 import vitorscoelho.sw4k.sap14.enums.DistributedLoadType
 
-class FrameObj internal constructor(sapModel: SapModel) : SapComponent("${sapModel.sapObject.sapObjectString}.cFrameObj") {
+class FrameObj internal constructor(sapModel: SapModel) : SapComponent("${sapModel.sapObject.sapObjectString}.cFrameObj"), FrameObjV14 {
+    override fun addByCoord(xi: Double, yi: Double, zi: Double, xj: Double, yj: Double, zj: Double, name: StringByRef, propName: String, userName: String, cSys: String): Int =
+            callFunctionInt("AddByCoord", xi, yi, zi, xj, yj, zj, name, propName, userName, cSys)
+
+    override fun addByPoint(point1: String, point2: String, name: StringByRef, propName: String, userName: String): Int =
+            callFunctionInt("AddByPoint", point1, point2, name, propName, userName)
+
+    override fun setLoadDistributed(name: String, loadPat: String, myType: Int, dir: Int, dist1: Double, dist2: Double, val1: Double, val2: Double, cSys: String, relDist: Boolean, replace: Boolean, itemType: Int): Int =
+            callFunctionInt("SetLoadDistributed", name, loadPat, myType, dir, dist1, dist2, val1, val2, cSys, relDist, replace, itemType)
+
+    override fun setOutputStations(name: String, myType: Int, maxSegSize: Double, minSections: Int, noOutPutAndDesignAtElementEnds: Boolean, noOutPutAndDesignAtPointLoads: Boolean, itemType: Int): Int =
+            callFunctionInt("SetOutputStations", name, myType, maxSegSize, minSections, noOutPutAndDesignAtElementEnds, noOutPutAndDesignAtPointLoads, itemType)
+}
+
+interface FrameObjV14 {
     /**
      * This function adds a new frame object whose end points are at the specified coordinates.
      * @param xi, yi, zi The coordinates of the I-End of the added frame object. The coordinates are in the coordinate system defined by the CSys item.
@@ -19,8 +33,7 @@ class FrameObj internal constructor(sapModel: SapModel) : SapComponent("${sapMod
      * @param cSys The name of the coordinate system in which the frame object end point coordinates are defined.
      * @return zero if the frame object is successfully added, otherwise it returns a nonzero value.
      */
-    fun addByCoord(xi: Double, yi: Double, zi: Double, xj: Double, yj: Double, zj: Double, name: StringByRef, propName: String = "Default", userName: String = "", cSys: String = "Global"): Int =
-            callFunctionInt("AddByCoord", xi, yi, zi, xj, yj, zj, name, propName, userName, cSys)
+    fun addByCoord(xi: Double, yi: Double, zi: Double, xj: Double, yj: Double, zj: Double, name: StringByRef, propName: String = "Default", userName: String = "", cSys: String = "Global"): Int
 
     /**
      * This function adds a new frame object whose end points are specified by name.
@@ -32,8 +45,7 @@ class FrameObj internal constructor(sapModel: SapModel) : SapComponent("${sapMod
      * @param userName This is an optional user specified name for the frame object. If a UserName is specified and that name is already used for another frame object, the program ignores the UserName.
      * @return zero if the frame object is successfully added, otherwise it returns a nonzero value.
      */
-    fun addByPoint(point1: String, point2: String, name: StringByRef, propName: String = "Default", userName: String = ""): Int =
-            callFunctionInt("AddByPoint", point1, point2, name, propName, userName)
+    fun addByPoint(point1: String, point2: String, name: StringByRef, propName: String = "Default", userName: String = ""): Int
 
     /**
      * This function assigns distributed loads to frame objects.
@@ -55,10 +67,10 @@ class FrameObj internal constructor(sapModel: SapModel) : SapComponent("${sapMod
      * * 10 = Gravity direction (only applies when CSys is Global)
      * * 11 = Projected Gravity direction (only applies when CSys is Global)
      * The positive gravity direction (see Dir = 10 and 11) is in the negative Global Z direction.
-     * @param dist1 This is the distance from the I-End of the frame object to the start of the distributed load. This may be a relative distance (0 <= Dist1 <= 1) or an actual distance, depending on the value of the RelDist item. [L] when RelDist is False
-     * @param dist2 This is the distance from the I-End of the frame object to the end of the distributed load. This may be a relative distance (0 <= Dist2 <= 1) or an actual distance, depending on the value of the RelDist item. [L] when RelDist is False
-     * @param val1 This is the load value at the start of the distributed load. [F/L] when MyType is 1 and [FL/L] when MyType is 2
-     * @param val2 This is the load value at the end of the distributed load. [F/L] when MyType is 1 and [FL/L] when MyType is 2
+     * @param dist1 This is the distance from the I-End of the frame object to the start of the distributed load. This may be a relative distance (0 <= Dist1 <= 1) or an actual distance, depending on the value of the RelDist item. (L) when RelDist is False
+     * @param dist2 This is the distance from the I-End of the frame object to the end of the distributed load. This may be a relative distance (0 <= Dist2 <= 1) or an actual distance, depending on the value of the RelDist item. (L) when RelDist is False
+     * @param val1 This is the load value at the start of the distributed load. (F/L) when MyType is 1 and (FL/L) when MyType is 2
+     * @param val2 This is the load value at the end of the distributed load. (F/L) when MyType is 1 and (FL/L) when MyType is 2
      * @param cSys This is Local or the name of a defined coordinate system. It is the coordinate system in which the loads are specified.
      * @param relDist If this item is True, the specified Dist item is a relative distance, otherwise it is an actual distance.
      * @param replace If this item is True, all previous loads, if any, assigned to the specified frame object(s), in the specified load pattern, are deleted before making the new assignment.
@@ -71,8 +83,7 @@ class FrameObj internal constructor(sapModel: SapModel) : SapComponent("${sapMod
      * If this item is SelectedObjects, assignment is made to all selected frame objects, and the Name item is ignored.
      * @return zero if the loads are successfully assigned, otherwise it returns a nonzero value.
      */
-    fun setLoadDistributed(name: String, loadPat: String, myType: Int, dir: Int, dist1: Double, dist2: Double, val1: Double, val2: Double, cSys: String = "Global", relDist: Boolean = true, replace: Boolean = true, itemType: Int = ItemType.OBJECT.sapId): Int =
-            callFunctionInt("SetLoadDistributed", name, loadPat, myType, dir, dist1, dist2, val1, val2, cSys, relDist, replace, itemType)
+    fun setLoadDistributed(name: String, loadPat: String, myType: Int, dir: Int, dist1: Double, dist2: Double, val1: Double, val2: Double, cSys: String = "Global", relDist: Boolean = true, replace: Boolean = true, itemType: Int = ItemType.OBJECT.sapId): Int
 
     /**
      * This function assigns frame object output station data.
@@ -80,7 +91,7 @@ class FrameObj internal constructor(sapModel: SapModel) : SapComponent("${sapMod
      * @param myType This is 1 or 2, indicating how the output stations are specified.
      * * 1 = maximum segment size, that is, maximum station spacing
      * * 2 = minimum number of stations
-     * @param maxSegSize The maximum segment size, that is, the maximum station spacing. This item applies only when MyType = 1. [L]
+     * @param maxSegSize The maximum segment size, that is, the maximum station spacing. This item applies only when MyType = 1. (L)
      * @param minSections The minimum number of stations. This item applies only when MyType = 2.
      * @param noOutPutAndDesignAtElementEnds If this item is True, no additional output stations are added at the ends of line elements when the frame object is internally meshed.
      * @param noOutPutAndDesignAtPointLoads If this item is True, no additional output stations are added at point load locations.
@@ -93,6 +104,5 @@ class FrameObj internal constructor(sapModel: SapModel) : SapComponent("${sapMod
      * If this item is SelectedObjects, assignment is made to all selected frame objects and the Name item is ignored.
      * @return zero if the data is successfully assigned, otherwise it returns a nonzero value.
      */
-    fun setOutputStations (name:String,myType:Int,maxSegSize:Double,minSections:Int,noOutPutAndDesignAtElementEnds:Boolean=false,noOutPutAndDesignAtPointLoads:Boolean=false,itemType:Int=ItemType.OBJECT.sapId):Int=
-            callFunctionInt("SetOutputStations",name,myType,maxSegSize,minSections,noOutPutAndDesignAtElementEnds,noOutPutAndDesignAtPointLoads,itemType)
+    fun setOutputStations(name: String, myType: Int, maxSegSize: Double, minSections: Int, noOutPutAndDesignAtElementEnds: Boolean = false, noOutPutAndDesignAtPointLoads: Boolean = false, itemType: Int = ItemType.OBJECT.sapId): Int
 }

@@ -4,8 +4,30 @@ import vitorscoelho.sw4k.comutils.*
 import vitorscoelho.sw4k.sap14.SapModel
 import vitorscoelho.sw4k.sap14.enums.ItemTypeElm
 
-class Results(val sapModel: SapModel) : SapComponent("${sapModel.sapObject.sapObjectString}.cAnalysisResults") {
-    val setup = Setup(this.sapModel)
+class Results(val sapModel: SapModel) : SapComponent("${sapModel.sapObject.sapObjectString}.cAnalysisResults"), ResultsV14 {
+    override val setup = Setup(this.sapModel)
+
+    override fun baseReact(numberResults: IntByRef, loadCase: StringArrayByRef, stepType: StringArrayByRef, stepNum: DoubleArrayByRef, fx: DoubleArrayByRef, fy: DoubleArrayByRef, fz: DoubleArrayByRef, mx: DoubleArrayByRef, my: DoubleArrayByRef, mz: DoubleArrayByRef, gx: DoubleByRef, gy: DoubleByRef, gz: DoubleByRef): Int =
+            callFunctionInt("BaseReact", numberResults, loadCase, stepType, stepNum, fx, fy, fz, mx, my, mz, gx, gy, gz)
+
+    override fun frameForce(name: String, itemTypeElm: Int, numberResults: IntByRef, obj: StringArrayByRef, objSta: DoubleArrayByRef, elm: StringArrayByRef, elmSta: DoubleArrayByRef, loadCase: StringArrayByRef, stepType: StringArrayByRef, stepNum: DoubleArrayByRef, p: DoubleArrayByRef, v2: DoubleArrayByRef, v3: DoubleArrayByRef, t: DoubleArrayByRef, m2: DoubleArrayByRef, m3: DoubleArrayByRef): Int =
+            callFunctionInt("FrameForce", name, itemTypeElm, numberResults, obj, objSta, elm, elmSta, loadCase, stepType, stepNum, p, v2, v3, t, m2, m3)
+
+    override fun frameJointForce(name: String, itemTypeElm: Int, numberResults: IntByRef, obj: StringArrayByRef, elm: StringArrayByRef, pointElm: StringArrayByRef, loadCase: StringArrayByRef, stepType: StringArrayByRef, stepNum: DoubleArrayByRef, f1: DoubleArrayByRef, f2: DoubleArrayByRef, f3: DoubleArrayByRef, m1: DoubleArrayByRef, m2: DoubleArrayByRef, m3: DoubleArrayByRef): Int =
+            callFunctionInt("FrameJointForce", name, itemTypeElm, numberResults, obj, elm, pointElm, loadCase, stepType, stepNum, f1, f2, f3, m1, m2, m3)
+
+    override fun jointDispl(name: String, itemTypeElm: Int, numberResults: IntByRef, obj: StringArrayByRef, elm: StringArrayByRef, loadCase: StringArrayByRef, stepType: StringArrayByRef, stepNum: DoubleArrayByRef, u1: DoubleArrayByRef, u2: DoubleArrayByRef, u3: DoubleArrayByRef, r1: DoubleArrayByRef, r2: DoubleArrayByRef, r3: DoubleArrayByRef): Int =
+            callFunctionInt("JointDispl", name, itemTypeElm, numberResults, obj, elm, loadCase, stepType, stepNum, u1, u2, u3, r1, r2, r3)
+
+    override fun jointDisplAbs(name: String, itemTypeElm: Int, numberResults: IntByRef, obj: StringArrayByRef, elm: StringArrayByRef, loadCase: StringArrayByRef, stepType: StringArrayByRef, stepNum: DoubleArrayByRef, u1: DoubleArrayByRef, u2: DoubleArrayByRef, u3: DoubleArrayByRef, r1: DoubleArrayByRef, r2: DoubleArrayByRef, r3: DoubleArrayByRef): Int =
+            callFunctionInt("JointDisplAbs", name, itemTypeElm, numberResults, obj, elm, loadCase, stepType, stepNum, u1, u2, u3, r1, r2, r3)
+
+    override fun jointReact(name: String, itemTypeElm: Int, numberResults: IntByRef, obj: StringArrayByRef, elm: StringArrayByRef, loadCase: StringArrayByRef, stepType: StringArrayByRef, stepNum: DoubleArrayByRef, f1: DoubleArrayByRef, f2: DoubleArrayByRef, f3: DoubleArrayByRef, m1: DoubleArrayByRef, m2: DoubleArrayByRef, m3: DoubleArrayByRef): Int =
+            callFunctionInt("JointReact", name, itemTypeElm, numberResults, obj, elm, loadCase, stepType, stepNum, f1, f2, f3, m1, m2, m3)
+}
+
+interface ResultsV14 {
+    val setup: SetupV14
 
     /**
      * This function reports the structure total base reactions.
@@ -26,8 +48,7 @@ class Results(val sapModel: SapModel) : SapComponent("${sapModel.sapObject.sapOb
      * @param gz This is the global Z coordinate of the point at which the base reactions are reported. (L)
      * @return zero if the reactions are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun baseReact(numberResults: IntByRef, loadCase: StringArrayByRef, stepType: StringArrayByRef, stepNum: DoubleArrayByRef, fx: DoubleArrayByRef, fy: DoubleArrayByRef, fz: DoubleArrayByRef, mx: DoubleArrayByRef, my: DoubleArrayByRef, mz: DoubleArrayByRef, gx: DoubleByRef, gy: DoubleByRef, gz: DoubleByRef): Int =
-            callFunctionInt("BaseReact", numberResults, loadCase, stepType, stepNum, fx, fy, fz, mx, my, mz, gx, gy, gz)
+    fun baseReact(numberResults: IntByRef, loadCase: StringArrayByRef, stepType: StringArrayByRef, stepNum: DoubleArrayByRef, fx: DoubleArrayByRef, fy: DoubleArrayByRef, fz: DoubleArrayByRef, mx: DoubleArrayByRef, my: DoubleArrayByRef, mz: DoubleArrayByRef, gx: DoubleByRef, gy: DoubleByRef, gz: DoubleByRef): Int
 
     /**
      * This function reports the frame forces for the specified line elements.
@@ -59,8 +80,7 @@ class Results(val sapModel: SapModel) : SapComponent("${sapModel.sapObject.sapOb
      * @param m3 These are one dimensional arrays that include the moment about the local 3-axis for each result. (FL)
      * @return zero if the forces are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun frameForce(name: String, itemTypeElm: Int, numberResults: IntByRef, obj: StringArrayByRef, objSta: DoubleArrayByRef, elm: StringArrayByRef, elmSta: DoubleArrayByRef, loadCase: StringArrayByRef, stepType: StringArrayByRef, stepNum: DoubleArrayByRef, p: DoubleArrayByRef, v2: DoubleArrayByRef, v3: DoubleArrayByRef, t: DoubleArrayByRef, m2: DoubleArrayByRef, m3: DoubleArrayByRef): Int =
-            callFunctionInt("FrameForce", name, itemTypeElm, numberResults, obj, objSta, elm, elmSta, loadCase, stepType, stepNum, p, v2, v3, t, m2, m3)
+    fun frameForce(name: String, itemTypeElm: Int, numberResults: IntByRef, obj: StringArrayByRef, objSta: DoubleArrayByRef, elm: StringArrayByRef, elmSta: DoubleArrayByRef, loadCase: StringArrayByRef, stepType: StringArrayByRef, stepNum: DoubleArrayByRef, p: DoubleArrayByRef, v2: DoubleArrayByRef, v3: DoubleArrayByRef, t: DoubleArrayByRef, m2: DoubleArrayByRef, m3: DoubleArrayByRef): Int
 
     /**
      * This function reports the frame joint forces for the point elements at each end of the specified line elements.
@@ -91,8 +111,7 @@ class Results(val sapModel: SapModel) : SapComponent("${sapModel.sapObject.sapOb
      * @param m3 These are one dimensional arrays that include the joint moment components about the point element local axis. (FL)
      * @return zero if the forces are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun frameJointForce(name: String, itemTypeElm: Int, numberResults: IntByRef, obj: StringArrayByRef, elm: StringArrayByRef, pointElm: StringArrayByRef, loadCase: StringArrayByRef, stepType: StringArrayByRef, stepNum: DoubleArrayByRef, f1: DoubleArrayByRef, f2: DoubleArrayByRef, f3: DoubleArrayByRef, m1: DoubleArrayByRef, m2: DoubleArrayByRef, m3: DoubleArrayByRef): Int =
-            callFunctionInt("FrameJointForce", name, itemTypeElm, numberResults, obj, elm, pointElm, loadCase, stepType, stepNum, f1, f2, f3, m1, m2, m3)
+    fun frameJointForce(name: String, itemTypeElm: Int, numberResults: IntByRef, obj: StringArrayByRef, elm: StringArrayByRef, pointElm: StringArrayByRef, loadCase: StringArrayByRef, stepType: StringArrayByRef, stepNum: DoubleArrayByRef, f1: DoubleArrayByRef, f2: DoubleArrayByRef, f3: DoubleArrayByRef, m1: DoubleArrayByRef, m2: DoubleArrayByRef, m3: DoubleArrayByRef): Int
 
     /**
      * This function reports the joint displacements for the specified point elements. The displacements reported by this function are relative displacements.
@@ -123,8 +142,7 @@ class Results(val sapModel: SapModel) : SapComponent("${sapModel.sapObject.sapOb
      * @param r3 These are one dimensional arrays that include the rotation about the point element local 3 axis for each result. (rad)
      * @return zero if the displacements are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun jointDispl(name: String, itemTypeElm: Int, numberResults: IntByRef, obj: StringArrayByRef, elm: StringArrayByRef, loadCase: StringArrayByRef, stepType: StringArrayByRef, stepNum: DoubleArrayByRef, u1: DoubleArrayByRef, u2: DoubleArrayByRef, u3: DoubleArrayByRef, r1: DoubleArrayByRef, r2: DoubleArrayByRef, r3: DoubleArrayByRef): Int =
-            callFunctionInt("JointDispl", name, itemTypeElm, numberResults, obj, elm, loadCase, stepType, stepNum, u1, u2, u3, r1, r2, r3)
+    fun jointDispl(name: String, itemTypeElm: Int, numberResults: IntByRef, obj: StringArrayByRef, elm: StringArrayByRef, loadCase: StringArrayByRef, stepType: StringArrayByRef, stepNum: DoubleArrayByRef, u1: DoubleArrayByRef, u2: DoubleArrayByRef, u3: DoubleArrayByRef, r1: DoubleArrayByRef, r2: DoubleArrayByRef, r3: DoubleArrayByRef): Int
 
     /**
      * This function reports the absolute joint displacements for the specified point elements. Absolute and relative displacements are the same except when reported for time history load cases subjected to acceleration loading.
@@ -155,8 +173,7 @@ class Results(val sapModel: SapModel) : SapComponent("${sapModel.sapObject.sapOb
      * @param r3 These are one dimensional arrays that include the rotation about the point element local 3 axis for each result. (rad)
      * @return zero if the displacements are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun jointDisplAbs(name: String, itemTypeElm: Int, numberResults: IntByRef, obj: StringArrayByRef, elm: StringArrayByRef, loadCase: StringArrayByRef, stepType: StringArrayByRef, stepNum: DoubleArrayByRef, u1: DoubleArrayByRef, u2: DoubleArrayByRef, u3: DoubleArrayByRef, r1: DoubleArrayByRef, r2: DoubleArrayByRef, r3: DoubleArrayByRef): Int =
-            callFunctionInt("JointDisplAbs", name, itemTypeElm, numberResults, obj, elm, loadCase, stepType, stepNum, u1, u2, u3, r1, r2, r3)
+    fun jointDisplAbs(name: String, itemTypeElm: Int, numberResults: IntByRef, obj: StringArrayByRef, elm: StringArrayByRef, loadCase: StringArrayByRef, stepType: StringArrayByRef, stepNum: DoubleArrayByRef, u1: DoubleArrayByRef, u2: DoubleArrayByRef, u3: DoubleArrayByRef, r1: DoubleArrayByRef, r2: DoubleArrayByRef, r3: DoubleArrayByRef): Int
 
     /**
      * This function reports the joint reactions for the specified point elements. The reactions reported are from restraints, springs and grounded (one-joint) links.
@@ -187,6 +204,5 @@ class Results(val sapModel: SapModel) : SapComponent("${sapModel.sapObject.sapOb
      * @param m3 These are one dimensional arrays that include the joint moment components about the point element local axis. (FL)
      * @return zero if the reactions are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun jointReact(name: String, itemTypeElm: Int, numberResults: IntByRef, obj: StringArrayByRef, elm: StringArrayByRef, loadCase: StringArrayByRef, stepType: StringArrayByRef, stepNum: DoubleArrayByRef, f1: DoubleArrayByRef, f2: DoubleArrayByRef, f3: DoubleArrayByRef, m1: DoubleArrayByRef, m2: DoubleArrayByRef, m3: DoubleArrayByRef): Int =
-            callFunctionInt("JointReact", name, itemTypeElm, numberResults, obj, elm, loadCase, stepType, stepNum, f1, f2, f3, m1, m2, m3)
+    fun jointReact(name: String, itemTypeElm: Int, numberResults: IntByRef, obj: StringArrayByRef, elm: StringArrayByRef, loadCase: StringArrayByRef, stepType: StringArrayByRef, stepNum: DoubleArrayByRef, f1: DoubleArrayByRef, f2: DoubleArrayByRef, f3: DoubleArrayByRef, m1: DoubleArrayByRef, m2: DoubleArrayByRef, m3: DoubleArrayByRef): Int
 }
