@@ -4,10 +4,21 @@ internal interface ByRefType<S> {
     var value: S
 }
 
-class DoubleByRef(override var value: Double = 0.0) : ByRefType<Double>
-class IntByRef(override var value: Int = 0) : ByRefType<Int>
-class BooleanByRef(override var value: Boolean = true) : ByRefType<Boolean>
-class StringByRef(override var value: String = "") : ByRefType<String>
+class DoubleByRef(override var value: Double = 0.0) : ByRefType<Double> {
+    override fun toString(): String = value.toString()
+}
+
+class IntByRef(override var value: Int = 0) : ByRefType<Int> {
+    override fun toString(): String = value.toString()
+}
+
+class BooleanByRef(override var value: Boolean = true) : ByRefType<Boolean> {
+    override fun toString(): String = value.toString()
+}
+
+class StringByRef(override var value: String = "") : ByRefType<String> {
+    override fun toString(): String = value
+}
 
 fun Double.byRef() = DoubleByRef(this)
 fun Int.byRef() = IntByRef(this)
@@ -33,6 +44,9 @@ class DoubleArrayByRef(override var value: DoubleArray = doubleArrayOf()) : ByRe
     override fun size(): Int = this.value.size
     fun forEach(action: (Double) -> Unit) = value.forEach(action)
     fun forEachIndexed(action: (index: Int, Double) -> Unit) = value.forEachIndexed(action)
+    override fun equals(other: Any?): Boolean = this.value.equals(other)
+    override fun hashCode(): Int = this.value.hashCode()
+    override fun toString(): String = this.value.toString()
 }
 
 fun DoubleArray.byRef(): DoubleArrayByRef = DoubleArrayByRef(this)
@@ -43,6 +57,9 @@ class IntArrayByRef(override var value: IntArray = intArrayOf()) : ByRefArray1D<
     override fun size(): Int = this.value.size
     fun forEach(action: (Int) -> Unit) = value.forEach(action)
     fun forEachIndexed(action: (index: Int, Int) -> Unit) = value.forEachIndexed(action)
+    override fun equals(other: Any?): Boolean = this.value.equals(other)
+    override fun hashCode(): Int = this.value.hashCode()
+    override fun toString(): String = this.value.toString()
 }
 
 fun IntArray.byRef(): IntArrayByRef = IntArrayByRef(this)
@@ -53,6 +70,9 @@ class BooleanArrayByRef(override var value: BooleanArray = booleanArrayOf()) : B
     override fun size(): Int = this.value.size
     fun forEach(action: (Boolean) -> Unit) = value.forEach(action)
     fun forEachIndexed(action: (index: Int, Boolean) -> Unit) = value.forEachIndexed(action)
+    override fun equals(other: Any?): Boolean = this.value.equals(other)
+    override fun hashCode(): Int = this.value.hashCode()
+    override fun toString(): String = this.value.toString()
 }
 
 fun BooleanArray.byRef(): BooleanArrayByRef = BooleanArrayByRef(this)
@@ -63,6 +83,9 @@ class StringArrayByRef(override var value: Array<String> = emptyArray()) : ByRef
     override fun size(): Int = this.value.size
     fun forEach(action: (String) -> Unit) = value.forEach(action)
     fun forEachIndexed(action: (index: Int, String) -> Unit) = value.forEachIndexed(action)
+    override fun equals(other: Any?): Boolean = this.value.equals(other)
+    override fun hashCode(): Int = this.value.hashCode()
+    override fun toString(): String = this.value.toString()
 }
 
 fun Array<String>.byRef(): StringArrayByRef = StringArrayByRef(this)

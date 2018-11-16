@@ -15,6 +15,15 @@ class SapObject private constructor(override val activeXComponentName: String, v
 
 interface SapObjectV14 : SapComponent {
     val sapModel: SapModelV14
+
+    /**
+     * If the model file is saved then it is saved with its current name. You should set the Sap2000 object variable to nothing after calling this function.
+     * @param fileSave If this item is True the existing model file is saved prior to closing Sap2000.
+     * @return zero if the function succeeds and nonzero if it fails.
+     */
+    fun applicationExit(fileSave: Boolean): Int =
+            callFunctionInt("ApplicationExit", fileSave)
+
     /**
      * This function starts the Sap2000 application.
      * When the model is not visible it does not appear on screen and it does not appear in the Windows task bar.
@@ -45,10 +54,22 @@ interface SapObjectV14 : SapComponent {
             callFunctionInt("ApplicationStart", units, visible, fileName)
 
     /**
-     * If the model file is saved then it is saved with its current name. You should set the Sap2000 object variable to nothing after calling this function.
-     * @param fileSave If this item is True the existing model file is saved prior to closing Sap2000.
-     * @return zero if the function succeeds and nonzero if it fails.
+     * This function hides the Sap2000 application. When the application is hidden it is not visible on the screen or on the Windows task bar.
+     * @return zero if the Sap2000 application is successfully hidden and nonzero if the function fails. If the application is already hidden calling this function returns an error.
      */
-    fun applicationExit(fileSave: Boolean): Int =
-            callFunctionInt("ApplicationExit", fileSave)
+    fun hide(): Int =
+            callFunctionInt("Hide")
+
+    /**
+     * This function unhides the Sap2000 application, that is, it makes it visible. When the application is hidden, it is not visible on the screen or on the Windows task bar.
+     * @return zero if the Sap2000 application is successfully unhidden (set visible) and nonzero if the function fails. If the application is already visible (not hidden) calling this function returns an error.
+     */
+    fun unhide(): Int =
+            callFunctionInt("Unhide")
+
+    /**
+     * @return True if the Sap2000 application is visible on the screen, otherwise it returns False.
+     */
+    fun visible(): Boolean =
+            callFunctionBoolean("Visible")
 }

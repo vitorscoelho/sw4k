@@ -5,6 +5,7 @@ import com.jacob.com.ComThread
 import com.jacob.com.Dispatch
 import com.jacob.com.SafeArray
 import com.jacob.com.Variant
+import java.lang.Exception
 
 private class VariantSafeArray(val safeArray: SafeArray) : Variant() {
     init {
@@ -50,9 +51,26 @@ private class VariantSafeArray(val safeArray: SafeArray) : Variant() {
 
 interface SapComponent {
     val activeXComponentName: String
-    fun callFunctionInt(name: String, vararg attributes: Any): Int {
+
+    private fun callFunction(name: String, callReturnFunction: (Variant) -> Unit, vararg attributes: Any) {
         ComThread.InitMTA()
-        val attributesToCall = Array(size = attributes.size) { index ->
+        val activeXComponent = ActiveXComponent(activeXComponentName)
+        return try {
+            val attributesToCall = createAttributesToCall(attributes)
+            val callReturn = Dispatch.call(activeXComponent, name, *attributesToCall)
+            populateByRefAttributes(attributes, attributesToCall)
+            callReturnFunction(callReturn)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            throw e
+        } finally {
+            activeXComponent.safeRelease()
+            ComThread.Release()
+        }
+    }
+
+    private fun createAttributesToCall(attributes: Array<out Any>): Array<Any> {
+        return Array(size = attributes.size) { index ->
             val attribute = attributes[index]
             when (attribute) {
                 is ByRefArray1D<*, *> -> VariantSafeArray.fromCallAttribute(attribute = attribute)
@@ -60,8 +78,9 @@ interface SapComponent {
                 else -> attribute
             }
         }
-        val activeXComponent = ActiveXComponent(activeXComponentName)
-        val callReturn = Dispatch.call(activeXComponent, name, *attributesToCall)
+    }
+
+    private fun populateByRefAttributes(attributes: Array<out Any>, attributesToCall: Array<Any>) {
         attributes.forEachIndexed { index, attribute ->
             if (attribute is ByRefArray1D<*, *>) {
                 VariantSafeArray.populateArrayWithReturn(attribute = attribute, variant = attributesToCall[index] as VariantSafeArray)
@@ -70,13 +89,29 @@ interface SapComponent {
                 when (attribute) {
                     is IntByRef -> attribute.value = variant.intRef
                     is StringByRef -> attribute.value = variant.stringRef
+                    is DoubleByRef -> attribute.value = variant.doubleRef
+                    is BooleanByRef -> attribute.value = variant.booleanRef
                     else -> throw IllegalArgumentException("|ByRefType| ${attribute.javaClass} not supported.")
                 }
             }
         }
-        val intReturn = callReturn.int
-        activeXComponent.safeRelease()
-        ComThread.Release()
-        return intReturn
+    }
+
+    fun callFunctionInt(name: String, vararg attributes: Any): Int {
+        var value: Int? = null
+        callFunction(name, { variant -> value = variant.int }, *attributes)
+        return value!!
+    }
+
+    fun callFunctionBoolean(name: String, vararg attributes: Any): Boolean {
+        var value: Boolean? = null
+        callFunction(name, { variant -> value = variant.boolean }, *attributes)
+        return value!!
+    }
+
+    fun callFunctionString(name: String, vararg attributes: Any): String {
+        var value: String? = null
+        callFunction(name, { variant -> value = variant.string }, *attributes)
+        return value!!
     }
 }
