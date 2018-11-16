@@ -14,26 +14,21 @@ import vitorscoelho.sw4k.sap14.objectmodel.FrameObjV14
 import vitorscoelho.sw4k.sap14.objectmodel.PointObj
 import vitorscoelho.sw4k.sap14.objectmodel.PointObjV14
 
-class SapModel internal constructor(val sapObject: SapObject) : SapComponent("${sapObject.sapObjectString}.cSapModel"), SapModelV14 {
-    override val file = File(this)
-    override val propMaterial = PropMaterial(this)
-    override val propFrame = PropFrame(this)
-    override val pointObj = PointObj(this)
-    override val frameObj = FrameObj(this)
-    override val loadPatterns = LoadPatterns(this)
-    override val loadCases = LoadCases(this)
-    override val respCombo = RespCombo(this)
-    override val analyze = Analyze(this)
-    override val results = Results(this)
-
-    override fun initializeNewModel(units: Int): Int =
-            callFunctionInt("InitializeNewModel", units)
-
-    override fun setModelIsLocked(lockIt: Boolean): Int =
-            callFunctionInt("SetModelIsLocked", lockIt)
+class SapModel internal constructor(programName: String) : SapModelV14 {
+    override val activeXComponentName: String = "$programName.cSapModel"
+    override val file = File(programName)
+    override val propMaterial = PropMaterial(programName)
+    override val propFrame = PropFrame(programName)
+    override val pointObj = PointObj(programName)
+    override val frameObj = FrameObj(programName)
+    override val loadPatterns = LoadPatterns(programName)
+    override val loadCases = LoadCases(programName)
+    override val respCombo = RespCombo(programName)
+    override val analyze = Analyze(programName)
+    override val results = Results(programName)
 }
 
-interface SapModelV14 {
+interface SapModelV14 : SapComponent {
     val file: FileV14
     val propMaterial: PropMaterialV14
     val propFrame: PropFrameV14
@@ -67,12 +62,14 @@ interface SapModelV14 {
      * * Ton_cm_C = 16
      * @return zero if a new model is successfully initialized, otherwise it returns a nonzero value.
      */
-    fun initializeNewModel(units: Int = Units.kip_in_F.sapId): Int
+    fun initializeNewModel(units: Int = Units.kip_in_F.sapId): Int =
+            callFunctionInt("InitializeNewModel", units)
 
     /**
      * With some exceptions, definitions and assignments can not be changed in a model while the model is locked. If an attempt is made to change a definition or assignment while the model is locked and that change is not allowed in a locked model, an error will be returned.
      * @param lockIt The item is True if the model is to be locked and False if it is to be unlocked.
      * @return zero if the locked status of the model is successfully set. Otherwise it returns a nonzero value.
      */
-    fun setModelIsLocked(lockIt: Boolean): Int
+    fun setModelIsLocked(lockIt: Boolean): Int =
+            callFunctionInt("SetModelIsLocked", lockIt)
 }

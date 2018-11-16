@@ -9,7 +9,6 @@ import com.jacob.com.Variant
 private class VariantSafeArray(val safeArray: SafeArray) : Variant() {
     init {
         this.putSafeArrayRef(safeArray)
-
     }
 
     companion object {
@@ -49,7 +48,8 @@ private class VariantSafeArray(val safeArray: SafeArray) : Variant() {
     }
 }
 
-abstract class SapComponent internal constructor(private val activeXComponentName: String) {
+interface SapComponent {
+    val activeXComponentName: String
     fun callFunctionInt(name: String, vararg attributes: Any): Int {
         ComThread.InitMTA()
         val attributesToCall = Array(size = attributes.size) { index ->

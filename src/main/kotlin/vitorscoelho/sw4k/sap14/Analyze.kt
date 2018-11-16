@@ -4,43 +4,17 @@ import vitorscoelho.sw4k.comutils.*
 import vitorscoelho.sw4k.sap14.enums.SolverType
 import vitorscoelho.sw4k.sap14.enums.LoadCaseStatus
 
-class Analyze internal constructor(sapModel: SapModel) : SapComponent("${sapModel.sapObject.sapObjectString}.cAnalyze"), AnalyzeV14 {
-    override fun createAnalysisModel(): Int = callFunctionInt("CreateAnalysisModel")
-
-    override fun deleteResults(name: String, all: Boolean): Int = callFunctionInt("DeleteResults", name, all)
-
-    override fun getActiveDOF(DOF: BooleanArrayByRef): Int = callFunctionInt("GetActiveDOF", DOF)
-
-    override fun getCaseStatus(numberItems: IntByRef, caseName: StringArrayByRef, status: IntArrayByRef): Int =
-            callFunctionInt("GetCaseStatus", numberItems, caseName, status)
-
-    override fun getRunCaseFlag(numberItems: IntByRef, caseName: StringArrayByRef, run: BooleanArrayByRef): Int =
-            callFunctionInt("GetRunCaseFlag", numberItems, caseName, run)
-
-    override fun getSolverOption(solverType: IntByRef, force32BitSolver: BooleanByRef, stiffCase: StringByRef): Int =
-            callFunctionInt("GetSolverOption", solverType, force32BitSolver, stiffCase)
-
-    override fun modifyUnDeformedGeometry(caseName: String, SF: Double, stage: Int, original: Boolean): Int =
-            callFunctionInt("ModifyUnDeformedGeometry", caseName, SF, stage, original)
-
-    override fun runAnalysis(): Int = callFunctionInt("RunAnalysis")
-
-    override fun setActiveDOF(DOF: BooleanArrayByRef): Int = callFunctionInt("SetActiveDOF", DOF)
-
-    override fun setRunCaseFlag(name: String, run: Boolean, all: Boolean): Int =
-            callFunctionInt("SetRunCaseFlag", name, run, all)
-
-    override fun setSolverOption(solverType: Int, force32BitSolver: Boolean, stiffCase: String): Int =
-            callFunctionInt("SetSolverOption", solverType, force32BitSolver, stiffCase)
+class Analyze internal constructor(programName: String) : AnalyzeV14 {
+    override val activeXComponentName: String = "$programName.cAnalyze"
 }
 
-interface AnalyzeV14 {
+interface AnalyzeV14 : SapComponent {
     /**
      * This function creates the analysis model. If the analysis model is already created and current, nothing is done.
      * It is not necessary to call this function before running an analysis. The analysis model is automatically created, if necessary, when the model is run.
      * @return zero if the analysis model is successfully created or it already exists and is current, otherwise it returns a nonzero value.
      */
-    fun createAnalysisModel(): Int
+    fun createAnalysisModel(): Int = callFunctionInt("CreateAnalysisModel")
 
     /**
      * This function deletes results for load cases.
@@ -49,7 +23,7 @@ interface AnalyzeV14 {
      * @param all If this item is True, the results are deleted for all load cases, and the Name item is ignored.
      * @return zero if the results are successfully deleted; otherwise it returns a nonzero value.
      */
-    fun deleteResults(name: String, all: Boolean = false): Int
+    fun deleteResults(name: String, all: Boolean = false): Int = callFunctionInt("DeleteResults", name, all)
 
     /**
      * This function retrieves the model global degrees of freedom.
@@ -62,7 +36,7 @@ interface AnalyzeV14 {
      * * DOF(5) = RZ
      * @return zero if the degrees of freedom are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getActiveDOF(DOF: BooleanArrayByRef): Int
+    fun getActiveDOF(DOF: BooleanArrayByRef): Int = callFunctionInt("GetActiveDOF", DOF)
 
     /**
      * This function retrieves the status for all load cases.
@@ -75,7 +49,8 @@ interface AnalyzeV14 {
      * * 4 = Finished
      * @return zero if the status is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getCaseStatus(numberItems: IntByRef, caseName: StringArrayByRef, status: IntArrayByRef): Int
+    fun getCaseStatus(numberItems: IntByRef, caseName: StringArrayByRef, status: IntArrayByRef): Int =
+            callFunctionInt("GetCaseStatus", numberItems, caseName, status)
 
     /**
      * This function retrieves the run flags for all analysis cases.
@@ -84,7 +59,8 @@ interface AnalyzeV14 {
      * @param run This is an array of boolean values indicating if the specified load case is to be run.
      * @return zero if the flags are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getRunCaseFlag(numberItems: IntByRef, caseName: StringArrayByRef, run: BooleanArrayByRef): Int
+    fun getRunCaseFlag(numberItems: IntByRef, caseName: StringArrayByRef, run: BooleanArrayByRef): Int =
+            callFunctionInt("GetRunCaseFlag", numberItems, caseName, run)
 
     /**
      * This function retrieves the model solver options.
@@ -95,7 +71,8 @@ interface AnalyzeV14 {
      * @param stiffCase The name of the load case used when outputting the mass and stiffness matrices to text files If this item is blank, no matrices are output.
      * @return zero if the options are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getSolverOption(solverType: IntByRef, force32BitSolver: BooleanByRef, stiffCase: StringByRef): Int
+    fun getSolverOption(solverType: IntByRef, force32BitSolver: BooleanByRef, stiffCase: StringByRef): Int =
+            callFunctionInt("GetSolverOption", solverType, force32BitSolver, stiffCase)
 
     /**
      * This function modifies the undeformed geometry based on displacements obtained from a specified load case.
@@ -105,14 +82,15 @@ interface AnalyzeV14 {
      * @param original If this item is True, all other input items in this function are ignored and the original undeformed geometry data is reinstated.
      * @return zero if it is successful; otherwise it returns a nonzero value.
      */
-    fun modifyUnDeformedGeometry(caseName: String, SF: Double, stage: Int = -1, original: Boolean = false): Int
+    fun modifyUnDeformedGeometry(caseName: String, SF: Double, stage: Int = -1, original: Boolean = false): Int =
+            callFunctionInt("ModifyUnDeformedGeometry", caseName, SF, stage, original)
 
     /**
      * This function runs the analysis. The analysis model is automatically created as part of this function.
      * IMPORTANT NOTE: Your model must have a file path defined before running the analysis. If the model is opened from an existing file, a file path is defined. If the model is created from scratch, the File.Save function must be called with a file name before running the analysis. Saving the file creates the file path.
      * @return zero if the analysis model is successfully run, otherwise it returns a nonzero value.
      */
-    fun runAnalysis(): Int
+    fun runAnalysis(): Int = callFunctionInt("RunAnalysis")
 
     /**
      * This function sets the model global degrees of freedom.
@@ -125,7 +103,7 @@ interface AnalyzeV14 {
      * * DOF(5) = RZ
      * @return zero if the degrees of freedom are successfully set; otherwise it returns a nonzero value.
      */
-    fun setActiveDOF(DOF: BooleanArrayByRef): Int
+    fun setActiveDOF(DOF: BooleanArrayByRef): Int = callFunctionInt("SetActiveDOF", DOF)
 
     /**
      * This function sets the run flag for load cases.
@@ -135,7 +113,8 @@ interface AnalyzeV14 {
      * @param all If this item is True, the run flag is set as specified by the Run item for all load cases, and the Name item is ignored.
      * @return zero if the flag is successfully set; otherwise it returns a nonzero value.
      */
-    fun setRunCaseFlag(name: String, run: Boolean, all: Boolean = false): Int
+    fun setRunCaseFlag(name: String, run: Boolean, all: Boolean = false): Int =
+            callFunctionInt("SetRunCaseFlag", name, run, all)
 
     /**
      * This function sets the model solver options.
@@ -146,5 +125,6 @@ interface AnalyzeV14 {
      * @param stiffCase The name of the load case used when outputting the mass and stiffness matrices to text files If this item is blank, no matrices are output.
      * @return zero if the options are successfully set; otherwise it returns a nonzero value.
      */
-    fun setSolverOption(solverType: Int, force32BitSolver: Boolean, stiffCase: String = ""): Int
+    fun setSolverOption(solverType: Int, force32BitSolver: Boolean, stiffCase: String = ""): Int =
+            callFunctionInt("SetSolverOption", solverType, force32BitSolver, stiffCase)
 }

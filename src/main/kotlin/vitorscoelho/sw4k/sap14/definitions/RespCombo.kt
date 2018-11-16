@@ -1,20 +1,14 @@
 package vitorscoelho.sw4k.sap14.definitions
 
 import vitorscoelho.sw4k.comutils.SapComponent
-import vitorscoelho.sw4k.sap14.SapModel
 import vitorscoelho.sw4k.sap14.enums.CType
 import vitorscoelho.sw4k.sap14.enums.ComboType
 
-class RespCombo internal constructor(sapModel: SapModel) : SapComponent("${sapModel.sapObject.sapObjectString}.cCombo"), RespComboV14 {
-    override fun add(name: String, comboType: Int): Int = callFunctionInt("Add", name, comboType)
-
-    override fun setCaseList(name: String, cType: Int, cName: String, sF: Double): Int =
-            callFunctionInt("SetCaseList", name, cType, cName, sF)
-
-    override fun setType(name: String, comboType: Int): Int = callFunctionInt("SetType", name, comboType)
+class RespCombo internal constructor(programName: String) : RespComboV14 {
+    override val activeXComponentName: String = "$programName.cCombo"
 }
 
-interface RespComboV14 {
+interface RespComboV14 : SapComponent {
     /**
      * This function adds a new load combination.
      * The new load combination must have a different name from all other load combinations and all load cases. If the name is not unique, an error will be returned.
@@ -27,7 +21,7 @@ interface RespComboV14 {
      * * 4 = Range Additive
      * @return zero if the load combination is successfully added, otherwise it returns a nonzero value.
      */
-    fun add(name: String, comboType: Int): Int
+    fun add(name: String, comboType: Int): Int = callFunctionInt("Add", name, comboType)
 
     /**
      * This function adds or modifies one load case or response combination in the list of cases included in the load combination specified by the Name item.
@@ -40,7 +34,8 @@ interface RespComboV14 {
      * @param sF The scale factor multiplying the case or combination indicated by the CName item.
      * @return zero if the item is successfully added or modified, otherwise it returns a nonzero value.
      */
-    fun setCaseList(name: String, cType: Int, cName: String, sF: Double): Int
+    fun setCaseList(name: String, cType: Int, cName: String, sF: Double): Int =
+            callFunctionInt("SetCaseList", name, cType, cName, sF)
 
     /**
      * This function sets the combination type for specified load combination.
@@ -53,5 +48,5 @@ interface RespComboV14 {
      * * 4 = Range Additive
      * @return zero if the type is successfully set, otherwise it returns a nonzero value.
      */
-    fun setType(name: String, comboType: Int): Int
+    fun setType(name: String, comboType: Int): Int = callFunctionInt("SetType", name, comboType)
 }

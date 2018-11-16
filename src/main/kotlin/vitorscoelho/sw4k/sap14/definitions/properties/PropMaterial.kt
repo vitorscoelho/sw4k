@@ -3,25 +3,14 @@ package vitorscoelho.sw4k.sap14.definitions.properties
 import vitorscoelho.sw4k.comutils.IntByRef
 import vitorscoelho.sw4k.comutils.SapComponent
 import vitorscoelho.sw4k.comutils.StringByRef
-import vitorscoelho.sw4k.sap14.SapModel
 import vitorscoelho.sw4k.sap14.enums.MatType
 import vitorscoelho.sw4k.sap14.enums.WeightOrMass
 
-class PropMaterial internal constructor(sapModel: SapModel) : SapComponent("${sapModel.sapObject.sapObjectString}.cPropMaterial"), PropMaterialV14 {
-    override fun getMaterial(name: String, matType: IntByRef, color: IntByRef, notes: StringByRef, GUID: StringByRef): Int =
-            callFunctionInt("GetMaterial", name, matType, color, notes, GUID)
-
-    override fun setMaterial(name: String, matType: Int, color: Int, notes: String, GUID: String): Int =
-            callFunctionInt("SetMaterial", name, matType, color, notes, GUID)
-
-    override fun setMPIsotropic(name: String, e: Double, u: Double, a: Double, temp: Double): Int =
-            callFunctionInt("SetMPIsotropic", name, e, u, a, temp)
-
-    override fun setWeightAndMass(name: String, myOption: Int, value: Double, temp: Double): Int =
-            callFunctionInt("SetWeightAndMass", name, myOption, value, temp)
+class PropMaterial internal constructor(programName: String) : PropMaterialV14 {
+    override val activeXComponentName: String = "$programName.cPropMaterial"
 }
 
-interface PropMaterialV14 {
+interface PropMaterialV14 : SapComponent {
     /**
      * This function retrieves some basic material property data.
      * @param name The name of an existing material property.
@@ -38,7 +27,8 @@ interface PropMaterialV14 {
      * @param GUID The GUID (global unique identifier), if any, assigned to the material.
      * @return zero if the material is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getMaterial(name: String, matType: IntByRef, color: IntByRef, notes: StringByRef, GUID: StringByRef): Int
+    fun getMaterial(name: String, matType: IntByRef, color: IntByRef, notes: StringByRef, GUID: StringByRef): Int =
+            callFunctionInt("GetMaterial", name, matType, color, notes, GUID)
 
     /**
      * This function initializes a material property. If this function is called for an existing material property, all items for the material are reset to their default value.
@@ -56,7 +46,8 @@ interface PropMaterialV14 {
      * @param GUID The GUID (global unique identifier), if any, assigned to the material. If this item is input as Default, the program assigns a GUID to the material.
      * @return zero if the material is successfully initialized; otherwise it returns a nonzero value.
      */
-    fun setMaterial(name: String, matType: Int, color: Int = -1, notes: String = "", GUID: String = ""): Int
+    fun setMaterial(name: String, matType: Int, color: Int = -1, notes: String = "", GUID: String = ""): Int =
+            callFunctionInt("SetMaterial", name, matType, color, notes, GUID)
 
     /**
      * This function sets the material directional symmetry type to isotropic, and assigns the isotropic mechanical properties.
@@ -68,7 +59,8 @@ interface PropMaterialV14 {
      * This item is the temperature at which the specified data applies. The temperature must have been defined previously for the material.
      * @return zero if the data is successfully assigned; otherwise it returns a nonzero value.
      */
-    fun setMPIsotropic(name: String, e: Double, u: Double, a: Double, temp: Double = 0.0): Int
+    fun setMPIsotropic(name: String, e: Double, u: Double, a: Double, temp: Double = 0.0): Int =
+            callFunctionInt("SetMPIsotropic", name, e, u, a, temp)
 
     /**
      * This function assigns weight per unit volume or mass per unit volume to a material property.
@@ -82,5 +74,6 @@ interface PropMaterialV14 {
      * This item is the temperature at which the specified data applies. The temperature must have been define previously for the material.
      * @return zero if the data is successfully assigned; otherwise it returns a nonzero value.
      */
-    fun setWeightAndMass(name: String, myOption: Int, value: Double, temp: Double = 0.0): Int
+    fun setWeightAndMass(name: String, myOption: Int, value: Double, temp: Double = 0.0): Int =
+            callFunctionInt("SetWeightAndMass", name, myOption, value, temp)
 }

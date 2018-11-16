@@ -4,25 +4,13 @@ import vitorscoelho.sw4k.comutils.BooleanArrayByRef
 import vitorscoelho.sw4k.comutils.DoubleArrayByRef
 import vitorscoelho.sw4k.comutils.SapComponent
 import vitorscoelho.sw4k.comutils.StringByRef
-import vitorscoelho.sw4k.sap14.SapModel
 import vitorscoelho.sw4k.sap14.enums.ItemType
 
-class PointObj internal constructor(sapModel: SapModel) : SapComponent("${sapModel.sapObject.sapObjectString}.cPointObj"), PointObjV14 {
-
-    override fun addCartesian(x: Double, y: Double, z: Double, name: StringByRef, userName: String, cSys: String, mergeOff: Boolean, mergeNumber: Int): Int =
-            callFunctionInt("AddCartesian", x, y, z, name, userName, cSys, mergeOff, mergeNumber)
-
-    override fun setLoadForce(name: String, loadPat: String, value: DoubleArrayByRef, replace: Boolean, cSys: String, itemType: Int): Int =
-            callFunctionInt("SetLoadForce", name, loadPat, value, replace, cSys, itemType)
-
-    override fun setSpring(name: String, k: DoubleArrayByRef, itemType: Int, isLocalCSys: Boolean, replace: Boolean): Int =
-            callFunctionInt("SetSpring", name, k, itemType, isLocalCSys, replace)
-
-    override fun setRestraint(name: String, value: BooleanArrayByRef, itemType: Int): Int =
-            callFunctionInt("SetRestraint", name, value, itemType)
+class PointObj internal constructor(programName: String) : PointObjV14 {
+    override val activeXComponentName: String = "$programName.cPointObj"
 }
 
-interface PointObjV14 {
+interface PointObjV14 : SapComponent {
     /**
      * This function adds a point object to a model. The added point object will be tagged as a Special Point except if it was merged with another point object. Special points are allowed to exist in the model with no objects connected to them.
      * @param x The X-coordinate of the added point object in the specified coordinate system. (L)
@@ -37,7 +25,8 @@ interface PointObjV14 {
      * @param mergeNumber Two points objects in the same location will merge only if their merge number assignments are the same. By default all pointobjects have a merge number of zero.
      * @return zero if the point object is successfully added or merged, otherwise it returns a nonzero value.
      */
-    fun addCartesian(x: Double, y: Double, z: Double, name: StringByRef, userName: String = "", cSys: String = "Global", mergeOff: Boolean = false, mergeNumber: Int = 0): Int
+    fun addCartesian(x: Double, y: Double, z: Double, name: StringByRef, userName: String = "", cSys: String = "Global", mergeOff: Boolean = false, mergeNumber: Int = 0): Int =
+            callFunctionInt("AddCartesian", x, y, z, name, userName, cSys, mergeOff, mergeNumber)
 
     /**
      * This function makes point load assignments to point objects.
@@ -61,7 +50,8 @@ interface PointObjV14 {
      * If this item is SelectedObjects, the load assignment is made to all selected point objects and the Name item is ignored.
      * @return zero if the load assignments are successfully made, otherwise it returns a nonzero value.
      */
-    fun setLoadForce(name: String, loadPat: String, value: DoubleArrayByRef, replace: Boolean = false, cSys: String = "Global", itemType: Int = ItemType.OBJECT.sapId): Int
+    fun setLoadForce(name: String, loadPat: String, value: DoubleArrayByRef, replace: Boolean = false, cSys: String = "Global", itemType: Int = ItemType.OBJECT.sapId): Int =
+            callFunctionInt("SetLoadForce", name, loadPat, value, replace, cSys, itemType)
 
     /**
      * This function assigns coupled springs to a point object.
@@ -84,7 +74,8 @@ interface PointObjV14 {
      * @param replace If this item is True, all existing point spring assignments to the specified point object(s) are deleted prior to making the assignment. If it is False, the spring assignments are added to any existing assignments.
      * @return zero if the stiffnesses are successfully assigned, otherwise it returns a nonzero value.
      */
-    fun setSpring(name: String, k: DoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId, isLocalCSys: Boolean = false, replace: Boolean = false): Int
+    fun setSpring(name: String, k: DoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId, isLocalCSys: Boolean = false, replace: Boolean = false): Int =
+            callFunctionInt("SetSpring", name, k, itemType, isLocalCSys, replace)
 
     /**
      * This function assigns the restraint assignments for a point object. The restraint assignments are always set in the point local coordinate system.
@@ -105,5 +96,6 @@ interface PointObjV14 {
      * If this item is SelectedObjects, the restraint assignment is made to all selected point objects and the Name item is ignored.
      * @return zero if the restraint assignments are successfully assigned, otherwise it returns a nonzero value.
      */
-    fun setRestraint(name: String, value: BooleanArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int
+    fun setRestraint(name: String, value: BooleanArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+            callFunctionInt("SetRestraint", name, value, itemType)
 }

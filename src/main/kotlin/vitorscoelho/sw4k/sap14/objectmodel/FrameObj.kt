@@ -2,26 +2,15 @@ package vitorscoelho.sw4k.sap14.objectmodel
 
 import vitorscoelho.sw4k.comutils.SapComponent
 import vitorscoelho.sw4k.comutils.StringByRef
-import vitorscoelho.sw4k.sap14.SapModel
 import vitorscoelho.sw4k.sap14.enums.ItemType
 import vitorscoelho.sw4k.sap14.enums.Dir
 import vitorscoelho.sw4k.sap14.enums.DistributedLoadType
 
-class FrameObj internal constructor(sapModel: SapModel) : SapComponent("${sapModel.sapObject.sapObjectString}.cFrameObj"), FrameObjV14 {
-    override fun addByCoord(xi: Double, yi: Double, zi: Double, xj: Double, yj: Double, zj: Double, name: StringByRef, propName: String, userName: String, cSys: String): Int =
-            callFunctionInt("AddByCoord", xi, yi, zi, xj, yj, zj, name, propName, userName, cSys)
-
-    override fun addByPoint(point1: String, point2: String, name: StringByRef, propName: String, userName: String): Int =
-            callFunctionInt("AddByPoint", point1, point2, name, propName, userName)
-
-    override fun setLoadDistributed(name: String, loadPat: String, myType: Int, dir: Int, dist1: Double, dist2: Double, val1: Double, val2: Double, cSys: String, relDist: Boolean, replace: Boolean, itemType: Int): Int =
-            callFunctionInt("SetLoadDistributed", name, loadPat, myType, dir, dist1, dist2, val1, val2, cSys, relDist, replace, itemType)
-
-    override fun setOutputStations(name: String, myType: Int, maxSegSize: Double, minSections: Int, noOutPutAndDesignAtElementEnds: Boolean, noOutPutAndDesignAtPointLoads: Boolean, itemType: Int): Int =
-            callFunctionInt("SetOutputStations", name, myType, maxSegSize, minSections, noOutPutAndDesignAtElementEnds, noOutPutAndDesignAtPointLoads, itemType)
+class FrameObj internal constructor(programName: String) : FrameObjV14 {
+    override val activeXComponentName: String = "$programName.cFrameObj"
 }
 
-interface FrameObjV14 {
+interface FrameObjV14 : SapComponent {
     /**
      * This function adds a new frame object whose end points are at the specified coordinates.
      * @param xi, yi, zi The coordinates of the I-End of the added frame object. The coordinates are in the coordinate system defined by the CSys item.
@@ -33,7 +22,8 @@ interface FrameObjV14 {
      * @param cSys The name of the coordinate system in which the frame object end point coordinates are defined.
      * @return zero if the frame object is successfully added, otherwise it returns a nonzero value.
      */
-    fun addByCoord(xi: Double, yi: Double, zi: Double, xj: Double, yj: Double, zj: Double, name: StringByRef, propName: String = "Default", userName: String = "", cSys: String = "Global"): Int
+    fun addByCoord(xi: Double, yi: Double, zi: Double, xj: Double, yj: Double, zj: Double, name: StringByRef, propName: String = "Default", userName: String = "", cSys: String = "Global"): Int =
+            callFunctionInt("AddByCoord", xi, yi, zi, xj, yj, zj, name, propName, userName, cSys)
 
     /**
      * This function adds a new frame object whose end points are specified by name.
@@ -45,7 +35,8 @@ interface FrameObjV14 {
      * @param userName This is an optional user specified name for the frame object. If a UserName is specified and that name is already used for another frame object, the program ignores the UserName.
      * @return zero if the frame object is successfully added, otherwise it returns a nonzero value.
      */
-    fun addByPoint(point1: String, point2: String, name: StringByRef, propName: String = "Default", userName: String = ""): Int
+    fun addByPoint(point1: String, point2: String, name: StringByRef, propName: String = "Default", userName: String = ""): Int =
+            callFunctionInt("AddByPoint", point1, point2, name, propName, userName)
 
     /**
      * This function assigns distributed loads to frame objects.
@@ -83,7 +74,8 @@ interface FrameObjV14 {
      * If this item is SelectedObjects, assignment is made to all selected frame objects, and the Name item is ignored.
      * @return zero if the loads are successfully assigned, otherwise it returns a nonzero value.
      */
-    fun setLoadDistributed(name: String, loadPat: String, myType: Int, dir: Int, dist1: Double, dist2: Double, val1: Double, val2: Double, cSys: String = "Global", relDist: Boolean = true, replace: Boolean = true, itemType: Int = ItemType.OBJECT.sapId): Int
+    fun setLoadDistributed(name: String, loadPat: String, myType: Int, dir: Int, dist1: Double, dist2: Double, val1: Double, val2: Double, cSys: String = "Global", relDist: Boolean = true, replace: Boolean = true, itemType: Int = ItemType.OBJECT.sapId): Int =
+            callFunctionInt("SetLoadDistributed", name, loadPat, myType, dir, dist1, dist2, val1, val2, cSys, relDist, replace, itemType)
 
     /**
      * This function assigns frame object output station data.
@@ -104,5 +96,6 @@ interface FrameObjV14 {
      * If this item is SelectedObjects, assignment is made to all selected frame objects and the Name item is ignored.
      * @return zero if the data is successfully assigned, otherwise it returns a nonzero value.
      */
-    fun setOutputStations(name: String, myType: Int, maxSegSize: Double, minSections: Int, noOutPutAndDesignAtElementEnds: Boolean = false, noOutPutAndDesignAtPointLoads: Boolean = false, itemType: Int = ItemType.OBJECT.sapId): Int
+    fun setOutputStations(name: String, myType: Int, maxSegSize: Double, minSections: Int, noOutPutAndDesignAtElementEnds: Boolean = false, noOutPutAndDesignAtPointLoads: Boolean = false, itemType: Int = ItemType.OBJECT.sapId): Int =
+            callFunctionInt("SetOutputStations", name, myType, maxSegSize, minSections, noOutPutAndDesignAtElementEnds, noOutPutAndDesignAtPointLoads, itemType)
 }

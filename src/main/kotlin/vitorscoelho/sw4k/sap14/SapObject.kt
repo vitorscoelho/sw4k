@@ -3,37 +3,17 @@ package vitorscoelho.sw4k.sap14
 import vitorscoelho.sw4k.comutils.SapComponent
 import vitorscoelho.sw4k.sap14.enums.Units
 
-class SapObject private constructor(activeXComponentName: String, val sapObjectString: String) : SapComponent(activeXComponentName), SapObjectV14 {
-    override val sapModel = SapModel(this)
-
-    override fun applicationStart(units: Int, visible: Boolean, fileName: String): Int =
-            callFunctionInt("ApplicationStart", units, visible, fileName)
-
-    override fun applicationExit(fileSave: Boolean): Int =
-            callFunctionInt("ApplicationExit", fileSave)
-
-    /*val sapModel: ActiveXComponent by lazy { ActiveXComponent("$sapObjectString.cSapModel") }
-    val file: ActiveXComponent by lazy { ActiveXComponent("$sapObjectString.cFile") }
-    val propMaterial: ActiveXComponent by lazy { ActiveXComponent("$sapObjectString.cPropMaterial") }
-    val propFrame: ActiveXComponent by lazy { ActiveXComponent("$sapObjectString.cPropFrame") }
-    val pointObj: ActiveXComponent by lazy { ActiveXComponent("$sapObjectString.cPointObj") }
-    val frameObj: ActiveXComponent by lazy { ActiveXComponent("$sapObjectString.cFrameObj") }
-    val propLink: ActiveXComponent by lazy { ActiveXComponent("$sapObjectString.cPropLink") }
-    val linkObj: ActiveXComponent by lazy { ActiveXComponent("$sapObjectString.cLinkObj") }
-    val loadPatterns: ActiveXComponent by lazy { ActiveXComponent("$sapObjectString.cLoadPatterns") }
-    val loadCases: ActiveXComponent by lazy { ActiveXComponent("$sapObjectString.cLoadCases") }
-    val caseStaticNonlinear: ActiveXComponent by lazy { ActiveXComponent("$sapObjectString.cCaseStaticNonlinear") }
-    val respCombo: ActiveXComponent by lazy { ActiveXComponent("$sapObjectString.cCombo") }
-    val analyze: ActiveXComponent by lazy { ActiveXComponent("$sapObjectString.cAnalyze") }
-    val results: ActiveXComponent by lazy { ActiveXComponent("$sapObjectString.cAnalysisResults") }
-    val setup: ActiveXComponent by lazy { ActiveXComponent("$sapObjectString.cAnalysisResultsSetup") }*/
+class SapObject private constructor(override val activeXComponentName: String, val programName: String) : SapObjectV14 {
+    override val sapModel = SapModel(programName)
 
     companion object {
-        fun v14(): SapObjectV14 = SapObject(activeXComponentName = "Sap2000.SapObject", sapObjectString = "Sap2000")
+        @JvmStatic
+        fun v14(): SapObjectV14 = SapObject(activeXComponentName = "Sap2000.SapObject", programName = "Sap2000")
+//        fun v15(): SapObjectV15 = SapObject(activeXComponentName = "Sap2000v15.SapObject", programName = "Sap2000v15")
     }
 }
 
-interface SapObjectV14 {
+interface SapObjectV14 : SapComponent {
     val sapModel: SapModelV14
     /**
      * This function starts the Sap2000 application.
@@ -61,12 +41,14 @@ interface SapObjectV14 {
      * @param fileName The full path of a model file to be opened when the Sap2000 application is started. If no file name is specified, the application starts without loading an existing model.
      * @return zero if the application successfully starts and nonzero if it fails.
      */
-    fun applicationStart(units: Int = Units.kip_in_F.sapId, visible: Boolean = true, fileName: String = ""): Int
+    fun applicationStart(units: Int = Units.kip_in_F.sapId, visible: Boolean = true, fileName: String = ""): Int =
+            callFunctionInt("ApplicationStart", units, visible, fileName)
 
     /**
      * If the model file is saved then it is saved with its current name. You should set the Sap2000 object variable to nothing after calling this function.
      * @param fileSave If this item is True the existing model file is saved prior to closing Sap2000.
      * @return zero if the function succeeds and nonzero if it fails.
      */
-    fun applicationExit(fileSave: Boolean): Int
+    fun applicationExit(fileSave: Boolean): Int =
+            callFunctionInt("ApplicationExit", fileSave)
 }

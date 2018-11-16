@@ -1,28 +1,14 @@
 package vitorscoelho.sw4k.sap14.definitions.properties
 
 import vitorscoelho.sw4k.comutils.*
-import vitorscoelho.sw4k.sap14.SapModel
 import vitorscoelho.sw4k.sap14.enums.LengthType
 import vitorscoelho.sw4k.sap14.enums.VariationSegmentType
 
-class PropFrame internal constructor(sapModel: SapModel) : SapComponent("${sapModel.sapObject.sapObjectString}.cPropFrame"), PropFrameV14 {
-    override fun getPrecastI(name: String, fileName: StringByRef, matProp: StringByRef, b: DoubleArrayByRef, d: DoubleArrayByRef, color: IntByRef, notes: StringByRef, GUID: StringByRef): Int =
-            callFunctionInt("GetPrecastI", name, fileName, matProp, b, d, color, notes, GUID)
-
-    override fun setCircle(name: String, matProp: String, t3: Double, color: Int, notes: String, GUID: String): Int =
-            callFunctionInt("SetCircle", name, matProp, t3, color, notes, GUID)
-
-    override fun setNonPrismatic(name: String, numberItems: Int, startSec: StringArrayByRef, endSec: StringArrayByRef, myLength: DoubleArrayByRef, myType: IntArrayByRef, eI33: IntArrayByRef, eI22: IntArrayByRef, color: Int, notes: String, GUID: String): Int =
-            callFunctionInt("SetNonPrismatic", name, numberItems, startSec, endSec, myLength, myType, eI33, eI22, color, notes, GUID)
-
-    override fun setPrecastI(name: String, matProp: String, b: DoubleArrayByRef, d: DoubleArrayByRef, color: Int, notes: String, GUID: String): Int =
-            callFunctionInt("SetPrecastI", name, matProp, b, d, color, notes, GUID)
-
-    override fun setRectangle(name: String, matProp: String, t3: Double, t2: Double, color: Int, notes: String, GUID: String): Int =
-            callFunctionInt("SetRectangle", name, matProp, t3, t2, color, notes, GUID)
+class PropFrame internal constructor(programName: String) : PropFrameV14 {
+    override val activeXComponentName: String = "$programName.cPropFrame"
 }
 
-interface PropFrameV14 {
+interface PropFrameV14 : SapComponent {
     /**
      * This function retrieves frame section property data for a precast concrete I girder frame section.
      * @param name The name of an existing precast concrete I girder frame section property.
@@ -47,7 +33,8 @@ interface PropFrameV14 {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section.
      * @return zero if the section property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getPrecastI(name: String, fileName: StringByRef, matProp: StringByRef, b: DoubleArrayByRef, d: DoubleArrayByRef, color: IntByRef, notes: StringByRef, GUID: StringByRef): Int
+    fun getPrecastI(name: String, fileName: StringByRef, matProp: StringByRef, b: DoubleArrayByRef, d: DoubleArrayByRef, color: IntByRef, notes: StringByRef, GUID: StringByRef): Int =
+            callFunctionInt("GetPrecastI", name, fileName, matProp, b, d, color, notes, GUID)
 
     /**
      * This function initializes a solid circular frame section property. If this function is called for an existing frame section property, all items for the section are reset to their default value.
@@ -59,7 +46,8 @@ interface PropFrameV14 {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section. If this item is input as Default, the program assigns a GUID to the section.
      * @return zero if the section property is successfully initialized; otherwise it returns a nonzero value.
      */
-    fun setCircle(name: String, matProp: String, t3: Double, color: Int = -1, notes: String = "", GUID: String = ""): Int
+    fun setCircle(name: String, matProp: String, t3: Double, color: Int = -1, notes: String = "", GUID: String = ""): Int =
+            callFunctionInt("SetCircle", name, matProp, t3, color, notes, GUID)
 
     /**
      * This function assigns data to a nonprismatic frame section property.
@@ -86,7 +74,8 @@ interface PropFrameV14 {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section. If this item is input as Default, the program assigns a GUID to the section.
      * @return zero if the data is successfully filled; otherwise it returns a nonzero value.
      */
-    fun setNonPrismatic(name: String, numberItems: Int, startSec: StringArrayByRef, endSec: StringArrayByRef, myLength: DoubleArrayByRef, myType: IntArrayByRef, eI33: IntArrayByRef, eI22: IntArrayByRef, color: Int = -1, notes: String = "", GUID: String = ""): Int
+    fun setNonPrismatic(name: String, numberItems: Int, startSec: StringArrayByRef, endSec: StringArrayByRef, myLength: DoubleArrayByRef, myType: IntArrayByRef, eI33: IntArrayByRef, eI22: IntArrayByRef, color: Int = -1, notes: String = "", GUID: String = ""): Int =
+            callFunctionInt("SetNonPrismatic", name, numberItems, startSec, endSec, myLength, myType, eI33, eI22, color, notes, GUID)
 
     /**
      * This function initializes a precast concrete I girder frame section property. If this function is called for an existing frame section property, all items for the section are reset to their default value.
@@ -111,7 +100,8 @@ interface PropFrameV14 {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section. If this item is input as Default, the program assigns a GUID to the section.
      * @return zero if the section property is successfully initialized; otherwise it returns a nonzero value.
      */
-    fun setPrecastI(name: String, matProp: String, b: DoubleArrayByRef, d: DoubleArrayByRef, color: Int = -1, notes: String = "", GUID: String = ""): Int
+    fun setPrecastI(name: String, matProp: String, b: DoubleArrayByRef, d: DoubleArrayByRef, color: Int = -1, notes: String = "", GUID: String = ""): Int =
+            callFunctionInt("SetPrecastI", name, matProp, b, d, color, notes, GUID)
 
     /**
      * This function initializes a solid rectangular frame section property. If this function is called for an existing frame section property, all items for the section are reset to their default value.
@@ -124,5 +114,6 @@ interface PropFrameV14 {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section. If this item is input as Default, the program assigns a GUID to the section.
      * @return zero if the section property is successfully initialized; otherwise it returns a nonzero value.
      */
-    fun setRectangle(name: String, matProp: String, t3: Double, t2: Double, color: Int = -1, notes: String = "", GUID: String = ""): Int
+    fun setRectangle(name: String, matProp: String, t3: Double, t2: Double, color: Int = -1, notes: String = "", GUID: String = ""): Int =
+            callFunctionInt("SetRectangle", name, matProp, t3, t2, color, notes, GUID)
 }
