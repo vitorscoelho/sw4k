@@ -103,6 +103,12 @@ interface SapComponent {
         return value!!
     }
 
+    fun callFunctionDouble(name: String, vararg attributes: Any): Double {
+        var value: Double? = null
+        callFunction(name, { variant -> value = variant.double }, *attributes)
+        return value!!
+    }
+
     fun callFunctionBoolean(name: String, vararg attributes: Any): Boolean {
         var value: Boolean? = null
         callFunction(name, { variant -> value = variant.boolean }, *attributes)
