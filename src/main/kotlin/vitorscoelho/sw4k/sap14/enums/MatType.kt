@@ -16,5 +16,5 @@ enum class MatType(override val sapId: Int) : EnumWithSapIdInt {
 }
 
 fun Array<MatType>.toSapId() = this.map { it.sapId }.toIntArray()
-fun IntArray.toMatType() = Array(size = this.size) { ComboType.get(sapId = it) }
+fun IntArray.toMatType() = Array(size = this.size) { MatType.get(sapId = this[it]) }
 fun Int.toMatType() = MatType.get(sapId = this)

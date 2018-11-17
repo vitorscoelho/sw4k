@@ -48,5 +48,5 @@ enum class LoadPatternType(override val sapId: Int) : EnumWithSapIdInt {
 }
 
 fun Array<LoadPatternType>.toSapId() = this.map { it.sapId }.toIntArray()
-fun IntArray.toLoadPatternType() = Array(size = this.size) { ComboType.get(sapId = it) }
+fun IntArray.toLoadPatternType() = Array(size = this.size) { LoadPatternType.get(sapId = this[it]) }
 fun Int.toLoadPatternType() = LoadPatternType.get(sapId = this)

@@ -11,5 +11,5 @@ enum class WeightOrMass(override val sapId: Int) : EnumWithSapIdInt {
 }
 
 fun Array<WeightOrMass>.toSapId() = this.map { it.sapId }.toIntArray()
-fun IntArray.toWeightOrMass() = Array(size = this.size) { ComboType.get(sapId = it) }
+fun IntArray.toWeightOrMass() = Array(size = this.size) { WeightOrMass.get(sapId = this[it]) }
 fun Int.toWeightOrMass() = WeightOrMass.get(sapId = this)

@@ -13,5 +13,5 @@ enum class LengthType(override val sapId: Int) : EnumWithSapIdInt {
 }
 
 fun Array<LengthType>.toSapId() = this.map { it.sapId }.toIntArray()
-fun IntArray.toLengthType() = Array(size = this.size) { ComboType.get(sapId = it) }
+fun IntArray.toLengthType() = Array(size = this.size) { LengthType.get(sapId = this[it]) }
 fun Int.toLengthType() = LengthType.get(sapId = this)

@@ -12,5 +12,5 @@ enum class VariationSegmentType(override val sapId: Int) : EnumWithSapIdInt {
 }
 
 fun Array<VariationSegmentType>.toSapId() = this.map { it.sapId }.toIntArray()
-fun IntArray.toVariationSegmentType() = Array(size = this.size) { ComboType.get(sapId = it) }
+fun IntArray.toVariationSegmentType() = Array(size = this.size) { VariationSegmentType.get(sapId = this[it]) }
 fun Int.toVariationSegmentType() = VariationSegmentType.get(sapId = this)

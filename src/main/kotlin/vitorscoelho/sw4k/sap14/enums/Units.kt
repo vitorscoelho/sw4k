@@ -25,5 +25,5 @@ enum class Units(override val sapId: Int) : EnumWithSapIdInt {
 }
 
 fun Array<Units>.toSapId() = this.map { it.sapId }.toIntArray()
-fun IntArray.toUnits() = Array(size = this.size) { ComboType.get(sapId = it) }
+fun IntArray.toUnits() = Array(size = this.size) { Units.get(sapId = this[it]) }
 fun Int.toUnits() = Units.get(sapId = this)

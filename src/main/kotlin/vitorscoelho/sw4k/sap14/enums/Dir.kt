@@ -37,5 +37,5 @@ enum class Dir(override val sapId: Int) : EnumWithSapIdInt {
 }
 
 fun Array<Dir>.toSapId() = this.map { it.sapId }.toIntArray()
-fun IntArray.toDir() = Array(size = this.size) { ComboType.get(sapId = it) }
+fun IntArray.toDir() = Array(size = this.size) { Dir.get(sapId = this[it]) }
 fun Int.toDir() = Dir.get(sapId = this)

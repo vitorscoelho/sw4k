@@ -12,5 +12,5 @@ enum class LoadCaseStatus(override val sapId: Int) : EnumWithSapIdInt {
 }
 
 fun Array<LoadCaseStatus>.toSapId() = this.map { it.sapId }.toIntArray()
-fun IntArray.toLoadCaseStatus() = Array(size = this.size) { LoadCaseStatus.get(sapId = it) }
+fun IntArray.toLoadCaseStatus() = Array(size = this.size) { LoadCaseStatus.get(sapId = this[it]) }
 fun Int.toLoadCaseStatus() = LoadCaseStatus.get(sapId = this)

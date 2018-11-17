@@ -12,5 +12,5 @@ enum class NLGeomType(override val sapId: Int) : EnumWithSapIdInt {
 }
 
 fun Array<NLGeomType>.toSapId() = this.map { it.sapId }.toIntArray()
-fun IntArray.toNLGeomType() = Array(size = this.size) { ComboType.get(sapId = it) }
+fun IntArray.toNLGeomType() = Array(size = this.size) { NLGeomType.get(sapId = this[it]) }
 fun Int.toNLGeomType() = NLGeomType.get(sapId = this)

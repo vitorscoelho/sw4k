@@ -11,5 +11,5 @@ enum class DistributedLoadType(override val sapId: Int) : EnumWithSapIdInt {
 }
 
 fun Array<DistributedLoadType>.toSapId() = this.map { it.sapId }.toIntArray()
-fun IntArray.toDistributedLoadType() = Array(size = this.size) { ComboType.get(sapId = it) }
+fun IntArray.toDistributedLoadType() = Array(size = this.size) { DistributedLoadType.get(sapId = this[it]) }
 fun Int.toDistributedLoadType() = DistributedLoadType.get(sapId = this)

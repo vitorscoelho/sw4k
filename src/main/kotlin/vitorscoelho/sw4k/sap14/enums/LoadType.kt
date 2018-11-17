@@ -11,5 +11,5 @@ enum class LoadType(override val sapId: String) : EnumWithSapIdString {
 }
 
 fun Array<LoadType>.toSapId() = this.map { it.sapId }.toTypedArray()
-fun Array<String>.toLoadType() = Array(size = this.size) { ComboType.get(sapId = it) }
+fun Array<String>.toLoadType() = Array(size = this.size) { LoadType.get(sapId = this[it]) }
 fun String.toLoadType() = LoadType.get(sapId = this)

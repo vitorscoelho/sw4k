@@ -11,5 +11,5 @@ enum class SolverType(override val sapId: Int) : EnumWithSapIdInt {
 }
 
 fun Array<SolverType>.toSapId() = this.map { it.sapId }.toIntArray()
-fun IntArray.toSolverType() = Array(size = this.size) { ComboType.get(sapId = it) }
+fun IntArray.toSolverType() = Array(size = this.size) { SolverType.get(sapId = this[it]) }
 fun Int.toSolverType() = SolverType.get(sapId = this)

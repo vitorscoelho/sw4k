@@ -14,5 +14,5 @@ enum class ComboType(override val sapId: Int) : EnumWithSapIdInt {
 }
 
 fun Array<ComboType>.toSapId() = this.map { it.sapId }.toIntArray()
-fun IntArray.toComboType() = Array(size = this.size) { ComboType.get(sapId = it) }
+fun IntArray.toComboType() = Array(size = this.size) { ComboType.get(sapId = this[it]) }
 fun Int.toComboType()=ComboType.get(sapId = this)

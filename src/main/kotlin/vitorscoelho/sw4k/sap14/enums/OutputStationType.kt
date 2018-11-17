@@ -11,5 +11,5 @@ enum class OutputStationType(override val sapId: Int) : EnumWithSapIdInt {
 }
 
 fun Array<OutputStationType>.toSapId() = this.map { it.sapId }.toIntArray()
-fun IntArray.toOutputStationType() = Array(size = this.size) { ComboType.get(sapId = it) }
+fun IntArray.toOutputStationType() = Array(size = this.size) { OutputStationType.get(sapId = this[it]) }
 fun Int.toOutputStationType() = OutputStationType.get(sapId = this)

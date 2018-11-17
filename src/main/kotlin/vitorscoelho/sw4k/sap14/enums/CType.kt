@@ -10,5 +10,5 @@ enum class CType (override val sapId: Int) :  EnumWithSapIdInt {
 }
 
 fun Array<CType>.toSapId() = this.map { it.sapId }.toIntArray()
-fun IntArray.toCType() = Array(size = this.size) { ComboType.get(sapId = it) }
+fun IntArray.toCType() = Array(size = this.size) { CType.get(sapId = this[it]) }
 fun Int.toCType()=CType.get(sapId = this)

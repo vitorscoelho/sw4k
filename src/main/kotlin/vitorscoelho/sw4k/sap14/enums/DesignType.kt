@@ -11,5 +11,5 @@ enum class DesignType(override val sapId: Int) : EnumWithSapIdInt {
 }
 
 fun Array<DesignType>.toSapId() = this.map { it.sapId }.toIntArray()
-fun IntArray.toDesignType() = Array(size = this.size) { ComboType.get(sapId = it) }
+fun IntArray.toDesignType() = Array(size = this.size) { DesignType.get(sapId = this[it]) }
 fun Int.toDesignType() = DesignType.get(sapId = this)
