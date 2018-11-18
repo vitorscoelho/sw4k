@@ -1,6 +1,7 @@
 package vitorscoelho.sw4k.sap14
 
 import vitorscoelho.sw4k.comutils.*
+import vitorscoelho.sw4k.sap14.analysismodel.*
 import vitorscoelho.sw4k.sap14.analysisresults.Results
 import vitorscoelho.sw4k.sap14.analysisresults.ResultsV14
 import vitorscoelho.sw4k.sap14.definitions.*
@@ -16,6 +17,12 @@ import vitorscoelho.sw4k.sap14.objectmodel.PointObjV14
 
 class SapModel internal constructor(programName: String) : SapModelV14 {
     override val activeXComponentName: String = "$programName.cSapModel"
+    override val areaElm = AreaElm(programName)
+    override val lineElm = LineElm(programName)
+    override val linkElm = LinkElm(programName)
+    override val planeElm = PlaneElm(programName)
+    override val pointElm = PointElm(programName)
+    override val solidElm = SolidElm(programName)
     override val file = File(programName)
     override val propMaterial = PropMaterial(programName)
     override val propFrame = PropFrame(programName)
@@ -29,6 +36,12 @@ class SapModel internal constructor(programName: String) : SapModelV14 {
 }
 
 interface SapModelV14 : SapComponent {
+    val areaElm: AreaElmV14
+    val lineElm: LineElmV14
+    val linkElm: LinkElmV14
+    val planeElm: PlaneElmV14
+    val pointElm: PointElmV14
+    val solidElm: SolidElmV14
     val file: FileV14
     val propMaterial: PropMaterialV14
     val propFrame: PropFrameV14
