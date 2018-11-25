@@ -172,7 +172,7 @@ interface LineElmV14 : SapComponent {
      * The positive gravity direction (see Dir = 10 and 11) is in the negative Global Z direction.
      * @param relDist This is an array that includes the relative distance from the I-End of the line element to the location where the point load is applied.
      * @param dist This is an array that includes the actual distance from the I-End of the line element to the location where the point load is applied. (L)
-     * @param val This is an array that includes the value of the point load. (F) when MyType is 1 and (FL) when MyType is 2
+     * @param values This is an array that includes the value of the point load. (F) when MyType is 1 and (FL) when MyType is 2
      * @param itemTypeElm This is one of the following items in the [ItemTypeElm] enumeration:
      * * ObjectElm = 0
      * * Element = 1
@@ -184,8 +184,8 @@ interface LineElmV14 : SapComponent {
      * If this item is SelectionElm, the load assignments are retrieved for line elements corresponding to all selected line objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadPoint(name: String, numberItems: IntByRef, lineName: StringArrayByRef, loadPat: StringArrayByRef, myType: IntArrayByRef, cSys: StringArrayByRef, dir: IntArrayByRef, relDist: DoubleArrayByRef, dist: DoubleArrayByRef, `val`: DoubleArrayByRef, itemTypeElm: Int = ItemTypeElm.OBJECT_ELM.sapId): Int =
-            callFunctionInt("GetLoadPoint", name, numberItems, lineName, loadPat, myType, cSys, dir, relDist, dist, `val`, itemTypeElm)
+    fun getLoadPoint(name: String, numberItems: IntByRef, lineName: StringArrayByRef, loadPat: StringArrayByRef, myType: IntArrayByRef, cSys: StringArrayByRef, dir: IntArrayByRef, relDist: DoubleArrayByRef, dist: DoubleArrayByRef, values: DoubleArrayByRef, itemTypeElm: Int = ItemTypeElm.OBJECT_ELM.sapId): Int =
+            callFunctionInt("GetLoadPoint", name, numberItems, lineName, loadPat, myType, cSys, dir, relDist, dist, values, itemTypeElm)
 
     /**
      * This function retrieves the strain load assignments to line elements.
@@ -200,7 +200,7 @@ interface LineElmV14 : SapComponent {
      * * 4 = Curvature1
      * * 5 = Curvature2
      * * 6 = Curvature3
-     * @param val This is an array that includes the strain value. (L/L) for DOF = 1, 2 and 3 and (1/L) for DOF = 4, 5 and 6
+     * @param values This is an array that includes the strain value. (L/L) for DOF = 1, 2 and 3 and (1/L) for DOF = 4, 5 and 6
      * @param patternName This is an array that includes the joint pattern name, if any, used to specify the strain load.
      * @param itemTypeElm This is one of the following items in the [ItemTypeElm] enumeration:
      * * ObjectElm = 0
@@ -213,8 +213,8 @@ interface LineElmV14 : SapComponent {
      * If this item is SelectionElm, the load assignments are retrieved for line elements corresponding to all selected line objects, and the Name item is ignored.
      * @return zero if the strain load assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadStrain(name: String, numberItems: IntByRef, lineName: StringArrayByRef, loadPat: StringArrayByRef, DOF: IntArrayByRef, `val`: DoubleArrayByRef, patternName: StringArrayByRef, itemTypeElm: Int = ItemTypeElm.OBJECT_ELM.sapId): Int =
-            callFunctionInt("GetLoadStrain", name, numberItems, lineName, loadPat, DOF, `val`, patternName, itemTypeElm)
+    fun getLoadStrain(name: String, numberItems: IntByRef, lineName: StringArrayByRef, loadPat: StringArrayByRef, DOF: IntArrayByRef, values: DoubleArrayByRef, patternName: StringArrayByRef, itemTypeElm: Int = ItemTypeElm.OBJECT_ELM.sapId): Int =
+            callFunctionInt("GetLoadStrain", name, numberItems, lineName, loadPat, DOF, values, patternName, itemTypeElm)
 
     /**
      * This function retrieves the target force assignments to line elements.
@@ -264,7 +264,7 @@ interface LineElmV14 : SapComponent {
      * * 1 = Temperature
      * * 2 = Temperature gradient along local 2 axis
      * * 3 = Temperature gradient along local 3 axis
-     * @param val This is an array that includes the temperature load value. (T) for MyType= 1 and (T/L) for MyType= 2 and 3
+     * @param values This is an array that includes the temperature load value. (T) for MyType= 1 and (T/L) for MyType= 2 and 3
      * @param patternName This is an array that includes the joint pattern name, if any, used to specify the temperature load.
      * @param itemTypeElm This is one of the following items in the [ItemTypeElm] enumeration:
      * * ObjectElm = 0
@@ -277,8 +277,8 @@ interface LineElmV14 : SapComponent {
      * If this item is SelectionElm, the load assignments are retrieved for line elements corresponding to all selected line objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadTemperature(name: String, numberItems: IntByRef, lineName: StringArrayByRef, loadPat: StringArrayByRef, myType: IntArrayByRef, `val`: DoubleArrayByRef, patternName: StringArrayByRef, itemTypeElm: Int = ItemTypeElm.OBJECT_ELM.sapId): Int =
-            callFunctionInt("GetLoadTemperature", name, numberItems, lineName, loadPat, myType, `val`, patternName, itemTypeElm)
+    fun getLoadTemperature(name: String, numberItems: IntByRef, lineName: StringArrayByRef, loadPat: StringArrayByRef, myType: IntArrayByRef, values: DoubleArrayByRef, patternName: StringArrayByRef, itemTypeElm: Int = ItemTypeElm.OBJECT_ELM.sapId): Int =
+            callFunctionInt("GetLoadTemperature", name, numberItems, lineName, loadPat, myType, values, patternName, itemTypeElm)
 
     /**
      * This function retrieves the local axis angle assignment for line elements.

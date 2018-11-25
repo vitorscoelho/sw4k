@@ -1,22 +1,40 @@
 package vitorscoelho.sw4k
 
+import vitorscoelho.sw4k.comutils.*
 import vitorscoelho.sw4k.sap14.SapObject
+import vitorscoelho.sw4k.sap14.enums.ConstraintType
+import vitorscoelho.sw4k.sap14.enums.LoadPatternType
 
 fun main() {
     val sapObject = SapObject.v14()
     val sapModel = sapObject.sapModel
 //    sapObject.applicationStart()
 //    sapModel.file.openFile(fileName = "C:\\Users\\vitor\\Desktop\\SAPKotlin\\SapKotlin.sdb")
-    println(sapModel.pointElm.countRestraint())
+//    println(sapModel.loadCases.steadyState.setFreqData("Steady State teste", .6, 20.6, 10, true, true, true, "MODAL", 2, doubleArrayOf(-0.1, 0.2).byRef(), 2, doubleArrayOf(1.2, 11.4).byRef()))
+
+    println(sapModel.namedAssign.modifierArea.setModifiers("AMOD1", DoubleArray(10) { 1.0 }.byRef()))
+    println(sapModel.namedAssign.modifierCable.setModifiers("CMOD1", DoubleArray(3) { 1.0 }.byRef()))
+    println(sapModel.namedAssign.modifierFrame.setModifiers("FMOD1", DoubleArray(8) { 1.0 }.byRef()))
+    println(sapModel.namedAssign.releaseFrame.setReleases("FREL1", BooleanArray(6) { true }.byRef(), BooleanArray(6) { true }.byRef(), DoubleArray(8) { 1.0 }.byRef(), DoubleArray(8) { 1.0 }.byRef()))
 }
 
-private fun Array<*>.printArray() {
-    val stringBuilder = StringBuilder()
-    stringBuilder.append("{")
-    this.forEach { stringBuilder.append("$it, ") }
-    stringBuilder.append("}")
-    println(stringBuilder)
-}
+/*
+public String toString() {
+        Iterator<E> it = iterator();
+        if (! it.hasNext())
+            return "[]";
+
+        StringBuilder sb = new StringBuilder();
+        sb.append('[');
+        for (;;) {
+            E e = it.next();
+            sb.append(e == this ? "(this Collection)" : e);
+            if (! it.hasNext())
+                return sb.append(']').toString();
+            sb.append(',').append(' ');
+        }
+    }
+ */
 
 /*fun main() {
     LoaderJacobDll.load()
@@ -132,15 +150,15 @@ private fun Array<*>.printArray() {
     )
 
     //Definição de NonLinear Cases
-    sapModel.loadCases.staticNonLinear.setCase(name = "Caso2")
-    sapModel.loadCases.staticNonLinear.setLoads(
+    sapModel.loadCases.staticNonlinear.setCase(name = "Caso2")
+    sapModel.loadCases.staticNonlinear.setLoads(
             name = "Caso2",
             numberLoads = 3,
             loadType = arrayOf(LoadType.LOAD, LoadType.LOAD, LoadType.LOAD).toSapId().byRef(),
             loadName = arrayOf("permanente", "acidental", "permanente").byRef(),
             sF = doubleArrayOf(2.2, -1.3, 0.5).byRef()
     )
-    sapModel.loadCases.staticNonLinear.setGeometricNonlinearity(name = "Caso2", nLGeomType = NLGeomType.P_DELTA.sapId)
+    sapModel.loadCases.staticNonlinear.setGeometricNonlinearity(name = "Caso2", nLGeomType = NLGeomType.P_DELTA.sapId)
 
     //Definição de Combinations
     sapModel.respCombo.add("Envoltoria1", comboType = ComboType.ENVELOPE.sapId)

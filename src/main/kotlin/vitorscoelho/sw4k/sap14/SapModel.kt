@@ -9,6 +9,7 @@ import vitorscoelho.sw4k.sap14.definitions.properties.PropFrame
 import vitorscoelho.sw4k.sap14.definitions.properties.PropFrameV14
 import vitorscoelho.sw4k.sap14.definitions.properties.PropMaterial
 import vitorscoelho.sw4k.sap14.definitions.properties.PropMaterialV14
+import vitorscoelho.sw4k.sap14.edit.*
 import vitorscoelho.sw4k.sap14.enums.Units
 import vitorscoelho.sw4k.sap14.objectmodel.FrameObj
 import vitorscoelho.sw4k.sap14.objectmodel.FrameObjV14
@@ -23,14 +24,27 @@ class SapModel internal constructor(programName: String) : SapModelV14 {
     override val planeElm = PlaneElm(programName)
     override val pointElm = PointElm(programName)
     override val solidElm = SolidElm(programName)
+    override val editArea = EditArea(programName)
+    override val editFrame = EditFrame(programName)
+    override val editGeneral = EditGeneral(programName)
+    override val editPoint = EditPoint(programName)
+    override val editSolid = EditSolid(programName)
     override val file = File(programName)
+    override val bridgeObj = BridgeObj(programName)
+    override val respCombo = RespCombo(programName)
+    override val constraintDef = ConstraintDef(programName)
+    override val coordSys = CoordSys(programName)
+    override val func = Func(programName)
+    override val gDispl = GDispl(programName)
+    override val groupDef = GroupDef(programName)
+    override val patternDef = PatternDef(programName)
     override val propMaterial = PropMaterial(programName)
     override val propFrame = PropFrame(programName)
     override val pointObj = PointObj(programName)
     override val frameObj = FrameObj(programName)
-    override val loadPatterns = LoadPatterns(programName)
     override val loadCases = LoadCases(programName)
-    override val respCombo = RespCombo(programName)
+    override val loadPatterns = LoadPatterns(programName)
+    override val namedAssign = NamedAssign(programName)
     override val analyze = Analyze(programName)
     override val results = Results(programName)
 }
@@ -42,14 +56,27 @@ interface SapModelV14 : SapComponent {
     val planeElm: PlaneElmV14
     val pointElm: PointElmV14
     val solidElm: SolidElmV14
+    val editArea: EditAreaV14
+    val editFrame: EditFrameV14
+    val editGeneral: EditGeneralV14
+    val editPoint: EditPointV14
+    val editSolid: EditSolidV14
     val file: FileV14
+    val bridgeObj: BridgeObjV14
+    val respCombo: RespComboV14
+    val constraintDef: ConstraintDefV14
+    val coordSys: CoordSysV14
+    val func: FuncV14
+    val gDispl: GDisplV14
+    val groupDef: GroupDefV14
+    val patternDef: PatternDefV14
     val propMaterial: PropMaterialV14
     val propFrame: PropFrameV14
     val pointObj: PointObjV14
     val frameObj: FrameObjV14
-    val loadPatterns: LoadPatternsV14
     val loadCases: LoadCasesV14
-    val respCombo: RespComboV14
+    val loadPatterns: LoadPatternsV14
+    val namedAssign: NamedAssignV14
     val analyze: AnalyzeV14
     val results: ResultsV14
 

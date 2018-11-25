@@ -33,20 +33,48 @@ internal interface ByRefArray1D<S, T> : ByRefType<S> {
     operator fun set(index: Int, value: T)
 
     /**
+     * Returns the last valid index for the array.
+     */
+    fun lastIndex(): Int = size() - 1
+
+    /**
      * Returns the value of elements in the array.
      */
     fun size(): Int
+
+    /**
+     * Performs the given [action] on each element.
+     */
+    fun forEach(action: (T) -> Unit)
+
+    /**
+     * Performs the given [action] on each element, providing sequential index with the element.
+     * @param [action] function that takes the index of an element and the element itself
+     * and performs the desired action on the element.
+     */
+    fun forEachIndexed(action: (index: Int, T) -> Unit)
+
+    /**
+     * Returns `true` if the array is empty.
+     */
+    fun isEmpty(): Boolean
+
+    /**
+     * Returns `true` if the array is not empty.
+     */
+    fun isNotEmpty(): Boolean = !isEmpty()
 }
 
 class DoubleArrayByRef(override var value: DoubleArray = doubleArrayOf()) : ByRefArray1D<DoubleArray, Double> {
     override fun get(index: Int): Double = value[index]
     override fun set(index: Int, value: Double) = this@DoubleArrayByRef.value.set(index, value)
     override fun size(): Int = this.value.size
-    fun forEach(action: (Double) -> Unit) = value.forEach(action)
-    fun forEachIndexed(action: (index: Int, Double) -> Unit) = value.forEachIndexed(action)
+    override fun forEach(action: (Double) -> Unit) = value.forEach(action)
+    override fun forEachIndexed(action: (index: Int, Double) -> Unit) = value.forEachIndexed(action)
+    override fun isEmpty(): Boolean = value.isEmpty()
     override fun equals(other: Any?): Boolean = this.value.equals(other)
     override fun hashCode(): Int = this.value.hashCode()
-    override fun toString(): String = this.value.toString()
+    override fun toString(): String = this.toStringArray()
 }
 
 fun DoubleArray.byRef(): DoubleArrayByRef = DoubleArrayByRef(this)
@@ -55,11 +83,12 @@ class IntArrayByRef(override var value: IntArray = intArrayOf()) : ByRefArray1D<
     override fun get(index: Int): Int = value[index]
     override fun set(index: Int, value: Int) = this@IntArrayByRef.value.set(index, value)
     override fun size(): Int = this.value.size
-    fun forEach(action: (Int) -> Unit) = value.forEach(action)
-    fun forEachIndexed(action: (index: Int, Int) -> Unit) = value.forEachIndexed(action)
+    override fun forEach(action: (Int) -> Unit) = value.forEach(action)
+    override fun forEachIndexed(action: (index: Int, Int) -> Unit) = value.forEachIndexed(action)
+    override fun isEmpty(): Boolean = value.isEmpty()
     override fun equals(other: Any?): Boolean = this.value.equals(other)
     override fun hashCode(): Int = this.value.hashCode()
-    override fun toString(): String = this.value.toString()
+    override fun toString(): String = this.toStringArray()
 }
 
 fun IntArray.byRef(): IntArrayByRef = IntArrayByRef(this)
@@ -68,11 +97,12 @@ class BooleanArrayByRef(override var value: BooleanArray = booleanArrayOf()) : B
     override fun get(index: Int): Boolean = value[index]
     override fun set(index: Int, value: Boolean) = this@BooleanArrayByRef.value.set(index, value)
     override fun size(): Int = this.value.size
-    fun forEach(action: (Boolean) -> Unit) = value.forEach(action)
-    fun forEachIndexed(action: (index: Int, Boolean) -> Unit) = value.forEachIndexed(action)
+    override fun forEach(action: (Boolean) -> Unit) = value.forEach(action)
+    override fun forEachIndexed(action: (index: Int, Boolean) -> Unit) = value.forEachIndexed(action)
+    override fun isEmpty(): Boolean = value.isEmpty()
     override fun equals(other: Any?): Boolean = this.value.equals(other)
     override fun hashCode(): Int = this.value.hashCode()
-    override fun toString(): String = this.value.toString()
+    override fun toString(): String = this.toStringArray()
 }
 
 fun BooleanArray.byRef(): BooleanArrayByRef = BooleanArrayByRef(this)
@@ -81,11 +111,28 @@ class StringArrayByRef(override var value: Array<String> = emptyArray()) : ByRef
     override fun get(index: Int): String = value[index]
     override fun set(index: Int, value: String) = this@StringArrayByRef.value.set(index, value)
     override fun size(): Int = this.value.size
-    fun forEach(action: (String) -> Unit) = value.forEach(action)
-    fun forEachIndexed(action: (index: Int, String) -> Unit) = value.forEachIndexed(action)
+    override fun forEach(action: (String) -> Unit) = value.forEach(action)
+    override fun forEachIndexed(action: (index: Int, String) -> Unit) = value.forEachIndexed(action)
+    override fun isEmpty(): Boolean = value.isEmpty()
     override fun equals(other: Any?): Boolean = this.value.equals(other)
     override fun hashCode(): Int = this.value.hashCode()
-    override fun toString(): String = this.value.toString()
+    override fun toString(): String = this.toStringArray()
 }
 
 fun Array<String>.byRef(): StringArrayByRef = StringArrayByRef(this)
+
+
+private fun ByRefArray1D<*, *>.toStringArray(): String {
+    if (this.isEmpty()) return "[]"
+    val sb = StringBuilder()
+    sb.append('[')
+    this.forEachIndexed { index, elm ->
+        sb.append(elm)
+        if (index == this.lastIndex()) {
+            sb.append(']')
+            return@forEachIndexed
+        }
+        sb.append(',').append(' ')
+    }
+    return sb.toString()
+}

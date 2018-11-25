@@ -4,7 +4,7 @@ import vitorscoelho.sw4k.comutils.*
 import vitorscoelho.sw4k.sap14.enums.ItemTypeElm
 import vitorscoelho.sw4k.sap14.enums.AreaTemperatureLoadType
 import vitorscoelho.sw4k.sap14.enums.Dir
-import vitorscoelho.sw4k.sap14.enums.OffsetType
+import vitorscoelho.sw4k.sap14.enums.JointOffsetType
 import vitorscoelho.sw4k.sap14.enums.ThicknessType
 import vitorscoelho.sw4k.sap14.enums.AreaDOF
 
@@ -252,13 +252,13 @@ interface AreaElmV14 : SapComponent {
     /**
      * This function retrieves the joint offset assignments for area elements.
      * @param name The name of an existing area element.
-     * @param offsetType This is 0, 1 or 2, indicating the joint offset type ([OffsetType] enumeration).
+     * @param offsetType This is 0, 1 or 2, indicating the joint offset type ([JointOffsetType] enumeration).
      * * 0 = No joint offsets
      * * 1 = User defined joint offsets specified by joint pattern
      * * 2 = User defined joint offsets specified by point
-     * @param offsetPattern This item applies only when OffsetType = 1. It is the name of the defined joint pattern that is used to calculate the joint offsets.
-     * @param offsetPatternSF This item only applies when OffsetType = 1. It is the scale factor applied to the joint pattern when calculating the joint offsets. (L)
-     * @param offset This item applies only when OffsetType = 2. It is an array of joint offsets for each of the points that define the area element. (L)
+     * @param offsetPattern This item applies only when JointOffsetType = 1. It is the name of the defined joint pattern that is used to calculate the joint offsets.
+     * @param offsetPatternSF This item only applies when JointOffsetType = 1. It is the scale factor applied to the joint pattern when calculating the joint offsets. (L)
+     * @param offset This item applies only when JointOffsetType = 2. It is an array of joint offsets for each of the points that define the area element. (L)
      * @return zero if the assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
     fun getOffsets(name: String, offsetType: IntByRef, offsetPattern: StringByRef, offsetPatternSF: DoubleByRef, offset: DoubleArrayByRef): Int =
