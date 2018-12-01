@@ -4,18 +4,30 @@ import vitorscoelho.sw4k.comutils.*
 import vitorscoelho.sw4k.sap14.SapObject
 import vitorscoelho.sw4k.sap14.enums.ConstraintType
 import vitorscoelho.sw4k.sap14.enums.LoadPatternType
+import vitorscoelho.sw4k.sap14.enums.MatType
 
 fun main() {
     val sapObject = SapObject.v14()
     val sapModel = sapObject.sapModel
 //    sapObject.applicationStart()
 //    sapModel.file.openFile(fileName = "C:\\Users\\vitor\\Desktop\\SAPKotlin\\SapKotlin.sdb")
-//    println(sapModel.loadCases.steadyState.setFreqData("Steady State teste", .6, 20.6, 10, true, true, true, "MODAL", 2, doubleArrayOf(-0.1, 0.2).byRef(), 2, doubleArrayOf(1.2, 11.4).byRef()))
 
-    println(sapModel.namedAssign.modifierArea.setModifiers("AMOD1", DoubleArray(10) { 1.0 }.byRef()))
-    println(sapModel.namedAssign.modifierCable.setModifiers("CMOD1", DoubleArray(3) { 1.0 }.byRef()))
-    println(sapModel.namedAssign.modifierFrame.setModifiers("FMOD1", DoubleArray(8) { 1.0 }.byRef()))
-    println(sapModel.namedAssign.releaseFrame.setReleases("FREL1", BooleanArray(6) { true }.byRef(), BooleanArray(6) { true }.byRef(), DoubleArray(8) { 1.0 }.byRef(), DoubleArray(8) { 1.0 }.byRef()))
+    println(
+            sapModel.propMaterial.setOConcrete_1(
+                    name = "Concreto",
+                    fc = 20.0,
+                    isLightweight = false,
+                    fcsFactor = 2.0,
+                    ssType = 0,
+                    sSHysType = 0,
+                    strainAtfc = 0.5,
+                    strainUltimate = 0.2,
+                    finalSlope = 1.2
+            )
+    )
+
+    //Pesquisar TODO em todo o projeto
+    //Pesquisar pela expressão 'dimensioned to' e corrigir a dimensão das arrays
 }
 
 /*

@@ -5,10 +5,7 @@ import vitorscoelho.sw4k.sap14.analysismodel.*
 import vitorscoelho.sw4k.sap14.analysisresults.Results
 import vitorscoelho.sw4k.sap14.analysisresults.ResultsV14
 import vitorscoelho.sw4k.sap14.definitions.*
-import vitorscoelho.sw4k.sap14.definitions.properties.PropFrame
-import vitorscoelho.sw4k.sap14.definitions.properties.PropFrameV14
-import vitorscoelho.sw4k.sap14.definitions.properties.PropMaterial
-import vitorscoelho.sw4k.sap14.definitions.properties.PropMaterialV14
+import vitorscoelho.sw4k.sap14.definitions.properties.*
 import vitorscoelho.sw4k.sap14.edit.*
 import vitorscoelho.sw4k.sap14.enums.Units
 import vitorscoelho.sw4k.sap14.objectmodel.FrameObj
@@ -38,13 +35,18 @@ class SapModel internal constructor(programName: String) : SapModelV14 {
     override val gDispl = GDispl(programName)
     override val groupDef = GroupDef(programName)
     override val patternDef = PatternDef(programName)
-    override val propMaterial = PropMaterial(programName)
-    override val propFrame = PropFrame(programName)
     override val pointObj = PointObj(programName)
     override val frameObj = FrameObj(programName)
     override val loadCases = LoadCases(programName)
     override val loadPatterns = LoadPatterns(programName)
     override val namedAssign = NamedAssign(programName)
+    override val propArea = PropArea(programName)
+    override val propCable = PropCable(programName)
+    override val propFrame = PropFrame(programName)
+    override val propMaterial = PropMaterial(programName)
+    override val propLink = PropLink(programName)
+    override val propSolid = PropSolid(programName)
+    override val propTendon = PropTendon(programName)
     override val analyze = Analyze(programName)
     override val results = Results(programName)
 }
@@ -70,13 +72,18 @@ interface SapModelV14 : SapComponent {
     val gDispl: GDisplV14
     val groupDef: GroupDefV14
     val patternDef: PatternDefV14
-    val propMaterial: PropMaterialV14
-    val propFrame: PropFrameV14
     val pointObj: PointObjV14
     val frameObj: FrameObjV14
     val loadCases: LoadCasesV14
     val loadPatterns: LoadPatternsV14
     val namedAssign: NamedAssignV14
+    val propArea: PropAreaV14
+    val propCable: PropCableV14
+    val propFrame: PropFrameV14
+    val propMaterial: PropMaterialV14
+    val propLink: PropLinkV14
+    val propSolid: PropSolidV14
+    val propTendon: PropTendonV14
     val analyze: AnalyzeV14
     val results: ResultsV14
 
