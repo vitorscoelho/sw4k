@@ -8,10 +8,7 @@ import vitorscoelho.sw4k.sap14.definitions.*
 import vitorscoelho.sw4k.sap14.definitions.properties.*
 import vitorscoelho.sw4k.sap14.edit.*
 import vitorscoelho.sw4k.sap14.enums.Units
-import vitorscoelho.sw4k.sap14.objectmodel.FrameObj
-import vitorscoelho.sw4k.sap14.objectmodel.FrameObjV14
-import vitorscoelho.sw4k.sap14.objectmodel.PointObj
-import vitorscoelho.sw4k.sap14.objectmodel.PointObjV14
+import vitorscoelho.sw4k.sap14.objectmodel.*
 
 class SapModel internal constructor(programName: String) : SapModelV14 {
     override val activeXComponentName: String = "$programName.cSapModel"
@@ -35,8 +32,6 @@ class SapModel internal constructor(programName: String) : SapModelV14 {
     override val gDispl = GDispl(programName)
     override val groupDef = GroupDef(programName)
     override val patternDef = PatternDef(programName)
-    override val pointObj = PointObj(programName)
-    override val frameObj = FrameObj(programName)
     override val loadCases = LoadCases(programName)
     override val loadPatterns = LoadPatterns(programName)
     override val namedAssign = NamedAssign(programName)
@@ -47,6 +42,13 @@ class SapModel internal constructor(programName: String) : SapModelV14 {
     override val propLink = PropLink(programName)
     override val propSolid = PropSolid(programName)
     override val propTendon = PropTendon(programName)
+    override val areaObj = AreaObj(programName)
+    override val cableObj = CableObj(programName)
+    override val frameObj = FrameObj(programName)
+    override val linkObj = LinkObj(programName)
+    override val pointObj = PointObj(programName)
+    override val solidObj = SolidObj(programName)
+    override val tendonObj = TendonObj(programName)
     override val analyze = Analyze(programName)
     override val results = Results(programName)
 }
@@ -72,8 +74,6 @@ interface SapModelV14 : SapComponent {
     val gDispl: GDisplV14
     val groupDef: GroupDefV14
     val patternDef: PatternDefV14
-    val pointObj: PointObjV14
-    val frameObj: FrameObjV14
     val loadCases: LoadCasesV14
     val loadPatterns: LoadPatternsV14
     val namedAssign: NamedAssignV14
@@ -84,6 +84,13 @@ interface SapModelV14 : SapComponent {
     val propLink: PropLinkV14
     val propSolid: PropSolidV14
     val propTendon: PropTendonV14
+    val areaObj: AreaObjV14
+    val cableObj: CableObjV14
+    val frameObj: FrameObjV14
+    val linkObj: LinkObjV14
+    val pointObj: PointObjV14
+    val solidObj: SolidObjV14
+    val tendonObj: TendonObjV14
     val analyze: AnalyzeV14
     val results: ResultsV14
 

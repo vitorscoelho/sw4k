@@ -12,22 +12,26 @@ fun main() {
 //    sapObject.applicationStart()
 //    sapModel.file.openFile(fileName = "C:\\Users\\vitor\\Desktop\\SAPKotlin\\SapKotlin.sdb")
 
+    val forcas=DoubleArrayByRef()
+    val dir =IntArrayByRef()
     println(
-            sapModel.propMaterial.setOConcrete_1(
-                    name = "Concreto",
-                    fc = 20.0,
-                    isLightweight = false,
-                    fcsFactor = 2.0,
-                    ssType = 0,
-                    sSHysType = 0,
-                    strainAtfc = 0.5,
-                    strainUltimate = 0.2,
-                    finalSlope = 1.2
+            sapModel.areaObj.getLoadUniformToFrame(
+                    name = "3",
+                    numberItems = IntByRef(),
+                    value = forcas,
+                    dir = dir,
+                    loadPat = StringArrayByRef(),
+                    areaName = StringArrayByRef(),
+                    cSys = StringArrayByRef(),
+                    distType = IntArrayByRef()
             )
     )
+    println(forcas)
+    println(dir)
 
     //Pesquisar TODO em todo o projeto
     //Pesquisar pela expressão 'dimensioned to' e corrigir a dimensão das arrays
+    //Colocar valores padrões nas funções 'get' dos objetos SAP2000, para não ter sempre que forçar o usuario a criar um objeto 'ByRef'
 }
 
 /*
