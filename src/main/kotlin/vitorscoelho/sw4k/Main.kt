@@ -1,10 +1,12 @@
 package vitorscoelho.sw4k
 
 import vitorscoelho.sw4k.comutils.*
+import vitorscoelho.sw4k.comutils.dlls.LoaderJacobDll
 import vitorscoelho.sw4k.sap14.SapObject
 import vitorscoelho.sw4k.sap14.enums.ConstraintType
 import vitorscoelho.sw4k.sap14.enums.LoadPatternType
-import vitorscoelho.sw4k.sap14.enums.MatType
+import vitorscoelho.sw4k.sap14.enums.*
+import kotlin.math.pow
 
 fun main() {
     val sapObject = SapObject.v14()
@@ -12,22 +14,14 @@ fun main() {
 //    sapObject.applicationStart()
 //    sapModel.file.openFile(fileName = "C:\\Users\\vitor\\Desktop\\SAPKotlin\\SapKotlin.sdb")
 
-    val forcas=DoubleArrayByRef()
-    val dir =IntArrayByRef()
-    println(
-            sapModel.areaObj.getLoadUniformToFrame(
-                    name = "3",
-                    numberItems = IntByRef(),
-                    value = forcas,
-                    dir = dir,
-                    loadPat = StringArrayByRef(),
-                    areaName = StringArrayByRef(),
-                    cSys = StringArrayByRef(),
-                    distType = IntArrayByRef()
-            )
-    )
-    println(forcas)
-    println(dir)
+    /*
+      ret = SapModel.BridgeAdvancedSuper.CountSuperCut("BOBJ1", Count)
+      ret = SapModel.BridgeAdvancedSuper.BASConcBox.GetSuperCutSectionValues ("BOBJ1", 12, 1, CountTendon)
+      ret = SapModel.BridgeAdvancedSuper.BASConcBox.GetSuperCutTendonNames("BOBJ1", 1, 0, BridgeTendon, TendonObj)
+     */
+    println(sapModel.bridgeAdvancedSuper.basConcBox.getSuperCutSectionValues(
+            name = "BOBJ1",cutIndex = 1,item = 0,value = DoubleByRef()
+    ))
 
     //Pesquisar TODO em todo o projeto
     //Pesquisar pela expressão 'dimensioned to' e corrigir a dimensão das arrays
@@ -64,7 +58,7 @@ public String toString() {
     sapModel.file.newBlank()
 
     //Definição dos materiais
-    sapModel.propMaterial.setMaterial(name = "Concreto", matType = MatType.MATERIAL_CONCRETE.sapId, color = 25, notes = "Notas e notas")
+    sapModel.propMaterial.setMaterial(name = "Concreto", matType = MatType.CONCRETE.sapId, color = 25, notes = "Notas e notas")
     sapModel.propMaterial.setMPIsotropic(name = "Concreto", e = 22100.0, u = 0.2, a = 0.00001)
     sapModel.propMaterial.setWeightAndMass(name = "Concreto", myOption = WeightOrMass.WEIGHT_PER_UNIT_VOLUME.sapId, value = 25.0 / 100.0.pow(3))
     val matTypeRef = IntByRef()
@@ -134,10 +128,10 @@ public String toString() {
 //    //Mola usando link
 //
     //Definição dos LoadPatterns
-    sapModel.loadPatterns.add(name = "peso próprio", myType = LoadPatternType.LTYPE_DEAD.sapId, selfWTMultiplier = 1.0)
-    sapModel.loadPatterns.add(name = "permanente", myType = LoadPatternType.LTYPE_DEAD.sapId)
-    sapModel.loadPatterns.add(name = "acidental", myType = LoadPatternType.LTYPE_DEAD.sapId)
-    sapModel.loadPatterns.add(name = "acidental sem case", myType = LoadPatternType.LTYPE_DEAD.sapId, addLoadCase = false)
+    sapModel.loadPatterns.add(name = "peso próprio", myType = LoadPatternType.DEAD.sapId, selfWTMultiplier = 1.0)
+    sapModel.loadPatterns.add(name = "permanente", myType = LoadPatternType.DEAD.sapId)
+    sapModel.loadPatterns.add(name = "acidental", myType = LoadPatternType.DEAD.sapId)
+    sapModel.loadPatterns.add(name = "acidental sem case", myType = LoadPatternType.DEAD.sapId, addLoadCase = false)
 
     //Aplicação de cargas em pontos
     sapModel.pointObj.setLoadForce(name = "3", loadPat = "acidental", value = doubleArrayOf(1.0, 2.0, 3.0, 4.0, 5.0, 6.0).byRef())
@@ -178,11 +172,11 @@ public String toString() {
 
     //Definição de Combinations
     sapModel.respCombo.add("Envoltoria1", comboType = ComboType.ENVELOPE.sapId)
-    sapModel.respCombo.setCaseList(name = "Envoltoria1", cType = CType.LOAD_CASE.sapId, cName = "Caso1", sF = 1.2)
-    sapModel.respCombo.setCaseList(name = "Envoltoria1", cType = CType.LOAD_CASE.sapId, cName = "Caso2", sF = 0.9)
+    sapModel.respCombo.setCaseList(name = "Envoltoria1", cType = CType.LOAD_CASE.sapId, cName = "Caso1", SF = 1.2)
+    sapModel.respCombo.setCaseList(name = "Envoltoria1", cType = CType.LOAD_CASE.sapId, cName = "Caso2", SF = 0.9)
     sapModel.respCombo.add(name = "Combinação Add1", comboType = ComboType.ENVELOPE.sapId)
-    sapModel.respCombo.setCaseList(name = "Combinação Add1", cType = CType.LOAD_CASE.sapId, cName = "Caso1", sF = 1.0)
-    sapModel.respCombo.setCaseList(name = "Combinação Add1", cType = CType.LOAD_CASE.sapId, cName = "Caso2", sF = 1.3)
+    sapModel.respCombo.setCaseList(name = "Combinação Add1", cType = CType.LOAD_CASE.sapId, cName = "Caso1", SF = 1.0)
+    sapModel.respCombo.setCaseList(name = "Combinação Add1", cType = CType.LOAD_CASE.sapId, cName = "Caso2", SF = 1.3)
     sapModel.respCombo.setType(name = "Combinação Add1", comboType = ComboType.LINEAR_ADDITIVE.sapId)
 
     //Salvar arquivo

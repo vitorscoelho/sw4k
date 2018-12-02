@@ -51,6 +51,10 @@ class SapModel internal constructor(programName: String) : SapModelV14 {
     override val tendonObj = TendonObj(programName)
     override val analyze = Analyze(programName)
     override val results = Results(programName)
+    override val select = Select(programName)
+    override val options = Options(programName)
+    override val view = View(programName)
+    override val bridgeAdvancedSuper = BridgeAdvancedSuper(programName)
 }
 
 interface SapModelV14 : SapComponent {
@@ -93,6 +97,10 @@ interface SapModelV14 : SapComponent {
     val tendonObj: TendonObjV14
     val analyze: AnalyzeV14
     val results: ResultsV14
+    val select: SelectV14
+    val options: OptionsV14
+    val view: ViewV14
+    val bridgeAdvancedSuper: BridgeAdvancedSuperV14
 
     /**
      * This function returns one of the following items from the [Units] enumeration indicating the database units for the model. All data is internally stored in the model in these units and converted to the present units as needed.
