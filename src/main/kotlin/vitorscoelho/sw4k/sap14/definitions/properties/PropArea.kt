@@ -74,8 +74,7 @@ interface PropAreaV14 : SapComponent {
     /**
      * This function retrieves the names of all defined area properties of the specified type.
      * @param numberNames The number of area property names retrieved by the program.
-     * @param myName This is a one-dimensional array of area property names. The MyName array is created as a dynamic, zero-based, array by the API user:
-     * The array is dimensioned to (NumberNames - 1) inside the SAP2000 program, filled with the names, and returned to the API user.
+     * @param myName This is a one-dimensional array of area property names.
      * @param propType This optional value is 0, 1, 2 or 3, indicating the type of area properties included in the name list.
      * * 0 = All
      * * 1 = Shell

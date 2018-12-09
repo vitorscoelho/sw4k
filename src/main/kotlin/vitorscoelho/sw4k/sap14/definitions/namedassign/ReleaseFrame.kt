@@ -33,8 +33,7 @@ interface ReleaseFrameV14 : SapComponent {
     /**
      * This function retrieves the names of all defined frame end releases.
      * @param numberNames The number of frame end release names retrieved by the program.
-     * @param myName This is a one-dimensional array of frame end release names. The MyName array is created as a dynamic, zero-based array by the API user:
-     * The array is dimensioned to (NumberNames - 1) inside the SAP2000 program, filled with the names, and returned to the API user.
+     * @param myName This is a one-dimensional array of frame end release names.
      * @return zero if the names are successfully retrieved; otherwise it returns nonzero values.
      */
     fun getNameList(numberNames: IntByRef, myName: StringArrayByRef): Int =

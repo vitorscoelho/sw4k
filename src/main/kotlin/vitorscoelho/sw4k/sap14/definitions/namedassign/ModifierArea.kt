@@ -52,8 +52,7 @@ interface ModifierAreaV14 : SapComponent {
     /**
      * This function retrieves the names of all defined area stiffness modifiers.
      * @param numberNames The number of area stiffness modifier names retrieved by the program.
-     * @param myName This is a one-dimensional array of area stiffness modifier names. The MyName array is created as a dynamic, zero-based array by the API user:
-     * The array is dimensioned to (NumberNames - 1) inside the SAP2000 program, filled with the names, and returned to the API user.
+     * @param myName This is a one-dimensional array of area stiffness modifier names.
      * @return zero if the names are successfully retrieved; otherwise it returns nonzero values.
      */
     fun getNameList(numberNames: IntByRef, myName: StringArrayByRef): Int =

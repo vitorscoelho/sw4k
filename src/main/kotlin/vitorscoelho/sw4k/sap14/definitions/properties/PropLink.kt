@@ -51,14 +51,14 @@ interface PropLinkV14 : SapComponent {
     /**
      * This function retrieves link property data for a damper-type link property.
      * @param name The name of an existing damper-type link property.
-     * @param DOF This is a boolean array, dimensioned to 5, indicating if properties exist for a specified degree of freedom.
+     * @param DOF This is a boolean array, dimensioned to 6, indicating if properties exist for a specified degree of freedom.
      * * DOF(0) = U1
      * * DOF(1) = U2
      * * DOF(2) = U3
      * * DOF(3) = R1
      * * DOF(4) = R2
      * * DOF(5) = R3
-     * @param fixed This is a boolean array, dimensioned to 5, indicating if the specified degree of freedom is fixed (restrained).
+     * @param fixed This is a boolean array, dimensioned to 6, indicating if the specified degree of freedom is fixed (restrained).
      * * Fixed(0) = U1 fixity
      * * Fixed(1) = U2 fixity
      * * Fixed(2) = U3 fixity
@@ -66,7 +66,7 @@ interface PropLinkV14 : SapComponent {
      * * Fixed(4) = R2 fixity
      * * Fixed(5) = R3 fixity
      * The term Fixed(n) applies only when DOF(n) = True.
-     * @param nonLinear This is a boolean array, dimensioned to 5, indicating if nonlinear properties exist for a specified degree of freedom.
+     * @param nonLinear This is a boolean array, dimensioned to 6, indicating if nonlinear properties exist for a specified degree of freedom.
      * * NonLinear(0) = U1 has nonlinear properties
      * * NonLinear(1) = U2 has nonlinear properties
      * * NonLinear(2) = U3 has nonlinear properties
@@ -126,14 +126,14 @@ interface PropLinkV14 : SapComponent {
     /**
      * This function retrieves link property data for a friction isolator-type link property.
      * @param name The name of an existing friction isolator-type link property.
-     * @param DOF This is a boolean array, dimensioned to 5, indicating if properties exist for a specified degree of freedom.
+     * @param DOF This is a boolean array, dimensioned to 6, indicating if properties exist for a specified degree of freedom.
      * * DOF(0) = U1
      * * DOF(1) = U2
      * * DOF(2) = U3
      * * DOF(3) = R1
      * * DOF(4) = R2
      * * DOF(5) = R3
-     * @param fixed This is a boolean array, dimensioned to 5, indicating if the specified degree of freedom is fixed (restrained).
+     * @param fixed This is a boolean array, dimensioned to 6, indicating if the specified degree of freedom is fixed (restrained).
      * * Fixed(0) = U1 fixity
      * * Fixed(1) = U2 fixity
      * * Fixed(2) = U3 fixity
@@ -141,7 +141,7 @@ interface PropLinkV14 : SapComponent {
      * * Fixed(4) = R2 fixity
      * * Fixed(5) = R3 fixity
      * The term Fixed(n) applies only when DOF(n) = True.
-     * @param nonLinear This is a boolean array, dimensioned to 5, indicating if nonlinear properties exist for a specified degree of freedom.
+     * @param nonLinear This is a boolean array, dimensioned to 6, indicating if nonlinear properties exist for a specified degree of freedom.
      * * NonLinear(0) = U1 has nonlinear properties
      * * NonLinear(1) = U2 has nonlinear properties
      * * NonLinear(2) = U3 has nonlinear properties
@@ -218,14 +218,14 @@ interface PropLinkV14 : SapComponent {
     /**
      * This function retrieves link property data for a gap-type link property.
      * @param name The name of an existing gap-type link property.
-     * @param DOF This is a boolean array, dimensioned to 5, indicating if properties exist for a specified degree of freedom.
+     * @param DOF This is a boolean array, dimensioned to 6, indicating if properties exist for a specified degree of freedom.
      * * DOF(0) = U1
      * * DOF(1) = U2
      * * DOF(2) = U3
      * * DOF(3) = R1
      * * DOF(4) = R2
      * * DOF(5) = R3
-     * @param fixed This is a boolean array, dimensioned to 5, indicating if the specified degree of freedom is fixed (restrained).
+     * @param fixed This is a boolean array, dimensioned to 6, indicating if the specified degree of freedom is fixed (restrained).
      * * Fixed(0) = U1 fixity
      * * Fixed(1) = U2 fixity
      * * Fixed(2) = U3 fixity
@@ -233,7 +233,7 @@ interface PropLinkV14 : SapComponent {
      * * Fixed(4) = R2 fixity
      * * Fixed(5) = R3 fixity
      * The term Fixed(n) applies only when DOF(n) = True.
-     * @param nonLinear This is a boolean array, dimensioned to 5, indicating if nonlinear properties exist for a specified degree of freedom.
+     * @param nonLinear This is a boolean array, dimensioned to 6, indicating if nonlinear properties exist for a specified degree of freedom.
      * * NonLinear(0) = U1 has nonlinear properties
      * * NonLinear(1) = U2 has nonlinear properties
      * * NonLinear(2) = U3 has nonlinear properties
@@ -285,14 +285,14 @@ interface PropLinkV14 : SapComponent {
     /**
      * This function retrieves link property data for a hook-type link property.
      * @param name The name of an existing hook-type link property.
-     * @param DOF This is a boolean array, dimensioned to 5, indicating if properties exist for a specified degree of freedom.
+     * @param DOF This is a boolean array, dimensioned to 6, indicating if properties exist for a specified degree of freedom.
      * * DOF(0) = U1
      * * DOF(1) = U2
      * * DOF(2) = U3
      * * DOF(3) = R1
      * * DOF(4) = R2
      * * DOF(5) = R3
-     * @param fixed This is a boolean array, dimensioned to 5, indicating if the specified degree of freedom is fixed (restrained).
+     * @param fixed This is a boolean array, dimensioned to 6, indicating if the specified degree of freedom is fixed (restrained).
      * * Fixed(0) = U1 fixity
      * * Fixed(1) = U2 fixity
      * * Fixed(2) = U3 fixity
@@ -300,7 +300,7 @@ interface PropLinkV14 : SapComponent {
      * * Fixed(4) = R2 fixity
      * * Fixed(5) = R3 fixity
      * The term Fixed(n) applies only when DOF(n) = True.
-     * @param nonLinear This is a boolean array, dimensioned to 5, indicating if nonlinear properties exist for a specified degree of freedom.
+     * @param nonLinear This is a boolean array, dimensioned to 6, indicating if nonlinear properties exist for a specified degree of freedom.
      * * NonLinear(0) = U1 has nonlinear properties
      * * NonLinear(1) = U2 has nonlinear properties
      * * NonLinear(2) = U3 has nonlinear properties
@@ -352,14 +352,14 @@ interface PropLinkV14 : SapComponent {
     /**
      * This function retrieves link property data for a linear-type link property.
      * @param name The name of an existing linear-type link property.
-     * @param DOF This is a boolean array, dimensioned to 5, indicating if properties exist for a specified degree of freedom.
+     * @param DOF This is a boolean array, dimensioned to 6, indicating if properties exist for a specified degree of freedom.
      * * DOF(0) = U1
      * * DOF(1) = U2
      * * DOF(2) = U3
      * * DOF(3) = R1
      * * DOF(4) = R2
      * * DOF(5) = R3
-     * @param fixed This is a boolean array, dimensioned to 5, indicating if the specified degree of freedom is fixed (restrained).
+     * @param fixed This is a boolean array, dimensioned to 6, indicating if the specified degree of freedom is fixed (restrained).
      * * Fixed(0) = U1 fixity if DOF(0) = True
      * * Fixed(1) = U2 fixity if DOF(1) = True
      * * Fixed(2) = U3 fixity if DOF(2) = True
@@ -440,14 +440,14 @@ interface PropLinkV14 : SapComponent {
     /**
      * This function retrieves link property data for a multilinear elastic-type link property.
      * @param name The name of an existing multilinear elastic-type link property.
-     * @param DOF This is a boolean array, dimensioned to 5, indicating if properties exist for a specified degree of freedom.
+     * @param DOF This is a boolean array, dimensioned to 6, indicating if properties exist for a specified degree of freedom.
      * * DOF(0) = U1
      * * DOF(1) = U2
      * * DOF(2) = U3
      * * DOF(3) = R1
      * * DOF(4) = R2
      * * DOF(5) = R3
-     * @param fixed This is a boolean array, dimensioned to 5, indicating if the specified degree of freedom is fixed (restrained).
+     * @param fixed This is a boolean array, dimensioned to 6, indicating if the specified degree of freedom is fixed (restrained).
      * * Fixed(0) = U1 fixity
      * * Fixed(1) = U2 fixity
      * * Fixed(2) = U3 fixity
@@ -455,7 +455,7 @@ interface PropLinkV14 : SapComponent {
      * * Fixed(4) = R2 fixity
      * * Fixed(5) = R3 fixity
      * The term Fixed(n) applies only when DOF(n) = True.
-     * @param nonLinear This is a boolean array, dimensioned to 5, indicating if nonlinear properties exist for a specified degree of freedom.
+     * @param nonLinear This is a boolean array, dimensioned to 6, indicating if nonlinear properties exist for a specified degree of freedom.
      * * NonLinear(0) = U1 has nonlinear properties
      * * NonLinear(1) = U2 has nonlinear properties
      * * NonLinear(2) = U3 has nonlinear properties
@@ -491,14 +491,14 @@ interface PropLinkV14 : SapComponent {
     /**
      * This function retrieves link property data for a multilinear plastic-type link property.
      * @param name The name of an existing multilinear plastic-type link property.
-     * @param DOF This is a boolean array, dimensioned to 5, indicating if properties exist for a specified degree of freedom.
+     * @param DOF This is a boolean array, dimensioned to 6, indicating if properties exist for a specified degree of freedom.
      * * DOF(0) = U1
      * * DOF(1) = U2
      * * DOF(2) = U3
      * * DOF(3) = R1
      * * DOF(4) = R2
      * * DOF(5) = R3
-     * @param fixed This is a boolean array, dimensioned to 5, indicating if the specified degree of freedom is fixed (restrained).
+     * @param fixed This is a boolean array, dimensioned to 6, indicating if the specified degree of freedom is fixed (restrained).
      * * Fixed(0) = U1 fixity
      * * Fixed(1) = U2 fixity
      * * Fixed(2) = U3 fixity
@@ -506,7 +506,7 @@ interface PropLinkV14 : SapComponent {
      * * Fixed(4) = R2 fixity
      * * Fixed(5) = R3 fixity
      * The term Fixed(n) applies only when DOF(n) = True.
-     * @param nonLinear This is a boolean array, dimensioned to 5, indicating if nonlinear properties exist for a specified degree of freedom.
+     * @param nonLinear This is a boolean array, dimensioned to 6, indicating if nonlinear properties exist for a specified degree of freedom.
      * * NonLinear(0) = U1 has nonlinear properties
      * * NonLinear(1) = U2 has nonlinear properties
      * * NonLinear(2) = U3 has nonlinear properties
@@ -550,8 +550,8 @@ interface PropLinkV14 : SapComponent {
      * * 5 = R2
      * * 6 = R3
      * @param numberPoints The number of foce-defomation points for the specified degree of freedom.
-     * @param f This is an array, dimensioned to NumberPoints - 1, that includes the force at each point. When DOF is U1, U2 or U3, this is a force. When DOF is R1, R2 or R3, this is a moment. (F) if DOF <= 3, and (FL) if DOF > 3
-     * @param d This is an array, dimensioned to NumberPoints - 1, that includes the displacement at each point. When DOF is U1, U2 or U3, this is a translation. When DOF is R1, R2 or R3, this is a rotation. (L) if DOF <= 3, and (rad) if DOF > 3
+     * @param f This is an array, dimensioned to NumberPoints, that includes the force at each point. When DOF is U1, U2 or U3, this is a force. When DOF is R1, R2 or R3, this is a moment. (F) if DOF <= 3, and (FL) if DOF > 3
+     * @param d This is an array, dimensioned to NumberPoints, that includes the displacement at each point. When DOF is U1, U2 or U3, this is a translation. When DOF is R1, R2 or R3, this is a rotation. (L) if DOF <= 3, and (rad) if DOF > 3
      * @param myType This item applies only to multilinear plastic link properties. It is 1, 2 or 3, indicating the hysteresis type.
      * * 1 = Kinematic
      * * 2 = Takeda
@@ -572,8 +572,7 @@ interface PropLinkV14 : SapComponent {
     /**
      * This function retrieves the names of all defined link properties of the specified type.
      * @param numberNames The number of link property names retrieved by the program.
-     * @param myName This is a one-dimensional array of link property names. The MyName array is created as a dynamic, zero-based, array by the API user:
-     * The array is dimensioned to (NumberNames - 1) inside the SAP2000 program, filled with the names, and returned to the API user.
+     * @param myName This is a one-dimensional array of link property names.
      * @return zero if the names are successfully retrieved; otherwise it returns nonzero.
      */
     fun getNameList(numberNames: IntByRef, myName: StringArrayByRef): Int =
@@ -582,8 +581,7 @@ interface PropLinkV14 : SapComponent {
     /**
      * This function retrieves the names of all defined link properties of the specified type.
      * @param numberNames The number of link property names retrieved by the program.
-     * @param myName This is a one-dimensional array of link property names. The MyName array is created as a dynamic, zero-based, array by the API user:
-     * The array is dimensioned to (NumberNames - 1) inside the SAP2000 program, filled with the names, and returned to the API user.
+     * @param myName This is a one-dimensional array of link property names.
      * @param propType This optional value is one of the following items in the [LinkPropType] enumeration.
      * * LINEAR = 1
      * * DAMPER = 2
@@ -616,14 +614,14 @@ interface PropLinkV14 : SapComponent {
     /**
      * This function retrieves link property data for a plastic Wen-type link property.
      * @param name The name of an existing plastic Wen-type link property.
-     * @param DOF This is a boolean array, dimensioned to 5, indicating if properties exist for a specified degree of freedom.
+     * @param DOF This is a boolean array, dimensioned to 6, indicating if properties exist for a specified degree of freedom.
      * * DOF(0) = U1
      * * DOF(1) = U2
      * * DOF(2) = U3
      * * DOF(3) = R1
      * * DOF(4) = R2
      * * DOF(5) = R3
-     * @param fixed This is a boolean array, dimensioned to 5, indicating if the specified degree of freedom is fixed (restrained).
+     * @param fixed This is a boolean array, dimensioned to 6, indicating if the specified degree of freedom is fixed (restrained).
      * * Fixed(0) = U1 fixity
      * * Fixed(1) = U2 fixity
      * * Fixed(2) = U3 fixity
@@ -631,7 +629,7 @@ interface PropLinkV14 : SapComponent {
      * * Fixed(4) = R2 fixity
      * * Fixed(5) = R3 fixity
      * The term Fixed(n) applies only when DOF(n) = True.
-     * @param nonLinear This is a boolean array, dimensioned to 5, indicating if nonlinear properties exist for a specified degree of freedom.
+     * @param nonLinear This is a boolean array, dimensioned to 6, indicating if nonlinear properties exist for a specified degree of freedom.
      * * NonLinear(0) = U1 has nonlinear properties
      * * NonLinear(1) = U2 has nonlinear properties
      * * NonLinear(2) = U3 has nonlinear properties
@@ -699,14 +697,14 @@ interface PropLinkV14 : SapComponent {
     /**
      * This function retrieves link property data for a rubber isolator-type link property.
      * @param name The name of an existing rubber isolator-type link property.
-     * @param DOF This is a boolean array, dimensioned to 5, indicating if properties exist for a specified degree of freedom.
+     * @param DOF This is a boolean array, dimensioned to 6, indicating if properties exist for a specified degree of freedom.
      * * DOF(0) = U1
      * * DOF(1) = U2
      * * DOF(2) = U3
      * * DOF(3) = R1
      * * DOF(4) = R2
      * * DOF(5) = R3
-     * @param fixed This is a boolean array, dimensioned to 5, indicating if the specified degree of freedom is fixed (restrained).
+     * @param fixed This is a boolean array, dimensioned to 6, indicating if the specified degree of freedom is fixed (restrained).
      * * Fixed(0) = U1 fixity
      * * Fixed(1) = U2 fixity
      * * Fixed(2) = U3 fixity
@@ -714,7 +712,7 @@ interface PropLinkV14 : SapComponent {
      * * Fixed(4) = R2 fixity
      * * Fixed(5) = R3 fixity
      * The term Fixed(n) applies only when DOF(n) = True.
-     * @param nonLinear This is a boolean array, dimensioned to 5, indicating if nonlinear properties exist for a specified degree of freedom.
+     * @param nonLinear This is a boolean array, dimensioned to 6, indicating if nonlinear properties exist for a specified degree of freedom.
      * * NonLinear(0) = U1, Not Used
      * * NonLinear(1) = U2 has nonlinear properties
      * * NonLinear(2) = U3 has nonlinear properties
@@ -784,14 +782,14 @@ interface PropLinkV14 : SapComponent {
     /**
      * This function retrieves link property data for a T/C friction isolator-type link property.
      * @param name The name of an existing T/C friction isolator-type link property.
-     * @param DOF This is a boolean array, dimensioned to 5, indicating if properties exist for a specified degree of freedom.
+     * @param DOF This is a boolean array, dimensioned to 6, indicating if properties exist for a specified degree of freedom.
      * * DOF(0) = U1
      * * DOF(1) = U2
      * * DOF(2) = U3
      * * DOF(3) = R1
      * * DOF(4) = R2
      * * DOF(5) = R3
-     * @param fixed This is a boolean array, dimensioned to 5, indicating if the specified degree of freedom is fixed (restrained).
+     * @param fixed This is a boolean array, dimensioned to 6, indicating if the specified degree of freedom is fixed (restrained).
      * * Fixed(0) = U1 fixity
      * * Fixed(1) = U2 fixity
      * * Fixed(2) = U3 fixity
@@ -799,7 +797,7 @@ interface PropLinkV14 : SapComponent {
      * * Fixed(4) = R2 fixity
      * * Fixed(5) = R3 fixity
      * The term Fixed(n) applies only when DOF(n) = True.
-     * @param nonLinear This is a boolean array, dimensioned to 5, indicating if nonlinear properties exist for a specified degree of freedom.
+     * @param nonLinear This is a boolean array, dimensioned to 6, indicating if nonlinear properties exist for a specified degree of freedom.
      * * NonLinear(0) = U1 has nonlinear properties
      * * NonLinear(1) = U2 has nonlinear properties
      * * NonLinear(2) = U3 has nonlinear properties
@@ -935,14 +933,14 @@ interface PropLinkV14 : SapComponent {
     /**
      * This function initializes a damper-type link property. If this function is called for an existing link property, all items for the property are reset to their default values.
      * @param name The name of an existing or new link property. If this is an existing property, that property is modified; otherwise, a new property is added.
-     * @param DOF This is a boolean array, dimensioned to 5, indicating if properties exist for a specified degree of freedom.
+     * @param DOF This is a boolean array, dimensioned to 6, indicating if properties exist for a specified degree of freedom.
      * * DOF(0) = U1
      * * DOF(1) = U2
      * * DOF(2) = U3
      * * DOF(3) = R1
      * * DOF(4) = R2
      * * DOF(5) = R3
-     * @param fixed This is a boolean array, dimensioned to 5, indicating if the specified degree of freedom is fixed (restrained).
+     * @param fixed This is a boolean array, dimensioned to 6, indicating if the specified degree of freedom is fixed (restrained).
      * * Fixed(0) = U1 fixity
      * * Fixed(1) = U2 fixity
      * * Fixed(2) = U3 fixity
@@ -950,7 +948,7 @@ interface PropLinkV14 : SapComponent {
      * * Fixed(4) = R2 fixity
      * * Fixed(5) = R3 fixity
      * The term Fixed(n) applies only when DOF(n) = True.
-     * @param nonLinear This is a boolean array, dimensioned to 5, indicating if nonlinear properties exist for a specified degree of freedom.
+     * @param nonLinear This is a boolean array, dimensioned to 6, indicating if nonlinear properties exist for a specified degree of freedom.
      * * NonLinear(0) = U1 has nonlinear properties
      * * NonLinear(1) = U2 has nonlinear properties
      * * NonLinear(2) = U3 has nonlinear properties
@@ -1010,14 +1008,14 @@ interface PropLinkV14 : SapComponent {
     /**
      * This function initializes a friction isolator-type link property. If this function is called for an existing link property, all items for the property are reset to their default value.
      * @param name The name of an existing or new link property. If this is an existing property, that property is modified; otherwise, a new property is added.
-     * @param DOF This is a boolean array, dimensioned to 5, indicating if properties exist for a specified degree of freedom.
+     * @param DOF This is a boolean array, dimensioned to 6, indicating if properties exist for a specified degree of freedom.
      * * DOF(0) = U1
      * * DOF(1) = U2
      * * DOF(2) = U3
      * * DOF(3) = R1
      * * DOF(4) = R2
      * * DOF(5) = R3
-     * @param fixed This is a boolean array, dimensioned to 5, indicating if the specified degree of freedom is fixed (restrained).
+     * @param fixed This is a boolean array, dimensioned to 6, indicating if the specified degree of freedom is fixed (restrained).
      * * Fixed(0) = U1 fixity
      * * Fixed(1) = U2 fixity
      * * Fixed(2) = U3 fixity
@@ -1025,7 +1023,7 @@ interface PropLinkV14 : SapComponent {
      * * Fixed(4) = R2 fixity
      * * Fixed(5) = R3 fixity
      * The term Fixed(n) applies only when DOF(n) = True.
-     * @param nonLinear This is a boolean array, dimensioned to 5, indicating if nonlinear properties exist for a specified degree of freedom.
+     * @param nonLinear This is a boolean array, dimensioned to 6, indicating if nonlinear properties exist for a specified degree of freedom.
      * * NonLinear(0) = U1 has nonlinear properties
      * * NonLinear(1) = U2 has nonlinear properties
      * * NonLinear(2) = U3 has nonlinear properties
@@ -1102,14 +1100,14 @@ interface PropLinkV14 : SapComponent {
     /**
      * This function initializes a gap-type link property. If this function is called for an existing link property, all items for the property are reset to their default value.
      * @param name The name of an existing or new link property. If this is an existing property then that property is modified; otherwise, a new property is added.
-     * @param DOF This is a boolean array, dimensioned to 5, indicating if properties exist for a specified degree of freedom.
+     * @param DOF This is a boolean array, dimensioned to 6, indicating if properties exist for a specified degree of freedom.
      * * DOF(0) = U1
      * * DOF(1) = U2
      * * DOF(2) = U3
      * * DOF(3) = R1
      * * DOF(4) = R2
      * * DOF(5) = R3
-     * @param fixed This is a boolean array, dimensioned to 5, indicating if the specified degree of freedom is fixed (restrained).
+     * @param fixed This is a boolean array, dimensioned to 6, indicating if the specified degree of freedom is fixed (restrained).
      * * Fixed(0) = U1 fixity
      * * Fixed(1) = U2 fixity
      * * Fixed(2) = U3 fixity
@@ -1117,7 +1115,7 @@ interface PropLinkV14 : SapComponent {
      * * Fixed(4) = R2 fixity
      * * Fixed(5) = R3 fixity
      * The term Fixed(n) applies only when DOF(n) = True.
-     * @param nonLinear This is a boolean array, dimensioned to 5, indicating if nonlinear properties exist for a specified degree of freedom.
+     * @param nonLinear This is a boolean array, dimensioned to 6, indicating if nonlinear properties exist for a specified degree of freedom.
      * * NonLinear(0) = U1 has nonlinear properties
      * * NonLinear(1) = U2 has nonlinear properties
      * * NonLinear(2) = U3 has nonlinear properties
@@ -1169,14 +1167,14 @@ interface PropLinkV14 : SapComponent {
     /**
      * This function initializes a hook-type link property. If this function is called for an existing link property, all items for the property are reset to their default value.
      * @param name The name of an existing or new link property. If this is an existing property then that property is modified; otherwise, a new property is added.
-     * @param DOF This is a boolean array, dimensioned to 5, indicating if properties exist for a specified degree of freedom.
+     * @param DOF This is a boolean array, dimensioned to 6, indicating if properties exist for a specified degree of freedom.
      * * DOF(0) = U1
      * * DOF(1) = U2
      * * DOF(2) = U3
      * * DOF(3) = R1
      * * DOF(4) = R2
      * * DOF(5) = R3
-     * @param fixed This is a boolean array, dimensioned to 5, indicating if the specified degree of freedom is fixed (restrained).
+     * @param fixed This is a boolean array, dimensioned to 6, indicating if the specified degree of freedom is fixed (restrained).
      * * Fixed(0) = U1 fixity
      * * Fixed(1) = U2 fixity
      * * Fixed(2) = U3 fixity
@@ -1184,7 +1182,7 @@ interface PropLinkV14 : SapComponent {
      * * Fixed(4) = R2 fixity
      * * Fixed(5) = R3 fixity
      * The term Fixed(n) applies only when DOF(n) = True.
-     * @param nonLinear This is a boolean array, dimensioned to 5, indicating if nonlinear properties exist for a specified degree of freedom.
+     * @param nonLinear This is a boolean array, dimensioned to 6, indicating if nonlinear properties exist for a specified degree of freedom.
      * * NonLinear(0) = U1 has nonlinear properties
      * * NonLinear(1) = U2 has nonlinear properties
      * * NonLinear(2) = U3 has nonlinear properties
@@ -1236,14 +1234,14 @@ interface PropLinkV14 : SapComponent {
     /**
      * This function initializes a linear-type link property. If this function is called for an existing link property, all items for the property are reset to their default value.
      * @param name The name of an existing or new link property. If this is an existing property, that property is modified; otherwise, a new property is added.
-     * @param DOF This is a boolean array, dimensioned to 5, indicating if properties exist for a specified degree of freedom.
+     * @param DOF This is a boolean array, dimensioned to 6, indicating if properties exist for a specified degree of freedom.
      * * DOF(0) = U1
      * * DOF(1) = U2
      * * DOF(2) = U3
      * * DOF(3) = R1
      * * DOF(4) = R2
      * * DOF(5) = R3
-     * @param fixed This is a boolean array, dimensioned to 5, indicating if the specified degree of freedom is fixed (restrained).
+     * @param fixed This is a boolean array, dimensioned to 6, indicating if the specified degree of freedom is fixed (restrained).
      * * Fixed(0) = U1 fixity if DOF(0) = True
      * * Fixed(1) = U2 fixity if DOF(1) = True
      * * Fixed(2) = U3 fixity if DOF(2) = True
@@ -1324,14 +1322,14 @@ interface PropLinkV14 : SapComponent {
     /**
      * This function initializes a multilinear elastic-type link property. If this function is called for an existing link property, all items for the property are reset to their default value.
      * @param name The name of an existing or new link property. If this is an existing property then. that property is modified; otherwise, a new property is added.
-     * @param DOF This is a boolean array, dimensioned to 5, indicating if properties exist for a specified degree of freedom.
+     * @param DOF This is a boolean array, dimensioned to 6, indicating if properties exist for a specified degree of freedom.
      * * DOF(0) = U1
      * * DOF(1) = U2
      * * DOF(2) = U3
      * * DOF(3) = R1
      * * DOF(4) = R2
      * * DOF(5) = R3
-     * @param fixed This is a boolean array, dimensioned to 5, indicating if the specified degree of freedom is fixed (restrained).
+     * @param fixed This is a boolean array, dimensioned to 6, indicating if the specified degree of freedom is fixed (restrained).
      * * Fixed(0) = U1 fixity
      * * Fixed(1) = U2 fixity
      * * Fixed(2) = U3 fixity
@@ -1339,7 +1337,7 @@ interface PropLinkV14 : SapComponent {
      * * Fixed(4) = R2 fixity
      * * Fixed(5) = R3 fixity
      * The term Fixed(n) applies only when DOF(n) = True.
-     * @param nonLinear This is a boolean array, dimensioned to 5, indicating if nonlinear properties exist for a specified degree of freedom.
+     * @param nonLinear This is a boolean array, dimensioned to 6, indicating if nonlinear properties exist for a specified degree of freedom.
      * * NonLinear(0) = U1 has nonlinear properties
      * * NonLinear(1) = U2 has nonlinear properties
      * * NonLinear(2) = U3 has nonlinear properties
@@ -1375,14 +1373,14 @@ interface PropLinkV14 : SapComponent {
     /**
      * This function initializes a multilinear plastic-type link property. If this function is called for an existing link property, all items for the property are reset to their default values.
      * @param name The name of an existing or new link property. If this is an existing property, that property is modified; otherwise, a new property is added.
-     * @param DOF This is a boolean array, dimensioned to 5, indicating if properties exist for a specified degree of freedom.
+     * @param DOF This is a boolean array, dimensioned to 6, indicating if properties exist for a specified degree of freedom.
      * * DOF(0) = U1
      * * DOF(1) = U2
      * * DOF(2) = U3
      * * DOF(3) = R1
      * * DOF(4) = R2
      * * DOF(5) = R3
-     * @param fixed This is a boolean array, dimensioned to 5, indicating if the specified degree of freedom is fixed (restrained).
+     * @param fixed This is a boolean array, dimensioned to 6, indicating if the specified degree of freedom is fixed (restrained).
      * * Fixed(0) = U1 fixity
      * * Fixed(1) = U2 fixity
      * * Fixed(2) = U3 fixity
@@ -1390,7 +1388,7 @@ interface PropLinkV14 : SapComponent {
      * * Fixed(4) = R2 fixity
      * * Fixed(5) = R3 fixity
      * The term Fixed(n) applies only when DOF(n) = True.
-     * @param nonLinear This is a boolean array, dimensioned to 5, indicating if nonlinear properties exist for a specified degree of freedom.
+     * @param nonLinear This is a boolean array, dimensioned to 6, indicating if nonlinear properties exist for a specified degree of freedom.
      * * NonLinear(0) = U1 has nonlinear properties
      * * NonLinear(1) = U2 has nonlinear properties
      * * NonLinear(2) = U3 has nonlinear properties
@@ -1439,8 +1437,8 @@ interface PropLinkV14 : SapComponent {
      * * 5 = R2
      * * 6 = R3
      * @param numberPoints The number of foce-defomation points for the specified degree of freedom.
-     * @param f This is an array, dimensioned to NumberPoints - 1, that includes the force at each point. When DOF is U1, U2 or U3, this is a force. When DOF is R1, R2 or R3. this is a moment. (F) if DOF <= 3, and (FL) if DOF > 3
-     * @param d This is an array, dimensioned to NumberPoints - 1, that includes the displacement at each point. When DOF is U1, U2 or U3, this is a translation. When DOF is R1, R2 or R3, this is a rotation. (L) if DOF <= 3, and (rad) if DOF > 3
+     * @param f This is an array, dimensioned to NumberPoints, that includes the force at each point. When DOF is U1, U2 or U3, this is a force. When DOF is R1, R2 or R3. this is a moment. (F) if DOF <= 3, and (FL) if DOF > 3
+     * @param d This is an array, dimensioned to NumberPoints, that includes the displacement at each point. When DOF is U1, U2 or U3, this is a translation. When DOF is R1, R2 or R3, this is a rotation. (L) if DOF <= 3, and (rad) if DOF > 3
      * @param myType This item applies only to multilinear plastic link properties. It is 1, 2 or 3, indicating the hysteresis type.
      * * 1 = Kinematic
      * * 2 = Takeda
@@ -1471,14 +1469,14 @@ interface PropLinkV14 : SapComponent {
     /**
      * This function initializes a plastic Wen-type link property. If this function is called for an existing link property, all items for the property are reset to their default values.
      * @param name The name of an existing or new link property. If this is an existing property, that property is modified; otherwise, a new property is added.
-     * @param DOF This is a boolean array, dimensioned to 5, indicating if properties exist for a specified degree of freedom.
+     * @param DOF This is a boolean array, dimensioned to 6, indicating if properties exist for a specified degree of freedom.
      * * DOF(0) = U1
      * * DOF(1) = U2
      * * DOF(2) = U3
      * * DOF(3) = R1
      * * DOF(4) = R2
      * * DOF(5) = R3
-     * @param fixed This is a boolean array, dimensioned to 5, indicating if the specified degree of freedom is fixed (restrained).
+     * @param fixed This is a boolean array, dimensioned to 6, indicating if the specified degree of freedom is fixed (restrained).
      * * Fixed(0) = U1 fixity
      * * Fixed(1) = U2 fixity
      * * Fixed(2) = U3 fixity
@@ -1486,7 +1484,7 @@ interface PropLinkV14 : SapComponent {
      * * Fixed(4) = R2 fixity
      * * Fixed(5) = R3 fixity
      * The term Fixed(n) applies only when DOF(n) = True.
-     * @param nonLinear This is a boolean array, dimensioned to 5, indicating if nonlinear properties exist for a specified degree of freedom.
+     * @param nonLinear This is a boolean array, dimensioned to 6, indicating if nonlinear properties exist for a specified degree of freedom.
      * * NonLinear(0) = U1 has nonlinear properties
      * * NonLinear(1) = U2 has nonlinear properties
      * * NonLinear(2) = U3 has nonlinear properties
@@ -1554,14 +1552,14 @@ interface PropLinkV14 : SapComponent {
     /**
      * This function initializes a rubber isolator-type link property. If this function is called for an existing link property, all items for the property are reset to their default value.
      * @param name The name of an existing or new link property. If this is an existing property, that property is modified; otherwise, a new property is added.
-     * @param DOF This is a boolean array, dimensioned to 5, indicating if properties exist for a specified degree of freedom.
+     * @param DOF This is a boolean array, dimensioned to 6, indicating if properties exist for a specified degree of freedom.
      * * DOF(0) = U1
      * * DOF(1) = U2
      * * DOF(2) = U3
      * * DOF(3) = R1
      * * DOF(4) = R2
      * * DOF(5) = R3
-     * @param fixed This is a boolean array, dimensioned to 5, indicating if the specified degree of freedom is fixed (restrained).
+     * @param fixed This is a boolean array, dimensioned to 6, indicating if the specified degree of freedom is fixed (restrained).
      * * Fixed(0) = U1 fixity
      * * Fixed(1) = U2 fixity
      * * Fixed(2) = U3 fixity
@@ -1569,7 +1567,7 @@ interface PropLinkV14 : SapComponent {
      * * Fixed(4) = R2 fixity
      * * Fixed(5) = R3 fixity
      * The term Fixed(n) applies only when DOF(n) = True.
-     * @param nonLinear This is a boolean array, dimensioned to 5, indicating if nonlinear properties exist for a specified degree of freedom.
+     * @param nonLinear This is a boolean array, dimensioned to 6, indicating if nonlinear properties exist for a specified degree of freedom.
      * * NonLinear(0) = U1, Not Used
      * * NonLinear(1) = U2 has nonlinear properties
      * * NonLinear(2) = U3 has nonlinear properties
@@ -1639,14 +1637,14 @@ interface PropLinkV14 : SapComponent {
     /**
      * This function initializes a T/C friction isolator-type link property. If this function is called for an existing link property, all items for the property are reset to their default value.
      * @param name The name of an existing or new link property. If this is an existing property, that property is modified; otherwise, a new property is added.
-     * @param DOF This is a boolean array, dimensioned to 5, indicating if properties exist for a specified degree of freedom.
+     * @param DOF This is a boolean array, dimensioned to 6, indicating if properties exist for a specified degree of freedom.
      * * DOF(0) = U1
      * * DOF(1) = U2
      * * DOF(2) = U3
      * * DOF(3) = R1
      * * DOF(4) = R2
      * * DOF(5) = R3
-     * @param fixed This is a boolean array, dimensioned to 5, indicating if the specified degree of freedom is fixed (restrained).
+     * @param fixed This is a boolean array, dimensioned to 6, indicating if the specified degree of freedom is fixed (restrained).
      * * Fixed(0) = U1 fixity
      * * Fixed(1) = U2 fixity
      * * Fixed(2) = U3 fixity
@@ -1654,7 +1652,7 @@ interface PropLinkV14 : SapComponent {
      * * Fixed(4) = R2 fixity
      * * Fixed(5) = R3 fixity
      * The term Fixed(n) applies only when DOF(n) = True.
-     * @param nonLinear This is a boolean array, dimensioned to 5, indicating if nonlinear properties exist for a specified degree of freedom.
+     * @param nonLinear This is a boolean array, dimensioned to 6, indicating if nonlinear properties exist for a specified degree of freedom.
      * * NonLinear(0) = U1 has nonlinear properties
      * * NonLinear(1) = U2 has nonlinear properties
      * * NonLinear(2) = U3 has nonlinear properties

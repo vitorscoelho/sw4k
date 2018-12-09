@@ -59,8 +59,7 @@ interface FuncV14 : SapComponent {
     /**
      * This function retrieves the names of all defined functions of the specified type.
      * @param numberNames The number of function names retrieved by the program.
-     * @param myName This is a one-dimensional array of function names. The MyName array is created as a dynamic, zero-based array by the API user:
-     * The array is dimensioned to (NumberNames - 1) inside the SAP2000 program, filled with the names, and returned to the API user.
+     * @param myName This is a one-dimensional array of function names.
      * @param funcType This is one of the following numbers, indicating the type of function for which the name list is desired.
      * * 0 = All function types
      * * 1 = Response spectrum

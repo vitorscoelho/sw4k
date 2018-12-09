@@ -439,13 +439,13 @@ interface PropFrameV14 : SapComponent {
      * @param name The name of an existing precast concrete I girder frame section property.
      * @param fileName If the section property was imported from a property file, this is the name of that file. If the section property was not imported, this item is blank.
      * @param matProp The name of the material property for the section.
-     * @param b This is an array, dimensioned to 3, containing the horizontal section dimensions. (L)
+     * @param b This is an array, dimensioned to 4, containing the horizontal section dimensions. (L)
      * * b(0) = B1 (> 0)
      * * b(1) = B2 (> 0)
      * * b(2) = B3 (> 0)
      * * b(3) = B4 (>= 0)
      * Section dimensions B1 through B4 are defined on the precast concrete I girder definition form.
-     * @param d This is an array, dimensioned to 5, containing the vertical section dimensions. (L)
+     * @param d This is an array, dimensioned to 6, containing the vertical section dimensions. (L)
      * * d(0) = D1 (> 0)
      * * d(1) = D2 (> 0)
      * * d(2) = D3 (>= 0)
@@ -466,7 +466,7 @@ interface PropFrameV14 : SapComponent {
      * @param name The name of an existing precast concrete U girder frame section property.
      * @param fileName If the section property was imported from a property file, this is the name of that file. If the section property was not imported, this item is blank.
      * @param matProp The name of the material property for the section.
-     * @param b This is an array, dimensioned to 5, containing the horizontal section dimensions. (L)
+     * @param b This is an array, dimensioned to 6, containing the horizontal section dimensions. (L)
      * * b(0) = B1 (> 0)
      * * b(1) = B2 (> 0)
      * * b(2) = B3 (> 0)
@@ -474,7 +474,7 @@ interface PropFrameV14 : SapComponent {
      * * b(4) = B5 (>= 0)
      * * b(5) = B6 (>= 0)
      * Section dimensions B1 through B6 are defined on the precast concrete U girder definition form.
-     * @param d This is an array, dimensioned to 6, containing the vertical section dimensions. (L)
+     * @param d This is an array, dimensioned to 7, containing the vertical section dimensions. (L)
      * * d(0) = D1 (> 0)
      * * d(1) = D2 (> 0)
      * * d(2) = D3 (>= 0)
@@ -1077,13 +1077,13 @@ interface PropFrameV14 : SapComponent {
      * This function initializes a precast concrete I girder frame section property. If this function is called for an existing frame section property, all items for the section are reset to their default value.
      * @param name The name of an existing or new frame section property. If this is an existing property, that property is modified; otherwise, a new property is added.
      * @param matProp The name of the material property for the section.
-     * @param b This is an array, dimensioned to 3, containing the horizontal section dimensions. (L)
+     * @param b This is an array, dimensioned to 4, containing the horizontal section dimensions. (L)
      * * b(0) = B1 (> 0)
      * * b(1) = B2 (> 0)
      * * b(2) = B3 (> 0)
      * * b(3) = B4 (>= 0)
      * Section dimensions B1 through B4 are defined on the precast concrete I girder definition form.
-     * @param d This is an array, dimensioned to 5, containing the vertical section dimensions. (L)
+     * @param d This is an array, dimensioned to 6, containing the vertical section dimensions. (L)
      * * d(0) = D1 (> 0)
      * * d(1) = D2 (> 0)
      * * d(2) = D3 (>= 0)
@@ -1103,7 +1103,7 @@ interface PropFrameV14 : SapComponent {
      * This function initializes a precast concrete U girder frame section property. If this function is called for an existing frame section property, all items for the section are reset to their default value.
      * @param name The name of an existing or new frame section property. If this is an existing property, that property is modified; otherwise, a new property is added.
      * @param matProp The name of the material property for the section.
-     * @param b This is an array, dimensioned to 5, containing the horizontal section dimensions. (L)
+     * @param b This is an array, dimensioned to 6, containing the horizontal section dimensions. (L)
      * * b(0) = B1 (> 0)
      * * b(1) = B2 (> 0)
      * * b(2) = B3 (> 0)
@@ -1111,7 +1111,7 @@ interface PropFrameV14 : SapComponent {
      * * b(4) = B5 (>= 0)
      * * b(5) = B6 (>= 0)
      * Section dimensions B1 through B6 are defined on the precast concrete U girder definition form.
-     * @param d This is an array, dimensioned to 6, containing the vertical section dimensions. (L)
+     * @param d This is an array, dimensioned to 7, containing the vertical section dimensions. (L)
      * * d(0) = D1 (> 0)
      * * d(1) = D2 (> 0)
      * * d(2) = D3 (>= 0)

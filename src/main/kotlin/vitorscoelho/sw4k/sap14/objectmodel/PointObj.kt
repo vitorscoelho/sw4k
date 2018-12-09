@@ -424,7 +424,7 @@ interface PointObjV14 : SapComponent {
      * * 2 = Two joints
      * * 3 = User vector
      * @param axCSys, PlCSys The coordinate system used to define the axis/plane reference vector coordinate directions and the axis/plane user vector. This item applies when the Active item is True and the AxVectOpt/PlVectOpt item is 1 or 3.
-     * @param axDir, PlDir This is an array dimensioned to 1 (2 integers), indicating the axis/plane reference vector primary and secondary coordinate directions, PlDir(0) and PlDir(1) respectively, taken at the object center in the specified coordinate system and used to determine the plane reference vector. This item applies when the Active item is True and the AxVectOpt/PlVectOpt item is 1. Possible coordinate direction values are:
+     * @param axDir, PlDir This is an array dimensioned to 2 (2 integers), indicating the axis/plane reference vector primary and secondary coordinate directions, PlDir(0) and PlDir(1) respectively, taken at the object center in the specified coordinate system and used to determine the plane reference vector. This item applies when the Active item is True and the AxVectOpt/PlVectOpt item is 1. Possible coordinate direction values are:
      * * 1 = +X -1 = -X
      * * 2 = +Y -2 = -Y
      * * 3 = +Z -3 = -Z
@@ -434,8 +434,8 @@ interface PointObjV14 : SapComponent {
      * * 7 = +SR -7 = -SR
      * * 8 = +SA -8 = -SA
      * * 9 = +SB -9 = -SB
-     * @param axPt, PlPt This is an array dimensioned to 1 (2 strings), indicating the labels of two joints that define the axis/plane reference vector. Either of these joints may be specified as None to indicate the center of the specified object. If both joints are specified as None, they are not used to define the plane reference vector. This item applies when the Active item is True and the AxVectOpt/PlVectOpt item is 2.
-     * @param axVect, PlVect This is an array dimensioned to 2 (3 doubles) that defines the axis/plane reference vector. This item applies when the Active item is True and the AxVectOpt/PlVectOpt item is 3.
+     * @param axPt, PlPt This is an array dimensioned to 2 (2 strings), indicating the labels of two joints that define the axis/plane reference vector. Either of these joints may be specified as None to indicate the center of the specified object. If both joints are specified as None, they are not used to define the plane reference vector. This item applies when the Active item is True and the AxVectOpt/PlVectOpt item is 2.
+     * @param axVect, PlVect This is an array dimensioned to 3 (3 doubles) that defines the axis/plane reference vector. This item applies when the Active item is True and the AxVectOpt/PlVectOpt item is 3.
      * @param plane2 This is 12, 13, 21, 23, 31 or 32, indicating that the local plane determined by the plane reference vector is the 1-2, 1-3, 2-1, 2-3, 3-1, or 3-2 plane. This item applies only when the Active item is True.
      * @return zero if the advanced local axes assignments are assigned successfully; otherwise it returns a nonzero value.
      */
@@ -729,7 +729,7 @@ interface PointObjV14 : SapComponent {
      * * 2 = Two joints
      * * 3 = User vector
      * @param axCSys, PlCSys The coordinate system used to define the axis/plane reference vector coordinate directions and the axis/plane user vector. This item applies when the Active item is True and the AxVectOpt/PlVectOpt item is 1 or 3.
-     * @param axDir, PlDir This is an array dimensioned to 1 (2 integers), indicating the axis/plane reference vector primary and secondary coordinate directions, PlDir(0) and PlDir(1) respectively, taken at the object center in the specified coordinate system and used to determine the plane reference vector. This item applies when the Active item is True and the AxVectOpt/PlVectOpt item is 1. Possible coordinate direction values are:
+     * @param axDir, PlDir This is an array dimensioned to 2 (2 integers), indicating the axis/plane reference vector primary and secondary coordinate directions, PlDir(0) and PlDir(1) respectively, taken at the object center in the specified coordinate system and used to determine the plane reference vector. This item applies when the Active item is True and the AxVectOpt/PlVectOpt item is 1. Possible coordinate direction values are:
      * * 1 = +X -1 = -X
      * * 2 = +Y -2 = -Y
      * * 3 = +Z -3 = -Z
@@ -739,8 +739,8 @@ interface PointObjV14 : SapComponent {
      * * 7 = +SR -7 = -SR
      * * 8 = +SA -8 = -SA
      * * 9 = +SB -9 = -SB
-     * @param axPt, PlPt This is an array dimensioned to 1 (2 strings), indicating the labels of two joints that define the axis/plane reference vector. Either of these joints may be specified as None to indicate the center of the specified object. If both joints are specified as None, they are not used to define the plane reference vector. This item applies when the Active item is True and the AxVectOpt/PlVectOpt item is 2.
-     * @param axVect, PlVect This is an array dimensioned to 2 (3 doubles) that defines the axis/plane reference vector. This item applies when the Active item is True and the AxVectOpt/PlVectOpt item is 3.
+     * @param axPt, PlPt This is an array dimensioned to 2 (2 strings), indicating the labels of two joints that define the axis/plane reference vector. Either of these joints may be specified as None to indicate the center of the specified object. If both joints are specified as None, they are not used to define the plane reference vector. This item applies when the Active item is True and the AxVectOpt/PlVectOpt item is 2.
+     * @param axVect, PlVect This is an array dimensioned to 3 (3 doubles) that defines the axis/plane reference vector. This item applies when the Active item is True and the AxVectOpt/PlVectOpt item is 3.
      * @param plane2 This is 12, 13, 21, 23, 31 or 32, indicating that the local plane determined by the plane reference vector is the 1-2, 1-3, 2-1, 2-3, 3-1, 0r 3-2 plane. This item applies only when the Active item is True.
      * @param itemType This is one of the following items in the [ItemType] enumeration:
      * * Object = 0
