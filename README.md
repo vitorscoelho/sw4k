@@ -1,6 +1,8 @@
 # sw4k
 It is a simple wrapper of SAP2000 functions for Kotlin/Java.
 
+Only SAP2000 v14, for a while.
+
 Example:
 ```kotlin
 fun main() {
