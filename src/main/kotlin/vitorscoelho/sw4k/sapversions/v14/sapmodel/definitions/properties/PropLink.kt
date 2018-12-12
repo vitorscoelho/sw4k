@@ -1,7 +1,7 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.definitions.properties
 
 import vitorscoelho.sw4k.comutils.*
-import vitorscoelho.sw4k.sap.enums.LinkPropType
+import vitorscoelho.sw4k.sapenums.LinkPropType
 
 interface PropLinkV14 : SapComponent {
     /**

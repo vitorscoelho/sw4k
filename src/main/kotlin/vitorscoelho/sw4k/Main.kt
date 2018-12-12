@@ -3,7 +3,7 @@ package vitorscoelho.sw4k
 import vitorscoelho.sw4k.comutils.*
 import vitorscoelho.sw4k.comutils.dlls.LoaderJacobDll
 import vitorscoelho.sw4k.sap.SapObject
-import vitorscoelho.sw4k.sap.enums.*
+import vitorscoelho.sw4k.sapenums.*
 
 fun main() {
     LoaderJacobDll.load() //this is mandatory before anything

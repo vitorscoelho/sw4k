@@ -1,12 +1,12 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.analysismodel
 
 import vitorscoelho.sw4k.comutils.*
-import vitorscoelho.sw4k.sap.enums.ItemTypeElm
-import vitorscoelho.sw4k.sap.enums.AreaTemperatureLoadType
-import vitorscoelho.sw4k.sap.enums.Dir
-import vitorscoelho.sw4k.sap.enums.JointOffsetType
-import vitorscoelho.sw4k.sap.enums.ThicknessType
-import vitorscoelho.sw4k.sap.enums.AreaDOF
+import vitorscoelho.sw4k.sapenums.ItemTypeElm
+import vitorscoelho.sw4k.sapenums.AreaTemperatureLoadType
+import vitorscoelho.sw4k.sapenums.Dir
+import vitorscoelho.sw4k.sapenums.JointOffsetType
+import vitorscoelho.sw4k.sapenums.ThicknessType
+import vitorscoelho.sw4k.sapenums.AreaDOF
 
 interface AreaElmV14 : SapComponent {
     /**

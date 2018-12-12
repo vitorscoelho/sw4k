@@ -1,9 +1,13 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.design
 
 import vitorscoelho.sw4k.comutils.*
-import vitorscoelho.sw4k.sap.enums.ItemType
+import vitorscoelho.sw4k.sapenums.ItemType
+import vitorscoelho.sw4k.sapversions.v14.sapmodel.design.coldformed.*
 
 interface DesignColdFormedV14 : SapComponent {
+    val AISI_ASD96: AISI_ASD96V14
+    val AISI_LRFD96: AISI_LRFD96V14
+
     /**
      * This function deletes all cold formed frame design results.
      * @return zero if the results are successfully deleted; otherwise it returns a nonzero value.

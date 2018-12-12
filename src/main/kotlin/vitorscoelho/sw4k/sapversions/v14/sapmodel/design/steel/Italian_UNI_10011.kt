@@ -1,7 +1,7 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.design.steel
 
 import vitorscoelho.sw4k.comutils.*
-import vitorscoelho.sw4k.sap.enums.ItemType
+import vitorscoelho.sw4k.sapenums.ItemType
 
 interface Italian_UNI_10011V14 : SapComponent {
     /**

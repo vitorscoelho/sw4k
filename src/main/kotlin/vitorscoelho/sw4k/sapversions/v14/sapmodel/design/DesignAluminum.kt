@@ -1,9 +1,14 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.design
 
 import vitorscoelho.sw4k.comutils.*
-import vitorscoelho.sw4k.sap.enums.ItemType
+import vitorscoelho.sw4k.sapenums.ItemType
+import vitorscoelho.sw4k.sapversions.v14.sapmodel.design.aluminum.AA_ASD_2000V14
+import vitorscoelho.sw4k.sapversions.v14.sapmodel.design.aluminum.AA_LRFD_2000V14
 
 interface DesignAluminumV14 : SapComponent {
+    val AA_ASD_2000: AA_ASD_2000V14
+    val AA_LRFD_2000: AA_LRFD_2000V14
+
     /**
      * This function deletes all aluminum frame design results.
      * @return zero if the results are successfully deleted; otherwise it returns a nonzero value.

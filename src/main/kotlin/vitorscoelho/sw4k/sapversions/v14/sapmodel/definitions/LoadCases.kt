@@ -3,8 +3,8 @@ package vitorscoelho.sw4k.sapversions.v14.sapmodel.definitions
 import vitorscoelho.sw4k.comutils.IntByRef
 import vitorscoelho.sw4k.comutils.SapComponent
 import vitorscoelho.sw4k.comutils.StringArrayByRef
-import vitorscoelho.sw4k.sap.enums.LoadPatternType
-import vitorscoelho.sw4k.sap.enums.LoadCaseType
+import vitorscoelho.sw4k.sapenums.LoadPatternType
+import vitorscoelho.sw4k.sapenums.LoadCaseType
 import vitorscoelho.sw4k.sapversions.v14.sapmodel.definitions.loadcases.*
 
 interface LoadCasesV14 : SapComponent {

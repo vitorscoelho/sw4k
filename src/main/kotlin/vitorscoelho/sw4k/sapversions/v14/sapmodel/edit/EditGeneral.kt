@@ -4,10 +4,10 @@ import vitorscoelho.sw4k.comutils.IntArrayByRef
 import vitorscoelho.sw4k.comutils.IntByRef
 import vitorscoelho.sw4k.comutils.SapComponent
 import vitorscoelho.sw4k.comutils.StringArrayByRef
-import vitorscoelho.sw4k.sap.enums.Axis
-import vitorscoelho.sw4k.sap.enums.ObjectType
-import vitorscoelho.sw4k.sap.enums.MirrorPlaneType
-import vitorscoelho.sw4k.sap.enums.RotationAxis
+import vitorscoelho.sw4k.sapenums.Axis
+import vitorscoelho.sw4k.sapenums.ObjectType
+import vitorscoelho.sw4k.sapenums.MirrorPlaneType
+import vitorscoelho.sw4k.sapenums.RotationAxis
 
 interface EditGeneralV14 : SapComponent {
     /**

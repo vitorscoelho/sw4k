@@ -1,9 +1,30 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.design
 
 import vitorscoelho.sw4k.comutils.*
-import vitorscoelho.sw4k.sap.enums.ItemType
+import vitorscoelho.sw4k.sapenums.ItemType
+import vitorscoelho.sw4k.sapversions.v14.sapmodel.design.concrete.*
 
 interface DesignConcreteV14 : SapComponent {
+    val ACI_318_02: ACI_318_02V14
+    val ACI_318_05_IBC_2003: ACI_318_05_IBC_2003V14
+    val ACI_318_99: ACI_318_99V14
+    val Australian_AS_3600_01: Australian_AS_3600_01V14
+    val BS8110_89: BS8110_89V14
+    val BS8110_97: BS8110_97V14
+    val Chinese: ChineseV14
+    val CSA_A23304: CSA_A23304V14
+    val CSA_A23394: CSA_A23394V14
+    val Eurocode_2_1992: Eurocode_2_1992V14
+    val Eurocode_2_2004: Eurocode_2_2004V14
+    val Hong_Kong_CP_2004: Hong_Kong_CP_2004V14
+    val Indian_IS_456_2000: Indian_IS_456_2000V14
+    val Italian_Dm_14_292: Italian_Dm_14_292V14
+    val KCI_1999: KCI_1999V14
+    val Mexican_RCDF_2001: Mexican_RCDF_2001V14
+    val NZS_3101_95: NZS_3101_95V14
+    val Singapore_CP_6599: Singapore_CP_6599V14
+    val UBC_97: UBC_97V14
+
     /**
      * This function deletes all concrete frame design results.
      * None

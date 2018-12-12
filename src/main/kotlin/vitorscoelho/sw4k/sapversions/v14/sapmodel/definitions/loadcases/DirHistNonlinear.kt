@@ -1,10 +1,10 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.definitions.loadcases
 
 import vitorscoelho.sw4k.comutils.*
-import vitorscoelho.sw4k.sap.enums.ProportionalModalDampingType
-import vitorscoelho.sw4k.sap.enums.TimeIntegrationType
-import vitorscoelho.sw4k.sap.enums.NLGeomType
-import vitorscoelho.sw4k.sap.enums.LoadType
+import vitorscoelho.sw4k.sapenums.ProportionalModalDampingType
+import vitorscoelho.sw4k.sapenums.TimeIntegrationType
+import vitorscoelho.sw4k.sapenums.NLGeomType
+import vitorscoelho.sw4k.sapenums.LoadType
 
 interface DirHistNonlinearV14 : SapComponent {
     /**

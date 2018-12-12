@@ -1,7 +1,7 @@
 package vitorscoelho.sw4k.sapversions.v14
 
 import vitorscoelho.sw4k.comutils.SapComponent
-import vitorscoelho.sw4k.sap.enums.Units
+import vitorscoelho.sw4k.sapenums.Units
 
 interface SapObjectV14 : SapComponent {
     val sapModel: SapModelV14

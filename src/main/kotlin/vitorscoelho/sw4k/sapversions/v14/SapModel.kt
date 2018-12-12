@@ -1,12 +1,16 @@
 package vitorscoelho.sw4k.sapversions.v14
 
 import vitorscoelho.sw4k.comutils.*
-import vitorscoelho.sw4k.sap.enums.Units
+import vitorscoelho.sw4k.sapenums.Units
 import vitorscoelho.sw4k.sapversions.v14.sapmodel.*
 import vitorscoelho.sw4k.sapversions.v14.sapmodel.analysismodel.*
 import vitorscoelho.sw4k.sapversions.v14.sapmodel.analysisresults.ResultsV14
 import vitorscoelho.sw4k.sapversions.v14.sapmodel.definitions.*
 import vitorscoelho.sw4k.sapversions.v14.sapmodel.definitions.properties.*
+import vitorscoelho.sw4k.sapversions.v14.sapmodel.design.DesignAluminumV14
+import vitorscoelho.sw4k.sapversions.v14.sapmodel.design.DesignColdFormedV14
+import vitorscoelho.sw4k.sapversions.v14.sapmodel.design.DesignConcreteV14
+import vitorscoelho.sw4k.sapversions.v14.sapmodel.design.DesignSteelV14
 import vitorscoelho.sw4k.sapversions.v14.sapmodel.edit.*
 import vitorscoelho.sw4k.sapversions.v14.sapmodel.objectmodel.*
 
@@ -50,6 +54,10 @@ interface SapModelV14 : SapComponent {
     val tendonObj: TendonObjV14
     val analyze: AnalyzeV14
     val results: ResultsV14
+    val designSteel:DesignSteelV14
+    val designConcrete:DesignConcreteV14
+    val designAluminum:DesignAluminumV14
+    val designColdFormed: DesignColdFormedV14
     val select: SelectV14
     val options: OptionsV14
     val view: ViewV14

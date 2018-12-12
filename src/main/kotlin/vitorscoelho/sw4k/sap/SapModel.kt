@@ -7,6 +7,10 @@ import vitorscoelho.sw4k.sap.sapmodel.definitions.properties.*
 import vitorscoelho.sw4k.sap.sapmodel.edit.*
 import vitorscoelho.sw4k.sap.sapmodel.objectmodel.*
 import vitorscoelho.sw4k.sap.sapmodel.*
+import vitorscoelho.sw4k.sap.sapmodel.design.DesignAluminum
+import vitorscoelho.sw4k.sap.sapmodel.design.DesignColdFormed
+import vitorscoelho.sw4k.sap.sapmodel.design.DesignConcrete
+import vitorscoelho.sw4k.sap.sapmodel.design.DesignSteel
 import vitorscoelho.sw4k.sapversions.v14.SapModelV14
 
 class SapModel internal constructor(programName: String) : SapModelV14 {
@@ -50,6 +54,10 @@ class SapModel internal constructor(programName: String) : SapModelV14 {
     override val tendonObj = TendonObj(programName)
     override val analyze = Analyze(programName)
     override val results = Results(programName)
+    override val designSteel = DesignSteel(programName)
+    override val designConcrete = DesignConcrete(programName)
+    override val designAluminum = DesignAluminum(programName)
+    override val designColdFormed = DesignColdFormed(programName)
     override val select = Select(programName)
     override val options = Options(programName)
     override val view = View(programName)

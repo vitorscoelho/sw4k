@@ -1,7 +1,7 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.analysisresults
 
 import vitorscoelho.sw4k.comutils.*
-import vitorscoelho.sw4k.sap.enums.ItemTypeElm
+import vitorscoelho.sw4k.sapenums.ItemTypeElm
 
 interface ResultsV14 : SapComponent {
     val setup: SetupV14

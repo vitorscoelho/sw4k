@@ -1,9 +1,9 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.definitions.loadcases
 
 import vitorscoelho.sw4k.comutils.*
-import vitorscoelho.sw4k.sap.enums.FrequencyUnits
-import vitorscoelho.sw4k.sap.enums.HystereticDampingType
-import vitorscoelho.sw4k.sap.enums.LoadType
+import vitorscoelho.sw4k.sapenums.FrequencyUnits
+import vitorscoelho.sw4k.sapenums.HystereticDampingType
+import vitorscoelho.sw4k.sapenums.LoadType
 
 interface PSDV14 : SapComponent {
     /**

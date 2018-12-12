@@ -3,7 +3,7 @@ package vitorscoelho.sw4k.sapversions.v14.sapmodel.edit
 import vitorscoelho.sw4k.comutils.IntByRef
 import vitorscoelho.sw4k.comutils.SapComponent
 import vitorscoelho.sw4k.comutils.StringArrayByRef
-import vitorscoelho.sw4k.sap.enums.EditPointAlignment
+import vitorscoelho.sw4k.sapenums.EditPointAlignment
 
 interface EditPointV14 : SapComponent {
     /**
