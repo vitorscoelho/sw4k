@@ -1,12 +1,12 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.definitions.loadcases
 
 import vitorscoelho.sw4k.comutils.*
-import vitorscoelho.sw4k.sap.sapmodel.enums.LoadType
-import vitorscoelho.sw4k.sap.sapmodel.enums.NLGeomType
-import vitorscoelho.sw4k.sap.sapmodel.enums.HingeUnloadType
-import vitorscoelho.sw4k.sap.sapmodel.enums.LoadControlMethod
-import vitorscoelho.sw4k.sap.sapmodel.enums.ControlDisplacementType
-import vitorscoelho.sw4k.sap.sapmodel.enums.MonitoredDisplacementType
+import vitorscoelho.sw4k.sap.enums.LoadType
+import vitorscoelho.sw4k.sap.enums.NLGeomType
+import vitorscoelho.sw4k.sap.enums.HingeUnloadType
+import vitorscoelho.sw4k.sap.enums.LoadControlMethod
+import vitorscoelho.sw4k.sap.enums.ControlDisplacementType
+import vitorscoelho.sw4k.sap.enums.MonitoredDisplacementType
 
 interface StaticNonlinearV14 : SapComponent {
     /**

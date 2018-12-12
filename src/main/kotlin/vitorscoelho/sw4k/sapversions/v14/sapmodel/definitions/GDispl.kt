@@ -4,7 +4,7 @@ import vitorscoelho.sw4k.comutils.DoubleArrayByRef
 import vitorscoelho.sw4k.comutils.IntByRef
 import vitorscoelho.sw4k.comutils.SapComponent
 import vitorscoelho.sw4k.comutils.StringArrayByRef
-import vitorscoelho.sw4k.sap.sapmodel.enums.GeneralizedDisplacementType
+import vitorscoelho.sw4k.sap.enums.GeneralizedDisplacementType
 
 interface GDisplV14 : SapComponent {
     /**

@@ -1,14 +1,14 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.definitions.properties
 
 import vitorscoelho.sw4k.comutils.*
-import vitorscoelho.sw4k.sap.sapmodel.enums.MatType
-import vitorscoelho.sw4k.sap.sapmodel.enums.MatTypeAluminum
-import vitorscoelho.sw4k.sap.sapmodel.enums.MatTypeColdFormed
-import vitorscoelho.sw4k.sap.sapmodel.enums.MatTypeConcrete
-import vitorscoelho.sw4k.sap.sapmodel.enums.MatTypeRebar
-import vitorscoelho.sw4k.sap.sapmodel.enums.MatTypeSteel
-import vitorscoelho.sw4k.sap.sapmodel.enums.MatTypeTendon
-import vitorscoelho.sw4k.sap.sapmodel.enums.WeightOrMass
+import vitorscoelho.sw4k.sap.enums.MatType
+import vitorscoelho.sw4k.sap.enums.MatTypeAluminum
+import vitorscoelho.sw4k.sap.enums.MatTypeColdFormed
+import vitorscoelho.sw4k.sap.enums.MatTypeConcrete
+import vitorscoelho.sw4k.sap.enums.MatTypeRebar
+import vitorscoelho.sw4k.sap.enums.MatTypeSteel
+import vitorscoelho.sw4k.sap.enums.MatTypeTendon
+import vitorscoelho.sw4k.sap.enums.WeightOrMass
 import vitorscoelho.sw4k.sapversions.v14.sapmodel.definitions.properties.propmaterial.TimeDepV14
 
 interface PropMaterialV14 : SapComponent {

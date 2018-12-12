@@ -1,10 +1,10 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.analysismodel
 
 import vitorscoelho.sw4k.comutils.*
-import vitorscoelho.sw4k.sap.sapmodel.enums.ItemTypeElm
-import vitorscoelho.sw4k.sap.sapmodel.enums.PlaneDOF
-import vitorscoelho.sw4k.sap.sapmodel.enums.AreaTemperatureLoadType
-import vitorscoelho.sw4k.sap.sapmodel.enums.Dir
+import vitorscoelho.sw4k.sap.enums.ItemTypeElm
+import vitorscoelho.sw4k.sap.enums.PlaneDOF
+import vitorscoelho.sw4k.sap.enums.AreaTemperatureLoadType
+import vitorscoelho.sw4k.sap.enums.Dir
 
 interface PlaneElmV14 : SapComponent {
     /**

@@ -1,7 +1,7 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.definitions.loadcases
 
 import vitorscoelho.sw4k.comutils.*
-import vitorscoelho.sw4k.sap.sapmodel.enums.LoadType
+import vitorscoelho.sw4k.sap.enums.LoadType
 
 interface StaticLinearMultistepV14 : SapComponent {
     /**

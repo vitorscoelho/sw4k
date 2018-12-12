@@ -1,7 +1,7 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.design.steel
 
 import vitorscoelho.sw4k.comutils.*
-import vitorscoelho.sw4k.sap.sapmodel.enums.ItemType
+import vitorscoelho.sw4k.sap.enums.ItemType
 
 interface Eurocode_3_1993V14 : SapComponent {
 /**

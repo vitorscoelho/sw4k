@@ -3,8 +3,8 @@ package vitorscoelho.sw4k.sapversions.v14.sapmodel.edit
 import vitorscoelho.sw4k.comutils.IntByRef
 import vitorscoelho.sw4k.comutils.SapComponent
 import vitorscoelho.sw4k.comutils.StringArrayByRef
-import vitorscoelho.sw4k.sap.sapmodel.enums.MeshType
-import vitorscoelho.sw4k.sap.sapmodel.enums.EditAreaOffsetType
+import vitorscoelho.sw4k.sap.enums.MeshType
+import vitorscoelho.sw4k.sap.enums.EditAreaOffsetType
 
 interface EditAreaV14 : SapComponent {
     /**

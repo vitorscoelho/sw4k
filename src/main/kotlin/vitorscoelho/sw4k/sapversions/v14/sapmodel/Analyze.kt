@@ -1,8 +1,8 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel
 
 import vitorscoelho.sw4k.comutils.*
-import vitorscoelho.sw4k.sap.sapmodel.enums.SolverType
-import vitorscoelho.sw4k.sap.sapmodel.enums.LoadCaseStatus
+import vitorscoelho.sw4k.sap.enums.SolverType
+import vitorscoelho.sw4k.sap.enums.LoadCaseStatus
 
 interface AnalyzeV14 : SapComponent {
     /**

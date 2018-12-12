@@ -1,8 +1,8 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.definitions.loadcases
 
 import vitorscoelho.sw4k.comutils.*
-import vitorscoelho.sw4k.sap.sapmodel.enums.ProportionalModalDampingType
-import vitorscoelho.sw4k.sap.sapmodel.enums.TimeIntegrationType
+import vitorscoelho.sw4k.sap.enums.ProportionalModalDampingType
+import vitorscoelho.sw4k.sap.enums.TimeIntegrationType
 
 interface DirHistLinearV14 : SapComponent {
     /**

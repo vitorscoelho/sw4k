@@ -1,8 +1,8 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.definitions
 
 import vitorscoelho.sw4k.comutils.*
-import vitorscoelho.sw4k.sap.sapmodel.enums.ConstraintType
-import vitorscoelho.sw4k.sap.sapmodel.enums.ConstraintAxis
+import vitorscoelho.sw4k.sap.enums.ConstraintType
+import vitorscoelho.sw4k.sap.enums.ConstraintAxis
 
 interface ConstraintDefV14 : SapComponent {
     /**

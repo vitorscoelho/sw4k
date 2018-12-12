@@ -1,8 +1,8 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.definitions
 
 import vitorscoelho.sw4k.comutils.*
-import vitorscoelho.sw4k.sap.sapmodel.enums.CType
-import vitorscoelho.sw4k.sap.sapmodel.enums.ComboType
+import vitorscoelho.sw4k.sap.enums.CType
+import vitorscoelho.sw4k.sap.enums.ComboType
 
 interface RespComboV14 : SapComponent {
     /**

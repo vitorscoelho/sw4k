@@ -1,7 +1,7 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.design.concrete
 
 import vitorscoelho.sw4k.comutils.*
-import vitorscoelho.sw4k.sap.sapmodel.enums.ItemType
+import vitorscoelho.sw4k.sap.enums.ItemType
 
 interface Hong_Kong_CP_2004V14 : SapComponent {
     /**

@@ -1,7 +1,7 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.definitions
 
 import vitorscoelho.sw4k.comutils.*
-import vitorscoelho.sw4k.sap.sapmodel.enums.ObjectType
+import vitorscoelho.sw4k.sap.enums.ObjectType
 
 interface GroupDefV14 : SapComponent {
     /**

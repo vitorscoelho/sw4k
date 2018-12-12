@@ -1,9 +1,9 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.definitions.properties
 
 import vitorscoelho.sw4k.comutils.*
-import vitorscoelho.sw4k.sap.sapmodel.enums.LengthType
-import vitorscoelho.sw4k.sap.sapmodel.enums.VariationSegmentType
-import vitorscoelho.sw4k.sap.sapmodel.enums.FramePropType
+import vitorscoelho.sw4k.sap.enums.LengthType
+import vitorscoelho.sw4k.sap.enums.VariationSegmentType
+import vitorscoelho.sw4k.sap.enums.FramePropType
 import vitorscoelho.sw4k.sapversions.v14.sapmodel.definitions.properties.propframe.SDShapeV14
 
 interface PropFrameV14 : SapComponent {

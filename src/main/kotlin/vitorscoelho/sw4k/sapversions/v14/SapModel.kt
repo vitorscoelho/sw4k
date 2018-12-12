@@ -1,7 +1,7 @@
 package vitorscoelho.sw4k.sapversions.v14
 
 import vitorscoelho.sw4k.comutils.*
-import vitorscoelho.sw4k.sap.sapmodel.enums.Units
+import vitorscoelho.sw4k.sap.enums.Units
 import vitorscoelho.sw4k.sapversions.v14.sapmodel.*
 import vitorscoelho.sw4k.sapversions.v14.sapmodel.analysismodel.*
 import vitorscoelho.sw4k.sapversions.v14.sapmodel.analysisresults.ResultsV14

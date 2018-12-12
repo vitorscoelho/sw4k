@@ -1,9 +1,9 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.objectmodel
 
 import vitorscoelho.sw4k.comutils.*
-import vitorscoelho.sw4k.sap.sapmodel.enums.ItemType
-import vitorscoelho.sw4k.sap.sapmodel.enums.Dir
-import vitorscoelho.sw4k.sap.sapmodel.enums.DistributedLoadType
+import vitorscoelho.sw4k.sap.enums.ItemType
+import vitorscoelho.sw4k.sap.enums.Dir
+import vitorscoelho.sw4k.sap.enums.DistributedLoadType
 
 interface FrameObjV14 : SapComponent {
     /**

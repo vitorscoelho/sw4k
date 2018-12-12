@@ -1,14 +1,14 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.analysismodel
 
 import vitorscoelho.sw4k.comutils.*
-import vitorscoelho.sw4k.sap.sapmodel.enums.ItemTypeElm
-import vitorscoelho.sw4k.sap.sapmodel.enums.DistributedLoadType
-import vitorscoelho.sw4k.sap.sapmodel.enums.Dir
-import vitorscoelho.sw4k.sap.sapmodel.enums.PointLoadType
-import vitorscoelho.sw4k.sap.sapmodel.enums.LineDOF
-import vitorscoelho.sw4k.sap.sapmodel.enums.LineTemperatureLoadType
-import vitorscoelho.sw4k.sap.sapmodel.enums.LineType
-import vitorscoelho.sw4k.sap.sapmodel.enums.PDeltaDirection
+import vitorscoelho.sw4k.sap.enums.ItemTypeElm
+import vitorscoelho.sw4k.sap.enums.DistributedLoadType
+import vitorscoelho.sw4k.sap.enums.Dir
+import vitorscoelho.sw4k.sap.enums.PointLoadType
+import vitorscoelho.sw4k.sap.enums.LineDOF
+import vitorscoelho.sw4k.sap.enums.LineTemperatureLoadType
+import vitorscoelho.sw4k.sap.enums.LineType
+import vitorscoelho.sw4k.sap.enums.PDeltaDirection
 
 interface LineElmV14 : SapComponent {
     /**

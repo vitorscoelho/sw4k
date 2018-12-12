@@ -1,9 +1,9 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.definitions.loadcases
 
 import vitorscoelho.sw4k.comutils.*
-import vitorscoelho.sw4k.sap.sapmodel.enums.NLGeomType
-import vitorscoelho.sw4k.sap.sapmodel.enums.HingeUnloadType
-import vitorscoelho.sw4k.sap.sapmodel.enums.StagedSaveType
+import vitorscoelho.sw4k.sap.enums.NLGeomType
+import vitorscoelho.sw4k.sap.enums.HingeUnloadType
+import vitorscoelho.sw4k.sap.enums.StagedSaveType
 
 interface StaticNonlinearStagedV14 : SapComponent {
     /**

@@ -1,8 +1,8 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.analysismodel
 
 import vitorscoelho.sw4k.comutils.*
-import vitorscoelho.sw4k.sap.sapmodel.enums.ItemTypeElm
-import vitorscoelho.sw4k.sap.sapmodel.enums.SolidDOF
+import vitorscoelho.sw4k.sap.enums.ItemTypeElm
+import vitorscoelho.sw4k.sap.enums.SolidDOF
 
 interface SolidElmV14 : SapComponent {
     /**

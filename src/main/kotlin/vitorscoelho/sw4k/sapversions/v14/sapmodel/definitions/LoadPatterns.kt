@@ -1,7 +1,7 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.definitions
 
 import vitorscoelho.sw4k.comutils.*
-import vitorscoelho.sw4k.sap.sapmodel.enums.LoadPatternType
+import vitorscoelho.sw4k.sap.enums.LoadPatternType
 import vitorscoelho.sw4k.sapversions.v14.sapmodel.definitions.loadpatterns.AutoSeismicV14
 import vitorscoelho.sw4k.sapversions.v14.sapmodel.definitions.loadpatterns.AutoWindV14
 

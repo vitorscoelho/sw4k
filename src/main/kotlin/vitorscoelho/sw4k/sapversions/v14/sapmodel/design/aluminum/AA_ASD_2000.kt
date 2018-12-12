@@ -1,7 +1,7 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.design.aluminum
 
 import vitorscoelho.sw4k.comutils.*
-import vitorscoelho.sw4k.sap.sapmodel.enums.ItemType
+import vitorscoelho.sw4k.sap.enums.ItemType
 
 interface AA_ASD_2000V14 : SapComponent {
 /**

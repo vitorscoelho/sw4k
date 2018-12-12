@@ -1,8 +1,8 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel
 
 import vitorscoelho.sw4k.comutils.SapComponent
-import vitorscoelho.sw4k.sap.sapmodel.enums.E2DFrameType
-import vitorscoelho.sw4k.sap.sapmodel.enums.E3DFrameType
+import vitorscoelho.sw4k.sap.enums.E2DFrameType
+import vitorscoelho.sw4k.sap.enums.E3DFrameType
 
 interface FileV14 : SapComponent {
     /**
