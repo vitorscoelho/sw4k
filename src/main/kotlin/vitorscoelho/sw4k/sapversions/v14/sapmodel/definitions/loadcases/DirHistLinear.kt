@@ -24,7 +24,7 @@ interface DirHistLinearV14 : SapComponent {
      * This item applies only when DampType = 2 or 3.
      * @return zero if the option is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getDampProportional(name: String, dampType: IntByRef, dampa: DoubleByRef, dampb: DoubleByRef, dampf1: DoubleByRef, dampf2: DoubleByRef, dampd1: DoubleByRef, dampd2: DoubleByRef): Int =
+    fun getDampProportional(name: String, dampType: AIntByRef, dampa: ADoubleByRef, dampb: ADoubleByRef, dampf1: ADoubleByRef, dampf2: ADoubleByRef, dampd1: ADoubleByRef, dampd2: ADoubleByRef): Int =
             callFunctionInt("GetDampProportional", name, dampType, dampa, dampb, dampf1, dampf2, dampd1, dampd2)
 
     /**
@@ -34,7 +34,7 @@ interface DirHistLinearV14 : SapComponent {
      * If the specified initial case is a nonlinear static or nonlinear direct integration time history load case, the stiffness at the end of that case is used. If the initial case is anything else, zero initial conditions are assumed.
      * @return zero if the initial condition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getInitialCase(name: String, initialCase: StringByRef): Int =
+    fun getInitialCase(name: String, initialCase: AStringByRef): Int =
             callFunctionInt("GetInitialCase", name, initialCase)
 
     /**
@@ -55,7 +55,7 @@ interface DirHistLinearV14 : SapComponent {
      * This item applies only when the LoadType item is Accel.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoads(name: String, numberLoads: IntByRef, loadType: StringArrayByRef, loadName: StringArrayByRef, func: StringArrayByRef, sF: DoubleArrayByRef, tF: DoubleArrayByRef, aT: DoubleArrayByRef, cSys: StringArrayByRef, ang: DoubleArrayByRef): Int =
+    fun getLoads(name: String, numberLoads: AIntByRef, loadType: AStringArrayByRef, loadName: AStringArrayByRef, func: AStringArrayByRef, sF: ADoubleArrayByRef, tF: ADoubleArrayByRef, aT: ADoubleArrayByRef, cSys: AStringArrayByRef, ang: ADoubleArrayByRef): Int =
             callFunctionInt("GetLoads", name, numberLoads, loadType, loadName, func, sF, tF, aT, cSys, ang)
 
     /**
@@ -79,7 +79,7 @@ interface DirHistLinearV14 : SapComponent {
      * This item only applies when IntegrationType = 5.
      * @return zero if the option is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getTimeIntegration(name: String, integrationType: IntByRef, alpha: DoubleByRef, beta: DoubleByRef, gamma: DoubleByRef, theta: DoubleByRef, m: DoubleByRef): Int =
+    fun getTimeIntegration(name: String, integrationType: AIntByRef, alpha: ADoubleByRef, beta: ADoubleByRef, gamma: ADoubleByRef, theta: ADoubleByRef, m: ADoubleByRef): Int =
             callFunctionInt("GetTimeIntegration", name, integrationType, alpha, beta, gamma, theta, m)
 
     /**
@@ -89,7 +89,7 @@ interface DirHistLinearV14 : SapComponent {
      * @param DT The output time step size.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getTimeStep(name: String, nstep: IntByRef, DT: DoubleByRef): Int =
+    fun getTimeStep(name: String, nstep: AIntByRef, DT: ADoubleByRef): Int =
             callFunctionInt("GetTimeStep", name, nstep, DT)
 
     /**
@@ -150,7 +150,7 @@ interface DirHistLinearV14 : SapComponent {
      * This item applies only when the LoadType item is Accel.
      * @return zero if the data is successfully set; otherwise it returns a nonzero value.
      */
-    fun setLoads(name: String, numberLoads: Int, loadType: StringArrayByRef, loadName: StringArrayByRef, func: StringArrayByRef, sF: DoubleArrayByRef, tF: DoubleArrayByRef, aT: DoubleArrayByRef, cSys: StringArrayByRef, ang: DoubleArrayByRef): Int =
+    fun setLoads(name: String, numberLoads: Int, loadType: AStringArrayByRef, loadName: AStringArrayByRef, func: AStringArrayByRef, sF: ADoubleArrayByRef, tF: ADoubleArrayByRef, aT: ADoubleArrayByRef, cSys: AStringArrayByRef, ang: ADoubleArrayByRef): Int =
             callFunctionInt("SetLoads", name, numberLoads, loadType, loadName, func, sF, tF, aT, cSys, ang)
 
     /**

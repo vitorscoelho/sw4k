@@ -18,7 +18,7 @@ interface StaticNonlinearV14 : SapComponent {
      * * 2 = P-delta plus large displacements
      * @return zero if the option is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getGeometricNonlinearity(name: String, nLGeomType: IntByRef): Int =
+    fun getGeometricNonlinearity(name: String, nLGeomType: AIntByRef): Int =
             callFunctionInt("GetGeometricNonlinearity", name, nLGeomType)
 
     /**
@@ -30,7 +30,7 @@ interface StaticNonlinearV14 : SapComponent {
      * * 3 = Restart using secant stiffness
      * @return zero if the option is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getHingeUnloading(name: String, unloadType: IntByRef): Int =
+    fun getHingeUnloading(name: String, unloadType: AIntByRef): Int =
             callFunctionInt("GetHingeUnloading", name, unloadType)
 
     /**
@@ -40,7 +40,7 @@ interface StaticNonlinearV14 : SapComponent {
      * If the specified initial case is a nonlinear static or nonlinear direct integration time history load case, the state at the end of that case is used. If the initial case is anything else, zero initial conditions are assumed.
      * @return zero if the initial condition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getInitialCase(name: String, initialCase: StringByRef): Int =
+    fun getInitialCase(name: String, initialCase: AStringByRef): Int =
             callFunctionInt("GetInitialCase", name, initialCase)
 
     /**
@@ -69,7 +69,7 @@ interface StaticNonlinearV14 : SapComponent {
      * @param gDispl The name of the generalized displacement for which the displacement is monitored. This item applies only when Monitor = 2.
      * @return zero if the parameters are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadApplication(name: String, loadControl: IntByRef, dispType: IntByRef, displ: DoubleByRef, monitor: IntByRef, DOF: IntByRef, pointName: StringByRef, gDispl: StringByRef): Int =
+    fun getLoadApplication(name: String, loadControl: AIntByRef, dispType: AIntByRef, displ: ADoubleByRef, monitor: AIntByRef, DOF: AIntByRef, pointName: AStringByRef, gDispl: AStringByRef): Int =
             callFunctionInt("GetLoadApplication", name, loadControl, dispType, displ, monitor, DOF, pointName, gDispl)
 
     /**
@@ -83,7 +83,7 @@ interface StaticNonlinearV14 : SapComponent {
      * @param sF This is an array that includes the scale factor of each load assigned to the load case. (L/s2) for Accel UX UY and UZ; otherwise unitless
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoads(name: String, numberLoads: IntByRef, loadType: StringArrayByRef, loadName: StringArrayByRef, sF: DoubleArrayByRef): Int =
+    fun getLoads(name: String, numberLoads: AIntByRef, loadType: AStringArrayByRef, loadName: AStringArrayByRef, sF: ADoubleArrayByRef): Int =
             callFunctionInt("GetLoads", name, numberLoads, loadType, loadName, sF)
 
     /**
@@ -92,7 +92,7 @@ interface StaticNonlinearV14 : SapComponent {
      * @param modalCase This is either None or the name of an existing modal analysis case. It specifies the modal load case on which any mode-type load assignments to the specified load case are based.
      * @return zero if the modal case is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getModalCase(name: String, modalCase: StringByRef): Int =
+    fun getModalCase(name: String, modalCase: AStringByRef): Int =
             callFunctionInt("GetModalCase", name, modalCase)
 
     /**
@@ -104,7 +104,7 @@ interface StaticNonlinearV14 : SapComponent {
      * @param positiveOnly If this item is True, only positive displacement increments are saved. If it is False, all displacement increments are saved.
      * @return zero if the parameters are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getResultsSaved(name: String, saveMultipleSteps: BooleanByRef, minSavedStates: IntByRef, maxSavedStates: IntByRef, positiveOnly: BooleanByRef): Int =
+    fun getResultsSaved(name: String, saveMultipleSteps: ABooleanByRef, minSavedStates: AIntByRef, maxSavedStates: AIntByRef, positiveOnly: ABooleanByRef): Int =
             callFunctionInt("GetResultsSaved", name, saveMultipleSteps, minSavedStates, maxSavedStates, positiveOnly)
 
     /**
@@ -122,7 +122,7 @@ interface StaticNonlinearV14 : SapComponent {
      * @param lineSearchStepFact The line-search step factor.
      * @return zero if the parameters are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getSolControlParameters(name: String, maxTotalSteps: IntByRef, maxFailedSubSteps: IntByRef, maxIterCS: IntByRef, maxIterNR: IntByRef, tolConvD: DoubleByRef, useEventStepping: BooleanByRef, tolEventD: DoubleByRef, maxLineSearchPerIter: IntByRef, tolLineSearch: DoubleByRef, lineSearchStepFact: DoubleByRef): Int =
+    fun getSolControlParameters(name: String, maxTotalSteps: AIntByRef, maxFailedSubSteps: AIntByRef, maxIterCS: AIntByRef, maxIterNR: AIntByRef, tolConvD: ADoubleByRef, useEventStepping: ABooleanByRef, tolEventD: ADoubleByRef, maxLineSearchPerIter: AIntByRef, tolLineSearch: ADoubleByRef, lineSearchStepFact: ADoubleByRef): Int =
             callFunctionInt("GetSolControlParameters", name, maxTotalSteps, maxFailedSubSteps, maxIterCS, maxIterNR, tolConvD, useEventStepping, tolEventD, maxLineSearchPerIter, tolLineSearch, lineSearchStepFact)
 
     /**
@@ -134,7 +134,7 @@ interface StaticNonlinearV14 : SapComponent {
      * @param noStop If this item is True, the analysis is continued when there is no convergence in the target force iteration.
      * @return zero if the parameters are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getTargetForceParameters(name: String, tolConvF: DoubleByRef, maxIter: IntByRef, accelFact: DoubleByRef, noStop: BooleanByRef): Int =
+    fun getTargetForceParameters(name: String, tolConvF: ADoubleByRef, maxIter: AIntByRef, accelFact: ADoubleByRef, noStop: ABooleanByRef): Int =
             callFunctionInt("GetTargetForceParameters", name, tolConvF, maxIter, accelFact, noStop)
 
     /**
@@ -219,7 +219,7 @@ interface StaticNonlinearV14 : SapComponent {
      * @param sF This is an array that includes the scale factor of each load assigned to the load case. (L/s2) for Accel UX UY and UZ; otherwise unitless
      * @return zero if the data is successfully set; otherwise it returns a nonzero value.
      */
-    fun setLoads(name: String, numberLoads: Int, loadType: StringArrayByRef, loadName: StringArrayByRef, sF: DoubleArrayByRef): Int =
+    fun setLoads(name: String, numberLoads: Int, loadType: AStringArrayByRef, loadName: AStringArrayByRef, sF: ADoubleArrayByRef): Int =
             callFunctionInt("SetLoads", name, numberLoads, loadType, loadName, sF)
 
     /**

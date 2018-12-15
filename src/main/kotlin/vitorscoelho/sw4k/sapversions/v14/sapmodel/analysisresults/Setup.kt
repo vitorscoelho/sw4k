@@ -16,7 +16,7 @@ interface SetupV14 : SapComponent {
      * @param selected This item is True if the specified load case is selected for output.
      * @return 0 if the selected flag is successfully retrieved, otherwise it returns nonzero.
      */
-    fun getCaseSelectedForOutput(name: String, selected: BooleanByRef): Int =
+    fun getCaseSelectedForOutput(name: String, selected: ABooleanByRef): Int =
             callFunctionInt("GetCaseSelectedForOutput", name, selected)
 
     /**
@@ -25,7 +25,7 @@ interface SetupV14 : SapComponent {
      * @param selected This item is True if the specified load combination is selected for output.
      * @return 0 if the selected flag is successfully retrieved, otherwise it returns nonzero.
      */
-    fun getComboSelectedForOutput(name: String, selected: BooleanByRef): Int =
+    fun getComboSelectedForOutput(name: String, selected: ABooleanByRef): Int =
             callFunctionInt("GetComboSelectedForOutput", name, selected)
 
     /**
@@ -33,7 +33,7 @@ interface SetupV14 : SapComponent {
      * @param gx, gy, gz The global coordinates of the location at which the base reactions are reported.
      * @return 0 if the coordinates are successfully retrieved, otherwise it returns nonzero.
      */
-    fun getOptionBaseReactLoc(gx: DoubleByRef, gy: DoubleByRef, gz: DoubleByRef): Int =
+    fun getOptionBaseReactLoc(gx: ADoubleByRef, gy: ADoubleByRef, gz: ADoubleByRef): Int =
             callFunctionInt("GetOptionBaseReactLoc", gx, gy, gz)
 
     /**
@@ -43,7 +43,7 @@ interface SetupV14 : SapComponent {
      * @param buckModeAll If this item is True, buckling factors are reported for all calculated buckling modes. If it is False, buckling factors are reported for the buckling modes indicated by the BuckModeStart and BuckModeEnd items.
      * @return 0 if the modes are successfully retrieved, otherwise it returns nonzero.
      */
-    fun getOptionBucklingMode(buckModeStart: IntByRef, buckModeEnd: IntByRef, buckModeAll: BooleanByRef): Int =
+    fun getOptionBucklingMode(buckModeStart: AIntByRef, buckModeEnd: AIntByRef, buckModeAll: ABooleanByRef): Int =
             callFunctionInt("GetOptionBucklingMode", buckModeStart, buckModeEnd, buckModeAll)
 
     /**
@@ -54,7 +54,7 @@ interface SetupV14 : SapComponent {
      * * 3 = Last Step
      * @return 0 if the output option is successfully retrieved, otherwise it returns nonzero.
      */
-    fun getOptionDirectHist(value: IntByRef): Int =
+    fun getOptionDirectHist(value: AIntByRef): Int =
             callFunctionInt("GetOptionDirectHist", value)
 
     /**
@@ -65,7 +65,7 @@ interface SetupV14 : SapComponent {
      * * 3 = Last Step
      * @return 0 if the output option is successfully retrieved, otherwise it returns nonzero.
      */
-    fun getOptionModalHist(value: IntByRef): Int =
+    fun getOptionModalHist(value: AIntByRef): Int =
             callFunctionInt("GetOptionModalHist", value)
 
     /**
@@ -75,7 +75,7 @@ interface SetupV14 : SapComponent {
      * @param modeShapesAll If this item is True, results are reported for all calculated modes. If it is False, results are reported for the modes indicated by the ModeShapeStart and ModeShapeEnd items.
      * @return 0 if the modes are successfully retrieved, otherwise it returns nonzero.
      */
-    fun getOptionModeShape(modeShapeStart: IntByRef, modeShapeEnd: IntByRef, modeShapesAll: BooleanByRef): Int =
+    fun getOptionModeShape(modeShapeStart: AIntByRef, modeShapeEnd: AIntByRef, modeShapesAll: ABooleanByRef): Int =
             callFunctionInt("GetOptionModeShape", modeShapeStart, modeShapeEnd, modeShapesAll)
 
     /**
@@ -86,7 +86,7 @@ interface SetupV14 : SapComponent {
      * * 3 = Last Step
      * @return 0 if the output option is successfully retrieved, otherwise it returns nonzero.
      */
-    fun getOptionMultiStepStatic(value: IntByRef): Int =
+    fun getOptionMultiStepStatic(value: AIntByRef): Int =
             callFunctionInt("GetOptionMultiStepStatic", value)
 
     /**
@@ -96,7 +96,7 @@ interface SetupV14 : SapComponent {
      * * 2 = Multiple values, if possible
      * @return 0 if the output option is successfully retrieved, otherwise it returns nonzero.
      */
-    fun getOptionMultiValuedCombo(value: IntByRef): Int =
+    fun getOptionMultiValuedCombo(value: AIntByRef): Int =
             callFunctionInt("GetOptionMultiValuedCombo", value)
 
     /**
@@ -107,7 +107,7 @@ interface SetupV14 : SapComponent {
      * * 3 = Last Step
      * @return 0 if the output option is successfully retrieved, otherwise it returns nonzero.
      */
-    fun getOptionNLStatic(value: IntByRef): Int =
+    fun getOptionNLStatic(value: AIntByRef): Int =
             callFunctionInt("GetOptionNLStatic", value)
 
     /**
@@ -117,7 +117,7 @@ interface SetupV14 : SapComponent {
      * * 2 = sqrt(PSD)
      * @return 0 if the output option is successfully retrieved, otherwise it returns nonzero.
      */
-    fun getOptionPSD(value: IntByRef): Int =
+    fun getOptionPSD(value: AIntByRef): Int =
             callFunctionInt("GetOptionPSD", value)
 
     /**
@@ -131,7 +131,7 @@ interface SetupV14 : SapComponent {
      * * 3 = All
      * @return 0 if the output option is successfully retrieved, otherwise it returns nonzero.
      */
-    fun getOptionSteadyState(value: IntByRef, steadyStateOption: IntByRef): Int =
+    fun getOptionSteadyState(value: AIntByRef, steadyStateOption: AIntByRef): Int =
             callFunctionInt("GetOptionSteadyState", value, steadyStateOption)
 
     /**

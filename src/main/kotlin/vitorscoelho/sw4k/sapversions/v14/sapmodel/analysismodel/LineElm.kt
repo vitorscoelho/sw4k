@@ -25,7 +25,7 @@ interface LineElmV14 : SapComponent {
      * @param rz The rigid zone factor. This is the fraction of the end offset length assumed to be rigid for bending and shear deformations.
      * @return zero if the offsets are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getEndLengthOffset(name: String, length1: DoubleByRef, length2: DoubleByRef, rz: DoubleByRef): Int =
+    fun getEndLengthOffset(name: String, length1: ADoubleByRef, length2: ADoubleByRef, rz: ADoubleByRef): Int =
             callFunctionInt("GetEndLengthOffset", name, length1, length2, rz)
 
     /**
@@ -41,7 +41,7 @@ interface LineElmV14 : SapComponent {
      * * Offset2(2) = J-End offset in the global Z-axis direction
      * @return zero if the insertion point data is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getInsertionPoint(name: String, offset1: DoubleArrayByRef, offset2: DoubleArrayByRef): Int =
+    fun getInsertionPoint(name: String, offset1: ADoubleArrayByRef, offset2: ADoubleArrayByRef): Int =
             callFunctionInt("GetInsertionPoint", name, offset1, offset2)
 
     /**
@@ -73,7 +73,7 @@ interface LineElmV14 : SapComponent {
      * If this item is SelectionElm, the load assignments are retrieved for line elements corresponding to all selected line objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadDeformation(name: String, numberItems: IntByRef, lineName: StringArrayByRef, loadPat: StringArrayByRef, dof1: BooleanArrayByRef, dof2: BooleanArrayByRef, dof3: BooleanArrayByRef, dof4: BooleanArrayByRef, dof5: BooleanArrayByRef, dof6: BooleanArrayByRef, u1: DoubleArrayByRef, u2: DoubleArrayByRef, u3: DoubleArrayByRef, r1: DoubleArrayByRef, r2: DoubleArrayByRef, r3: DoubleArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
+    fun getLoadDeformation(name: String, numberItems: AIntByRef, lineName: AStringArrayByRef, loadPat: AStringArrayByRef, dof1: ABooleanArrayByRef, dof2: ABooleanArrayByRef, dof3: ABooleanArrayByRef, dof4: ABooleanArrayByRef, dof5: ABooleanArrayByRef, dof6: ABooleanArrayByRef, u1: ADoubleArrayByRef, u2: ADoubleArrayByRef, u3: ADoubleArrayByRef, r1: ADoubleArrayByRef, r2: ADoubleArrayByRef, r3: ADoubleArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
             callFunctionInt("GetLoadDeformation", name, numberItems, lineName, loadPat, dof1, dof2, dof3, dof4, dof5, dof6, u1, u2, u3, r1, r2, r3, itemTypeElm)
 
     /**
@@ -116,7 +116,7 @@ interface LineElmV14 : SapComponent {
      * If this item is SelectionElm, the load assignments are retrieved for line elements corresponding to all selected line objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadDistributed(name: String, numberItems: IntByRef, lineName: StringArrayByRef, loadPat: StringArrayByRef, myType: IntArrayByRef, cSys: StringArrayByRef, dir: IntArrayByRef, rD1: DoubleArrayByRef, rD2: DoubleArrayByRef, dist1: DoubleArrayByRef, dist2: DoubleArrayByRef, val1: DoubleArrayByRef, val2: DoubleArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
+    fun getLoadDistributed(name: String, numberItems: AIntByRef, lineName: AStringArrayByRef, loadPat: AStringArrayByRef, myType: AIntArrayByRef, cSys: AStringArrayByRef, dir: AIntArrayByRef, rD1: ADoubleArrayByRef, rD2: ADoubleArrayByRef, dist1: ADoubleArrayByRef, dist2: ADoubleArrayByRef, val1: ADoubleArrayByRef, val2: ADoubleArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
             callFunctionInt("GetLoadDistributed", name, numberItems, lineName, loadPat, myType, cSys, dir, rD1, rD2, dist1, dist2, val1, val2, itemTypeElm)
 
     /**
@@ -140,7 +140,7 @@ interface LineElmV14 : SapComponent {
      * If this item is SelectionElm, the load assignments are retrieved for line elements corresponding to all selected line objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadGravity(name: String, numberItems: IntByRef, lineName: StringArrayByRef, loadPat: StringArrayByRef, cSys: StringArrayByRef, x: DoubleArrayByRef, y: DoubleArrayByRef, z: DoubleArrayByRef, itemTypeElm: Int = ItemTypeElm.OBJECT_ELM.sapId): Int =
+    fun getLoadGravity(name: String, numberItems: AIntByRef, lineName: AStringArrayByRef, loadPat: AStringArrayByRef, cSys: AStringArrayByRef, x: ADoubleArrayByRef, y: ADoubleArrayByRef, z: ADoubleArrayByRef, itemTypeElm: Int = ItemTypeElm.OBJECT_ELM.sapId): Int =
             callFunctionInt("GetLoadGravity", name, numberItems, lineName, loadPat, cSys, x, y, z, itemTypeElm)
 
     /**
@@ -180,7 +180,7 @@ interface LineElmV14 : SapComponent {
      * If this item is SelectionElm, the load assignments are retrieved for line elements corresponding to all selected line objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadPoint(name: String, numberItems: IntByRef, lineName: StringArrayByRef, loadPat: StringArrayByRef, myType: IntArrayByRef, cSys: StringArrayByRef, dir: IntArrayByRef, relDist: DoubleArrayByRef, dist: DoubleArrayByRef, values: DoubleArrayByRef, itemTypeElm: Int = ItemTypeElm.OBJECT_ELM.sapId): Int =
+    fun getLoadPoint(name: String, numberItems: AIntByRef, lineName: AStringArrayByRef, loadPat: AStringArrayByRef, myType: AIntArrayByRef, cSys: AStringArrayByRef, dir: AIntArrayByRef, relDist: ADoubleArrayByRef, dist: ADoubleArrayByRef, values: ADoubleArrayByRef, itemTypeElm: Int = ItemTypeElm.OBJECT_ELM.sapId): Int =
             callFunctionInt("GetLoadPoint", name, numberItems, lineName, loadPat, myType, cSys, dir, relDist, dist, values, itemTypeElm)
 
     /**
@@ -209,7 +209,7 @@ interface LineElmV14 : SapComponent {
      * If this item is SelectionElm, the load assignments are retrieved for line elements corresponding to all selected line objects, and the Name item is ignored.
      * @return zero if the strain load assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadStrain(name: String, numberItems: IntByRef, lineName: StringArrayByRef, loadPat: StringArrayByRef, DOF: IntArrayByRef, values: DoubleArrayByRef, patternName: StringArrayByRef, itemTypeElm: Int = ItemTypeElm.OBJECT_ELM.sapId): Int =
+    fun getLoadStrain(name: String, numberItems: AIntByRef, lineName: AStringArrayByRef, loadPat: AStringArrayByRef, DOF: AIntArrayByRef, values: ADoubleArrayByRef, patternName: AStringArrayByRef, itemTypeElm: Int = ItemTypeElm.OBJECT_ELM.sapId): Int =
             callFunctionInt("GetLoadStrain", name, numberItems, lineName, loadPat, DOF, values, patternName, itemTypeElm)
 
     /**
@@ -247,7 +247,7 @@ interface LineElmV14 : SapComponent {
      * If this item is SelectionElm, the load assignments are retrieved for line elements corresponding to all selected line objects, and the Name item is ignored.
      * @return zero if the target force assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadTargetForce(name: String, numberItems: IntByRef, lineName: StringArrayByRef, loadPat: StringArrayByRef, dof1: BooleanArrayByRef, dof2: BooleanArrayByRef, dof3: BooleanArrayByRef, dof4: BooleanArrayByRef, dof5: BooleanArrayByRef, dof6: BooleanArrayByRef, p: DoubleArrayByRef, v2: DoubleArrayByRef, v3: DoubleArrayByRef, t: DoubleArrayByRef, m2: DoubleArrayByRef, m3: DoubleArrayByRef, t1: DoubleArrayByRef, t2: DoubleArrayByRef, t3: DoubleArrayByRef, t4: DoubleArrayByRef, t5: DoubleArrayByRef, t6: DoubleArrayByRef, itemTypeElm: Int = ItemTypeElm.OBJECT_ELM.sapId): Int =
+    fun getLoadTargetForce(name: String, numberItems: AIntByRef, lineName: AStringArrayByRef, loadPat: AStringArrayByRef, dof1: ABooleanArrayByRef, dof2: ABooleanArrayByRef, dof3: ABooleanArrayByRef, dof4: ABooleanArrayByRef, dof5: ABooleanArrayByRef, dof6: ABooleanArrayByRef, p: ADoubleArrayByRef, v2: ADoubleArrayByRef, v3: ADoubleArrayByRef, t: ADoubleArrayByRef, m2: ADoubleArrayByRef, m3: ADoubleArrayByRef, t1: ADoubleArrayByRef, t2: ADoubleArrayByRef, t3: ADoubleArrayByRef, t4: ADoubleArrayByRef, t5: ADoubleArrayByRef, t6: ADoubleArrayByRef, itemTypeElm: Int = ItemTypeElm.OBJECT_ELM.sapId): Int =
             callFunctionInt("GetLoadTargetForce", name, numberItems, lineName, loadPat, dof1, dof2, dof3, dof4, dof5, dof6, p, v2, v3, t, m2, m3, t1, t2, t3, t4, t5, t6, itemTypeElm)
 
     /**
@@ -273,7 +273,7 @@ interface LineElmV14 : SapComponent {
      * If this item is SelectionElm, the load assignments are retrieved for line elements corresponding to all selected line objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadTemperature(name: String, numberItems: IntByRef, lineName: StringArrayByRef, loadPat: StringArrayByRef, myType: IntArrayByRef, values: DoubleArrayByRef, patternName: StringArrayByRef, itemTypeElm: Int = ItemTypeElm.OBJECT_ELM.sapId): Int =
+    fun getLoadTemperature(name: String, numberItems: AIntByRef, lineName: AStringArrayByRef, loadPat: AStringArrayByRef, myType: AIntArrayByRef, values: ADoubleArrayByRef, patternName: AStringArrayByRef, itemTypeElm: Int = ItemTypeElm.OBJECT_ELM.sapId): Int =
             callFunctionInt("GetLoadTemperature", name, numberItems, lineName, loadPat, myType, values, patternName, itemTypeElm)
 
     /**
@@ -282,7 +282,7 @@ interface LineElmV14 : SapComponent {
      * @param ang This is the angle that the local 2 and 3 axes are rotated about the positive local 1 axis, from the default orientation. The rotation for a positive angle appears counterclockwise when the local +1 axis is pointing toward you. (deg)
      * @return zero if the assignment is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLocalAxes(name: String, ang: DoubleByRef): Int =
+    fun getLocalAxes(name: String, ang: ADoubleByRef): Int =
             callFunctionInt("GetLocalAxes", name, ang)
 
     /**
@@ -291,7 +291,7 @@ interface LineElmV14 : SapComponent {
      * @param propName This is None, indicating that no material overwrite exists for the specified line element, or it is the name of an existing material property.
      * @return zero if the material overwrite assignment is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getMaterialOverwrite(name: String, propName: StringByRef): Int =
+    fun getMaterialOverwrite(name: String, propName: AStringByRef): Int =
             callFunctionInt("GetMaterialOverwrite", name, propName)
 
     /**
@@ -302,7 +302,7 @@ interface LineElmV14 : SapComponent {
      * If PatternName is the name of a defined joint pattern, the material temperature for the line element may vary from one end to the other. The material temperature at each end of the element is equal to the specified temperature multiplied by the pattern value at the joint at the end of the line element.
      * @return zero if the material temperature assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getMatTemp(name: String, temp: DoubleByRef, patternName: StringByRef): Int =
+    fun getMatTemp(name: String, temp: ADoubleByRef, patternName: AStringByRef): Int =
             callFunctionInt("GetMatTemp", name, temp, patternName)
 
     /**
@@ -319,7 +319,7 @@ interface LineElmV14 : SapComponent {
      * * Value(7) = Weight modifier
      * @return zero if the modifier assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getModifiers(name: String, value: DoubleArrayByRef): Int =
+    fun getModifiers(name: String, value: ADoubleArrayByRef): Int =
             callFunctionInt("GetModifiers", name, value)
 
     /**
@@ -328,7 +328,7 @@ interface LineElmV14 : SapComponent {
      * @param myName This is a one-dimensional array of line element names.
      * @return zero if the names are successfully retrieved, otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: IntByRef, myName: StringArrayByRef): Int =
+    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef): Int =
             callFunctionInt("GetNameList", numberNames, myName)
 
     /**
@@ -344,7 +344,7 @@ interface LineElmV14 : SapComponent {
      * @param RDJ The relative distance from the I-End of the object identified by the Obj item to the J-End of the considered line element. The relative distance is calculated as the distance from the I-End of the object to the J-End of the line element divided by the length of the object.
      * @return zero if the information is successfully retrieved, otherwise it returns nonzero.
      */
-    fun getObj(name: String, obj: StringByRef, objType: IntByRef, RDI: DoubleByRef, RDJ: DoubleByRef): Int =
+    fun getObj(name: String, obj: AStringByRef, objType: AIntByRef, RDI: ADoubleByRef, RDJ: ADoubleByRef): Int =
             callFunctionInt("GetObj", name, obj, objType, RDI, RDJ)
 
     /**
@@ -360,7 +360,7 @@ interface LineElmV14 : SapComponent {
      * @param cSys This is an array that contains the name of the coordinate system in which each projected P-Delta force is defined. This item is blank when the Dir item is zero, that is, when the P-Delta force is defined in the line element local 1-axis direction.
      * @return zero if the assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getPDeltaForce(name: String, numberForces: IntByRef, pDeltaForce: DoubleArrayByRef, dir: IntArrayByRef, cSys: StringArrayByRef): Int =
+    fun getPDeltaForce(name: String, numberForces: AIntByRef, pDeltaForce: ADoubleArrayByRef, dir: AIntArrayByRef, cSys: AStringArrayByRef): Int =
             callFunctionInt("GetPDeltaForce", name, numberForces, pDeltaForce, dir, cSys)
 
     /**
@@ -370,7 +370,7 @@ interface LineElmV14 : SapComponent {
      * @param point2 The name of the point element at the J-End of the specified line element.
      * @return zero if the point names are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getPoints(name: String, point1: StringByRef, point2: StringByRef): Int =
+    fun getPoints(name: String, point1: AStringByRef, point2: AStringByRef): Int =
             callFunctionInt("GetPoints", name, point1, point2)
 
     /**
@@ -388,7 +388,7 @@ interface LineElmV14 : SapComponent {
      * @param sVarRelStartLoc This is the relative distance along the nonprismatic section to the I-End (start) of the line element. This item is ignored when the [sVarTotalLength] is 0.
      * @return zero if the property data is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getProperty(name: String, propName: StringByRef, objType: IntByRef, `var`: BooleanByRef, sVarRelStartLoc: DoubleByRef, sVarTotalLength: DoubleByRef): Int =
+    fun getProperty(name: String, propName: AStringByRef, objType: AIntByRef, `var`: ABooleanByRef, sVarRelStartLoc: ADoubleByRef, sVarTotalLength: ADoubleByRef): Int =
             callFunctionInt("GetProperty", name, propName, objType, `var`, sVarRelStartLoc, sVarTotalLength)
 
     /**
@@ -424,7 +424,7 @@ interface LineElmV14 : SapComponent {
      * * EndValue(5) = R3 partial fixity (FL/rad)
      * @return zero if the assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getReleases(name: String, ii: BooleanArrayByRef, jj: BooleanArrayByRef, startValue: DoubleArrayByRef, endValue: DoubleArrayByRef): Int =
+    fun getReleases(name: String, ii: ABooleanArrayByRef, jj: ABooleanArrayByRef, startValue: ADoubleArrayByRef, endValue: ADoubleArrayByRef): Int =
             callFunctionInt("GetReleases", name, ii, jj, startValue, endValue)
 
     /**
@@ -437,7 +437,7 @@ interface LineElmV14 : SapComponent {
      * @param limitTension The tension force limit for the line element. (F)
      * @return zero if the assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getTCLimits(name: String, limitCompressionExists: BooleanByRef, limitCompression: DoubleByRef, limitTensionExists: BooleanByRef, limitTension: DoubleByRef): Int =
+    fun getTCLimits(name: String, limitCompressionExists: ABooleanByRef, limitCompression: ADoubleByRef, limitTensionExists: ABooleanByRef, limitTension: ADoubleByRef): Int =
             callFunctionInt("GetTCLimits", name, limitCompressionExists, limitCompression, limitTensionExists, limitTension)
 
     /**
@@ -447,6 +447,6 @@ interface LineElmV14 : SapComponent {
      * In the equation, c0 through c8 are the nine values from the transformation array, (Local1, Local2, Local3) are an item (such as a load) in the element local coordinate system, and (GlobalX, GlobalY, GlobalZ) are the same item in the global coordinate system.
      * @return zero if the transformation matrix is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getTransformationMatrix(name: String, value: DoubleArrayByRef): Int =
+    fun getTransformationMatrix(name: String, value: ADoubleArrayByRef): Int =
             callFunctionInt("GetTransformationMatrix", name, value)
 }

@@ -32,7 +32,7 @@ interface PropCableV14 : SapComponent {
      * * Value(2) = Weight modifier
      * @return zero if the modifier assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getModifiers (name:String,value:DoubleArrayByRef):Int=
+    fun getModifiers (name:String,value:ADoubleArrayByRef):Int=
             callFunctionInt("GetModifiers",name,value)
     /**
      * This function retrieves the names of all defined cable properties in the model.
@@ -40,7 +40,7 @@ interface PropCableV14 : SapComponent {
      * @param myName This is a one-dimensional array of cable property names.
      * @return zero if the names are successfully retrieved; otherwise it returns nonzero.
      */
-    fun getNameList (numberNames:IntByRef,myName:StringArrayByRef):Int=
+    fun getNameList (numberNames:AIntByRef,myName:AStringArrayByRef):Int=
             callFunctionInt("GetNameList",numberNames,myName)
     /**
      * This function retrieves cable property definition data.
@@ -52,7 +52,7 @@ interface PropCableV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the property.
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getProp (name:String,matProp:StringByRef,area:DoubleByRef,color:IntByRef,notes:StringByRef,GUID:StringByRef):Int=
+    fun getProp (name:String,matProp:AStringByRef,area:ADoubleByRef,color:AIntByRef,notes:AStringByRef,GUID:AStringByRef):Int=
             callFunctionInt("GetProp",name,matProp,area,color,notes,GUID)
     /**
      * This function assigns property modifiers to a cable property. The default value for all modifiers is one.
@@ -63,7 +63,7 @@ interface PropCableV14 : SapComponent {
      * * Value(2) = Weight modifier
      * @return zero if the modifiers are successfully assigned; otherwise it returns a nonzero value.
      */
-    fun setModifiers (name:String,value:DoubleArrayByRef):Int=
+    fun setModifiers (name:String,value:ADoubleArrayByRef):Int=
             callFunctionInt("SetModifiers",name,value)
     /**
      * This function defines a cable property.

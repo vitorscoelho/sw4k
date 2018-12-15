@@ -87,7 +87,7 @@ interface LoadPatternsV14 : SapComponent {
      * @param codeName This is either blank or the name code used for the auto seismic parameters. Blank means no auto seismic load is specified for the Quake-type load pattern.
      * @return zero if the code is successfully retrieved; otherwise it returns a nonzero value. An error is returned if the specified load pattern is not a Quake-type load pattern.
      */
-    fun getAutoSeismicCode(name: String, codeName: StringByRef): Int =
+    fun getAutoSeismicCode(name: String, codeName: AStringByRef): Int =
             callFunctionInt("GetAutoSeismicCode", name, codeName)
 
     /**
@@ -96,7 +96,7 @@ interface LoadPatternsV14 : SapComponent {
      * @param codeName This is either blank or the name code used for the auto wave parameters. Blank means no auto wave load is specified for the Wave-type load pattern.
      * @return zero if the code is successfully retrieved; otherwise it returns a nonzero value. An error is returned if the specified load pattern is not a Wave-type load pattern.
      */
-    fun getAutoWaveCode(name: String, codeName: StringByRef): Int =
+    fun getAutoWaveCode(name: String, codeName: AStringByRef): Int =
             callFunctionInt("GetAutoWaveCode", name, codeName)
 
     /**
@@ -105,7 +105,7 @@ interface LoadPatternsV14 : SapComponent {
      * @param codeName This is either blank or the name code used for the auto wind parameters. Blank means no auto wind load is specified for the Wind-type load pattern.
      * @return zero if the code is successfully retrieved; otherwise it returns a nonzero value. An error is returned if the specified load pattern is not a Wind-type load pattern.
      */
-    fun getAutoWindCode(name: String, codeName: StringByRef): Int =
+    fun getAutoWindCode(name: String, codeName: AStringByRef): Int =
             callFunctionInt("GetAutoWindCode", name, codeName)
 
     /**
@@ -153,7 +153,7 @@ interface LoadPatternsV14 : SapComponent {
      * * LTYPE_CONSTRUCTION = 39
      * @return zero if the load type is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadType(name: String, myType: IntByRef): Int =
+    fun getLoadType(name: String, myType: AIntByRef): Int =
             callFunctionInt("GetLoadType", name, myType)
 
     /**
@@ -162,7 +162,7 @@ interface LoadPatternsV14 : SapComponent {
      * @param myName This is a one-dimensional array of load pattern names.
      * @return zero if the names are successfully retrieved, otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: IntByRef, myName: StringArrayByRef): Int =
+    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef): Int =
             callFunctionInt("GetNameList", numberNames, myName)
 
     /**
@@ -171,7 +171,7 @@ interface LoadPatternsV14 : SapComponent {
      * @param selfWTMultiplier The self weight multiplier for the specified load pattern.
      * @return zero if the multiplier is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getSelfWtMultiplier(name: String, selfWTMultiplier: DoubleByRef): Int =
+    fun getSelfWtMultiplier(name: String, selfWTMultiplier: ADoubleByRef): Int =
             callFunctionInt("GetSelfWtMultiplier", name, selfWTMultiplier)
 
     /**

@@ -10,7 +10,7 @@ interface MovingV14 : SapComponent {
      * If the specified initial case is a nonlinear static or nonlinear direct integration time history load case, the stiffness at the end of that case is used. If the initial case is anything else, zero initial conditions are assumed.
      * @return zero if the initial condition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getInitialCase(name: String, initialCase: StringByRef): Int =
+    fun getInitialCase(name: String, initialCase: AStringByRef): Int =
             callFunctionInt("GetInitialCase", name, initialCase)
 
     /**
@@ -21,7 +21,7 @@ interface MovingV14 : SapComponent {
      * @param myName This is an array that includes the name of each lane loaded for the specified load assignment number.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLanesLoaded(name: String, loadNumber: Int, numberItems: IntByRef, myName: StringArrayByRef): Int =
+    fun getLanesLoaded(name: String, loadNumber: Int, numberItems: AIntByRef, myName: AStringArrayByRef): Int =
             callFunctionInt("GetLanesLoaded", name, loadNumber, numberItems, myName)
 
     /**
@@ -34,7 +34,7 @@ interface MovingV14 : SapComponent {
      * @param max This is an array that includes the maximum number of lanes loaded for each load assigned to the load case. This item must be 0, or it must be greater than or equal to Min. If this item is 0, all available lanes are loaded.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoads(name: String, numberLoads: IntByRef, myClass: StringArrayByRef, sF: DoubleArrayByRef, min: DoubleArrayByRef, max: DoubleArrayByRef): Int =
+    fun getLoads(name: String, numberLoads: AIntByRef, myClass: AStringArrayByRef, sF: ADoubleArrayByRef, min: ADoubleArrayByRef, max: ADoubleArrayByRef): Int =
             callFunctionInt("GetLoads", name, numberLoads, myClass, sF, min, max)
 
     /**
@@ -44,7 +44,7 @@ interface MovingV14 : SapComponent {
      * @param sF This is an array that includes the reduction scale factor for the number of lanes loaded from 1 up to NumberItems.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getMultiLaneSF(name: String, numberItems: IntByRef, sF: DoubleArrayByRef): Int =
+    fun getMultiLaneSF(name: String, numberItems: AIntByRef, sF: ADoubleArrayByRef): Int =
             callFunctionInt("GetMultiLaneSF", name, numberItems, sF)
 
     /**
@@ -73,7 +73,7 @@ interface MovingV14 : SapComponent {
      * @param myName This is an array that includes the name of each lane loaded for the specified load assignment number.
      * @return zero if the data is successfully set; otherwise it returns a nonzero value.
      */
-    fun setMultiLaneSF(name: String, loadNumber: Int, numberItems: Int, myName: StringArrayByRef): Int =
+    fun setMultiLaneSF(name: String, loadNumber: Int, numberItems: Int, myName: AStringArrayByRef): Int =
             callFunctionInt("SetMultiLaneSF", name, loadNumber, numberItems, myName)
 
     /**
@@ -86,7 +86,7 @@ interface MovingV14 : SapComponent {
      * @param max This is an array that includes the maximum number of lanes loaded for each load assigned to the load case. This item must be 0, or it must be greater than or equal to Min. If this item is 0, all available lanes are loaded.
      * @return zero if the data is successfully set; otherwise it returns a nonzero value.
      */
-    fun setLoads(name: String, numberLoads: Int, myClass: StringArrayByRef, sF: DoubleArrayByRef, min: DoubleArrayByRef, max: DoubleArrayByRef): Int =
+    fun setLoads(name: String, numberLoads: Int, myClass: AStringArrayByRef, sF: ADoubleArrayByRef, min: ADoubleArrayByRef, max: ADoubleArrayByRef): Int =
             callFunctionInt("SetLoads", name, numberLoads, myClass, sF, min, max)
 
     /**
@@ -96,6 +96,6 @@ interface MovingV14 : SapComponent {
      * @param sF This is an array that includes the reduction scale factor for the number of lanes loaded from 1 up to NumberItems.
      * @return zero if the data is successfully set; otherwise it returns a nonzero value.
      */
-    fun setMultiLaneSF(name: String, numberItems: Int, sF: DoubleArrayByRef): Int =
+    fun setMultiLaneSF(name: String, numberItems: Int, sF: ADoubleArrayByRef): Int =
             callFunctionInt("SetMultiLaneSF", name, numberItems, sF)
 }

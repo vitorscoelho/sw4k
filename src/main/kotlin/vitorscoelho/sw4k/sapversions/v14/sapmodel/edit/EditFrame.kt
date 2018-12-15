@@ -1,8 +1,8 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.edit
 
-import vitorscoelho.sw4k.comutils.DoubleByRef
+import vitorscoelho.sw4k.comutils.ADoubleByRef
 import vitorscoelho.sw4k.comutils.SapComponent
-import vitorscoelho.sw4k.comutils.StringArrayByRef
+import vitorscoelho.sw4k.comutils.AStringArrayByRef
 
 interface EditFrameV14 : SapComponent {
     /**
@@ -23,7 +23,7 @@ interface EditFrameV14 : SapComponent {
      * @param newName This is an array that includes the names of the two new frame objects.
      * @return zero if the frame objects are successfully divided; otherwise it returns a nonzero value.
      */
-    fun divideAtDistance(name: String, dist: Double, iEnd: Boolean, newName: StringArrayByRef): Int =
+    fun divideAtDistance(name: String, dist: Double, iEnd: Boolean, newName: AStringArrayByRef): Int =
             callFunctionInt("DivideAtDistance", name, dist, iEnd, newName)
 
     /**
@@ -33,7 +33,7 @@ interface EditFrameV14 : SapComponent {
      * @param newName This is an array that includes the names of the new frame objects.
      * @return zero if the frame objects are successfully divided; otherwise it returns a nonzero value.
      */
-    fun divideAtIntersections(name: String, num: DoubleByRef, newName: StringArrayByRef): Int =
+    fun divideAtIntersections(name: String, num: ADoubleByRef, newName: AStringArrayByRef): Int =
             callFunctionInt("DivideAtIntersections", name, num, newName)
 
     /**
@@ -44,7 +44,7 @@ interface EditFrameV14 : SapComponent {
      * @param newName This is an array that includes the names of the new frame objects.
      * @return zero if the frame objects are successfully divided; otherwise it returns a nonzero value.
      */
-    fun divideByRatio(name: String, num: Int, ratio: Double, newName: StringArrayByRef): Int =
+    fun divideByRatio(name: String, num: Int, ratio: Double, newName: AStringArrayByRef): Int =
             callFunctionInt("DivideByRatio", name, num, ratio, newName)
 
     /**

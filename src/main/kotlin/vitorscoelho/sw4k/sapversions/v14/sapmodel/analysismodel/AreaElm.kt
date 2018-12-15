@@ -36,7 +36,7 @@ interface AreaElmV14 : SapComponent {
      * If this item is SelectionElm, the load assignments are retrieved for area elements corresponding to all selected area objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadGravity(name: String, numberItems: IntByRef, areaName: StringArrayByRef, loadPat: StringArrayByRef, cSys: StringArrayByRef, x: DoubleArrayByRef, y: DoubleArrayByRef, z: DoubleArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
+    fun getLoadGravity(name: String, numberItems: AIntByRef, areaName: AStringArrayByRef, loadPat: AStringArrayByRef, cSys: AStringArrayByRef, x: ADoubleArrayByRef, y: ADoubleArrayByRef, z: ADoubleArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
             callFunctionInt("GetLoadGravity", name, numberItems, areaName, loadPat, cSys, x, y, z, itemTypeElm)
 
     /**
@@ -58,7 +58,7 @@ interface AreaElmV14 : SapComponent {
      * If this item is SelectionElm, the load assignments are retrieved for area elements corresponding to all selected area objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadPorePressure(name: String, numberItems: IntByRef, areaName: StringArrayByRef, loadPat: StringArrayByRef, value: DoubleArrayByRef, patternName: StringArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
+    fun getLoadPorePressure(name: String, numberItems: AIntByRef, areaName: AStringArrayByRef, loadPat: AStringArrayByRef, value: ADoubleArrayByRef, patternName: AStringArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
             callFunctionInt("GetLoadPorePressure", name, numberItems, areaName, loadPat, value, patternName, itemTypeElm)
 
     /**
@@ -89,7 +89,7 @@ interface AreaElmV14 : SapComponent {
      * If this item is SelectionElm, the load assignments are retrieved for area elements corresponding to all selected area objects, and the Name item is ignored.
      * @return zero if the strain load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadStrain(name: String, numberItems: IntByRef, areaName: StringArrayByRef, loadPat: StringArrayByRef, component: IntArrayByRef, value: DoubleArrayByRef, patternName: StringArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
+    fun getLoadStrain(name: String, numberItems: AIntByRef, areaName: AStringArrayByRef, loadPat: AStringArrayByRef, component: AIntArrayByRef, value: ADoubleArrayByRef, patternName: AStringArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
             callFunctionInt("GetLoadStrain", name, numberItems, areaName, loadPat, component, value, patternName, itemTypeElm)
 
     /**
@@ -116,7 +116,7 @@ interface AreaElmV14 : SapComponent {
      * If this item is SelectionElm, the load assignments are retrieved for area elements corresponding to all selected area objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadSurfacePressure(name: String, numberItems: IntByRef, areaName: StringArrayByRef, loadPat: StringArrayByRef, face: IntArrayByRef, value: DoubleArrayByRef, patternName: StringArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
+    fun getLoadSurfacePressure(name: String, numberItems: AIntByRef, areaName: AStringArrayByRef, loadPat: AStringArrayByRef, face: AIntArrayByRef, value: ADoubleArrayByRef, patternName: AStringArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
             callFunctionInt("GetLoadSurfacePressure", name, numberItems, areaName, loadPat, face, value, patternName, itemTypeElm)
 
     /**
@@ -141,7 +141,7 @@ interface AreaElmV14 : SapComponent {
      * If this item is SelectionElm, the load assignments are retrieved for area elements corresponding to all selected area objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadTemperature(name: String, numberItems: IntByRef, areaName: StringArrayByRef, loadPat: StringArrayByRef, myType: IntArrayByRef, value: DoubleArrayByRef, patternName: StringArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
+    fun getLoadTemperature(name: String, numberItems: AIntByRef, areaName: AStringArrayByRef, loadPat: AStringArrayByRef, myType: AIntArrayByRef, value: ADoubleArrayByRef, patternName: AStringArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
             callFunctionInt("GetLoadTemperature", name, numberItems, areaName, loadPat, myType, value, patternName, itemTypeElm)
 
     /**
@@ -176,7 +176,7 @@ interface AreaElmV14 : SapComponent {
      * If this item is SelectionElm, the load assignments are retrieved for area elements corresponding to all selected area objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadUniform(name: String, numberItems: IntByRef, areaName: StringArrayByRef, loadPat: StringArrayByRef, cSys: StringArrayByRef, dir: IntArrayByRef, value: DoubleArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
+    fun getLoadUniform(name: String, numberItems: AIntByRef, areaName: AStringArrayByRef, loadPat: AStringArrayByRef, cSys: AStringArrayByRef, dir: AIntArrayByRef, value: ADoubleArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
             callFunctionInt("GetLoadUniform", name, numberItems, areaName, loadPat, cSys, dir, value, itemTypeElm)
 
     /**
@@ -185,7 +185,7 @@ interface AreaElmV14 : SapComponent {
      * @param ang This is the angle that the local 1 and 2 axes are rotated about the positive local 3 axis from the default orientation. The rotation for a positive angle appears counter clockwise when the local +3 axis is pointing toward you. (deg)
      * @return zero if the assignment is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLocalAxes(name: String, ang: DoubleByRef): Int =
+    fun getLocalAxes(name: String, ang: ADoubleByRef): Int =
             callFunctionInt("GetLocalAxes", name, ang)
 
     /**
@@ -194,7 +194,7 @@ interface AreaElmV14 : SapComponent {
      * @param propName This is None, indicating that no material overwrite exists for the specified area element, or it is the name of an existing material property.
      * @return zero if the material overwrite assignment is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getMaterialOverwrite(name: String, propName: StringByRef): Int =
+    fun getMaterialOverwrite(name: String, propName: AStringByRef): Int =
             callFunctionInt("GetMaterialOverwrite", name, propName)
 
     /**
@@ -205,7 +205,7 @@ interface AreaElmV14 : SapComponent {
      * If PatternName is the name of a defined joint pattern, the material temperature for the area element may vary. The material temperature at each corner point around the area element perimeter is equal to the specified temperature multiplied by the pattern value at the associated point element. The material temperature at other points in the area element is calculated by interpolation from the corner points.
      * @return zero if the material temperature assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getMatTemp(name: String, temp: DoubleByRef, patternName: StringByRef): Int =
+    fun getMatTemp(name: String, temp: ADoubleByRef, patternName: AStringByRef): Int =
             callFunctionInt("GetMatTemp", name, temp, patternName)
 
     /**
@@ -224,7 +224,7 @@ interface AreaElmV14 : SapComponent {
      * * Value(9) = Weight modifier
      * @return zero if the modifier assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getModifiers(name: String, value: DoubleArrayByRef): Int =
+    fun getModifiers(name: String, value: ADoubleArrayByRef): Int =
             callFunctionInt("GetModifiers", name, value)
 
     /**
@@ -233,7 +233,7 @@ interface AreaElmV14 : SapComponent {
      * @param myName This is a one-dimensional array of area element names.
      * @return zero if the names are successfully retrieved; otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: IntByRef, myName: StringArrayByRef): Int =
+    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef): Int =
             callFunctionInt("GetNameList", numberNames, myName)
 
     /**
@@ -242,7 +242,7 @@ interface AreaElmV14 : SapComponent {
      * @param obj The name of the area object from which the area element was created.
      * @return zero if the information is successfully retrieved; otherwise it returns nonzero.
      */
-    fun getObj(name: String, obj: StringByRef): Int =
+    fun getObj(name: String, obj: AStringByRef): Int =
             callFunctionInt("GetObj", name, obj)
 
     /**
@@ -257,7 +257,7 @@ interface AreaElmV14 : SapComponent {
      * @param offset This item applies only when JointOffsetType = 2. It is an array of joint offsets for each of the points that define the area element. (L)
      * @return zero if the assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getOffsets(name: String, offsetType: IntByRef, offsetPattern: StringByRef, offsetPatternSF: DoubleByRef, offset: DoubleArrayByRef): Int =
+    fun getOffsets(name: String, offsetType: AIntByRef, offsetPattern: AStringByRef, offsetPatternSF: ADoubleByRef, offset: ADoubleArrayByRef): Int =
             callFunctionInt("GetOffsets", name, offsetType, offsetPattern, offsetPatternSF, offset)
 
     /**
@@ -267,7 +267,7 @@ interface AreaElmV14 : SapComponent {
      * @param point This is an array containing the names of the point elements that define the area element. The point names are in order around the area element.
      * @return zero if the point element names are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getPoints(name: String, numberPoints: IntByRef, point: StringArrayByRef): Int =
+    fun getPoints(name: String, numberPoints: AIntByRef, point: AStringArrayByRef): Int =
             callFunctionInt("GetPoints", name, numberPoints, point)
 
     /**
@@ -276,7 +276,7 @@ interface AreaElmV14 : SapComponent {
      * @param propName The name of the area property assigned to the area element. This item is None if there is no area property assigned to the area element.
      * @return zero if the property is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getProperty(name: String, propName: StringByRef): Int =
+    fun getProperty(name: String, propName: AStringByRef): Int =
             callFunctionInt("GetProperty", name, propName)
 
     /**
@@ -291,7 +291,7 @@ interface AreaElmV14 : SapComponent {
      * @param thickness This item applies only when ThicknessType = 2. It is an array of thicknesses at each of the points that define the area element. (L)
      * @return zero if the assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getThickness(name: String, thicknessType: IntByRef, thicknessPattern: StringByRef, thicknessPatternSF: DoubleByRef, thickness: DoubleArrayByRef): Int =
+    fun getThickness(name: String, thicknessType: AIntByRef, thicknessPattern: AStringByRef, thicknessPatternSF: ADoubleByRef, thickness: ADoubleArrayByRef): Int =
             callFunctionInt("GetThickness", name, thicknessType, thicknessPattern, thicknessPatternSF, thickness)
 
     /**
@@ -301,6 +301,6 @@ interface AreaElmV14 : SapComponent {
      * In the equation c0 through c8 are the nine values from the transformation array, (Local1, Local2, Local3) are an item (such as a load) in the element local coordinate system, and (GlobalX, GlobalY, GlobalZ) are the same item in the global coordinate system.
      * @return zero if the transformation matrix is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getTransformationMatrix(name: String, value: DoubleArrayByRef): Int =
+    fun getTransformationMatrix(name: String, value: ADoubleArrayByRef): Int =
             callFunctionInt("GetTransformationMatrix", name, value)
 }

@@ -34,14 +34,14 @@ public class ExampleSapDocJava {
         //define frame section property modifiers
         sapModel.getPropFrame().setModifiers("R1", new DoubleArrayByRef(1000.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0));
         //add points by coordinates
-        sapModel.getPointObj().addCartesian(0.0, 0.0, 0.0, new StringByRef(), "Bottom point", "Global", false, 0);
-        sapModel.getPointObj().addCartesian(0.0, 0.0, 10.0 * 12.0, new StringByRef(), "Middle point", "Global", false, 0);
-        sapModel.getPointObj().addCartesian(8.0 * 12.0, 0.0, 16.0 * 12.0, new StringByRef(), "Right point", "Global", false, 0);
-        sapModel.getPointObj().addCartesian(-4.0 * 12.0, 0.0, 10.0 * 12.0, new StringByRef(), "Left point", "Global", false, 0);
+        sapModel.getPointObj().addCartesian(0.0, 0.0, 0.0, StringByRef.UNNECESSARY(), "Bottom point", "Global", false, 0);
+        sapModel.getPointObj().addCartesian(0.0, 0.0, 10.0 * 12.0, StringByRef.UNNECESSARY(), "Middle point", "Global", false, 0);
+        sapModel.getPointObj().addCartesian(8.0 * 12.0, 0.0, 16.0 * 12.0, StringByRef.UNNECESSARY(), "Right point", "Global", false, 0);
+        sapModel.getPointObj().addCartesian(-4.0 * 12.0, 0.0, 10.0 * 12.0, StringByRef.UNNECESSARY(), "Left point", "Global", false, 0);
         //add frame object by points
-        sapModel.getFrameObj().addByPoint("Bottom point", "Middle point", new StringByRef(), "R1", "1");
-        sapModel.getFrameObj().addByPoint("Middle point", "Right point", new StringByRef(), "R1", "2");
-        sapModel.getFrameObj().addByPoint("Left point", "Middle point", new StringByRef(), "R1", "3");
+        sapModel.getFrameObj().addByPoint("Bottom point", "Middle point", StringByRef.UNNECESSARY(), "R1", "1");
+        sapModel.getFrameObj().addByPoint("Middle point", "Right point", StringByRef.UNNECESSARY(), "R1", "2");
+        sapModel.getFrameObj().addByPoint("Left point", "Middle point", StringByRef.UNNECESSARY(), "R1", "3");
         //assign point object restraint at base
         sapModel.getPointObj().setRestraint(
                 "Bottom point",
@@ -169,18 +169,18 @@ public class ExampleSapDocJava {
             sapModel.getResults().jointDispl(
                     pointNameForResult,
                     ItemTypeElm.OBJECT_ELM.getSapId(),
-                    new IntByRef(),
-                    new StringArrayByRef(),
-                    new StringArrayByRef(),
-                    new StringArrayByRef(),
-                    new StringArrayByRef(),
-                    new DoubleArrayByRef(),
+                    IntByRef.UNNECESSARY(),
+                    StringArrayByRef.UNNECESSARY(),
+                    StringArrayByRef.UNNECESSARY(),
+                    StringArrayByRef.UNNECESSARY(),
+                    StringArrayByRef.UNNECESSARY(),
+                    DoubleArrayByRef.UNNECESSARY(),
                     u1,
-                    new DoubleArrayByRef(),
+                    DoubleArrayByRef.UNNECESSARY(),
                     u3,
-                    new DoubleArrayByRef(),
-                    new DoubleArrayByRef(),
-                    new DoubleArrayByRef()
+                    DoubleArrayByRef.UNNECESSARY(),
+                    DoubleArrayByRef.UNNECESSARY(),
+                    DoubleArrayByRef.UNNECESSARY()
             );
             if (i <= 3) {
                 sapResults[i] = u3.get(0);
@@ -197,7 +197,7 @@ public class ExampleSapDocJava {
         DecimalFormat dfResults = new DecimalFormat("0.00000");
         DecimalFormat dfPercentage = new DecimalFormat("0%");
         for (int i = 0; i <= 6; i++) {
-            Assert.assertEquals(indResults[i],sapResults[i],0.000009);
+            Assert.assertEquals(indResults[i], sapResults[i], 0.000009);
             String sapResult = dfResults.format(sapResults[i]);
             String indResult = dfResults.format(indResults[i]);
             String percentage = dfPercentage.format(sapResults[i] / indResults[i] - 1);

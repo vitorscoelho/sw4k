@@ -1,8 +1,8 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.edit
 
-import vitorscoelho.sw4k.comutils.IntByRef
+import vitorscoelho.sw4k.comutils.AIntByRef
 import vitorscoelho.sw4k.comutils.SapComponent
-import vitorscoelho.sw4k.comutils.StringArrayByRef
+import vitorscoelho.sw4k.comutils.AStringArrayByRef
 import vitorscoelho.sw4k.sapenums.MeshType
 import vitorscoelho.sw4k.sapenums.EditAreaOffsetType
 
@@ -14,7 +14,7 @@ interface EditAreaV14 : SapComponent {
      * @param point This is an array containing the names of the point objects that define the added area object. The point object names should be ordered to run clockwise or counter-clockwise around the area object.
      * @return zero if the area object connectivity is successfully modified; otherwise it returns a nonzero value.
      */
-    fun changeConnectivity(name: String, numberPoints: Int, point: StringArrayByRef): Int =
+    fun changeConnectivity(name: String, numberPoints: Int, point: AStringArrayByRef): Int =
             callFunctionInt("ChangeConnectivity", name, numberPoints, point)
 
     /**
@@ -49,7 +49,7 @@ interface EditAreaV14 : SapComponent {
      * @param restraintsOnFace If this item is True, and if all points around the perimeter of the original area object have the same restraint/constraint, then, if an added point and the perimeter points have the same local axes definition, the program includes the restraint/constraint for the added point.
      * @return zero if the meshing is successful; otherwise it returns a nonzero value.
      */
-    fun divide(name: String, meshType: Int, numberAreas: IntByRef, areaName: StringArrayByRef, n1: Int = 2, n2: Int = 2, maxSize1: Double = 0.0, maxSize2: Double = 0.0, pointOnEdgeFromGrid: Boolean = false, pointOnEdgeFromLine: Boolean = false, pointOnEdgeFromPoint: Boolean = false, extendCookieCutLines: Boolean = false, rotation: Double = 0.0, maxSizeGeneral: Double = 0.0, localAxesOnEdge: Boolean = false, localAxesOnFace: Boolean = false, restraintsOnEdge: Boolean = false, restraintsOnFace: Boolean = false): Int =
+    fun divide(name: String, meshType: Int, numberAreas: AIntByRef, areaName: AStringArrayByRef, n1: Int = 2, n2: Int = 2, maxSize1: Double = 0.0, maxSize2: Double = 0.0, pointOnEdgeFromGrid: Boolean = false, pointOnEdgeFromLine: Boolean = false, pointOnEdgeFromPoint: Boolean = false, extendCookieCutLines: Boolean = false, rotation: Double = 0.0, maxSizeGeneral: Double = 0.0, localAxesOnEdge: Boolean = false, localAxesOnFace: Boolean = false, restraintsOnEdge: Boolean = false, restraintsOnFace: Boolean = false): Int =
             callFunctionInt("Divide", name, meshType, numberAreas, areaName, n1, n2, maxSize1, maxSize2, pointOnEdgeFromGrid, pointOnEdgeFromLine, pointOnEdgeFromPoint, extendCookieCutLines, rotation, maxSizeGeneral, localAxesOnEdge, localAxesOnFace, restraintsOnEdge, restraintsOnFace)
 
     /**
@@ -70,7 +70,7 @@ interface EditAreaV14 : SapComponent {
      * @param areaName This is an array that includes the names of the selected area objects that remain when the merge is successfully completed.
      * @return zero if it is successful; otherwise it returns a nonzero value.
      */
-    fun merge(numberAreas: IntByRef, areaName: StringArrayByRef): Int =
+    fun merge(numberAreas: AIntByRef, areaName: AStringArrayByRef): Int =
             callFunctionInt("Merge", numberAreas, areaName)
 
     /**

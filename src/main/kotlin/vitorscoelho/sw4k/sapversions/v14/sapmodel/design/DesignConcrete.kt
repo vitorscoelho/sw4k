@@ -58,7 +58,7 @@ interface DesignConcreteV14 : SapComponent {
      * * UBC97
      * @return zero if the code is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getCode(codeName: StringByRef): Int =
+    fun getCode(codeName: AStringByRef): Int =
             callFunctionInt("GetCode", codeName)
 
     /**
@@ -67,7 +67,7 @@ interface DesignConcreteV14 : SapComponent {
      * @param myName This is an array that includes the name of each response combination selected as a design combination for concrete strength design.
      * @return zero if the names are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getComboStrength(numberItems: IntByRef, myName: StringArrayByRef): Int =
+    fun getComboStrength(numberItems: AIntByRef, myName: AStringArrayByRef): Int =
             callFunctionInt("GetComboStrength", numberItems, myName)
 
     /**
@@ -76,7 +76,7 @@ interface DesignConcreteV14 : SapComponent {
      * @param propName The name of the design section for the specified frame object.
      * @return zero if the section is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getDesignSection(name: String, propName: StringByRef): Int =
+    fun getDesignSection(name: String, propName: AStringByRef): Int =
             callFunctionInt("GetDesignSection", name, propName)
 
     /**
@@ -107,7 +107,7 @@ interface DesignConcreteV14 : SapComponent {
      * If this item is SelectedObjects, the design results are retrieved for all selected frame objects, and the Name item is ignored.
      * @return zero if the results are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getSummaryResultsBeam(name: String, numberItems: IntByRef, frameName: StringArrayByRef, location: DoubleArrayByRef, topCombo: StringArrayByRef, topArea: DoubleArrayByRef, botCombo: StringArrayByRef, botArea: DoubleArrayByRef, vmajorCombo: StringArrayByRef, vmajorArea: DoubleArrayByRef, tLCombo: StringArrayByRef, tLArea: DoubleArrayByRef, tTCombo: StringArrayByRef, tTArea: DoubleArrayByRef, errorSummary: StringArrayByRef, warningSummary: StringArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getSummaryResultsBeam(name: String, numberItems: AIntByRef, frameName: AStringArrayByRef, location: ADoubleArrayByRef, topCombo: AStringArrayByRef, topArea: ADoubleArrayByRef, botCombo: AStringArrayByRef, botArea: ADoubleArrayByRef, vmajorCombo: AStringArrayByRef, vmajorArea: ADoubleArrayByRef, tLCombo: AStringArrayByRef, tLArea: ADoubleArrayByRef, tTCombo: AStringArrayByRef, tTArea: ADoubleArrayByRef, errorSummary: AStringArrayByRef, warningSummary: AStringArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetSummaryResultsBeam", name, numberItems, frameName, location, topCombo, topArea, botCombo, botArea, vmajorCombo, vmajorArea, tLCombo, tLArea, tTCombo, tTArea, errorSummary, warningSummary, itemType)
 
     /**
@@ -139,7 +139,7 @@ interface DesignConcreteV14 : SapComponent {
      * If this item is SelectedObjects, the design results are retrieved for all selected frame objects, and the Name item is ignored.
      * @return zero if the results are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getSummaryResultsColumn(name: String, numberItems: IntByRef, frameName: StringArrayByRef, myOption: IntArrayByRef, location: DoubleArrayByRef, pMMCombo: StringArrayByRef, pMMArea: DoubleArrayByRef, pMMRatio: DoubleArrayByRef, vmajorCombo: StringArrayByRef, aVmajor: DoubleArrayByRef, vminorCombo: StringArrayByRef, aVminor: DoubleArrayByRef, errorSummary: StringArrayByRef, warningSummary: StringArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getSummaryResultsColumn(name: String, numberItems: AIntByRef, frameName: AStringArrayByRef, myOption: AIntArrayByRef, location: ADoubleArrayByRef, pMMCombo: AStringArrayByRef, pMMArea: ADoubleArrayByRef, pMMRatio: ADoubleArrayByRef, vmajorCombo: AStringArrayByRef, aVmajor: ADoubleArrayByRef, vminorCombo: AStringArrayByRef, aVminor: ADoubleArrayByRef, errorSummary: AStringArrayByRef, warningSummary: AStringArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetSummaryResultsColumn", name, numberItems, frameName, myOption, location, pMMCombo, pMMArea, pMMRatio, vmajorCombo, aVmajor, vminorCombo, aVminor, errorSummary, warningSummary, itemType)
 
     /**
@@ -167,7 +167,7 @@ interface DesignConcreteV14 : SapComponent {
      * If this item is SelectedObjects, the design results are retrieved for all selected frame objects, and the Name item is ignored.
      * @return zero if the results are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getSummaryResultsJoint(name: String, numberItems: IntByRef, frameName: StringArrayByRef, lCJSRatioMajor: StringArrayByRef, jSRatioMajor: DoubleArrayByRef, lCJSRatioMinor: StringArrayByRef, jSRatioMinor: DoubleArrayByRef, lCBCCRatioMajor: StringArrayByRef, bCCRatioMajor: DoubleArrayByRef, lCBCCRatioMinor: StringArrayByRef, bCCRatioMinor: DoubleArrayByRef, errorSummary: StringArrayByRef, warningSummary: StringArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getSummaryResultsJoint(name: String, numberItems: AIntByRef, frameName: AStringArrayByRef, lCJSRatioMajor: AStringArrayByRef, jSRatioMajor: ADoubleArrayByRef, lCJSRatioMinor: AStringArrayByRef, jSRatioMinor: ADoubleArrayByRef, lCBCCRatioMajor: AStringArrayByRef, bCCRatioMajor: ADoubleArrayByRef, lCBCCRatioMinor: AStringArrayByRef, bCCRatioMinor: ADoubleArrayByRef, errorSummary: AStringArrayByRef, warningSummary: AStringArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetSummaryResultsJoint", name, numberItems, frameName, lCJSRatioMajor, jSRatioMajor, lCJSRatioMinor, jSRatioMinor, lCBCCRatioMajor, bCCRatioMajor, lCBCCRatioMinor, bCCRatioMinor, errorSummary, warningSummary, itemType)
 
     /**
@@ -249,7 +249,7 @@ interface DesignConcreteV14 : SapComponent {
      * @param myName This is an array that includes the name of each frame object that did not pass the design check or has not yet been checked.
      * @return zero if the names are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun verifyPassed(numberItems: IntByRef, n1: IntByRef, n2: IntByRef, myName: StringArrayByRef): Int =
+    fun verifyPassed(numberItems: AIntByRef, n1: AIntByRef, n2: AIntByRef, myName: AStringArrayByRef): Int =
             callFunctionInt("VerifyPassed", numberItems, n1, n2, myName)
 
     /**
@@ -258,6 +258,6 @@ interface DesignConcreteV14 : SapComponent {
      * @param myName This is an array that includes the name of each frame object that has different analysis and design sections.
      * @return zero if the names are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun verifySections(numberItems: IntByRef, myName: StringArrayByRef): Int =
+    fun verifySections(numberItems: AIntByRef, myName: AStringArrayByRef): Int =
             callFunctionInt("VerifySections", numberItems, myName)
 }

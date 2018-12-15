@@ -15,7 +15,7 @@ interface TendonObjV14 : SapComponent {
      * @param cSys The name of the coordinate system in which the tendon object end point coordinates are defined.
      * @return zero if the tendon object is successfully added, otherwise it returns a nonzero value.
      */
-    fun addByCoord(xi: Double, yi: Double, zi: Double, xj: Double, yj: Double, zj: Double, name: StringByRef = StringByRef(), propName: String = "Default", userName: String = "", cSys: String = "Global"): Int =
+    fun addByCoord(xi: Double, yi: Double, zi: Double, xj: Double, yj: Double, zj: Double, name: AStringByRef = StringByRef.UNNECESSARY, propName: String = "Default", userName: String = "", cSys: String = "Global"): Int =
             callFunctionInt("AddByCoord", xi, yi, zi, xj, yj, zj, name, propName, userName, cSys)
 
     /**
@@ -28,7 +28,7 @@ interface TendonObjV14 : SapComponent {
      * @param userName This is an optional user specified name for the tendon object. If a UserName is specified and that name is already used for another tendon object, the program ignores the UserName.
      * @return zero if the tendon object is successfully added, otherwise it returns a nonzero value.
      */
-    fun addByPoint(point1: String, point2: String, name: StringByRef = StringByRef(), propName: String = "Default", userName: String = ""): Int =
+    fun addByPoint(point1: String, point2: String, name: AStringByRef = StringByRef.UNNECESSARY, propName: String = "Default", userName: String = ""): Int =
             callFunctionInt("AddByPoint", point1, point2, name, propName, userName)
 
     /**
@@ -147,7 +147,7 @@ interface TendonObjV14 : SapComponent {
      * @param value The maximum discretization length for the tendon. (L)
      * @return zero if the assignment is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getDiscretization(name: String, value: DoubleByRef): Int =
+    fun getDiscretization(name: String, value: ADoubleByRef): Int =
             callFunctionInt("GetDiscretization", name, value)
 
     /**
@@ -159,7 +159,7 @@ interface TendonObjV14 : SapComponent {
      * @param rdj An array that includes the relative distance along the tendon object to the J-End of the line element.
      * @return zero if the line element information is successfully returned; otherwise it returns nonzero. An error occurs if the analysis model does not currently exist.
      */
-    fun getElm(name: String, nelm: IntByRef, elm: StringArrayByRef, rdi: DoubleArrayByRef, rdj: DoubleArrayByRef): Int =
+    fun getElm(name: String, nelm: AIntByRef, elm: AStringArrayByRef, rdi: ADoubleArrayByRef, rdj: ADoubleArrayByRef): Int =
             callFunctionInt("GetElm", name, nelm, elm, rdi, rdj)
 
     /**
@@ -168,7 +168,7 @@ interface TendonObjV14 : SapComponent {
      * @param GUID The GUID (Global Unique ID) for the specified tendon object.
      * @return zero if the tendon object GUID is successfully retrieved; otherwise it returns nonzero.
      */
-    fun getGUID(name: String, GUID: StringByRef): Int =
+    fun getGUID(name: String, GUID: AStringByRef): Int =
             callFunctionInt("GetGUID", name, GUID)
 
     /**
@@ -187,7 +187,7 @@ interface TendonObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected tendon objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadDeformation(name: String, numberItems: IntByRef, tendonName: StringArrayByRef, loadPat: StringArrayByRef, u1: DoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadDeformation(name: String, numberItems: AIntByRef, tendonName: AStringArrayByRef, loadPat: AStringArrayByRef, u1: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadDeformation", name, numberItems, tendonName, loadPat, u1, itemType)
 
     /**
@@ -196,7 +196,7 @@ interface TendonObjV14 : SapComponent {
      * @param groupName This is the name of an existing group. All objects in the specified group can be loaded by the tendon.
      * @return zero if the assignment is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadedGroup(name: String, groupName: StringByRef): Int =
+    fun getLoadedGroup(name: String, groupName: AStringByRef): Int =
             callFunctionInt("GetLoadedGroup", name, groupName)
 
     /**
@@ -229,7 +229,7 @@ interface TendonObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected tendon objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadForceStress(name: String, numberItems: IntByRef, tendonName: StringArrayByRef, loadPat: StringArrayByRef, jackFrom: IntArrayByRef, loadType: IntArrayByRef, value: DoubleArrayByRef, curvatureCoeff: DoubleArrayByRef, wobbleCoeff: DoubleArrayByRef, lossAnchorage: DoubleArrayByRef, lossShortening: DoubleArrayByRef, lossCreep: DoubleArrayByRef, lossShrinkage: DoubleArrayByRef, lossSteelRelax: DoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadForceStress(name: String, numberItems: AIntByRef, tendonName: AStringArrayByRef, loadPat: AStringArrayByRef, jackFrom: AIntArrayByRef, loadType: AIntArrayByRef, value: ADoubleArrayByRef, curvatureCoeff: ADoubleArrayByRef, wobbleCoeff: ADoubleArrayByRef, lossAnchorage: ADoubleArrayByRef, lossShortening: ADoubleArrayByRef, lossCreep: ADoubleArrayByRef, lossShrinkage: ADoubleArrayByRef, lossSteelRelax: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadForceStress", name, numberItems, tendonName, loadPat, jackFrom, loadType, value, curvatureCoeff, wobbleCoeff, lossAnchorage, lossShortening, lossCreep, lossShrinkage, lossSteelRelax, itemType)
 
     /**
@@ -249,7 +249,7 @@ interface TendonObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected tendon objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadGravity(name: String, numberItems: IntByRef, tendonName: StringArrayByRef, loadPat: StringArrayByRef, cSys: StringArrayByRef, x: DoubleArrayByRef, y: DoubleArrayByRef, z: DoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadGravity(name: String, numberItems: AIntByRef, tendonName: AStringArrayByRef, loadPat: AStringArrayByRef, cSys: AStringArrayByRef, x: ADoubleArrayByRef, y: ADoubleArrayByRef, z: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadGravity", name, numberItems, tendonName, loadPat, cSys, x, y, z, itemType)
 
     /**
@@ -269,7 +269,7 @@ interface TendonObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected tendon objects, and the Name item is ignored.
      * @return zero if the strain load assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadStrain(name: String, numberItems: IntByRef, tendonName: StringArrayByRef, loadPat: StringArrayByRef, strain: DoubleArrayByRef, patternName: StringArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadStrain(name: String, numberItems: AIntByRef, tendonName: AStringArrayByRef, loadPat: AStringArrayByRef, strain: ADoubleArrayByRef, patternName: AStringArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadStrain", name, numberItems, tendonName, loadPat, strain, patternName, itemType)
 
     /**
@@ -289,7 +289,7 @@ interface TendonObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected tendon objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadTemperature(name: String, numberItems: IntByRef, tendonName: StringArrayByRef, loadPat: StringArrayByRef, myType: IntArrayByRef, value: DoubleArrayByRef, patternName: StringArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadTemperature(name: String, numberItems: AIntByRef, tendonName: AStringArrayByRef, loadPat: AStringArrayByRef, myType: AIntArrayByRef, value: ADoubleArrayByRef, patternName: AStringArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadTemperature", name, numberItems, tendonName, loadPat, myType, value, patternName, itemType)
 
     /**
@@ -298,7 +298,7 @@ interface TendonObjV14 : SapComponent {
      * @param ang This is the angle that the local 2 and 3 axes are rotated about the positive local 1 axis, from the default orientation. The rotation for a positive angle appears counter clockwise when the local +1 axis is pointing toward you. (deg)
      * @return zero if the assignment is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLocalAxes(name: String, ang: DoubleByRef): Int =
+    fun getLocalAxes(name: String, ang: ADoubleByRef): Int =
             callFunctionInt("GetLocalAxes", name, ang)
 
     /**
@@ -309,7 +309,7 @@ interface TendonObjV14 : SapComponent {
      * If PatternName is the name of a defined joint pattern, the material temperature for the tendon object may vary from one end to the other. The material temperature at each end of the object is equal to the specified temperature multiplied by the pattern value at the joint at the end of the tendon object.
      * @return zero if the material temperature assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getMatTemp(name: String, temp: DoubleByRef, patternName: StringByRef): Int =
+    fun getMatTemp(name: String, temp: ADoubleByRef, patternName: AStringByRef): Int =
             callFunctionInt("GetMatTemp", name, temp, patternName)
 
     /**
@@ -318,7 +318,7 @@ interface TendonObjV14 : SapComponent {
      * @param myName This is a one-dimensional array of tendon object names.
      * @return zero if the names are successfully retrieved, otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: IntByRef, myName: StringArrayByRef): Int =
+    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef): Int =
             callFunctionInt("GetNameList", numberNames, myName)
 
     /**
@@ -328,7 +328,7 @@ interface TendonObjV14 : SapComponent {
      * @param point2 The name of the point object at the J-End of the specified tendon object.
      * @return zero if the point names are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getPoints(name: String, point1: StringByRef, point2: StringByRef): Int =
+    fun getPoints(name: String, point1: AStringByRef, point2: AStringByRef): Int =
             callFunctionInt("GetPoints", name, point1, point2)
 
     /**
@@ -337,7 +337,7 @@ interface TendonObjV14 : SapComponent {
      * @param propName The name of the tendon property assigned to the tendon object.
      * @return zero if the tendon object property is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getProperty(name: String, propName: StringByRef): Int =
+    fun getProperty(name: String, propName: AStringByRef): Int =
             callFunctionInt("GetProperty", name, propName)
 
     /**
@@ -346,7 +346,7 @@ interface TendonObjV14 : SapComponent {
      * @param selected This item returns True if the specified tendon object is selected, otherwise it returns False.
      * @return zero if the selected status is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getSelected(name: String, selected: BooleanByRef): Int =
+    fun getSelected(name: String, selected: ABooleanByRef): Int =
             callFunctionInt("GetSelected", name, selected)
 
     /**
@@ -359,7 +359,7 @@ interface TendonObjV14 : SapComponent {
      * @param limitTension The tension force limit for the tendon object. (F)
      * @return zero if the assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getTCLimits(name: String, limitCompressionExists: BooleanByRef, limitCompression: DoubleByRef, limitTensionExists: BooleanByRef, limitTension: DoubleByRef): Int =
+    fun getTCLimits(name: String, limitCompressionExists: ABooleanByRef, limitCompression: ADoubleByRef, limitTensionExists: ABooleanByRef, limitTension: ADoubleByRef): Int =
             callFunctionInt("GetTCLimits", name, limitCompressionExists, limitCompression, limitTensionExists, limitTension)
 
     /**
@@ -382,7 +382,7 @@ interface TendonObjV14 : SapComponent {
      * Local means that the point coordinates are in the local system of the specified tendon object with the origin assumed to be at the I-End of the tendon.
      * @return zero if the tendon object parameters are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getTendonData(name: String, numberPoints: IntByRef, myType: IntArrayByRef, x: DoubleArrayByRef, y: DoubleArrayByRef, z: DoubleArrayByRef, cSys: String = "Global"): Int =
+    fun getTendonData(name: String, numberPoints: AIntByRef, myType: AIntArrayByRef, x: ADoubleArrayByRef, y: ADoubleArrayByRef, z: ADoubleArrayByRef, cSys: String = "Global"): Int =
             callFunctionInt("GetTendonData", name, numberPoints, myType, x, y, z, cSys)
 
     /**
@@ -396,7 +396,7 @@ interface TendonObjV14 : SapComponent {
      * Local means that the point coordinates are in the local system of the specified tendon object with the origin assumed to be at the I-End of the tendon.
      * @return zero if the tendon object discretized geometry is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getTendonGeometry(name: String, numberPoints: IntByRef, x: DoubleArrayByRef, y: DoubleArrayByRef, z: DoubleArrayByRef, cSys: String = "Global"): Int =
+    fun getTendonGeometry(name: String, numberPoints: AIntByRef, x: ADoubleArrayByRef, y: ADoubleArrayByRef, z: ADoubleArrayByRef, cSys: String = "Global"): Int =
             callFunctionInt("GetTendonGeometry", name, numberPoints, x, y, z, cSys)
 
     /**
@@ -409,7 +409,7 @@ interface TendonObjV14 : SapComponent {
      * If this item is False, the transformation matrix is between the present coordinate system and the tendon object local coordinate system.
      * @return zero if the tendon object transformation matrix is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getTransformationMatrix(name: String, value: DoubleArrayByRef, isGlobal: Boolean = true): Int =
+    fun getTransformationMatrix(name: String, value: ADoubleArrayByRef, isGlobal: Boolean = true): Int =
             callFunctionInt("GetTransformationMatrix", name, value, isGlobal)
 
     /**
@@ -468,7 +468,7 @@ interface TendonObjV14 : SapComponent {
      * If this item is SelectedObjects, assignment is made to all selected tendon objects and the Name item is ignored.
      * @return zero if the loads are successfully assigned, otherwise it returns a nonzero value.
      */
-    fun setLoadDeformation(name: String, loadPat: String, d: DoubleByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun setLoadDeformation(name: String, loadPat: String, d: ADoubleByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("SetLoadDeformation", name, loadPat, d, itemType)
 
     /**
@@ -684,6 +684,6 @@ interface TendonObjV14 : SapComponent {
      * Local means that the point coordinates are in the local system of the specified tendon object with the origin assumed to be at the I-End of the tendon.
      * @return zero if the tendon object is successfully defined, otherwise it returns a nonzero value. If the tendon object is not successfully defined, it may be deleted.
      */
-    fun setTendonData(name: String, numberPoints: Int, myType: IntArrayByRef, x: DoubleArrayByRef, y: DoubleArrayByRef, z: DoubleArrayByRef, cSys: String = "Global"): Int =
+    fun setTendonData(name: String, numberPoints: Int, myType: AIntArrayByRef, x: ADoubleArrayByRef, y: ADoubleArrayByRef, z: ADoubleArrayByRef, cSys: String = "Global"): Int =
             callFunctionInt("SetTendonData", name, numberPoints, myType, x, y, z, cSys)
 }

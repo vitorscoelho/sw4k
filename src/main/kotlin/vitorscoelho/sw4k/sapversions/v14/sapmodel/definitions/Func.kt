@@ -1,9 +1,9 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.definitions
 
-import vitorscoelho.sw4k.comutils.DoubleArrayByRef
-import vitorscoelho.sw4k.comutils.IntByRef
+import vitorscoelho.sw4k.comutils.ADoubleArrayByRef
+import vitorscoelho.sw4k.comutils.AIntByRef
 import vitorscoelho.sw4k.comutils.SapComponent
-import vitorscoelho.sw4k.comutils.StringArrayByRef
+import vitorscoelho.sw4k.comutils.AStringArrayByRef
 import vitorscoelho.sw4k.sapversions.v14.sapmodel.definitions.functions.FuncPSDV14
 import vitorscoelho.sw4k.sapversions.v14.sapmodel.definitions.functions.FuncRSV14
 import vitorscoelho.sw4k.sapversions.v14.sapmodel.definitions.functions.FuncSSV14
@@ -63,7 +63,7 @@ interface FuncV14 : SapComponent {
      * * 4 = Steady state
      * @return zero if the names are successfully retrieved; otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: IntByRef, myName: StringArrayByRef, funcType: Int = 0): Int =
+    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef, funcType: Int = 0): Int =
             callFunctionInt("GetNameList", numberNames, myName, funcType)
 
     /**
@@ -105,7 +105,7 @@ interface FuncV14 : SapComponent {
      * * 1 = User
      * @return zero if the type is successfully retrieved; otherwise it returns nonzero.
      */
-    fun getType(name: String, funcType: IntByRef, addType: IntByRef): Int =
+    fun getType(name: String, funcType: AIntByRef, addType: AIntByRef): Int =
             callFunctionInt("GetType", name, funcType, addType)
 
     /**
@@ -116,6 +116,6 @@ interface FuncV14 : SapComponent {
      * @param value This is an array that includes the function value for each data point.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getValues(name: String, numberItems: IntByRef, myTime: DoubleArrayByRef, value: DoubleArrayByRef): Int =
+    fun getValues(name: String, numberItems: AIntByRef, myTime: ADoubleArrayByRef, value: ADoubleArrayByRef): Int =
             callFunctionInt("GetValues", name, numberItems, myTime, value)
 }

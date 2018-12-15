@@ -55,7 +55,7 @@ interface DesignSteelV14 : SapComponent {
      * * UBC97-LRFD
      * @return zero if the code is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getCode(codeName: StringByRef): Int =
+    fun getCode(codeName: AStringByRef): Int =
             callFunctionInt("GetCode", codeName)
 
     /**
@@ -64,7 +64,7 @@ interface DesignSteelV14 : SapComponent {
      * @param myName This is an array that includes the name of each response combination selected as a design combination for steel deflection design.
      * @return zero if the names are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getComboDeflection(numberItems: IntByRef, myName: StringArrayByRef): Int =
+    fun getComboDeflection(numberItems: AIntByRef, myName: AStringArrayByRef): Int =
             callFunctionInt("GetComboDeflection", numberItems, myName)
 
     /**
@@ -73,7 +73,7 @@ interface DesignSteelV14 : SapComponent {
      * @param myName This is an array that includes the name of each response combination selected as a design combination for steel strength design.
      * @return zero if the names are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getComboStrength(numberItems: IntByRef, myName: StringArrayByRef): Int =
+    fun getComboStrength(numberItems: AIntByRef, myName: AStringArrayByRef): Int =
             callFunctionInt("GetComboStrength", numberItems, myName)
 
     /**
@@ -82,7 +82,7 @@ interface DesignSteelV14 : SapComponent {
      * @param propName The name of the design section for the specified frame object.
      * @return zero if the section is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getDesignSection(name: String, propName: StringByRef): Int =
+    fun getDesignSection(name: String, propName: AStringByRef): Int =
             callFunctionInt("GetDesignSection", name, propName)
 
     /**
@@ -91,7 +91,7 @@ interface DesignSteelV14 : SapComponent {
      * @param myName This is an array that includes the name of each group selected for steel design.
      * @return zero if the names are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getGroup(numberItems: IntByRef, myName: StringArrayByRef): Int =
+    fun getGroup(numberItems: AIntByRef, myName: AStringArrayByRef): Int =
             callFunctionInt("GetGroup", numberItems, myName)
 
     /**
@@ -120,7 +120,7 @@ interface DesignSteelV14 : SapComponent {
      * If this item is SelectedObjects, the design results are retrieved for all selected frame objects, and the Name item is ignored.
      * @return zero if the results are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getSummaryResults(name: String, numberItems: IntByRef, frameName: StringArrayByRef, ratio: DoubleArrayByRef, ratioType: IntArrayByRef, location: DoubleArrayByRef, comboName: StringArrayByRef, errorSummary: StringArrayByRef, warningSummary: StringArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getSummaryResults(name: String, numberItems: AIntByRef, frameName: AStringArrayByRef, ratio: ADoubleArrayByRef, ratioType: AIntArrayByRef, location: ADoubleArrayByRef, comboName: AStringArrayByRef, errorSummary: AStringArrayByRef, warningSummary: AStringArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetSummaryResults", name, numberItems, frameName, ratio, ratioType, location, comboName, errorSummary, warningSummary, itemType)
 
     /**
@@ -132,7 +132,7 @@ interface DesignSteelV14 : SapComponent {
      * @param active If this item is True, all specified lateral displacement targets are active. If it is False, they are inactive.
      * @return zero if the targets are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getTargetDispl(numberItems: IntByRef, loadCase: StringArrayByRef, point: StringArrayByRef, displ: DoubleArrayByRef, active: BooleanByRef): Int =
+    fun getTargetDispl(numberItems: AIntByRef, loadCase: AStringArrayByRef, point: AStringArrayByRef, displ: ADoubleArrayByRef, active: ABooleanByRef): Int =
             callFunctionInt("GetTargetDispl", numberItems, loadCase, point, displ, active)
 
     /**
@@ -144,7 +144,7 @@ interface DesignSteelV14 : SapComponent {
      * @param active If this item is True, all specified target periods are active. If it is False, they are inactive.
      * @return zero if the targets are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getTargetPeriod(numberItems: IntByRef, modalCase: StringByRef, mode: IntArrayByRef, period: DoubleArrayByRef, active: BooleanByRef): Int =
+    fun getTargetPeriod(numberItems: AIntByRef, modalCase: AStringByRef, mode: AIntArrayByRef, period: ADoubleArrayByRef, active: ABooleanByRef): Int =
             callFunctionInt("GetTargetPeriod", numberItems, modalCase, mode, period, active)
 
     /**
@@ -250,7 +250,7 @@ interface DesignSteelV14 : SapComponent {
      * @param active If this item is True, all specified lateral displacement targets are active. If it is False, they are inactive.
      * @return zero if the targets are successfully set; otherwise it returns a nonzero value.
      */
-    fun setTargetDispl(numberItems: Int, loadCase: StringArrayByRef, point: StringArrayByRef, displ: DoubleArrayByRef, active: Boolean = true): Int =
+    fun setTargetDispl(numberItems: Int, loadCase: AStringArrayByRef, point: AStringArrayByRef, displ: ADoubleArrayByRef, active: Boolean = true): Int =
             callFunctionInt("SetTargetDispl", numberItems, loadCase, point, displ, active)
 
     /**
@@ -262,7 +262,7 @@ interface DesignSteelV14 : SapComponent {
      * @param active If this item is True, all specified target periods are active. If it is False, they are inactive.
      * @return zero if the targets are successfully set; otherwise it returns a nonzero value.
      */
-    fun setTargetPeriod(numberItems: Int, modalCase: String, mode: IntArrayByRef, period: DoubleArrayByRef, active: Boolean = true): Int =
+    fun setTargetPeriod(numberItems: Int, modalCase: String, mode: AIntArrayByRef, period: ADoubleArrayByRef, active: Boolean = true): Int =
             callFunctionInt("SetTargetPeriod", numberItems, modalCase, mode, period, active)
 
     /**
@@ -281,7 +281,7 @@ interface DesignSteelV14 : SapComponent {
      * @param myName This is an array that includes the name of each frame object that did not pass the design check or has not yet been checked.
      * @return zero if the names are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun verifyPassed(numberItems: IntByRef, n1: IntByRef, n2: IntByRef, myName: StringArrayByRef): Int =
+    fun verifyPassed(numberItems: AIntByRef, n1: AIntByRef, n2: AIntByRef, myName: AStringArrayByRef): Int =
             callFunctionInt("VerifyPassed", numberItems, n1, n2, myName)
 
     /**
@@ -290,6 +290,6 @@ interface DesignSteelV14 : SapComponent {
      * @param myName This is an array that includes the name of each frame object that has different analysis and design sections.
      * @return zero if the names are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun verifySections(numberItems: IntByRef, myName: StringArrayByRef): Int =
+    fun verifySections(numberItems: AIntByRef, myName: AStringArrayByRef): Int =
             callFunctionInt("VerifySections", numberItems, myName)
 }

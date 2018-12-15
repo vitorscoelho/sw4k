@@ -90,7 +90,7 @@ interface SapModelV14 : SapComponent {
      * @param mergeTol The program auto merge tolerance. (L)
      * @return zero if the tolerance is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getMergeTol(mergeTol: DoubleByRef): Int =
+    fun getMergeTol(mergeTol: ADoubleByRef): Int =
             callFunctionInt("GetMergeTol", mergeTol)
 
     /**
@@ -135,7 +135,7 @@ interface SapModelV14 : SapComponent {
      * @param data This is an array that includes the data for the specified project information item.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getProjectInfo(numberItems: IntByRef, item: StringArrayByRef, data: StringArrayByRef): Int =
+    fun getProjectInfo(numberItems: AIntByRef, item: AStringArrayByRef, data: AStringArrayByRef): Int =
             callFunctionInt("GetProjectInfo", numberItems, item, data)
 
     /**
@@ -143,7 +143,7 @@ interface SapModelV14 : SapComponent {
      * @param comment The data in the user comments and log.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getUserComment(comment: StringByRef): Int =
+    fun getUserComment(comment: AStringByRef): Int =
             callFunctionInt("GetUserComment", comment)
 
     /**
@@ -152,7 +152,7 @@ interface SapModelV14 : SapComponent {
      * @param myVersionNumber The program version number that is used internally by the program and not displayed to the user.
      * @return zero if the information is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getVersion(version: StringByRef, myVersionNumber: DoubleByRef): Int =
+    fun getVersion(version: AStringByRef, myVersionNumber: ADoubleByRef): Int =
             callFunctionInt("GetVersion", version, myVersionNumber)
 
     /**

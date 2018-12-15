@@ -11,7 +11,7 @@ interface BridgeAdvancedSuperV14 : SapComponent {
      * @param count The number of section cuts in this bridge object. They will be identified in subsequent API functions using the indices 0 to Count-1. There may be one or two section cuts at each output station along the length of the superstructure.
      * @return zero if the count is successfully retrieved, otherwise it returns a nonzero value. If the bridge object is not currently linked to existing objects in the model, an error is returned.
      */
-    fun countSuperCut(name: String, count: IntByRef): Int =
+    fun countSuperCut(name: String, count: AIntByRef): Int =
             callFunctionInt("CountSuperCut", name, count)
 
     /**
@@ -21,7 +21,7 @@ interface BridgeAdvancedSuperV14 : SapComponent {
      * @param count The number of stress points for this section cut in this bridge object. They will be identified in subsequent API functions using the indices 0 to Count-1.
      * @return zero if the count is successfully retrieved, otherwise it returns a nonzero value. If the bridge object is not currently linked to existing objects in the model, an error is returned
      */
-    fun countSuperCutStressPoint(name: String, cutIndex: Int, count: IntByRef): Int =
+    fun countSuperCutStressPoint(name: String, cutIndex: Int, count: AIntByRef): Int =
             callFunctionInt("CountSuperCutStressPoint", name, cutIndex, count)
 
     /**
@@ -38,7 +38,7 @@ interface BridgeAdvancedSuperV14 : SapComponent {
      * @param superElev The superelevation, as a slope (abs(SuperElev) < 1.0), giving the vertical rise per distance along the transverse normal to the superstructure reference line.
      * @return zero if the information is successfully retrieved, otherwise it returns a nonzero value. If the bridge object is not currently linked to existing objects in the model, an error is returned.
      */
-    fun getSuperCutLocation(name: String, cutIndex: Int, location: IntByRef, station: DoubleByRef, xRefPt: DoubleByRef, yRefPt: DoubleByRef, skew: DoubleByRef, grade: DoubleByRef, superElev: DoubleByRef): Int =
+    fun getSuperCutLocation(name: String, cutIndex: Int, location: AIntByRef, station: ADoubleByRef, xRefPt: ADoubleByRef, yRefPt: ADoubleByRef, skew: ADoubleByRef, grade: ADoubleByRef, superElev: ADoubleByRef): Int =
             callFunctionInt("GetSuperCutLocation", name, cutIndex, location, station, xRefPt, yRefPt, skew, grade, superElev)
 
     /**
@@ -51,6 +51,6 @@ interface BridgeAdvancedSuperV14 : SapComponent {
      * @param note A description of the stress point that may be used for identification. Points that are pre-defined by the program will have prescribed notes.
      * @return zero if the information is successfully retrieved, otherwise it returns a nonzero value. If the bridge object is not currently linked to existing objects in the model, an error is returned.
      */
-    fun getSuperCutStressPoint(name: String, cutIndex: Int, pointIndex: Int, x: DoubleByRef, y: DoubleByRef, matProp: StringByRef, note: StringByRef): Int =
+    fun getSuperCutStressPoint(name: String, cutIndex: Int, pointIndex: Int, x: ADoubleByRef, y: ADoubleByRef, matProp: AStringByRef, note: AStringByRef): Int =
             callFunctionInt("GetSuperCutStressPoint", name, cutIndex, pointIndex, x, y, matProp, note)
 }

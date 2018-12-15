@@ -10,7 +10,7 @@ interface ModalEigenV14 : SapComponent {
      * If the specified initial case is a nonlinear static or nonlinear direct integration time history load case, the stiffness at the end of that case is used. If the initial case is anything else, zero initial conditions are assumed.
      * @return zero if the initial condition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getInitialCase(name: String, initialCase: StringByRef): Int =
+    fun getInitialCase(name: String, initialCase: AStringByRef): Int =
             callFunctionInt("GetInitialCase", name, initialCase)
 
     /**
@@ -26,7 +26,7 @@ interface ModalEigenV14 : SapComponent {
      * @param staticCorrect This is an array that includes either 0 or 1, indicating if static correction modes are to be calculated.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoads(name: String, numberLoads: IntByRef, loadType: StringArrayByRef, loadName: StringArrayByRef, targetPar: DoubleArrayByRef, staticCorrect: BooleanArrayByRef): Int =
+    fun getLoads(name: String, numberLoads: AIntByRef, loadType: AStringArrayByRef, loadName: AStringArrayByRef, targetPar: ADoubleArrayByRef, staticCorrect: ABooleanArrayByRef): Int =
             callFunctionInt("GetLoads", name, numberLoads, loadType, loadName, targetPar, staticCorrect)
 
     /**
@@ -36,7 +36,7 @@ interface ModalEigenV14 : SapComponent {
      * @param minModes The minimum number of modes requested.
      * @return zero if the number of modes is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getNumberModes(name: String, maxModes: IntByRef, minModes: IntByRef): Int =
+    fun getNumberModes(name: String, maxModes: AIntByRef, minModes: AIntByRef): Int =
             callFunctionInt("GetNumberModes", name, maxModes, minModes)
 
     /**
@@ -50,7 +50,7 @@ interface ModalEigenV14 : SapComponent {
      * * 1 = Automatic frequency shifting is allowed
      * @return zero if the parameters are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getParameters(name: String, eigenShiftFreq: DoubleByRef, eigenCutOff: DoubleByRef, eigenTol: DoubleByRef, allowAutoFreqShift: IntByRef): Int =
+    fun getParameters(name: String, eigenShiftFreq: ADoubleByRef, eigenCutOff: ADoubleByRef, eigenTol: ADoubleByRef, allowAutoFreqShift: AIntByRef): Int =
             callFunctionInt("GetParameters", name, eigenShiftFreq, eigenCutOff, eigenTol, allowAutoFreqShift)
 
     /**
@@ -84,7 +84,7 @@ interface ModalEigenV14 : SapComponent {
      * @param staticCorrect This is an array that includes either 0 or 1, indicating if static correction modes are to be calculated.
      * @return zero if the data is successfully set; otherwise it returns a nonzero value.
      */
-    fun setLoads(name: String, numberLoads: Int, loadType: StringArrayByRef, loadName: StringArrayByRef, targetPar: DoubleArrayByRef, staticCorrect: BooleanArrayByRef): Int =
+    fun setLoads(name: String, numberLoads: Int, loadType: AStringArrayByRef, loadName: AStringArrayByRef, targetPar: ADoubleArrayByRef, staticCorrect: ABooleanArrayByRef): Int =
             callFunctionInt("SetLoads", name, numberLoads, loadType, loadName, targetPar, staticCorrect)
 
     /**

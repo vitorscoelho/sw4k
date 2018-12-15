@@ -1,8 +1,8 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.definitions
 
-import vitorscoelho.sw4k.comutils.IntByRef
+import vitorscoelho.sw4k.comutils.AIntByRef
 import vitorscoelho.sw4k.comutils.SapComponent
-import vitorscoelho.sw4k.comutils.StringArrayByRef
+import vitorscoelho.sw4k.comutils.AStringArrayByRef
 
 interface PatternDefV14 : SapComponent {
     /**
@@ -33,7 +33,7 @@ interface PatternDefV14 : SapComponent {
      * @param myName This is a one-dimensional array of joint pattern names.
      * @return zero if the names are successfully retrieved, otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: IntByRef, myName: StringArrayByRef): Int =
+    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef): Int =
             callFunctionInt("GetNameList", numberNames, myName)
 
     /**

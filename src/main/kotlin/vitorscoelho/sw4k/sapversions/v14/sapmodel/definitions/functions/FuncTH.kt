@@ -12,7 +12,7 @@ interface FuncTHV14 : SapComponent {
      * @param cosineAmp The amplitude of the cosine function.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getCosine(name: String, cosineP: DoubleByRef, cosineSteps: IntByRef, cosineCycles: IntByRef, cosineAmp: DoubleByRef): Int =
+    fun getCosine(name: String, cosineP: ADoubleByRef, cosineSteps: AIntByRef, cosineCycles: AIntByRef, cosineAmp: ADoubleByRef): Int =
             callFunctionInt("GetCosine", name, cosineP, cosineSteps, cosineCycles, cosineAmp)
 
     /**
@@ -29,7 +29,7 @@ interface FuncTHV14 : SapComponent {
      * @param numberFixed This item applies only when the FreeFormat item is False. It is the number of characters per item.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getFromFile(name: String, fileName: StringByRef, headLines: IntByRef, preChars: IntByRef, pointsPerLine: IntByRef, valueType: IntByRef, freeFormat: BooleanByRef, numberFixed: IntByRef): Int =
+    fun getFromFile(name: String, fileName: AStringByRef, headLines: AIntByRef, preChars: AIntByRef, pointsPerLine: AIntByRef, valueType: AIntByRef, freeFormat: ABooleanByRef, numberFixed: AIntByRef): Int =
             callFunctionInt("GetFromFile", name, fileName, headLines, preChars, pointsPerLine, valueType, freeFormat, numberFixed)
 
     /**
@@ -40,7 +40,7 @@ interface FuncTHV14 : SapComponent {
      * @param rampMaxTime The time at the end of the ramp function. This time must be greater than the RampTime. (s)
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getRamp(name: String, rampTime: DoubleByRef, rampAmp: DoubleByRef, rampMaxTime: DoubleByRef): Int =
+    fun getRamp(name: String, rampTime: ADoubleByRef, rampAmp: ADoubleByRef, rampMaxTime: ADoubleByRef): Int =
             callFunctionInt("GetRamp", name, rampTime, rampAmp, rampMaxTime)
 
     /**
@@ -52,7 +52,7 @@ interface FuncTHV14 : SapComponent {
      * @param sawAmp The maximum amplitude of the sawtooth function.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getSawtooth(name: String, sawP: DoubleByRef, sawTime: DoubleByRef, sawCycles: IntByRef, sawAmp: DoubleByRef): Int =
+    fun getSawtooth(name: String, sawP: ADoubleByRef, sawTime: ADoubleByRef, sawCycles: AIntByRef, sawAmp: ADoubleByRef): Int =
             callFunctionInt("GetSawtooth", name, sawP, sawTime, sawCycles, sawAmp)
 
     /**
@@ -64,7 +64,7 @@ interface FuncTHV14 : SapComponent {
      * @param sineAmp The amplitude of the sine function.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getSine(name: String, sineP: DoubleByRef, sineSteps: IntByRef, sineCycles: IntByRef, sineAmp: DoubleByRef): Int =
+    fun getSine(name: String, sineP: ADoubleByRef, sineSteps: AIntByRef, sineCycles: AIntByRef, sineAmp: ADoubleByRef): Int =
             callFunctionInt("GetSine", name, sineP, sineSteps, sineCycles, sineAmp)
 
     /**
@@ -75,7 +75,7 @@ interface FuncTHV14 : SapComponent {
      * @param triAmp The maximum amplitude of the triangular function.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getTriangular(name: String, triP: DoubleByRef, triCycles: IntByRef, triAmp: DoubleByRef): Int =
+    fun getTriangular(name: String, triP: ADoubleByRef, triCycles: AIntByRef, triAmp: ADoubleByRef): Int =
             callFunctionInt("GetTriangular", name, triP, triCycles, triAmp)
 
     /**
@@ -87,7 +87,7 @@ interface FuncTHV14 : SapComponent {
      * @param value This is an array that includes the function value for each data point.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getUserPeriodic(name: String, uPCycles: IntByRef, numberItems: IntByRef, myTime: DoubleArrayByRef, value: DoubleArrayByRef): Int =
+    fun getUserPeriodic(name: String, uPCycles: AIntByRef, numberItems: AIntByRef, myTime: ADoubleArrayByRef, value: ADoubleArrayByRef): Int =
             callFunctionInt("GetUserPeriodic", name, uPCycles, numberItems, myTime, value)
 
     /**
@@ -98,7 +98,7 @@ interface FuncTHV14 : SapComponent {
      * @param value This is an array that includes the function value for each data point.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getUser(name: String, numberItems: IntByRef, myTime: DoubleArrayByRef, value: DoubleArrayByRef): Int =
+    fun getUser(name: String, numberItems: AIntByRef, myTime: ADoubleArrayByRef, value: ADoubleArrayByRef): Int =
             callFunctionInt("GetUser", name, numberItems, myTime, value)
 
     /**
@@ -185,7 +185,7 @@ interface FuncTHV14 : SapComponent {
      * @param value This is an array that includes the function value for each data point.
      * @return zero if the function is successfully defined; otherwise it returns a nonzero value.
      */
-    fun setUserPeriodic(name: String, uPCycles: Int, numberItems: Int, myTime: DoubleArrayByRef, value: DoubleArrayByRef): Int =
+    fun setUserPeriodic(name: String, uPCycles: Int, numberItems: Int, myTime: ADoubleArrayByRef, value: ADoubleArrayByRef): Int =
             callFunctionInt("SetUserPeriodic", name, uPCycles, numberItems, myTime, value)
 
     /**
@@ -196,6 +196,6 @@ interface FuncTHV14 : SapComponent {
      * @param value This is an array that includes the function value for each data point.
      * @return zero if the function is successfully defined; otherwise it returns a nonzero value.
      */
-    fun setUser(name: String, numberItems: Int, myTime: DoubleArrayByRef, value: DoubleArrayByRef): Int =
+    fun setUser(name: String, numberItems: Int, myTime: ADoubleArrayByRef, value: ADoubleArrayByRef): Int =
             callFunctionInt("SetUser", name, numberItems, myTime, value)
 }

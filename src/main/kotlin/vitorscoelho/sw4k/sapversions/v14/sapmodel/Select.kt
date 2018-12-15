@@ -59,7 +59,7 @@ interface SelectV14 : SapComponent {
      * @param objectName This is an array that includes the name of each selected object.
      * @return zero if the selection list is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getSelected(numberItems: IntByRef, objectType: IntArrayByRef, objectName: StringArrayByRef): Int =
+    fun getSelected(numberItems: AIntByRef, objectType: AIntArrayByRef, objectName: AStringArrayByRef): Int =
             callFunctionInt("GetSelected", numberItems, objectType, objectName)
 
     /**
@@ -92,7 +92,7 @@ interface SelectV14 : SapComponent {
      * @param deSelect The item is False if objects are to be selected and True if they are to be deselected.
      * @return zero if the selection is successfully completed, otherwise it returns nonzero.
      */
-    fun linesParallelToCoordAxis(parallelTo: BooleanArrayByRef, cSys: String = "Global", tolerance: Double = 0.057, deSelect: Boolean = false): Int =
+    fun linesParallelToCoordAxis(parallelTo: ABooleanArrayByRef, cSys: String = "Global", tolerance: Double = 0.057, deSelect: Boolean = false): Int =
             callFunctionInt("LinesParallelToCoordAxis", parallelTo, cSys, tolerance, deSelect)
 
     /**
@@ -229,6 +229,6 @@ interface SelectV14 : SapComponent {
      * @param selectOneJointLinks If this item is True, points with one joint link assignments in one of the specified degrees of freedom are selected or deselected.
      * @return zero if the selection is successfully completed, otherwise it returns nonzero.
      */
-    fun supportedPoints(dOF: BooleanArrayByRef, cSys: String = "Local", deSelect: Boolean = false, selectRestraints: Boolean = true, selectJointSprings: Boolean = true, selectLineSprings: Boolean = true, selectAreaSprings: Boolean = true, selectSolidSprings: Boolean = true, selectOneJointLinks: Boolean = true): Int =
+    fun supportedPoints(dOF: ABooleanArrayByRef, cSys: String = "Local", deSelect: Boolean = false, selectRestraints: Boolean = true, selectJointSprings: Boolean = true, selectLineSprings: Boolean = true, selectAreaSprings: Boolean = true, selectSolidSprings: Boolean = true, selectOneJointLinks: Boolean = true): Int =
             callFunctionInt("SupportedPoints", dOF, cSys, deSelect, selectRestraints, selectJointSprings, selectLineSprings, selectAreaSprings, selectSolidSprings, selectOneJointLinks)
 }

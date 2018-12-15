@@ -11,7 +11,7 @@ interface ResponseSpectrumV14 : SapComponent {
      * @param damp The constant damping for all modes (0 <= Damp < 1).
      * @return zero if the option is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getDampConstant(name: String, damp: DoubleByRef): Int =
+    fun getDampConstant(name: String, damp: ADoubleByRef): Int =
             callFunctionInt("GetDampConstant", name, damp)
 
     /**
@@ -25,7 +25,7 @@ interface ResponseSpectrumV14 : SapComponent {
      * @param damp This is an array that includes the damping for the specified period of frequency (0 <= Damp < 1).
      * @return zero if the option is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getDampInterpolated(name: String, dampType: IntByRef, numberItems: IntByRef, time: DoubleArrayByRef, damp: DoubleArrayByRef): Int =
+    fun getDampInterpolated(name: String, dampType: AIntByRef, numberItems: AIntByRef, time: ADoubleArrayByRef, damp: ADoubleArrayByRef): Int =
             callFunctionInt("GetDampInterpolated", name, dampType, numberItems, time, damp)
 
     /**
@@ -36,7 +36,7 @@ interface ResponseSpectrumV14 : SapComponent {
      * @param damp This is an array that includes the damping for the specified mode (0 <= Damp < 1).
      * @return zero if the overrides are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getDampInterpolated(name: String, numberItems: IntByRef, mode: IntArrayByRef, damp: DoubleArrayByRef): Int =
+    fun getDampInterpolated(name: String, numberItems: AIntByRef, mode: AIntArrayByRef, damp: ADoubleArrayByRef): Int =
             callFunctionInt("GetDampInterpolated", name, numberItems, mode, damp)
 
     /**
@@ -58,7 +58,7 @@ interface ResponseSpectrumV14 : SapComponent {
      * This item applies only when DampType = 2 or 3.
      * @return zero if the option is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getDampProportional(name: String, dampType: IntByRef, dampa: DoubleByRef, dampb: DoubleByRef, dampf1: DoubleByRef, dampf2: DoubleByRef, dampd1: DoubleByRef, dampd2: DoubleByRef): Int =
+    fun getDampProportional(name: String, dampType: AIntByRef, dampa: ADoubleByRef, dampb: ADoubleByRef, dampf1: ADoubleByRef, dampf2: ADoubleByRef, dampd1: ADoubleByRef, dampd2: ADoubleByRef): Int =
             callFunctionInt("GetDampProportional", name, dampType, dampa, dampb, dampf1, dampf2, dampd1, dampd2)
 
     /**
@@ -73,7 +73,7 @@ interface ResponseSpectrumV14 : SapComponent {
      * * 6 = Interpolated damping by frequency
      * @return zero if the type is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getDampType(name: String, dampType: IntByRef): Int =
+    fun getDampType(name: String, dampType: AIntByRef): Int =
             callFunctionInt("GetDampType", name, dampType)
 
     /**
@@ -84,7 +84,7 @@ interface ResponseSpectrumV14 : SapComponent {
      * @param eccen This is an array that includes the eccentricity applied to each diaphragm. (L)
      * @return zero if the overrides are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getDiaphragmEccentricityOverride(name: String, num: IntByRef, diaph: StringArrayByRef, eccen: DoubleArrayByRef): Int =
+    fun getDiaphragmEccentricityOverride(name: String, num: AIntByRef, diaph: AStringArrayByRef, eccen: ADoubleArrayByRef): Int =
             callFunctionInt("GetDiaphragmEccentricityOverride", name, num, diaph, eccen)
 
     /**
@@ -96,7 +96,7 @@ interface ResponseSpectrumV14 : SapComponent {
      * @param SF This item applies only when MyType = 2. It is the ABS scale factor.
      * @return zero if the option is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getDirComb(name: String, myType: IntByRef, SF: DoubleByRef): Int =
+    fun getDirComb(name: String, myType: AIntByRef, SF: ADoubleByRef): Int =
             callFunctionInt("GetDirComb", name, myType, SF)
 
     /**
@@ -105,7 +105,7 @@ interface ResponseSpectrumV14 : SapComponent {
      * @param eccen The eccentricity ratio that applies to all diaphragms.
      * @return zero if the ratio is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getEccentricity(name: String, eccen: DoubleByRef): Int =
+    fun getEccentricity(name: String, eccen: ADoubleByRef): Int =
             callFunctionInt("GetEccentricity", name, eccen)
 
     /**
@@ -119,7 +119,7 @@ interface ResponseSpectrumV14 : SapComponent {
      * @param ang This is an array that includes the angle between the acceleration local 1 axis and the +X-axis of the coordinate system specified by the CSys item. The rotation is about the Z-axis of the specified coordinate system. (deg)
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoads(name: String, numberLoads: IntByRef, loadName: StringArrayByRef, func: StringArrayByRef, sF: DoubleArrayByRef, cSys: StringArrayByRef, ang: DoubleArrayByRef): Int =
+    fun getLoads(name: String, numberLoads: AIntByRef, loadName: AStringArrayByRef, func: AStringArrayByRef, sF: ADoubleArrayByRef, cSys: AStringArrayByRef, ang: ADoubleArrayByRef): Int =
             callFunctionInt("GetLoads", name, numberLoads, loadName, func, sF, cSys, ang)
 
     /**
@@ -128,7 +128,7 @@ interface ResponseSpectrumV14 : SapComponent {
      * @param modalCase This is None or the name of an existing modal analysis case. It specifies the modal load case on which any mode-type load assignments to the specified load case are based.
      * @return zero if the modal case is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getModalCase(name: String, modalCase: StringByRef): Int =
+    fun getModalCase(name: String, modalCase: AStringByRef): Int =
             callFunctionInt("GetModalCase", name, modalCase)
 
     /**
@@ -141,7 +141,7 @@ interface ResponseSpectrumV14 : SapComponent {
      * @param td This item applies only when MyType = 6. It is the factor td. (s)
      * @return zero if the option is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getModalComb_1(name: String, myType: IntByRef, f1: DoubleByRef, f2: DoubleByRef, periodicRigidCombType: IntByRef, td: DoubleByRef): Int =
+    fun getModalComb_1(name: String, myType: AIntByRef, f1: ADoubleByRef, f2: ADoubleByRef, periodicRigidCombType: AIntByRef, td: ADoubleByRef): Int =
             callFunctionInt("GetModalComb_1", name, myType, f1, f2, periodicRigidCombType, td)
 
     /**
@@ -172,7 +172,7 @@ interface ResponseSpectrumV14 : SapComponent {
      * @param damp This is an array that includes the damping for the specified period of frequency (0 <= Damp < 1).
      * @return zero if the damping is successfully set; otherwise it returns a nonzero value.
      */
-    fun setDampInterpolated(name: String, dampType: Int, numberItems: Int, time: DoubleArrayByRef, damp: DoubleArrayByRef): Int =
+    fun setDampInterpolated(name: String, dampType: Int, numberItems: Int, time: ADoubleArrayByRef, damp: ADoubleArrayByRef): Int =
             callFunctionInt("SetDampInterpolated", name, dampType, numberItems, time, damp)
 
     /**
@@ -183,7 +183,7 @@ interface ResponseSpectrumV14 : SapComponent {
      * @param damp This is an array that includes the damping for the specified mode (0 <= Damp < 1).
      * @return zero if the overrides are successfully set; otherwise it returns a nonzero value.
      */
-    fun setDampOverrides(name: String, numberItems: Int, mode: IntArrayByRef, damp: DoubleArrayByRef): Int =
+    fun setDampOverrides(name: String, numberItems: Int, mode: AIntArrayByRef, damp: ADoubleArrayByRef): Int =
             callFunctionInt("SetDampOverrides", name, numberItems, mode, damp)
 
     /**
@@ -254,7 +254,7 @@ interface ResponseSpectrumV14 : SapComponent {
      * @param ang This is an array that includes the angle between the acceleration local 1 axis and the +X-axis of the coordinate system specified by the CSys item. The rotation is about the Z-axis of the specified coordinate system. (deg)
      * @return zero if the data is successfully set; otherwise it returns a nonzero value.
      */
-    fun setLoads(name: String, numberLoads: Int, loadName: StringArrayByRef, func: StringArrayByRef, sF: DoubleArrayByRef, cSys: StringArrayByRef, ang: DoubleArrayByRef): Int =
+    fun setLoads(name: String, numberLoads: Int, loadName: AStringArrayByRef, func: AStringArrayByRef, sF: ADoubleArrayByRef, cSys: AStringArrayByRef, ang: ADoubleArrayByRef): Int =
             callFunctionInt("SetLoads", name, numberLoads, loadName, func, sF, cSys, ang)
 
     /**

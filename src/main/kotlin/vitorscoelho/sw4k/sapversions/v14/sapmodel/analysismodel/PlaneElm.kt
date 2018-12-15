@@ -34,7 +34,7 @@ interface PlaneElmV14 : SapComponent {
      * If this item is SelectionElm, the load assignments are retrieved for plane elements corresponding to all selected area objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadGravity(name: String, numberItems: IntByRef, planeName: StringArrayByRef, loadPat: StringArrayByRef, cSys: StringArrayByRef, x: DoubleArrayByRef, y: DoubleArrayByRef, z: DoubleArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
+    fun getLoadGravity(name: String, numberItems: AIntByRef, planeName: AStringArrayByRef, loadPat: AStringArrayByRef, cSys: AStringArrayByRef, x: ADoubleArrayByRef, y: ADoubleArrayByRef, z: ADoubleArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
             callFunctionInt("GetLoadGravity", name, numberItems, planeName, loadPat, cSys, x, y, z, itemTypeElm)
 
     /**
@@ -56,7 +56,7 @@ interface PlaneElmV14 : SapComponent {
      * If this item is SelectionElm, the load assignments are retrieved for plane elements corresponding to all selected area objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadPorePressure(name: String, numberItems: IntByRef, planeName: StringArrayByRef, loadPat: StringArrayByRef, value: DoubleArrayByRef, patternName: StringArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
+    fun getLoadPorePressure(name: String, numberItems: AIntByRef, planeName: AStringArrayByRef, loadPat: AStringArrayByRef, value: ADoubleArrayByRef, patternName: AStringArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
             callFunctionInt("GetLoadPorePressure", name, numberItems, planeName, loadPat, value, patternName, itemTypeElm)
 
     /**
@@ -78,7 +78,7 @@ interface PlaneElmV14 : SapComponent {
      * If this item is SelectionElm, the load assignments are retrieved for plane elements corresponding to all selected area objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadRotate(name: String, numberItems: IntByRef, planeName: StringArrayByRef, loadPat: StringArrayByRef, value: DoubleArrayByRef, patternName: StringArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
+    fun getLoadRotate(name: String, numberItems: AIntByRef, planeName: AStringArrayByRef, loadPat: AStringArrayByRef, value: ADoubleArrayByRef, patternName: AStringArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
             callFunctionInt("GetLoadRotate", name, numberItems, planeName, loadPat, value, patternName, itemTypeElm)
 
     /**
@@ -106,7 +106,7 @@ interface PlaneElmV14 : SapComponent {
      * If this item is SelectionElm, the load assignments are retrieved for plane elements corresponding to all selected area objects, and the Name item is ignored.
      * @return zero if the strain load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadStrain(name: String, numberItems: IntByRef, planeName: StringArrayByRef, loadPat: StringArrayByRef, component: IntArrayByRef, value: DoubleArrayByRef, patternName: StringArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
+    fun getLoadStrain(name: String, numberItems: AIntByRef, planeName: AStringArrayByRef, loadPat: AStringArrayByRef, component: AIntArrayByRef, value: ADoubleArrayByRef, patternName: AStringArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
             callFunctionInt("GetLoadStrain", name, numberItems, planeName, loadPat, component, value, patternName, itemTypeElm)
 
     /**
@@ -133,7 +133,7 @@ interface PlaneElmV14 : SapComponent {
      * If this item is SelectionElm, the load assignments are retrieved for plane elements corresponding to all selected area objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadSurfacePressure(name: String, numberItems: IntByRef, planeName: StringArrayByRef, loadPat: StringArrayByRef, face: IntArrayByRef, value: DoubleArrayByRef, patternName: StringArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
+    fun getLoadSurfacePressure(name: String, numberItems: AIntByRef, planeName: AStringArrayByRef, loadPat: AStringArrayByRef, face: AIntArrayByRef, value: ADoubleArrayByRef, patternName: AStringArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
             callFunctionInt("GetLoadSurfacePressure", name, numberItems, planeName, loadPat, face, value, patternName, itemTypeElm)
 
     /**
@@ -158,7 +158,7 @@ interface PlaneElmV14 : SapComponent {
      * If this item is SelectionElm, the load assignments are retrieved for plane elements corresponding to all selected area objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadTemperature(name: String, numberItems: IntByRef, planeName: StringArrayByRef, loadPat: StringArrayByRef, myType: IntArrayByRef, value: DoubleArrayByRef, patternName: StringArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
+    fun getLoadTemperature(name: String, numberItems: AIntByRef, planeName: AStringArrayByRef, loadPat: AStringArrayByRef, myType: AIntArrayByRef, value: ADoubleArrayByRef, patternName: AStringArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
             callFunctionInt("GetLoadTemperature", name, numberItems, planeName, loadPat, myType, value, patternName, itemTypeElm)
 
     /**
@@ -193,7 +193,7 @@ interface PlaneElmV14 : SapComponent {
      * If this item is SelectionElm, the load assignments are retrieved for plane elements corresponding to all selected area objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadUniform(name: String, numberItems: IntByRef, planeName: StringArrayByRef, loadPat: StringArrayByRef, cSys: StringArrayByRef, dir: IntArrayByRef, value: DoubleArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
+    fun getLoadUniform(name: String, numberItems: AIntByRef, planeName: AStringArrayByRef, loadPat: AStringArrayByRef, cSys: AStringArrayByRef, dir: AIntArrayByRef, value: ADoubleArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
             callFunctionInt("GetLoadUniform", name, numberItems, planeName, loadPat, cSys, dir, value, itemTypeElm)
 
     /**
@@ -202,7 +202,7 @@ interface PlaneElmV14 : SapComponent {
      * @param ang This is the angle that the local 1 and 2 axes are rotated about the positive local 3 axis from the default orientation. The rotation for a positive angle appears counter clockwise when the local +3 axis is pointing toward you. (deg)
      * @return zero if the assignment is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLocalAxes(name: String, ang: DoubleByRef): Int =
+    fun getLocalAxes(name: String, ang: ADoubleByRef): Int =
             callFunctionInt("GetLocalAxes", name, ang)
 
     /**
@@ -213,7 +213,7 @@ interface PlaneElmV14 : SapComponent {
      * If PatternName is the name of a defined joint pattern, the material temperature for the plane element may vary. The material temperature at each corner point around the plane element perimeter is equal to the specified temperature multiplied by the pattern value at the associated point element. The material temperature at other points in the plane element is calculated by interpolation from the corner points.
      * @return zero if the material temperature assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getMatTemp(name: String, temp: DoubleByRef, patternName: StringByRef): Int =
+    fun getMatTemp(name: String, temp: ADoubleByRef, patternName: AStringByRef): Int =
             callFunctionInt("GetMatTemp", name, temp, patternName)
 
     /**
@@ -222,7 +222,7 @@ interface PlaneElmV14 : SapComponent {
      * @param myName This is a one-dimensional array of plane element names.
      * @return zero if the names are successfully retrieved; otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: IntByRef, myName: StringArrayByRef): Int =
+    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef): Int =
             callFunctionInt("GetNameList", numberNames, myName)
 
     /**
@@ -231,7 +231,7 @@ interface PlaneElmV14 : SapComponent {
      * @param obj The name of the area object from which the plane element was created.
      * @return zero if the information is successfully retrieved; otherwise it returns nonzero.
      */
-    fun getObj(name: String, obj: StringByRef): Int =
+    fun getObj(name: String, obj: AStringByRef): Int =
             callFunctionInt("GetObj", name, obj)
 
     /**
@@ -241,7 +241,7 @@ interface PlaneElmV14 : SapComponent {
      * @param point This is an array containing the names of the point elements that define the plane element. The point names are in order around the plane element.
      * @return zero if the point element names are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getPoints(name: String, numberPoints: IntByRef, point: StringArrayByRef): Int =
+    fun getPoints(name: String, numberPoints: AIntByRef, point: AStringArrayByRef): Int =
             callFunctionInt("GetPoints", name, numberPoints, point)
 
     /**
@@ -250,7 +250,7 @@ interface PlaneElmV14 : SapComponent {
      * @param propName The name of the area property assigned to the plane element. This item is None if there is no area property assigned to the plane element.
      * @return zero if the property is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getProperty(name: String, propName: StringByRef): Int =
+    fun getProperty(name: String, propName: AStringByRef): Int =
             callFunctionInt("GetProperty", name, propName)
 
     /**
@@ -260,6 +260,6 @@ interface PlaneElmV14 : SapComponent {
      * In the equation, c0 through c8 are the nine values from the transformation array, (Local1, Local2, Local3) are an item (such as a load) in the element local coordinate system, and (GlobalX, GlobalY, GlobalZ) are the same item in the global coordinate system.
      * @return zero if the transformation matrix is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getTransformationMatrix(name: String, value: DoubleArrayByRef): Int =
+    fun getTransformationMatrix(name: String, value: ADoubleArrayByRef): Int =
             callFunctionInt("GetTransformationMatrix", name, value)
 }

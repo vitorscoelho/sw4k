@@ -78,7 +78,7 @@ interface PropFrameV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section.
      * @return zero if the section property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getAngle(name: String, fileName: StringByRef, matProp: StringByRef, t3: DoubleByRef, t2: DoubleByRef, tf: DoubleByRef, tw: DoubleByRef, color: IntByRef, notes: StringByRef, GUID: StringByRef): Int =
+    fun getAngle(name: String, fileName: AStringByRef, matProp: AStringByRef, t3: ADoubleByRef, t2: ADoubleByRef, tf: ADoubleByRef, tw: ADoubleByRef, color: AIntByRef, notes: AStringByRef, GUID: AStringByRef): Int =
             callFunctionInt("GetAngle", name, fileName, matProp, t3, t2, tf, tw, color, notes, GUID)
 
     /**
@@ -91,7 +91,7 @@ interface PropFrameV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getAutoSelectAluminum(name: String, numberItems: Int, sectName: StringArrayByRef, autoStartSection: StringByRef, notes: StringByRef, GUID: StringByRef): Int =
+    fun getAutoSelectAluminum(name: String, numberItems: Int, sectName: AStringArrayByRef, autoStartSection: AStringByRef, notes: AStringByRef, GUID: AStringByRef): Int =
             callFunctionInt("GetAutoSelectAluminum", name, numberItems, sectName, autoStartSection, notes, GUID)
 
     /**
@@ -104,7 +104,7 @@ interface PropFrameV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getAutoSelectColdFormed(name: String, numberItems: Int, sectName: StringArrayByRef, autoStartSection: StringByRef, notes: StringByRef, GUID: StringByRef): Int =
+    fun getAutoSelectColdFormed(name: String, numberItems: Int, sectName: AStringArrayByRef, autoStartSection: AStringByRef, notes: AStringByRef, GUID: AStringByRef): Int =
             callFunctionInt("GetAutoSelectColdFormed", name, numberItems, sectName, autoStartSection, notes, GUID)
 
     /**
@@ -117,7 +117,7 @@ interface PropFrameV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getAutoSelectSteel(name: String, numberItems: Int, sectName: StringArrayByRef, autoStartSection: StringByRef, notes: StringByRef, GUID: StringByRef): Int =
+    fun getAutoSelectSteel(name: String, numberItems: Int, sectName: AStringArrayByRef, autoStartSection: AStringByRef, notes: AStringByRef, GUID: AStringByRef): Int =
             callFunctionInt("GetAutoSelectSteel", name, numberItems, sectName, autoStartSection, notes, GUID)
 
     /**
@@ -134,7 +134,7 @@ interface PropFrameV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section.
      * @return zero if the section property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getChannel(name: String, fileName: StringByRef, matProp: StringByRef, t3: DoubleByRef, t2: DoubleByRef, tf: DoubleByRef, tw: DoubleByRef, color: IntByRef, notes: StringByRef, GUID: StringByRef): Int =
+    fun getChannel(name: String, fileName: AStringByRef, matProp: AStringByRef, t3: ADoubleByRef, t2: ADoubleByRef, tf: ADoubleByRef, tw: ADoubleByRef, color: AIntByRef, notes: AStringByRef, GUID: AStringByRef): Int =
             callFunctionInt("GetChannel", name, fileName, matProp, t3, t2, tf, tw, color, notes, GUID)
 
     /**
@@ -148,7 +148,7 @@ interface PropFrameV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section.
      * @return zero if the section property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getCircle(name: String, fileName: StringByRef, matProp: StringByRef, t3: DoubleByRef, color: IntByRef, notes: StringByRef, GUID: StringByRef): Int =
+    fun getCircle(name: String, fileName: AStringByRef, matProp: AStringByRef, t3: ADoubleByRef, color: AIntByRef, notes: AStringByRef, GUID: AStringByRef): Int =
             callFunctionInt("GetCircle", name, fileName, matProp, t3, color, notes, GUID)
 
     /**
@@ -166,7 +166,7 @@ interface PropFrameV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section.
      * @return zero if the section property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getColdC(name: String, fileName: StringByRef, matProp: StringByRef, t3: DoubleByRef, t2: DoubleByRef, thickness: DoubleByRef, radius: DoubleByRef, lipDepth: DoubleByRef, color: IntByRef, notes: StringByRef, GUID: StringByRef): Int =
+    fun getColdC(name: String, fileName: AStringByRef, matProp: AStringByRef, t3: ADoubleByRef, t2: ADoubleByRef, thickness: ADoubleByRef, radius: ADoubleByRef, lipDepth: ADoubleByRef, color: AIntByRef, notes: AStringByRef, GUID: AStringByRef): Int =
             callFunctionInt("GetColdC", name, fileName, matProp, t3, t2, thickness, radius, lipDepth, color, notes, GUID)
 
     /**
@@ -184,7 +184,7 @@ interface PropFrameV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section.
      * @return zero if the section property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getColdHat(name: String, fileName: StringByRef, matProp: StringByRef, t3: DoubleByRef, t2: DoubleByRef, thickness: DoubleByRef, radius: DoubleByRef, lipDepth: DoubleByRef, color: IntByRef, notes: StringByRef, GUID: StringByRef): Int =
+    fun getColdHat(name: String, fileName: AStringByRef, matProp: AStringByRef, t3: ADoubleByRef, t2: ADoubleByRef, thickness: ADoubleByRef, radius: ADoubleByRef, lipDepth: ADoubleByRef, color: AIntByRef, notes: AStringByRef, GUID: AStringByRef): Int =
             callFunctionInt("GetColdHat", name, fileName, matProp, t3, t2, thickness, radius, lipDepth, color, notes, GUID)
 
     /**
@@ -203,7 +203,7 @@ interface PropFrameV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section.
      * @return zero if the section property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getColdZ(name: String, fileName: StringByRef, matProp: StringByRef, t3: DoubleByRef, t2: DoubleByRef, thickness: DoubleByRef, radius: DoubleByRef, lipDepth: DoubleByRef, lipAngle: DoubleByRef, color: IntByRef, notes: StringByRef, GUID: StringByRef): Int =
+    fun getColdZ(name: String, fileName: AStringByRef, matProp: AStringByRef, t3: ADoubleByRef, t2: ADoubleByRef, thickness: ADoubleByRef, radius: ADoubleByRef, lipDepth: ADoubleByRef, lipAngle: ADoubleByRef, color: AIntByRef, notes: AStringByRef, GUID: AStringByRef): Int =
             callFunctionInt("GetColdZ", name, fileName, matProp, t3, t2, thickness, radius, lipDepth, lipAngle, color, notes, GUID)
 
     /**
@@ -233,7 +233,7 @@ interface PropFrameV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section.
      * @return zero if the section property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getCoverPlatedI(name: String, sectName: StringByRef, fyTopFlange: DoubleByRef, fyWeb: DoubleByRef, fyBotFlange: DoubleByRef, tc: DoubleByRef, bc: DoubleByRef, matPropTop: StringByRef, tcb: DoubleByRef, bcb: DoubleByRef, matPropBot: StringByRef, color: IntByRef, notes: StringByRef, GUID: StringByRef): Int =
+    fun getCoverPlatedI(name: String, sectName: AStringByRef, fyTopFlange: ADoubleByRef, fyWeb: ADoubleByRef, fyBotFlange: ADoubleByRef, tc: ADoubleByRef, bc: ADoubleByRef, matPropTop: AStringByRef, tcb: ADoubleByRef, bcb: ADoubleByRef, matPropBot: AStringByRef, color: AIntByRef, notes: AStringByRef, GUID: AStringByRef): Int =
             callFunctionInt("GetCoverPlatedI", name, sectName, fyTopFlange, fyWeb, fyBotFlange, tc, bc, matPropTop, tcb, bcb, matPropBot, color, notes, GUID)
 
     /**
@@ -251,7 +251,7 @@ interface PropFrameV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section.
      * @return zero if the section property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getDblAngle(name: String, fileName: StringByRef, matProp: StringByRef, t3: DoubleByRef, t2: DoubleByRef, tf: DoubleByRef, tw: DoubleByRef, dis: DoubleByRef, color: IntByRef, notes: StringByRef, GUID: StringByRef): Int =
+    fun getDblAngle(name: String, fileName: AStringByRef, matProp: AStringByRef, t3: ADoubleByRef, t2: ADoubleByRef, tf: ADoubleByRef, tw: ADoubleByRef, dis: ADoubleByRef, color: AIntByRef, notes: AStringByRef, GUID: AStringByRef): Int =
             callFunctionInt("GetDblAngle", name, fileName, matProp, t3, t2, tf, tw, dis, color, notes, GUID)
 
     /**
@@ -269,7 +269,7 @@ interface PropFrameV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section.
      * @return zero if the section property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getDblChannel(name: String, fileName: StringByRef, matProp: StringByRef, t3: DoubleByRef, t2: DoubleByRef, tf: DoubleByRef, tw: DoubleByRef, dis: DoubleByRef, color: IntByRef, notes: StringByRef, GUID: StringByRef): Int =
+    fun getDblChannel(name: String, fileName: AStringByRef, matProp: AStringByRef, t3: ADoubleByRef, t2: ADoubleByRef, tf: ADoubleByRef, tw: ADoubleByRef, dis: ADoubleByRef, color: AIntByRef, notes: AStringByRef, GUID: AStringByRef): Int =
             callFunctionInt("GetDblChannel", name, fileName, matProp, t3, t2, tf, tw, dis, color, notes, GUID)
 
     /**
@@ -296,7 +296,7 @@ interface PropFrameV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section.
      * @return zero if the section property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getGeneral(name: String, fileName: StringByRef, matProp: StringByRef, t3: DoubleByRef, t2: DoubleByRef, area: DoubleByRef, as2: DoubleByRef, as3: DoubleByRef, torsion: DoubleByRef, i22: DoubleByRef, i33: DoubleByRef, s22: DoubleByRef, s33: DoubleByRef, z22: DoubleByRef, z33: DoubleByRef, r22: DoubleByRef, r33: DoubleByRef, color: IntByRef, notes: StringByRef, GUID: StringByRef): Int =
+    fun getGeneral(name: String, fileName: AStringByRef, matProp: AStringByRef, t3: ADoubleByRef, t2: ADoubleByRef, area: ADoubleByRef, as2: ADoubleByRef, as3: ADoubleByRef, torsion: ADoubleByRef, i22: ADoubleByRef, i33: ADoubleByRef, s22: ADoubleByRef, s33: ADoubleByRef, z22: ADoubleByRef, z33: ADoubleByRef, r22: ADoubleByRef, r33: ADoubleByRef, color: AIntByRef, notes: AStringByRef, GUID: AStringByRef): Int =
             callFunctionInt("GetGeneral", name, fileName, matProp, t3, t2, area, as2, as3, torsion, i22, i33, s22, s33, z22, z33, r22, r33, color, notes, GUID)
 
     /**
@@ -315,7 +315,7 @@ interface PropFrameV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section.
      * @return zero if the section property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getISection(name: String, fileName: StringByRef, matProp: StringByRef, t3: DoubleByRef, t2: DoubleByRef, tf: DoubleByRef, tw: DoubleByRef, t2b: DoubleByRef, tfb: DoubleByRef, color: IntByRef, notes: StringByRef, GUID: StringByRef): Int =
+    fun getISection(name: String, fileName: AStringByRef, matProp: AStringByRef, t3: ADoubleByRef, t2: ADoubleByRef, tf: ADoubleByRef, tw: ADoubleByRef, t2b: ADoubleByRef, tfb: ADoubleByRef, color: AIntByRef, notes: AStringByRef, GUID: AStringByRef): Int =
             callFunctionInt("GetISection", name, fileName, matProp, t3, t2, tf, tw, t2b, tfb, color, notes, GUID)
 
     /**
@@ -332,7 +332,7 @@ interface PropFrameV14 : SapComponent {
      * * Value(7) = Weight modifier
      * @return zero if the modifier assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getModifiers(name: String, value: DoubleArrayByRef): Int =
+    fun getModifiers(name: String, value: ADoubleArrayByRef): Int =
             callFunctionInt("GetModifiers", name, value)
 
     /**
@@ -344,7 +344,7 @@ interface PropFrameV14 : SapComponent {
      * @param propType This is one of the following items in the [FramePropType] enumeration.
      * @return zero if the names are successfully retrieved; otherwise it returns nonzero. If the specified frame section property was not imported, blank strings are returned for NameInFile and FileName.
      */
-    fun getNameInPropFile(name: String, nameInFile: StringByRef, fileName: StringByRef, matProp: StringByRef, propType: IntByRef): Int =
+    fun getNameInPropFile(name: String, nameInFile: AStringByRef, fileName: AStringByRef, matProp: AStringByRef, propType: AIntByRef): Int =
             callFunctionInt("GetNameInPropFile", name, nameInFile, fileName, matProp, propType)
 
     /**
@@ -353,7 +353,7 @@ interface PropFrameV14 : SapComponent {
      * @param myName This is a one-dimensional array of frame section property names.
      * @return zero if the names are successfully retrieved; otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: IntByRef, myName: StringArrayByRef): Int =
+    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef): Int =
             callFunctionInt("GetNameList", numberNames, myName)
 
     /**
@@ -388,7 +388,7 @@ interface PropFrameV14 : SapComponent {
      * * SECTION_PCC_GIRDER_U = 25
      * @return zero if the names are successfully retrieved; otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: IntByRef, myName: StringArrayByRef, propType: Int): Int =
+    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef, propType: Int): Int =
             callFunctionInt("GetNameList", numberNames, myName, propType)
 
     /**
@@ -409,7 +409,7 @@ interface PropFrameV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getNonPrismatic(name: String, numberItems: IntByRef, startSec: StringArrayByRef, endSec: StringArrayByRef, myLength: DoubleArrayByRef, myType: IntArrayByRef, eI33: IntArrayByRef, eI22: IntArrayByRef, color: IntByRef, notes: StringByRef, GUID: StringByRef): Int =
+    fun getNonPrismatic(name: String, numberItems: AIntByRef, startSec: AStringArrayByRef, endSec: AStringArrayByRef, myLength: ADoubleArrayByRef, myType: AIntArrayByRef, eI33: AIntArrayByRef, eI22: AIntArrayByRef, color: AIntByRef, notes: AStringByRef, GUID: AStringByRef): Int =
             callFunctionInt("GetNonPrismatic", name, numberItems, startSec, endSec, myLength, myType, eI33, eI22, color, notes, GUID)
 
     /**
@@ -424,7 +424,7 @@ interface PropFrameV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section.
      * @return zero if the section property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getPipe(name: String, fileName: StringByRef, matProp: StringByRef, t3: DoubleByRef, tw: DoubleByRef, color: IntByRef, notes: StringByRef, GUID: StringByRef): Int =
+    fun getPipe(name: String, fileName: AStringByRef, matProp: AStringByRef, t3: ADoubleByRef, tw: ADoubleByRef, color: AIntByRef, notes: AStringByRef, GUID: AStringByRef): Int =
             callFunctionInt("GetPipe", name, fileName, matProp, t3, tw, color, notes, GUID)
 
     /**
@@ -451,7 +451,7 @@ interface PropFrameV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section.
      * @return zero if the section property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getPrecastI(name: String, fileName: StringByRef, matProp: StringByRef, b: DoubleArrayByRef, d: DoubleArrayByRef, color: IntByRef, notes: StringByRef, GUID: StringByRef): Int =
+    fun getPrecastI(name: String, fileName: AStringByRef, matProp: AStringByRef, b: ADoubleArrayByRef, d: ADoubleArrayByRef, color: AIntByRef, notes: AStringByRef, GUID: AStringByRef): Int =
             callFunctionInt("GetPrecastI", name, fileName, matProp, b, d, color, notes, GUID)
 
     /**
@@ -481,7 +481,7 @@ interface PropFrameV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section.
      * @return zero if the section property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getPrecastU(name: String, fileName: StringByRef, matProp: StringByRef, b: DoubleArrayByRef, d: DoubleArrayByRef, color: IntByRef, notes: StringByRef, GUID: StringByRef): Int =
+    fun getPrecastU(name: String, fileName: AStringByRef, matProp: AStringByRef, b: ADoubleArrayByRef, d: ADoubleArrayByRef, color: AIntByRef, notes: AStringByRef, GUID: AStringByRef): Int =
             callFunctionInt("GetPrecastU", name, fileName, matProp, b, d, color, notes, GUID)
 
     /**
@@ -493,7 +493,7 @@ interface PropFrameV14 : SapComponent {
      * @param myPropType This is an array the includes the property type for each property obtained from the frame section property file. See the PropType item below for a list of the possible property types.
      * @return zero if the names are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getPropFileNameList(fileName: String, numberNames: IntByRef, myName: StringArrayByRef, myPropType: IntArrayByRef): Int =
+    fun getPropFileNameList(fileName: String, numberNames: AIntByRef, myName: AStringArrayByRef, myPropType: AIntArrayByRef): Int =
             callFunctionInt("GetPropFileNameList", fileName, numberNames, myName, myPropType)
 
     /**
@@ -532,7 +532,7 @@ interface PropFrameV14 : SapComponent {
      * If no value is input for PropType, names are returned for all frame section properties in the specified file regardless of type.
      * @return zero if the names are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getPropFileNameList(fileName: String, numberNames: IntByRef, myName: StringArrayByRef, myPropType: IntArrayByRef, propType: Int): Int =
+    fun getPropFileNameList(fileName: String, numberNames: AIntByRef, myName: AStringArrayByRef, myPropType: AIntArrayByRef, propType: Int): Int =
             callFunctionInt("GetPropFileNameList", fileName, numberNames, myName, myPropType, propType)
 
     /**
@@ -554,7 +554,7 @@ interface PropFrameV14 : SapComponent {
      * * SECTION_CIRCLE = 9
      * The material assigned to the specified frame section property must be concrete or this function returns an error.
      */
-    fun getRebarBeam(name: String, matPropLong: StringByRef, matPropConfine: StringByRef, coverTop: DoubleByRef, coverBot: DoubleByRef, topLeftArea: DoubleByRef, topRightArea: DoubleByRef, botLeftArea: DoubleByRef, botRightArea: DoubleByRef): Int =
+    fun getRebarBeam(name: String, matPropLong: AStringByRef, matPropConfine: AStringByRef, coverTop: ADoubleByRef, coverBot: ADoubleByRef, topLeftArea: ADoubleByRef, topRightArea: ADoubleByRef, botLeftArea: ADoubleByRef, botRightArea: ADoubleByRef): Int =
             callFunctionInt("GetRebarBeam", name, matPropLong, matPropConfine, coverTop, coverBot, topLeftArea, topRightArea, botLeftArea, botRightArea)
 
     /**
@@ -586,7 +586,7 @@ interface PropFrameV14 : SapComponent {
      * * SECTION_CIRCLE = 9
      * The material assigned to the specified frame section property must be concrete or else this function returns an error.
      */
-    fun getRebarColumn(name: String, matPropLong: StringByRef, matPropConfine: StringByRef, pattern: IntByRef, confineType: IntByRef, cover: DoubleByRef, numberCBars: IntByRef, numberR3Bars: IntByRef, numberR2Bars: IntByRef, rebarSize: StringByRef, tieSize: StringByRef, tieSpacingLongit: DoubleByRef, number2DirTieBars: IntByRef, number3DirTieBars: IntByRef, toBeDesigned: BooleanByRef): Int =
+    fun getRebarColumn(name: String, matPropLong: AStringByRef, matPropConfine: AStringByRef, pattern: AIntByRef, confineType: AIntByRef, cover: ADoubleByRef, numberCBars: AIntByRef, numberR3Bars: AIntByRef, numberR2Bars: AIntByRef, rebarSize: AStringByRef, tieSize: AStringByRef, tieSpacingLongit: ADoubleByRef, number2DirTieBars: AIntByRef, number3DirTieBars: AIntByRef, toBeDesigned: ABooleanByRef): Int =
             callFunctionInt("GetRebarColumn", name, matPropLong, matPropConfine, pattern, confineType, cover, numberCBars, numberR3Bars, numberR2Bars, rebarSize, tieSize, tieSpacingLongit, number2DirTieBars, number3DirTieBars, toBeDesigned)
 
     /**
@@ -601,7 +601,7 @@ interface PropFrameV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section.
      * @return zero if the section property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getRectangle(name: String, fileName: StringByRef, matProp: StringByRef, t3: DoubleByRef, t2: DoubleByRef, color: IntByRef, notes: StringByRef, GUID: StringByRef): Int =
+    fun getRectangle(name: String, fileName: AStringByRef, matProp: AStringByRef, t3: ADoubleByRef, t2: ADoubleByRef, color: AIntByRef, notes: AStringByRef, GUID: AStringByRef): Int =
             callFunctionInt("GetRectangle", name, fileName, matProp, t3, t2, color, notes, GUID)
 
     /**
@@ -644,7 +644,7 @@ interface PropFrameV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section.
      * @return zero if the section property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getSDSection(name: String, matProp: StringByRef, numberItems: IntByRef, shapeName: StringArrayByRef, myType: IntArrayByRef, designType: IntByRef, color: IntByRef, notes: StringByRef, GUID: StringByRef): Int =
+    fun getSDSection(name: String, matProp: AStringByRef, numberItems: AIntByRef, shapeName: AStringArrayByRef, myType: AIntArrayByRef, designType: AIntByRef, color: AIntByRef, notes: AStringByRef, GUID: AStringByRef): Int =
             callFunctionInt("GetSDSection", name, matProp, numberItems, shapeName, myType, designType, color, notes, GUID)
 
     /**
@@ -664,7 +664,7 @@ interface PropFrameV14 : SapComponent {
      * @param r33 The radius of gyration about the local 3 axis. (L)
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getSectProps(name: String, area: DoubleByRef, as2: DoubleByRef, as3: DoubleByRef, torsion: DoubleByRef, i22: DoubleByRef, i33: DoubleByRef, s22: DoubleByRef, s33: DoubleByRef, z22: DoubleByRef, z33: DoubleByRef, r22: DoubleByRef, r33: DoubleByRef): Int =
+    fun getSectProps(name: String, area: ADoubleByRef, as2: ADoubleByRef, as3: ADoubleByRef, torsion: ADoubleByRef, i22: ADoubleByRef, i33: ADoubleByRef, s22: ADoubleByRef, s33: ADoubleByRef, z22: ADoubleByRef, z33: ADoubleByRef, r22: ADoubleByRef, r33: ADoubleByRef): Int =
             callFunctionInt("GetSectProps", name, area, as2, as3, torsion, i22, i33, s22, s33, z22, z33, r22, r33)
 
     /**
@@ -681,7 +681,7 @@ interface PropFrameV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section.
      * @return zero if the section property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getTee(name: String, fileName: StringByRef, matProp: StringByRef, t3: DoubleByRef, t2: DoubleByRef, tf: DoubleByRef, tw: DoubleByRef, color: IntByRef, notes: StringByRef, GUID: StringByRef): Int =
+    fun getTee(name: String, fileName: AStringByRef, matProp: AStringByRef, t3: ADoubleByRef, t2: ADoubleByRef, tf: ADoubleByRef, tw: ADoubleByRef, color: AIntByRef, notes: AStringByRef, GUID: AStringByRef): Int =
             callFunctionInt("GetTee", name, fileName, matProp, t3, t2, tf, tw, color, notes, GUID)
 
     /**
@@ -698,7 +698,7 @@ interface PropFrameV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section.
      * @return zero if the section property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getTube(name: String, fileName: StringByRef, matProp: StringByRef, t3: DoubleByRef, t2: DoubleByRef, tf: DoubleByRef, tw: DoubleByRef, color: IntByRef, notes: StringByRef, GUID: StringByRef): Int =
+    fun getTube(name: String, fileName: AStringByRef, matProp: AStringByRef, t3: ADoubleByRef, t2: ADoubleByRef, tf: ADoubleByRef, tw: ADoubleByRef, color: AIntByRef, notes: AStringByRef, GUID: AStringByRef): Int =
             callFunctionInt("GetTube", name, fileName, matProp, t3, t2, tf, tw, color, notes, GUID)
 
     /**
@@ -711,7 +711,7 @@ interface PropFrameV14 : SapComponent {
      * * 2 = Beam
      * @return zero if the type is successfully retrieved; otherwise it returns nonzero.
      */
-    fun getTypeRebar(name: String, propType: IntByRef): Int =
+    fun getTypeRebar(name: String, propType: AIntByRef): Int =
             callFunctionInt("GetTypeRebar", name, propType)
 
     /**
@@ -745,7 +745,7 @@ interface PropFrameV14 : SapComponent {
      * * SECTION_PCC_GIRDER_U = 25
      * @return zero if the type is successfully retrieved; otherwise it returns nonzero.
      */
-    fun getType(name: String, propType: IntByRef): Int =
+    fun getType(name: String, propType: AIntByRef): Int =
             callFunctionInt("GetType", name, propType)
 
     /**
@@ -791,7 +791,7 @@ interface PropFrameV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section. If this item is input as Default, the program assigns a GUID to the section.
      * @return zero if the auto select list is successfully filled; otherwise it returns a nonzero value.
      */
-    fun setAutoSelectAluminum(name: String, numberItems: Int, sectName: StringArrayByRef, autoStartSection: String = "Median", notes: String = "", GUID: String = ""): Int =
+    fun setAutoSelectAluminum(name: String, numberItems: Int, sectName: AStringArrayByRef, autoStartSection: String = "Median", notes: String = "", GUID: String = ""): Int =
             callFunctionInt("SetAutoSelectAluminum", name, numberItems, sectName, autoStartSection, notes, GUID)
 
     /**
@@ -805,7 +805,7 @@ interface PropFrameV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section. If this item is input as Default, the program assigns a GUID to the section.
      * @return zero if the auto select list is successfully filled; otherwise it returns a nonzero value.
      */
-    fun setAutoSelectColdFormed(name: String, numberItems: Int, sectName: StringArrayByRef, autoStartSection: String = "Median", notes: String = "", GUID: String = ""): Int =
+    fun setAutoSelectColdFormed(name: String, numberItems: Int, sectName: AStringArrayByRef, autoStartSection: String = "Median", notes: String = "", GUID: String = ""): Int =
             callFunctionInt("SetAutoSelectColdFormed", name, numberItems, sectName, autoStartSection, notes, GUID)
 
     /**
@@ -819,7 +819,7 @@ interface PropFrameV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section. If this item is input as Default, the program assigns a GUID to the section.
      * @return zero if the auto select list is successfully filled; otherwise it returns a nonzero value.
      */
-    fun setAutoSelectSteel(name: String, numberItems: Int, sectName: StringArrayByRef, autoStartSection: String = "Median", notes: String = "", GUID: String = ""): Int =
+    fun setAutoSelectSteel(name: String, numberItems: Int, sectName: AStringArrayByRef, autoStartSection: String = "Median", notes: String = "", GUID: String = ""): Int =
             callFunctionInt("SetAutoSelectSteel", name, numberItems, sectName, autoStartSection, notes, GUID)
 
     /**
@@ -1025,7 +1025,7 @@ interface PropFrameV14 : SapComponent {
      * * Value(7) = Weight modifier
      * @return zero if the modifiers are successfully assigned; otherwise it returns a nonzero value.
      */
-    fun setModifiers(name: String, value: DoubleArrayByRef): Int =
+    fun setModifiers(name: String, value: ADoubleArrayByRef): Int =
             callFunctionInt("SetModifiers", name, value)
 
     /**
@@ -1049,7 +1049,7 @@ interface PropFrameV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section. If this item is input as Default, the program assigns a GUID to the section.
      * @return zero if the data is successfully filled; otherwise it returns a nonzero value.
      */
-    fun setNonPrismatic(name: String, numberItems: Int, startSec: StringArrayByRef, endSec: StringArrayByRef, myLength: DoubleArrayByRef, myType: IntArrayByRef, eI33: IntArrayByRef, eI22: IntArrayByRef, color: Int = -1, notes: String = "", GUID: String = ""): Int =
+    fun setNonPrismatic(name: String, numberItems: Int, startSec: AStringArrayByRef, endSec: AStringArrayByRef, myLength: ADoubleArrayByRef, myType: AIntArrayByRef, eI33: AIntArrayByRef, eI22: AIntArrayByRef, color: Int = -1, notes: String = "", GUID: String = ""): Int =
             callFunctionInt("SetNonPrismatic", name, numberItems, startSec, endSec, myLength, myType, eI33, eI22, color, notes, GUID)
 
     /**
@@ -1089,7 +1089,7 @@ interface PropFrameV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section. If this item is input as Default, the program assigns a GUID to the section.
      * @return zero if the section property is successfully initialized; otherwise it returns a nonzero value.
      */
-    fun setPrecastI(name: String, matProp: String, b: DoubleArrayByRef, d: DoubleArrayByRef, color: Int = -1, notes: String = "", GUID: String = ""): Int =
+    fun setPrecastI(name: String, matProp: String, b: ADoubleArrayByRef, d: ADoubleArrayByRef, color: Int = -1, notes: String = "", GUID: String = ""): Int =
             callFunctionInt("SetPrecastI", name, matProp, b, d, color, notes, GUID)
 
     /**
@@ -1118,7 +1118,7 @@ interface PropFrameV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the section. If this item is input as Default, the program assigns a GUID to the section.
      * @return zero if the section property is successfully initialized; otherwise it returns a nonzero value.
      */
-    fun setPrecastU(name: String, matProp: String, b: DoubleArrayByRef, d: DoubleArrayByRef, color: Int = -1, notes: String = "", GUID: String = ""): Int =
+    fun setPrecastU(name: String, matProp: String, b: ADoubleArrayByRef, d: ADoubleArrayByRef, color: Int = -1, notes: String = "", GUID: String = ""): Int =
             callFunctionInt("SetPrecastU", name, matProp, b, d, color, notes, GUID)
 
     /**

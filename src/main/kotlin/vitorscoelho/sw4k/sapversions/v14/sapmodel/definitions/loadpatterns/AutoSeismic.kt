@@ -31,7 +31,7 @@ interface AutoSeismicV14 : SapComponent {
      * @param AS2007Mu The structural ductility factor, u.
      * @return zero if the parameters are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getAS11702007(name: String, dirFlag: IntByRef, eccen: DoubleByRef, periodFlag: IntByRef, CT: DoubleByRef, userT: DoubleByRef, userZ: BooleanByRef, topZ: DoubleByRef, bottomZ: DoubleByRef, AS2007SiteClass: IntByRef, AS2007kp: DoubleByRef, AS2007Z: DoubleByRef, AS2007Sp: DoubleByRef, AS2007Mu: DoubleByRef): Int =
+    fun getAS11702007(name: String, dirFlag: AIntByRef, eccen: ADoubleByRef, periodFlag: AIntByRef, CT: ADoubleByRef, userT: ADoubleByRef, userZ: ABooleanByRef, topZ: ADoubleByRef, bottomZ: ADoubleByRef, AS2007SiteClass: AIntByRef, AS2007kp: ADoubleByRef, AS2007Z: ADoubleByRef, AS2007Sp: ADoubleByRef, AS2007Mu: ADoubleByRef): Int =
             callFunctionInt("GetAS11702007", name, dirFlag, eccen, periodFlag, CT, userT, userZ, topZ, bottomZ, AS2007SiteClass, AS2007kp, AS2007Z, AS2007Sp, AS2007Mu)
 
     /**
@@ -56,7 +56,7 @@ interface AutoSeismicV14 : SapComponent {
      * @param BOCA96R The response modification factor.
      * @return zero if the parameters are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getBOCA96(name: String, dirFlag: IntByRef, eccen: DoubleByRef, periodFlag: IntByRef, CT: DoubleByRef, userT: DoubleByRef, userZ: BooleanByRef, topZ: DoubleByRef, bottomZ: DoubleByRef, BOCA96Aa: DoubleByRef, BOCA96Av: DoubleByRef, BOCA96S: DoubleByRef, BOCA96R: DoubleByRef): Int =
+    fun getBOCA96(name: String, dirFlag: AIntByRef, eccen: ADoubleByRef, periodFlag: AIntByRef, CT: ADoubleByRef, userT: ADoubleByRef, userZ: ABooleanByRef, topZ: ADoubleByRef, bottomZ: ADoubleByRef, BOCA96Aa: ADoubleByRef, BOCA96Av: ADoubleByRef, BOCA96S: ADoubleByRef, BOCA96R: ADoubleByRef): Int =
             callFunctionInt("GetBOCA96", name, dirFlag, eccen, periodFlag, CT, userT, userZ, topZ, bottomZ, BOCA96Aa, BOCA96Av, BOCA96S, BOCA96R)
 
     /**
@@ -88,7 +88,7 @@ interface AutoSeismicV14 : SapComponent {
      * @param enhancementFactor The enhancement factor.
      * @return zero if the parameters are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getChinese2002(name: String, dirFlag: IntByRef, eccen: DoubleByRef, periodFlag: IntByRef, userT: DoubleByRef, userZ: BooleanByRef, topZ: DoubleByRef, bottomZ: DoubleByRef, JGJ32002AlphaMax: DoubleByRef, JGJ32002SI: IntByRef, JGJ32002DampRatio: DoubleByRef, JGJ32002Tg: DoubleByRef, JGJ32002PTDF: DoubleByRef, enhancementFactor: DoubleByRef): Int =
+    fun getChinese2002(name: String, dirFlag: AIntByRef, eccen: ADoubleByRef, periodFlag: AIntByRef, userT: ADoubleByRef, userZ: ABooleanByRef, topZ: ADoubleByRef, bottomZ: ADoubleByRef, JGJ32002AlphaMax: ADoubleByRef, JGJ32002SI: AIntByRef, JGJ32002DampRatio: ADoubleByRef, JGJ32002Tg: ADoubleByRef, JGJ32002PTDF: ADoubleByRef, enhancementFactor: ADoubleByRef): Int =
             callFunctionInt("GetChinese2002", name, dirFlag, eccen, periodFlag, userT, userZ, topZ, bottomZ, JGJ32002AlphaMax, JGJ32002SI, JGJ32002DampRatio, JGJ32002Tg, JGJ32002PTDF, enhancementFactor)
 
     /**
@@ -99,7 +99,7 @@ interface AutoSeismicV14 : SapComponent {
      * @param eccen This is an array that includes the eccentricity applied to each diaphragm. (L)
      * @return zero if the overrides are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getDiaphragmEccentricityOverride(name: String, num: IntByRef, diaph: StringArrayByRef, eccen: DoubleArrayByRef): Int =
+    fun getDiaphragmEccentricityOverride(name: String, num: AIntByRef, diaph: AStringArrayByRef, eccen: ADoubleArrayByRef): Int =
             callFunctionInt("GetDiaphragmEccentricityOverride", name, num, diaph, eccen)
 
     /**
@@ -133,7 +133,7 @@ interface AutoSeismicV14 : SapComponent {
      * @param EURO2004Lambda The correction factor, Lambda.
      * @return zero if the parameters are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getEurocode82004(name: String, dirFlag: IntByRef, eccen: DoubleByRef, periodFlag: IntByRef, CT: DoubleByRef, userT: DoubleByRef, userZ: BooleanByRef, topZ: DoubleByRef, bottomZ: DoubleByRef, EURO2004GroundType: IntByRef, EURO2004SpectrumType: IntByRef, EURO2004ag: DoubleByRef, EURO2004Beta: DoubleByRef, EURO2004q: DoubleByRef, EURO2004Lambda: DoubleByRef): Int =
+    fun getEurocode82004(name: String, dirFlag: AIntByRef, eccen: ADoubleByRef, periodFlag: AIntByRef, CT: ADoubleByRef, userT: ADoubleByRef, userZ: ABooleanByRef, topZ: ADoubleByRef, bottomZ: ADoubleByRef, EURO2004GroundType: AIntByRef, EURO2004SpectrumType: AIntByRef, EURO2004ag: ADoubleByRef, EURO2004Beta: ADoubleByRef, EURO2004q: ADoubleByRef, EURO2004Lambda: ADoubleByRef): Int =
             callFunctionInt("GetEurocode82004", name, dirFlag, eccen, periodFlag, CT, userT, userZ, topZ, bottomZ, EURO2004GroundType, EURO2004SpectrumType, EURO2004ag, EURO2004Beta, EURO2004q, EURO2004Lambda)
 
     /**
@@ -174,7 +174,7 @@ interface AutoSeismicV14 : SapComponent {
      * @param IBC2003Cd The deflection amplification factor.
      * @return zero if the parameters are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getIBC2003(name: String, dirFlag: IntByRef, eccen: DoubleByRef, periodFlag: IntByRef, CT: DoubleByRef, userT: DoubleByRef, userZ: BooleanByRef, topZ: DoubleByRef, bottomZ: DoubleByRef, IBC2003SG: IntByRef, IBC2003SeismicCoeffFlag: IntByRef, IBC2003Site: IntByRef, IBC2003SS: DoubleByRef, IBC2003S1: DoubleByRef, IBC2003Fa: DoubleByRef, IBC2003Fv: DoubleByRef, IBC2003R: DoubleByRef, IBC2003Omega: DoubleByRef, IBC2003Cd: DoubleByRef): Int =
+    fun getIBC2003(name: String, dirFlag: AIntByRef, eccen: ADoubleByRef, periodFlag: AIntByRef, CT: ADoubleByRef, userT: ADoubleByRef, userZ: ABooleanByRef, topZ: ADoubleByRef, bottomZ: ADoubleByRef, IBC2003SG: AIntByRef, IBC2003SeismicCoeffFlag: AIntByRef, IBC2003Site: AIntByRef, IBC2003SS: ADoubleByRef, IBC2003S1: ADoubleByRef, IBC2003Fa: ADoubleByRef, IBC2003Fv: ADoubleByRef, IBC2003R: ADoubleByRef, IBC2003Omega: ADoubleByRef, IBC2003Cd: ADoubleByRef): Int =
             callFunctionInt("GetIBC2003", name, dirFlag, eccen, periodFlag, CT, userT, userZ, topZ, bottomZ, IBC2003SG, IBC2003SeismicCoeffFlag, IBC2003Site, IBC2003SS, IBC2003S1, IBC2003Fa, IBC2003Fv, IBC2003R, IBC2003Omega, IBC2003Cd)
 
     /**
@@ -219,7 +219,7 @@ interface AutoSeismicV14 : SapComponent {
      * @param IBC2006Fa, IBC2006Fv The site coefficients Fa and Fv.
      * @return zero if the parameters are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getIBC2006(name: String, dirFlag: IntByRef, eccen: DoubleByRef, periodFlag: IntByRef, IBC2006CtType: IntByRef, userT: DoubleByRef, userZ: BooleanByRef, topZ: DoubleByRef, bottomZ: DoubleByRef, IBC2006R: DoubleByRef, IBC2006Omega: DoubleByRef, IBC2006Cd: DoubleByRef, IBC2006I: DoubleByRef, IBC2006Option: IntByRef, IBC2006Latitude: DoubleByRef, IBC2006Longitude: DoubleByRef, IBC2006ZipCode: StringByRef, IBC2006SS: DoubleByRef, IBC2006S1: DoubleByRef, IBC2006TL: DoubleByRef, IBC2006SiteClass: IntByRef, IBC2006Fa: DoubleByRef, IBC2006Fv: DoubleByRef): Int =
+    fun getIBC2006(name: String, dirFlag: AIntByRef, eccen: ADoubleByRef, periodFlag: AIntByRef, IBC2006CtType: AIntByRef, userT: ADoubleByRef, userZ: ABooleanByRef, topZ: ADoubleByRef, bottomZ: ADoubleByRef, IBC2006R: ADoubleByRef, IBC2006Omega: ADoubleByRef, IBC2006Cd: ADoubleByRef, IBC2006I: ADoubleByRef, IBC2006Option: AIntByRef, IBC2006Latitude: ADoubleByRef, IBC2006Longitude: ADoubleByRef, IBC2006ZipCode: AStringByRef, IBC2006SS: ADoubleByRef, IBC2006S1: ADoubleByRef, IBC2006TL: ADoubleByRef, IBC2006SiteClass: AIntByRef, IBC2006Fa: ADoubleByRef, IBC2006Fv: ADoubleByRef): Int =
             callFunctionInt("GetIBC2006", name, dirFlag, eccen, periodFlag, IBC2006CtType, userT, userZ, topZ, bottomZ, IBC2006R, IBC2006Omega, IBC2006Cd, IBC2006I, IBC2006Option, IBC2006Latitude, IBC2006Longitude, IBC2006ZipCode, IBC2006SS, IBC2006S1, IBC2006TL, IBC2006SiteClass, IBC2006Fa, IBC2006Fv)
 
     /**
@@ -252,7 +252,7 @@ interface AutoSeismicV14 : SapComponent {
      * @param INR The response modification factor.
      * @return zero if the parameters are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getIS1893_2002(name: String, dirFlag: IntByRef, eccen: DoubleByRef, periodFlag: IntByRef, CT: DoubleByRef, userT: DoubleByRef, userZ: BooleanByRef, topZ: DoubleByRef, bottomZ: DoubleByRef, INZFlag: IntByRef, INZ: DoubleByRef, INS: IntByRef, INI: DoubleByRef, INR: DoubleByRef): Int =
+    fun getIS1893_2002(name: String, dirFlag: AIntByRef, eccen: ADoubleByRef, periodFlag: AIntByRef, CT: ADoubleByRef, userT: ADoubleByRef, userZ: ABooleanByRef, topZ: ADoubleByRef, bottomZ: ADoubleByRef, INZFlag: AIntByRef, INZ: ADoubleByRef, INS: AIntByRef, INI: ADoubleByRef, INR: ADoubleByRef): Int =
             callFunctionInt("GetIS1893_2002", name, dirFlag, eccen, periodFlag, CT, userT, userZ, topZ, bottomZ, INZFlag, INZ, INS, INI, INR)
 
     /**
@@ -297,7 +297,7 @@ interface AutoSeismicV14 : SapComponent {
      * @param NBCC2005Ro The overstrength modifier.
      * @return zero if the parameters are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getNBCC2005(name: String, dirFlag: IntByRef, eccen: DoubleByRef, NBCC2005CtType: IntByRef, periodFlag: IntByRef, userT: DoubleByRef, userZ: BooleanByRef, topZ: DoubleByRef, bottomZ: DoubleByRef, NBCC2005PGA: DoubleByRef, NBCC2005S02: DoubleByRef, NBCC2005S05: DoubleByRef, NBCC2005S1: DoubleByRef, NBCC2005S2: DoubleByRef, NBCC2005SiteClass: IntByRef, NBCC2005Fa: DoubleByRef, NBCC2005Fv: DoubleByRef, NBCC2005I: DoubleByRef, NBCC2005Mv: DoubleByRef, NBCC2005Rd: DoubleByRef, NBCC2005Ro: DoubleByRef): Int =
+    fun getNBCC2005(name: String, dirFlag: AIntByRef, eccen: ADoubleByRef, NBCC2005CtType: AIntByRef, periodFlag: AIntByRef, userT: ADoubleByRef, userZ: ABooleanByRef, topZ: ADoubleByRef, bottomZ: ADoubleByRef, NBCC2005PGA: ADoubleByRef, NBCC2005S02: ADoubleByRef, NBCC2005S05: ADoubleByRef, NBCC2005S1: ADoubleByRef, NBCC2005S2: ADoubleByRef, NBCC2005SiteClass: AIntByRef, NBCC2005Fa: ADoubleByRef, NBCC2005Fv: ADoubleByRef, NBCC2005I: ADoubleByRef, NBCC2005Mv: ADoubleByRef, NBCC2005Rd: ADoubleByRef, NBCC2005Ro: ADoubleByRef): Int =
             callFunctionInt("GetNBCC2005", name, dirFlag, eccen, NBCC2005CtType, periodFlag, userT, userZ, topZ, bottomZ, NBCC2005PGA, NBCC2005S02, NBCC2005S05, NBCC2005S1, NBCC2005S2, NBCC2005SiteClass, NBCC2005Fa, NBCC2005Fv, NBCC2005I, NBCC2005Mv, NBCC2005Rd, NBCC2005Ro)
 
     /**
@@ -330,7 +330,7 @@ interface AutoSeismicV14 : SapComponent {
      * @param NBCC95R The force modification factor.
      * @return zero if the parameters are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getNBCC95(name: String, dirFlag: IntByRef, eccen: DoubleByRef, NBCCPFlag: IntByRef, NBCC95DS: DoubleByRef, periodFlag: IntByRef, userT: DoubleByRef, userZ: BooleanByRef, topZ: DoubleByRef, bottomZ: DoubleByRef, NBCC95ZA: IntByRef, NBCC95ZV: IntByRef, NBCC95ZVFlag: IntByRef, NBCC95ZVR: DoubleByRef, NBCC95I: DoubleByRef, NBCC95F: DoubleByRef, NBCC95R: DoubleByRef): Int =
+    fun getNBCC95(name: String, dirFlag: AIntByRef, eccen: ADoubleByRef, NBCCPFlag: AIntByRef, NBCC95DS: ADoubleByRef, periodFlag: AIntByRef, userT: ADoubleByRef, userZ: ABooleanByRef, topZ: ADoubleByRef, bottomZ: ADoubleByRef, NBCC95ZA: AIntByRef, NBCC95ZV: AIntByRef, NBCC95ZVFlag: AIntByRef, NBCC95ZVR: ADoubleByRef, NBCC95I: ADoubleByRef, NBCC95F: ADoubleByRef, NBCC95R: ADoubleByRef): Int =
             callFunctionInt("GetNBCC95", name, dirFlag, eccen, NBCCPFlag, NBCC95DS, periodFlag, userT, userZ, topZ, bottomZ, NBCC95ZA, NBCC95ZV, NBCC95ZVFlag, NBCC95ZVR, NBCC95I, NBCC95F, NBCC95R)
 
     /**
@@ -369,7 +369,7 @@ interface AutoSeismicV14 : SapComponent {
      * @param NEHRP97R The response modification factor.
      * @return zero if the parameters are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getNEHRP97(name: String, dirFlag: IntByRef, eccen: DoubleByRef, periodFlag: IntByRef, CT: DoubleByRef, userT: DoubleByRef, userZ: BooleanByRef, topZ: DoubleByRef, bottomZ: DoubleByRef, NEHRP97SG: IntByRef, NEHRP97SeismicCoeffFlag: IntByRef, NEHRP97Site: IntByRef, NEHRP97SS: DoubleByRef, NEHRP97S1: DoubleByRef, NEHRP97Fa: DoubleByRef, NEHRP97Fv: DoubleByRef, NEHRP97R: DoubleByRef): Int =
+    fun getNEHRP97(name: String, dirFlag: AIntByRef, eccen: ADoubleByRef, periodFlag: AIntByRef, CT: ADoubleByRef, userT: ADoubleByRef, userZ: ABooleanByRef, topZ: ADoubleByRef, bottomZ: ADoubleByRef, NEHRP97SG: AIntByRef, NEHRP97SeismicCoeffFlag: AIntByRef, NEHRP97Site: AIntByRef, NEHRP97SS: ADoubleByRef, NEHRP97S1: ADoubleByRef, NEHRP97Fa: ADoubleByRef, NEHRP97Fv: ADoubleByRef, NEHRP97R: ADoubleByRef): Int =
             callFunctionInt("GetNEHRP97", name, dirFlag, eccen, periodFlag, CT, userT, userZ, topZ, bottomZ, NEHRP97SG, NEHRP97SeismicCoeffFlag, NEHRP97Site, NEHRP97SS, NEHRP97S1, NEHRP97Fa, NEHRP97Fv, NEHRP97R)
 
     /**
@@ -400,7 +400,7 @@ interface AutoSeismicV14 : SapComponent {
      * @param NZS2004Mu The structural ductility factor, u.
      * @return zero if the parameters are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getNZS11702004(name: String, dirFlag: IntByRef, eccen: DoubleByRef, periodFlag: IntByRef, userT: DoubleByRef, userZ: BooleanByRef, topZ: DoubleByRef, bottomZ: DoubleByRef, NZS2004SiteClass: IntByRef, NZS2004Z: DoubleByRef, NZS2004R: DoubleByRef, NZS2004N: DoubleByRef, NZS2004Sp: DoubleByRef, NZS2004Mu: DoubleByRef): Int =
+    fun getNZS11702004(name: String, dirFlag: AIntByRef, eccen: ADoubleByRef, periodFlag: AIntByRef, userT: ADoubleByRef, userZ: ABooleanByRef, topZ: ADoubleByRef, bottomZ: ADoubleByRef, NZS2004SiteClass: AIntByRef, NZS2004Z: ADoubleByRef, NZS2004R: ADoubleByRef, NZS2004N: ADoubleByRef, NZS2004Sp: ADoubleByRef, NZS2004Mu: ADoubleByRef): Int =
             callFunctionInt("GetNZS11702004", name, dirFlag, eccen, periodFlag, userT, userZ, topZ, bottomZ, NZS2004SiteClass, NZS2004Z, NZS2004R, NZS2004N, NZS2004Sp, NZS2004Mu)
 
     /**
@@ -429,7 +429,7 @@ interface AutoSeismicV14 : SapComponent {
      * @param UBC94RW The numerical coefficient, Rw.
      * @return zero if the parameters are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getUBC94(name: String, dirFlag: IntByRef, eccen: DoubleByRef, periodFlag: IntByRef, CT: DoubleByRef, userT: DoubleByRef, userZ: BooleanByRef, topZ: DoubleByRef, bottomZ: DoubleByRef, UBC94ZFlag: IntByRef, UBC94Z: DoubleByRef, UBC94S: DoubleByRef, UBC94I: DoubleByRef, UBC94RW: DoubleByRef): Int =
+    fun getUBC94(name: String, dirFlag: AIntByRef, eccen: ADoubleByRef, periodFlag: AIntByRef, CT: ADoubleByRef, userT: ADoubleByRef, userZ: ABooleanByRef, topZ: ADoubleByRef, bottomZ: ADoubleByRef, UBC94ZFlag: AIntByRef, UBC94Z: ADoubleByRef, UBC94S: ADoubleByRef, UBC94I: ADoubleByRef, UBC94RW: ADoubleByRef): Int =
             callFunctionInt("GetUBC94", name, dirFlag, eccen, periodFlag, CT, userT, userZ, topZ, bottomZ, UBC94ZFlag, UBC94Z, UBC94S, UBC94I, UBC94RW)
 
     /**
@@ -474,7 +474,7 @@ interface AutoSeismicV14 : SapComponent {
      * @param UBC97IsoKDmin The minimum effective stiffness of the isolation system. (F/L)
      * @return zero if the parameters are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getUBC97Iso(name: String, dirFlag: IntByRef, eccen: DoubleByRef, userZ: BooleanByRef, topZ: DoubleByRef, bottomZ: DoubleByRef, UBC97IsoSeismicCoeffFlag: IntByRef, UBC97IsoSoilProfileType: IntByRef, UBC97IsoZ: DoubleByRef, UBC97IsoCv: DoubleByRef, UBC97IsoNearSourceFlag: IntByRef, UBC97IsoSourceType: IntByRef, UBC97IsoDist: DoubleByRef, UBC97IsoNv: DoubleByRef, UBC97IsoRI: DoubleByRef, UBC97IsoBD: DoubleByRef, UBC97IsoKDmax: DoubleByRef, UBC97IsoKDmin: DoubleByRef): Int =
+    fun getUBC97Iso(name: String, dirFlag: AIntByRef, eccen: ADoubleByRef, userZ: ABooleanByRef, topZ: ADoubleByRef, bottomZ: ADoubleByRef, UBC97IsoSeismicCoeffFlag: AIntByRef, UBC97IsoSoilProfileType: AIntByRef, UBC97IsoZ: ADoubleByRef, UBC97IsoCv: ADoubleByRef, UBC97IsoNearSourceFlag: AIntByRef, UBC97IsoSourceType: AIntByRef, UBC97IsoDist: ADoubleByRef, UBC97IsoNv: ADoubleByRef, UBC97IsoRI: ADoubleByRef, UBC97IsoBD: ADoubleByRef, UBC97IsoKDmax: ADoubleByRef, UBC97IsoKDmin: ADoubleByRef): Int =
             callFunctionInt("GetUBC97Iso", name, dirFlag, eccen, userZ, topZ, bottomZ, UBC97IsoSeismicCoeffFlag, UBC97IsoSoilProfileType, UBC97IsoZ, UBC97IsoCv, UBC97IsoNearSourceFlag, UBC97IsoSourceType, UBC97IsoDist, UBC97IsoNv, UBC97IsoRI, UBC97IsoBD, UBC97IsoKDmax, UBC97IsoKDmin)
 
     /**
@@ -526,7 +526,7 @@ interface AutoSeismicV14 : SapComponent {
      * @param UBC97R The overstrength factor.
      * @return zero if the parameters are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getUBC97(name: String, dirFlag: IntByRef, eccen: DoubleByRef, periodFlag: IntByRef, CT: DoubleByRef, userT: DoubleByRef, userZ: BooleanByRef, topZ: DoubleByRef, bottomZ: DoubleByRef, UBC97SeismicCoeffFlag: IntByRef, UBC97SoilProfileType: IntByRef, UBC97Z: DoubleByRef, UBC97Ca: DoubleByRef, UBC97Cv: DoubleByRef, UBC97NearSourceFlag: IntByRef, UBC97SourceType: IntByRef, UBC97Dist: DoubleByRef, UBC97Na: DoubleByRef, UBC97Nv: DoubleByRef, UBC97I: DoubleByRef, UBC97R: DoubleByRef): Int =
+    fun getUBC97(name: String, dirFlag: AIntByRef, eccen: ADoubleByRef, periodFlag: AIntByRef, CT: ADoubleByRef, userT: ADoubleByRef, userZ: ABooleanByRef, topZ: ADoubleByRef, bottomZ: ADoubleByRef, UBC97SeismicCoeffFlag: AIntByRef, UBC97SoilProfileType: AIntByRef, UBC97Z: ADoubleByRef, UBC97Ca: ADoubleByRef, UBC97Cv: ADoubleByRef, UBC97NearSourceFlag: AIntByRef, UBC97SourceType: AIntByRef, UBC97Dist: ADoubleByRef, UBC97Na: ADoubleByRef, UBC97Nv: ADoubleByRef, UBC97I: ADoubleByRef, UBC97R: ADoubleByRef): Int =
             callFunctionInt("GetUBC97", name, dirFlag, eccen, periodFlag, CT, userT, userZ, topZ, bottomZ, UBC97SeismicCoeffFlag, UBC97SoilProfileType, UBC97Z, UBC97Ca, UBC97Cv, UBC97NearSourceFlag, UBC97SourceType, UBC97Dist, UBC97Na, UBC97Nv, UBC97I, UBC97R)
 
     /**
@@ -543,7 +543,7 @@ interface AutoSeismicV14 : SapComponent {
      * @param k The building height exponent.
      * @return zero if the parameters are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getBOCA96(name: String, dirFlag: IntByRef, eccen: DoubleByRef, userZ: BooleanByRef, topZ: DoubleByRef, bottomZ: DoubleByRef, c: DoubleByRef, k: DoubleByRef): Int =
+    fun getBOCA96(name: String, dirFlag: AIntByRef, eccen: ADoubleByRef, userZ: ABooleanByRef, topZ: ADoubleByRef, bottomZ: ADoubleByRef, c: ADoubleByRef, k: ADoubleByRef): Int =
             callFunctionInt("GetBOCA96", name, dirFlag, eccen, userZ, topZ, bottomZ, c, k)
 
     /**
@@ -564,7 +564,7 @@ interface AutoSeismicV14 : SapComponent {
      * This item is applicable only when MyType = 1.
      * @return zero if the parameters are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getUserLoad(name: String, myType: IntByRef, eccen: DoubleByRef, num: IntByRef, diaph: StringArrayByRef, fx: DoubleArrayByRef, fy: DoubleArrayByRef, mz: DoubleArrayByRef, x: DoubleArrayByRef, y: DoubleArrayByRef): Int =
+    fun getUserLoad(name: String, myType: AIntByRef, eccen: ADoubleByRef, num: AIntByRef, diaph: AStringArrayByRef, fx: ADoubleArrayByRef, fy: ADoubleArrayByRef, mz: ADoubleArrayByRef, x: ADoubleArrayByRef, y: ADoubleArrayByRef): Int =
             callFunctionInt("GetUserLoad", name, myType, eccen, num, diaph, fx, fy, mz, x, y)
 
     /**

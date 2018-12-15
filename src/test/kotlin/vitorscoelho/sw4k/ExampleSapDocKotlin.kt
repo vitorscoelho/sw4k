@@ -3,8 +3,6 @@ package vitorscoelho.sw4k
 import org.junit.Assert
 import org.junit.Test
 import vitorscoelho.sw4k.comutils.DoubleArrayByRef
-import vitorscoelho.sw4k.comutils.IntByRef
-import vitorscoelho.sw4k.comutils.StringArrayByRef
 import vitorscoelho.sw4k.comutils.byRef
 import vitorscoelho.sw4k.comutils.dlls.LoaderJacobDll
 import vitorscoelho.sw4k.sap.SapObject
@@ -158,18 +156,8 @@ class ExampleSapDocKotlin {
             sapModel.results.jointDispl(
                     name = pointNameForResult,
                     itemTypeElm = ItemTypeElm.OBJECT_ELM.sapId,
-                    numberResults = IntByRef(),
-                    obj = StringArrayByRef(),
-                    elm = StringArrayByRef(),
-                    loadCase = StringArrayByRef(),
-                    stepType = StringArrayByRef(),
-                    stepNum = DoubleArrayByRef(),
                     u1 = u1,
-                    u2 = DoubleArrayByRef(),
-                    u3 = u3,
-                    r1 = DoubleArrayByRef(),
-                    r2 = DoubleArrayByRef(),
-                    r3 = DoubleArrayByRef()
+                    u3 = u3
             )
             sapResults[i] = if (i <= 3) u3[0] else u1[0]
         }

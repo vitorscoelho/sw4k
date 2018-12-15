@@ -1,9 +1,9 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.edit
 
-import vitorscoelho.sw4k.comutils.IntArrayByRef
-import vitorscoelho.sw4k.comutils.IntByRef
+import vitorscoelho.sw4k.comutils.AIntArrayByRef
+import vitorscoelho.sw4k.comutils.AIntByRef
 import vitorscoelho.sw4k.comutils.SapComponent
-import vitorscoelho.sw4k.comutils.StringArrayByRef
+import vitorscoelho.sw4k.comutils.AStringArrayByRef
 import vitorscoelho.sw4k.sapenums.Axis
 import vitorscoelho.sw4k.sapenums.ObjectType
 import vitorscoelho.sw4k.sapenums.MirrorPlaneType
@@ -23,7 +23,7 @@ interface EditGeneralV14 : SapComponent {
      * @param remove If this item is True, the area object indicated by the Name item is deleted after the extrusion is complete.
      * @return zero if the extrusion is successful; otherwise it returns a nonzero value.
      */
-    fun extrudeAreaToSolidLinearNormal(name: String, propName: String, nPlus3: Int, tPlus3: Double, nMinus3: Int, tMinus3: Double, numberSolids: IntByRef, solidName: StringArrayByRef, remove: Boolean = true): Int =
+    fun extrudeAreaToSolidLinearNormal(name: String, propName: String, nPlus3: Int, tPlus3: Double, nMinus3: Int, tMinus3: Double, numberSolids: AIntByRef, solidName: AStringArrayByRef, remove: Boolean = true): Int =
             callFunctionInt("ExtrudeAreaToSolidLinearNormal", name, propName, nPlus3, tPlus3, nMinus3, tMinus3, numberSolids, solidName, remove)
 
     /**
@@ -39,7 +39,7 @@ interface EditGeneralV14 : SapComponent {
      * @param remove If this item is True, the area object indicated by the Name item is deleted after the extrusion is complete.
      * @return zero if the extrusion is successful; otherwise it returns a nonzero value.
      */
-    fun extrudeAreaToSolidLinearUser(name: String, propName: String, dx: Double, dy: Double, dz: Double, number: Int, numberSolids: IntByRef, solidName: StringArrayByRef, remove: Boolean = true): Int =
+    fun extrudeAreaToSolidLinearUser(name: String, propName: String, dx: Double, dy: Double, dz: Double, number: Int, numberSolids: AIntByRef, solidName: AStringArrayByRef, remove: Boolean = true): Int =
             callFunctionInt("ExtrudeAreaToSolidLinearUser", name, propName, dx, dy, dz, number, numberSolids, solidName, remove)
 
     /**
@@ -61,7 +61,7 @@ interface EditGeneralV14 : SapComponent {
      * @param remove If this item is True, the area object indicated by the Name item is deleted after the extrusion is complete.
      * @return zero if the extrusion is successful; otherwise it returns a nonzero value.
      */
-    fun extrudeAreaToSolidRadial(name: String, propName: String, rotateAxis: Int, x: Double, y: Double, z: Double, incrementAng: Double, totalRise: Double, number: Int, numberSolids: IntByRef, solidName: StringArrayByRef, remove: Boolean = true): Int =
+    fun extrudeAreaToSolidRadial(name: String, propName: String, rotateAxis: Int, x: Double, y: Double, z: Double, incrementAng: Double, totalRise: Double, number: Int, numberSolids: AIntByRef, solidName: AStringArrayByRef, remove: Boolean = true): Int =
             callFunctionInt("ExtrudeAreaToSolidRadial", name, propName, rotateAxis, x, y, z, incrementAng, totalRise, number, numberSolids, solidName, remove)
 
     /**
@@ -76,7 +76,7 @@ interface EditGeneralV14 : SapComponent {
      * @param remove If this item is True, the straight frame object indicated by the Name item is deleted after the extrusion is complete.
      * @return zero if the extrusion is successful; otherwise it returns a nonzero value.
      */
-    fun extrudeFrameToAreaLinear(name: String, propName: String, dx: Double, dy: Double, dz: Double, numberAreas: Int, areaName: StringArrayByRef, remove: Boolean = true): Int =
+    fun extrudeFrameToAreaLinear(name: String, propName: String, dx: Double, dy: Double, dz: Double, numberAreas: Int, areaName: AStringArrayByRef, remove: Boolean = true): Int =
             callFunctionInt("ExtrudeFrameToAreaLinear", name, propName, dx, dy, dz, numberAreas, areaName, remove)
 
     /**
@@ -97,7 +97,7 @@ interface EditGeneralV14 : SapComponent {
      * @param remove If this item is True, the straight frame object indicated by the Name item is deleted after the extrusion is complete.
      * @return zero if the extrusion is successful; otherwise it returns a nonzero value.
      */
-    fun extrudeFrameToAreaRadial(name: String, propName: String, rotateAxis: Int, x: Double, y: Double, z: Double, incrementAng: Double, totalRise: Double, numberAreas: Int, areaName: StringArrayByRef, remove: Boolean = true): Int =
+    fun extrudeFrameToAreaRadial(name: String, propName: String, rotateAxis: Int, x: Double, y: Double, z: Double, incrementAng: Double, totalRise: Double, numberAreas: Int, areaName: AStringArrayByRef, remove: Boolean = true): Int =
             callFunctionInt("ExtrudeFrameToAreaRadial", name, propName, rotateAxis, x, y, z, incrementAng, totalRise, numberAreas, areaName, remove)
 
     /**
@@ -111,7 +111,7 @@ interface EditGeneralV14 : SapComponent {
      * @param frameName This is an array of the name of each frame object created when the specified point object is extruded.
      * @return zero if the extrusion is successful; otherwise it returns a nonzero value.
      */
-    fun extrudePointToFrameLinear(name: String, propName: String, dx: Double, dy: Double, dz: Double, numberFrames: Int, frameName: StringArrayByRef): Int =
+    fun extrudePointToFrameLinear(name: String, propName: String, dx: Double, dy: Double, dz: Double, numberFrames: Int, frameName: AStringArrayByRef): Int =
             callFunctionInt("ExtrudePointToFrameLinear", name, propName, dx, dy, dz, numberFrames, frameName)
 
     /**
@@ -131,7 +131,7 @@ interface EditGeneralV14 : SapComponent {
      * @param frameName This is an array of the name of each frame object created when the specified point object is extruded.
      * @return zero if the extrusion is successful; otherwise it returns a nonzero value.
      */
-    fun extrudePointToFrameRadial(name: String, propName: String, rotateAxis: Int, x: Double, y: Double, z: Double, incrementAng: Double, totalRise: Double, numberFrames: Int, frameName: StringArrayByRef): Int =
+    fun extrudePointToFrameRadial(name: String, propName: String, rotateAxis: Int, x: Double, y: Double, z: Double, incrementAng: Double, totalRise: Double, numberFrames: Int, frameName: AStringArrayByRef): Int =
             callFunctionInt("ExtrudePointToFrameRadial", name, propName, rotateAxis, x, y, z, incrementAng, totalRise, numberFrames, frameName)
 
     /**
@@ -163,7 +163,7 @@ interface EditGeneralV14 : SapComponent {
      * @param remove If this item is True, the originally selected objects are deleted after the replication is complete.
      * @return zero if the replication is successful; otherwise it returns a nonzero value.
      */
-    fun replicateLinear(dx: Double, dy: Double, dz: Double, number: Int, numberObjects: IntByRef, objectName: StringArrayByRef, objectType: IntArrayByRef, remove: Boolean = false): Int =
+    fun replicateLinear(dx: Double, dy: Double, dz: Double, number: Int, numberObjects: AIntByRef, objectName: AStringArrayByRef, objectType: AIntArrayByRef, remove: Boolean = false): Int =
             callFunctionInt("ReplicateLinear", dx, dy, dz, number, numberObjects, objectName, objectType, remove)
 
     /**
@@ -191,7 +191,7 @@ interface EditGeneralV14 : SapComponent {
      * @param remove If this item is True, the originally selected objects are deleted after the replication is complete.
      * @return zero if the replication is successful; otherwise it returns a nonzero value.
      */
-    fun replicateMirror(plane: Int, x1: Double, y1: Double, z1: Double, x2: Double, y2: Double, z2: Double, x3: Double, y3: Double, z3: Double, numberObjects: IntByRef, objectName: StringArrayByRef, objectType: IntArrayByRef, remove: Boolean = false): Int =
+    fun replicateMirror(plane: Int, x1: Double, y1: Double, z1: Double, x2: Double, y2: Double, z2: Double, x3: Double, y3: Double, z3: Double, numberObjects: AIntByRef, objectName: AStringArrayByRef, objectType: AIntArrayByRef, remove: Boolean = false): Int =
             callFunctionInt("ReplicateMirror", plane, x1, y1, z1, x2, y2, z2, x3, y3, z3, numberObjects, objectName, objectType, remove)
 
     /**
@@ -222,6 +222,6 @@ interface EditGeneralV14 : SapComponent {
      * @param remove If this item is True, the originally selected objects are deleted after the replication is complete.
      * @return zero if the replication is successful; otherwise it returns a nonzero value.
      */
-    fun replicateRadial(rotateAxis: Int, x1: Double, y1: Double, z1: Double, x2: Double, y2: Double, z2: Double, number: Int, ang: Double, numberObjects: IntByRef, objectName: StringArrayByRef, objectType: IntArrayByRef, remove: Boolean = false): Int =
+    fun replicateRadial(rotateAxis: Int, x1: Double, y1: Double, z1: Double, x2: Double, y2: Double, z2: Double, number: Int, ang: Double, numberObjects: AIntByRef, objectName: AStringArrayByRef, objectType: AIntArrayByRef, remove: Boolean = false): Int =
             callFunctionInt("ReplicateRadial", rotateAxis, x1, y1, z1, x2, y2, z2, number, ang, numberObjects, objectName, objectType, remove)
 }

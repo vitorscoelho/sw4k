@@ -126,7 +126,7 @@ interface PropMaterialV14 : SapComponent {
      * This item is the temperature at which the specified data is to be retrieved. The temperature must have been previously defined for the material.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getDamping(name: String, modalRatio: DoubleByRef, viscousMassCoeff: DoubleByRef, viscousStiffCoeff: DoubleByRef, hystereticMassCoeff: DoubleByRef, hystereticStiffCoeff: DoubleByRef, temp: Double = 0.0): Int =
+    fun getDamping(name: String, modalRatio: ADoubleByRef, viscousMassCoeff: ADoubleByRef, viscousStiffCoeff: ADoubleByRef, hystereticMassCoeff: ADoubleByRef, hystereticStiffCoeff: ADoubleByRef, temp: Double = 0.0): Int =
             callFunctionInt("GetDamping", name, modalRatio, viscousMassCoeff, viscousStiffCoeff, hystereticMassCoeff, hystereticStiffCoeff, temp)
 
     /**
@@ -140,7 +140,7 @@ interface PropMaterialV14 : SapComponent {
      * @param sf This is an array of load patterns multipliers used to calculate the mass. This item applies only when MyOption is 2 or 3.
      * @return zero if the mass source is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getMassSource(myOption: IntByRef, numberLoads: IntByRef, loadPat: StringArrayByRef, sf: DoubleArrayByRef): Int =
+    fun getMassSource(myOption: AIntByRef, numberLoads: AIntByRef, loadPat: AStringArrayByRef, sf: ADoubleArrayByRef): Int =
             callFunctionInt("GetMassSource", myOption, numberLoads, loadPat, sf)
 
     /**
@@ -159,7 +159,7 @@ interface PropMaterialV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the material.
      * @return zero if the material is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getMaterial(name: String, matType: IntByRef, color: IntByRef, notes: StringByRef, GUID: StringByRef): Int =
+    fun getMaterial(name: String, matType: AIntByRef, color: AIntByRef, notes: AStringByRef, GUID: AStringByRef): Int =
             callFunctionInt("GetMaterial", name, matType, color, notes, GUID)
 
     /**
@@ -200,7 +200,7 @@ interface PropMaterialV14 : SapComponent {
      * This item is the temperature at which the specified data is to be retrieved. The temperature must have been previously defined for the material.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value. The function returns an error if the symmetry type of the specified material is not anisotropic.
      */
-    fun getMPAnisotropic(name: String, e: DoubleByRef, u: DoubleByRef, a: DoubleByRef, g: DoubleByRef, temp: Double = 0.0): Int =
+    fun getMPAnisotropic(name: String, e: ADoubleByRef, u: ADoubleByRef, a: ADoubleByRef, g: ADoubleByRef, temp: Double = 0.0): Int =
             callFunctionInt("GetMPAnisotropic", name, e, u, a, g, temp)
 
     /**
@@ -214,7 +214,7 @@ interface PropMaterialV14 : SapComponent {
      * This item is the temperature at which the specified data is to be retrieved. The temperature must have been defined previously for the material.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value. The function returns an error if the symmetry type of the specified material is not isotropic.
      */
-    fun getMPIsotropic(name: String, e: DoubleByRef, u: DoubleByRef, a: DoubleByRef, g: DoubleByRef, temp: Double = 0.0): Int =
+    fun getMPIsotropic(name: String, e: ADoubleByRef, u: ADoubleByRef, a: ADoubleByRef, g: ADoubleByRef, temp: Double = 0.0): Int =
             callFunctionInt("GetMPIsotropic", name, e, u, a, g, temp)
 
     /**
@@ -240,7 +240,7 @@ interface PropMaterialV14 : SapComponent {
      * This item is the temperature at which the specified data is to be retrieved. The temperature must have been defined previously for the material.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value. The function returns an error if the symmetry type of the specified material is not orthotropic.
      */
-    fun getMPOrthotropic(name: String, e: DoubleByRef, u: DoubleByRef, a: DoubleByRef, g: DoubleByRef, temp: Double = 0.0): Int =
+    fun getMPOrthotropic(name: String, e: ADoubleByRef, u: ADoubleByRef, a: ADoubleByRef, g: ADoubleByRef, temp: Double = 0.0): Int =
             callFunctionInt("GetMPOrthotropic", name, e, u, a, g, temp)
 
     /**
@@ -252,7 +252,7 @@ interface PropMaterialV14 : SapComponent {
      * This item is the temperature at which the specified data is to be retrieved. The temperature must have been previously defined for the material.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value. The function returns an error if the symmetry type of the specified material is not uniaxial.
      */
-    fun getMPUniaxial(name: String, e: DoubleByRef, a: DoubleByRef, temp: Double = 0.0): Int =
+    fun getMPUniaxial(name: String, e: ADoubleByRef, a: ADoubleByRef, temp: Double = 0.0): Int =
             callFunctionInt("GetMPUniaxial", name, e, a, temp)
 
     /**
@@ -261,7 +261,7 @@ interface PropMaterialV14 : SapComponent {
      * @param myName This is a one-dimensional array of material property names.
      * @return zero if the names are successfully retrieved; otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: IntByRef, myName: StringArrayByRef): Int =
+    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef): Int =
             callFunctionInt("GetNameList", numberNames, myName)
 
     /**
@@ -278,7 +278,7 @@ interface PropMaterialV14 : SapComponent {
      * * TENDON = 7
      * @return zero if the names are successfully retrieved; otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: IntByRef, myName: StringArrayByRef, matType: Int): Int =
+    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef, matType: Int): Int =
             callFunctionInt("GetNameList", numberNames, myName, matType)
 
     /**
@@ -301,7 +301,7 @@ interface PropMaterialV14 : SapComponent {
      * This item is the temperature at which the specified data is to be retrieved. The temperature must have been defined previously for the material.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value. The function returns an error if the specified material is not aluminum.
      */
-    fun getOAluminum(name: String, myType: Int, alloy: StringByRef, fcy: DoubleByRef, fty: DoubleByRef, ftu: DoubleByRef, fsu: DoubleByRef, sSHysType: IntByRef, temp: Double = 0.0): Int =
+    fun getOAluminum(name: String, myType: Int, alloy: AStringByRef, fcy: ADoubleByRef, fty: ADoubleByRef, ftu: ADoubleByRef, fsu: ADoubleByRef, sSHysType: AIntByRef, temp: Double = 0.0): Int =
             callFunctionInt("GetOAluminum", name, myType, alloy, fcy, fty, ftu, fsu, sSHysType, temp)
 
     /**
@@ -317,7 +317,7 @@ interface PropMaterialV14 : SapComponent {
      * This item is the temperature at which the specified data is to be retrieved. The temperature must have been defined previously for the material.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value. The function returns an error if the specified material is not cold formed.
      */
-    fun getOColdFormed(name: String, fy: DoubleByRef, fu: DoubleByRef, sSHysType: IntByRef, temp: Double = 0.0): Int =
+    fun getOColdFormed(name: String, fy: ADoubleByRef, fu: ADoubleByRef, sSHysType: AIntByRef, temp: Double = 0.0): Int =
             callFunctionInt("GetOColdFormed", name, fy, fu, sSHysType, temp)
 
     /**
@@ -344,7 +344,7 @@ interface PropMaterialV14 : SapComponent {
      * This item is the temperature at which the specified data is to be retrieved. The temperature must have been defined previously for the material.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value. The function returns an error if the specified material is not concrete.
      */
-    fun getOConcrete_1(name: String, fc: DoubleByRef, isLightweight: BooleanByRef, fcsfactor: DoubleByRef, sSType: IntByRef, sSHysType: IntByRef, strainAtfc: DoubleByRef, strainUltimate: DoubleByRef, finalSlope: DoubleByRef, frictionAngle: DoubleByRef, dilatationalAngle: DoubleByRef, temp: Double = 0.0): Int =
+    fun getOConcrete_1(name: String, fc: ADoubleByRef, isLightweight: ABooleanByRef, fcsfactor: ADoubleByRef, sSType: AIntByRef, sSHysType: AIntByRef, strainAtfc: ADoubleByRef, strainUltimate: ADoubleByRef, finalSlope: ADoubleByRef, frictionAngle: ADoubleByRef, dilatationalAngle: ADoubleByRef, temp: Double = 0.0): Int =
             callFunctionInt("GetOConcrete_1", name, fc, isLightweight, fcsfactor, sSType, sSHysType, strainAtfc, strainUltimate, finalSlope, frictionAngle, dilatationalAngle, temp)
 
     /**
@@ -356,7 +356,7 @@ interface PropMaterialV14 : SapComponent {
      * This item is the temperature at which the specified data is to be retrieved. The temperature must have been defined previously for the material.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value. The function returns an error if the specified material is not concrete.
      */
-    fun getONoDesign(name: String, frictionAngle: DoubleByRef, dilatationalAngle: DoubleByRef, temp: Double = 0.0): Int =
+    fun getONoDesign(name: String, frictionAngle: ADoubleByRef, dilatationalAngle: ADoubleByRef, temp: Double = 0.0): Int =
             callFunctionInt("GetONoDesign", name, frictionAngle, dilatationalAngle, temp)
 
     /**
@@ -382,7 +382,7 @@ interface PropMaterialV14 : SapComponent {
      * This item is the temperature at which the specified data is to be retrieved. The temperature must have been defined previously for the material.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value. The function returns an error if the specified material is not rebar.
      */
-    fun getORebar_1(name: String, fy: DoubleByRef, fu: DoubleByRef, eFy: DoubleByRef, eFu: DoubleByRef, sSType: IntByRef, sSHysType: IntByRef, strainAtHardening: DoubleByRef, strainUltimate: DoubleByRef, finalSlope: DoubleByRef, useCaltransSSDefaults: BooleanByRef, temp: Double = 0.0): Int =
+    fun getORebar_1(name: String, fy: ADoubleByRef, fu: ADoubleByRef, eFy: ADoubleByRef, eFu: ADoubleByRef, sSType: AIntByRef, sSHysType: AIntByRef, strainAtHardening: ADoubleByRef, strainUltimate: ADoubleByRef, finalSlope: ADoubleByRef, useCaltransSSDefaults: ABooleanByRef, temp: Double = 0.0): Int =
             callFunctionInt("GetORebar_1", name, fy, fu, eFy, eFu, sSType, sSHysType, strainAtHardening, strainUltimate, finalSlope, useCaltransSSDefaults, temp)
 
     /**
@@ -407,7 +407,7 @@ interface PropMaterialV14 : SapComponent {
      * This item is the temperature at which the specified data is to be retrieved. The temperature must have been defined previously for the material.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value. The function returns an error if the specified material is not steel.
      */
-    fun getOSteel_1(name: String, fy: DoubleByRef, fu: DoubleByRef, eFy: DoubleByRef, eFu: DoubleByRef, sSType: IntByRef, sSHysType: IntByRef, strainAtHardening: DoubleByRef, strainAtMaxStress: DoubleByRef, strainAtRupture: DoubleByRef, finalSlope: DoubleByRef, temp: Double = 0.0): Int =
+    fun getOSteel_1(name: String, fy: ADoubleByRef, fu: ADoubleByRef, eFy: ADoubleByRef, eFu: ADoubleByRef, sSType: AIntByRef, sSHysType: AIntByRef, strainAtHardening: ADoubleByRef, strainAtMaxStress: ADoubleByRef, strainAtRupture: ADoubleByRef, finalSlope: ADoubleByRef, temp: Double = 0.0): Int =
             callFunctionInt("GetOSteel_1", name, fy, fu, eFy, eFu, sSType, sSHysType, strainAtHardening, strainAtMaxStress, strainAtRupture, finalSlope, temp)
 
     /**
@@ -428,7 +428,7 @@ interface PropMaterialV14 : SapComponent {
      * This item is the temperature at which the specified data is to be retrieved. The temperature must have been defined previously for the material.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value. The function returns an error if the specified material is not tendon.
      */
-    fun getOTendon_1(name: String, fy: DoubleByRef, fu: DoubleByRef, sSType: IntByRef, sSHysType: IntByRef, finalSlope: DoubleByRef, temp: Double = 0.0): Int =
+    fun getOTendon_1(name: String, fy: ADoubleByRef, fu: ADoubleByRef, sSType: AIntByRef, sSHysType: AIntByRef, finalSlope: ADoubleByRef, temp: Double = 0.0): Int =
             callFunctionInt("GetOTendon_1", name, fy, fu, sSType, sSHysType, finalSlope, temp)
 
     /**
@@ -457,7 +457,7 @@ interface PropMaterialV14 : SapComponent {
      * This item is the temperature at which the specified data is to be retrieved. The temperature must have been defined previously for the material.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getMPIsotropic(name: String, numberPoints: IntByRef, pointID: IntArrayByRef, strain: DoubleArrayByRef, stress: DoubleArrayByRef, sectName: String = "", rebarArea: Double = 0.0, temp: Double = 0.0): Int =
+    fun getMPIsotropic(name: String, numberPoints: AIntByRef, pointID: AIntArrayByRef, strain: ADoubleArrayByRef, stress: ADoubleArrayByRef, sectName: String = "", rebarArea: Double = 0.0, temp: Double = 0.0): Int =
             callFunctionInt("GetMPIsotropic", name, numberPoints, pointID, strain, stress, sectName, rebarArea, temp)
 
     /**
@@ -467,7 +467,7 @@ interface PropMaterialV14 : SapComponent {
      * @param temp This is an array that includes the different temperatures at which properties are specified for the material.
      * @return zero if the temperatures are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getTemp(name: String, numberItems: IntByRef, temp: DoubleArrayByRef): Int =
+    fun getTemp(name: String, numberItems: AIntByRef, temp: ADoubleArrayByRef): Int =
             callFunctionInt("GetTemp", name, numberItems, temp)
 
     /**
@@ -488,7 +488,7 @@ interface PropMaterialV14 : SapComponent {
      * * 3 = Uniaxial
      * @return zero if the type is successfully retrieved; otherwise it returns nonzero.
      */
-    fun getType(name: String, matType: IntByRef, symType: IntByRef): Int =
+    fun getType(name: String, matType: AIntByRef, symType: AIntByRef): Int =
             callFunctionInt("GetType", name, matType, symType)
 
     /**
@@ -500,7 +500,7 @@ interface PropMaterialV14 : SapComponent {
      * This item is the temperature at which the specified data is to be retrieved. The temperature must have been defined previously for the material.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getWeightAndMass(name: String, w: DoubleByRef, m: DoubleByRef, temp: Double = 0.0): Int =
+    fun getWeightAndMass(name: String, w: ADoubleByRef, m: ADoubleByRef, temp: Double = 0.0): Int =
             callFunctionInt("GetWeightAndMass", name, w, m, temp)
 
     /**
@@ -529,7 +529,7 @@ interface PropMaterialV14 : SapComponent {
      * @param sf This is an array of load patterns multipliers used to calculate the mass. This item applies only when MyOption is 2 or 3.
      * @return zero if the mass source is successfully set; otherwise it returns a nonzero value.
      */
-    fun setMassSource(myOption: Int, numberLoads: Int, loadPat: StringArrayByRef, sf: DoubleArrayByRef): Int =
+    fun setMassSource(myOption: Int, numberLoads: Int, loadPat: AStringArrayByRef, sf: ADoubleArrayByRef): Int =
             callFunctionInt("SetMassSource", myOption, numberLoads, loadPat, sf)
 
     /**
@@ -589,7 +589,7 @@ interface PropMaterialV14 : SapComponent {
      * This item is the temperature at which the specified data applies. The temperature must have been defined previously for the material.
      * @return zero if the data is successfully assigned; otherwise it returns a nonzero value.
      */
-    fun setMPAnisotropic(name: String, e: DoubleArrayByRef, u: DoubleArrayByRef, a: DoubleArrayByRef, g: DoubleArrayByRef, temp: Double = 0.0): Int =
+    fun setMPAnisotropic(name: String, e: ADoubleArrayByRef, u: ADoubleArrayByRef, a: ADoubleArrayByRef, g: ADoubleArrayByRef, temp: Double = 0.0): Int =
             callFunctionInt("SetMPAnisotropic", name, e, u, a, g, temp)
 
     /**
@@ -628,7 +628,7 @@ interface PropMaterialV14 : SapComponent {
      * This item is the temperature at which the specified data applies. The temperature must have been defined previously for the material.
      * @return zero if the data is successfully assigned; otherwise it returns a nonzero value.
      */
-    fun setMPOrthotropic(name: String, e: DoubleArrayByRef, u: DoubleArrayByRef, a: DoubleArrayByRef, g: DoubleArrayByRef, temp: Double = 0.0): Int =
+    fun setMPOrthotropic(name: String, e: ADoubleArrayByRef, u: ADoubleArrayByRef, a: ADoubleArrayByRef, g: ADoubleArrayByRef, temp: Double = 0.0): Int =
             callFunctionInt("SetMPOrthotropic", name, e, u, a, g, temp)
 
     /**
@@ -816,7 +816,7 @@ interface PropMaterialV14 : SapComponent {
      * This item is the temperature at which the specified data applies. The temperature must have been defined previously for the material.
      * @return zero if the data is successfully assigned; otherwise it returns a nonzero value.
      */
-    fun setSSCurve(name: String, numberPoints: Int, pointID: IntArrayByRef, strain: DoubleArrayByRef, stress: DoubleArrayByRef, temp: Double = 0.0): Int =
+    fun setSSCurve(name: String, numberPoints: Int, pointID: AIntArrayByRef, strain: ADoubleArrayByRef, stress: ADoubleArrayByRef, temp: Double = 0.0): Int =
             callFunctionInt("SetSSCurve", name, numberPoints, pointID, strain, stress, temp)
 
     /**
@@ -826,7 +826,7 @@ interface PropMaterialV14 : SapComponent {
      * @param temp This is an array that includes the different temperatures at which properties are specified for the material.
      * @return zero if the temperatures are successfully set; otherwise it returns a nonzero value.
      */
-    fun setTemp(name: String, numberItems: Int, temp: DoubleArrayByRef): Int =
+    fun setTemp(name: String, numberItems: Int, temp: ADoubleArrayByRef): Int =
             callFunctionInt("SetTemp", name, numberItems, temp)
 
     /**

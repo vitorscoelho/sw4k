@@ -32,7 +32,7 @@ interface SolidElmV14 : SapComponent {
      * If this item is SelectionElm, the load assignments are retrieved for solid elements corresponding to all selected solid objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadGravity(name: String, numberItems: IntByRef, solidName: StringArrayByRef, loadPat: StringArrayByRef, cSys: StringArrayByRef, x: DoubleArrayByRef, y: DoubleArrayByRef, z: DoubleArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
+    fun getLoadGravity(name: String, numberItems: AIntByRef, solidName: AStringArrayByRef, loadPat: AStringArrayByRef, cSys: AStringArrayByRef, x: ADoubleArrayByRef, y: ADoubleArrayByRef, z: ADoubleArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
             callFunctionInt("GetLoadGravity", name, numberItems, solidName, loadPat, cSys, x, y, z, itemTypeElm)
 
     /**
@@ -54,7 +54,7 @@ interface SolidElmV14 : SapComponent {
      * If this item is SelectionElm, the load assignments are retrieved for solid elements corresponding to all selected solid objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadPorePressure(name: String, numberItems: IntByRef, solidName: StringArrayByRef, loadPat: StringArrayByRef, value: DoubleArrayByRef, patternName: StringArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
+    fun getLoadPorePressure(name: String, numberItems: AIntByRef, solidName: AStringArrayByRef, loadPat: AStringArrayByRef, value: ADoubleArrayByRef, patternName: AStringArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
             callFunctionInt("GetLoadPorePressure", name, numberItems, solidName, loadPat, value, patternName, itemTypeElm)
 
     /**
@@ -83,7 +83,7 @@ interface SolidElmV14 : SapComponent {
      * If this item is SelectionElm, the load assignments are retrieved for solid elements corresponding to all selected solid objects, and the Name item is ignored.
      * @return zero if the strain load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadStrain(name: String, numberItems: IntByRef, solidName: StringArrayByRef, loadPat: StringArrayByRef, component: IntArrayByRef, value: DoubleArrayByRef, patternName: StringArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
+    fun getLoadStrain(name: String, numberItems: AIntByRef, solidName: AStringArrayByRef, loadPat: AStringArrayByRef, component: AIntArrayByRef, value: ADoubleArrayByRef, patternName: AStringArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
             callFunctionInt("GetLoadStrain", name, numberItems, solidName, loadPat, component, value, patternName, itemTypeElm)
 
     /**
@@ -106,7 +106,7 @@ interface SolidElmV14 : SapComponent {
      * If this item is SelectionElm, the load assignments are retrieved for solid elements corresponding to all selected solid objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadSurfacePressure(name: String, numberItems: IntByRef, solidName: StringArrayByRef, loadPat: StringArrayByRef, face: IntArrayByRef, value: DoubleArrayByRef, patternName: StringArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
+    fun getLoadSurfacePressure(name: String, numberItems: AIntByRef, solidName: AStringArrayByRef, loadPat: AStringArrayByRef, face: AIntArrayByRef, value: ADoubleArrayByRef, patternName: AStringArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
             callFunctionInt("GetLoadSurfacePressure", name, numberItems, solidName, loadPat, face, value, patternName, itemTypeElm)
 
     /**
@@ -128,7 +128,7 @@ interface SolidElmV14 : SapComponent {
      * If this item is SelectionElm, the load assignments are retrieved for solid elements corresponding to all selected solid objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadTemperature(name: String, numberItems: IntByRef, solidName: StringArrayByRef, loadPat: StringArrayByRef, value: DoubleArrayByRef, patternName: StringArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
+    fun getLoadTemperature(name: String, numberItems: AIntByRef, solidName: AStringArrayByRef, loadPat: AStringArrayByRef, value: ADoubleArrayByRef, patternName: AStringArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
             callFunctionInt("GetLoadTemperature", name, numberItems, solidName, loadPat, value, patternName, itemTypeElm)
 
     /**
@@ -140,7 +140,7 @@ interface SolidElmV14 : SapComponent {
      * * 3. Rotate about the resulting 1 axis by angle c.
      * @return zero if the assignment is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLocalAxes(name: String, a: DoubleByRef, b: DoubleByRef, c: DoubleByRef): Int =
+    fun getLocalAxes(name: String, a: ADoubleByRef, b: ADoubleByRef, c: ADoubleByRef): Int =
             callFunctionInt("GetLocalAxes", name, a, b, c)
 
     /**
@@ -151,7 +151,7 @@ interface SolidElmV14 : SapComponent {
      * If PatternName is the name of a defined joint pattern, the material temperature for the solid element may vary. The material temperature at each corner point of the solid element is equal to the specified temperature multiplied by the pattern value at the associated point element. The material temperature at other locations in the solid element is calculated by interpolation from the corner points.
      * @return zero if the material temperature assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getMatTemp(name: String, temp: DoubleByRef, patternName: StringByRef): Int =
+    fun getMatTemp(name: String, temp: ADoubleByRef, patternName: AStringByRef): Int =
             callFunctionInt("GetMatTemp", name, temp, patternName)
 
     /**
@@ -160,7 +160,7 @@ interface SolidElmV14 : SapComponent {
      * @param myName This is a one-dimensional array of solid element names.
      * @return zero if the names are successfully retrieved; otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: IntByRef, myName: StringArrayByRef): Int =
+    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef): Int =
             callFunctionInt("GetNameList", numberNames, myName)
 
     /**
@@ -169,7 +169,7 @@ interface SolidElmV14 : SapComponent {
      * @param obj The name of the solid object from which the solid element was created.
      * @return zero if the information is successfully retrieved; otherwise it returns nonzero.
      */
-    fun getObj(name: String, obj: StringByRef): Int =
+    fun getObj(name: String, obj: AStringByRef): Int =
             callFunctionInt("GetObj", name, obj)
 
     /**
@@ -178,7 +178,7 @@ interface SolidElmV14 : SapComponent {
      * @param point This is an array containing the names of the eight point elements that define the solid element. The point names are in order around the solid element.
      * @return zero if the point element names are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getPoints(name: String, point: StringArrayByRef): Int =
+    fun getPoints(name: String, point: AStringArrayByRef): Int =
             callFunctionInt("GetPoints", name, point)
 
     /**
@@ -187,7 +187,7 @@ interface SolidElmV14 : SapComponent {
      * @param propName The name of the solid property assigned to the solid element.
      * @return zero if the property is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getProperty(name: String, propName: StringByRef): Int =
+    fun getProperty(name: String, propName: AStringByRef): Int =
             callFunctionInt("GetProperty", name, propName)
 
     /**
@@ -197,6 +197,6 @@ interface SolidElmV14 : SapComponent {
      * In the equation, c0 through c8 are the nine values from the transformation array, (Local1, Local2, Local3) are an item (such as a load) in the element local coordinate system, and (GlobalX, GlobalY, GlobalZ) are the same item in the global coordinate system.
      * @return zero if the transformation matrix is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getTransformationMatrix(name: String, value: DoubleArrayByRef): Int =
+    fun getTransformationMatrix(name: String, value: ADoubleArrayByRef): Int =
             callFunctionInt("GetTransformationMatrix", name, value)
 }

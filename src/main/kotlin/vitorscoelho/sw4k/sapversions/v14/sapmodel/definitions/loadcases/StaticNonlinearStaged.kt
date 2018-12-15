@@ -15,7 +15,7 @@ interface StaticNonlinearStagedV14 : SapComponent {
      * * 2 = P-delta plus large displacements
      * @return zero if the option is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getGeometricNonlinearity(name: String, nLGeomType: IntByRef): Int =
+    fun getGeometricNonlinearity(name: String, nLGeomType: AIntByRef): Int =
             callFunctionInt("GetGeometricNonlinearity", name, nLGeomType)
 
     /**
@@ -27,7 +27,7 @@ interface StaticNonlinearStagedV14 : SapComponent {
      * * 3 = Restart using secant stiffness
      * @return zero if the option is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getHingeUnloading(name: String, unloadType: IntByRef): Int =
+    fun getHingeUnloading(name: String, unloadType: AIntByRef): Int =
             callFunctionInt("GetHingeUnloading", name, unloadType)
 
     /**
@@ -37,7 +37,7 @@ interface StaticNonlinearStagedV14 : SapComponent {
      * If the specified initial case is a nonlinear static or nonlinear direct integration time history load case, the state at the end of that case is used. If the initial case is anything else, zero initial conditions are assumed.
      * @return zero if the initial condition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getInitialCase(name: String, initialCase: StringByRef): Int =
+    fun getInitialCase(name: String, initialCase: AStringByRef): Int =
             callFunctionInt("GetInitialCase", name, initialCase)
 
     /**
@@ -46,7 +46,7 @@ interface StaticNonlinearStagedV14 : SapComponent {
      * @param timeDepMatProp When this is True, any specified time dependent material properties are considered in the analysis.
      * @return zero if the options are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getMaterialNonlinearity(name: String, timeDepMatProp: BooleanByRef): Int =
+    fun getMaterialNonlinearity(name: String, timeDepMatProp: ABooleanByRef): Int =
             callFunctionInt("GetMaterialNonlinearity", name, timeDepMatProp)
 
     /**
@@ -61,7 +61,7 @@ interface StaticNonlinearStagedV14 : SapComponent {
      * @param stagedMinStepsTD The minimum number of steps for analysis of time dependent items. This item applies only when StagedSaveOption = 3.
      * @return zero if the parameters are retrieved successfully; otherwise it returns a nonzero value.
      */
-    fun getResultsSaved(name: String, stagedSaveOption: IntByRef, stagedMinSteps: IntByRef, stagedMinStepsTD: IntByRef): Int =
+    fun getResultsSaved(name: String, stagedSaveOption: AIntByRef, stagedMinSteps: AIntByRef, stagedMinStepsTD: AIntByRef): Int =
             callFunctionInt("GetResultsSaved", name, stagedSaveOption, stagedMinSteps, stagedMinStepsTD)
 
     /**
@@ -79,7 +79,7 @@ interface StaticNonlinearStagedV14 : SapComponent {
      * @param lineSearchStepFact The line-search step factor.
      * @return zero if the parameters are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getSolControlParameters(name: String, maxTotalSteps: IntByRef, maxFailedSubSteps: IntByRef, maxIterCS: IntByRef, maxIterNR: IntByRef, tolConvD: DoubleByRef, useEventStepping: BooleanByRef, tolEventD: DoubleByRef, maxLineSearchPerIter: IntByRef, tolLineSearch: DoubleByRef, lineSearchStepFact: DoubleByRef): Int =
+    fun getSolControlParameters(name: String, maxTotalSteps: AIntByRef, maxFailedSubSteps: AIntByRef, maxIterCS: AIntByRef, maxIterNR: AIntByRef, tolConvD: ADoubleByRef, useEventStepping: ABooleanByRef, tolEventD: ADoubleByRef, maxLineSearchPerIter: AIntByRef, tolLineSearch: ADoubleByRef, lineSearchStepFact: ADoubleByRef): Int =
             callFunctionInt("GetSolControlParameters", name, maxTotalSteps, maxFailedSubSteps, maxIterCS, maxIterNR, tolConvD, useEventStepping, tolEventD, maxLineSearchPerIter, tolLineSearch, lineSearchStepFact)
 
     /**
@@ -129,7 +129,7 @@ interface StaticNonlinearStagedV14 : SapComponent {
      * This item applies only to operations with Operation = 3 or 4.
      * @return zero if the data is successfully retrieved; otherwise, it returns a nonzero value.
      */
-    fun getStageData_1(name: String, stage: Int, numberOperations: IntByRef, operation: IntArrayByRef, objectType: StringArrayByRef, objectName: StringArrayByRef, age: IntArrayByRef, myType: StringArrayByRef, myName: StringArrayByRef, sF: DoubleArrayByRef): Int =
+    fun getStageData_1(name: String, stage: Int, numberOperations: AIntByRef, operation: AIntArrayByRef, objectType: AStringArrayByRef, objectName: AStringArrayByRef, age: AIntArrayByRef, myType: AStringArrayByRef, myName: AStringArrayByRef, sF: ADoubleArrayByRef): Int =
             callFunctionInt("GetStageData_1", name, stage, numberOperations, operation, objectType, objectName, age, myType, myName, sF)
 
     /**
@@ -142,7 +142,7 @@ interface StaticNonlinearStagedV14 : SapComponent {
      * @param comment This is an array that includes a comment for each stage. The comment may be a blank string.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getStageDefinitions_1(name: String, numberStages: IntByRef, duration: IntArrayByRef, output: BooleanArrayByRef, outputName: StringArrayByRef, comment: StringArrayByRef): Int =
+    fun getStageDefinitions_1(name: String, numberStages: AIntByRef, duration: AIntArrayByRef, output: ABooleanArrayByRef, outputName: AStringArrayByRef, comment: AStringArrayByRef): Int =
             callFunctionInt("GetStageDefinitions_1", name, numberStages, duration, output, outputName, comment)
 
     /**
@@ -154,7 +154,7 @@ interface StaticNonlinearStagedV14 : SapComponent {
      * @param noStop If this item is True, the analysis is continued when there is no convergence in the target force iteration.
      * @return zero if the parameters are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getTargetForceParameters(name: String, tolConvF: DoubleByRef, maxIter: IntByRef, accelFact: DoubleByRef, noStop: BooleanByRef): Int =
+    fun getTargetForceParameters(name: String, tolConvF: ADoubleByRef, maxIter: AIntByRef, accelFact: ADoubleByRef, noStop: ABooleanByRef): Int =
             callFunctionInt("GetTargetForceParameters", name, tolConvF, maxIter, accelFact, noStop)
 
     /**
@@ -288,7 +288,7 @@ interface StaticNonlinearStagedV14 : SapComponent {
      * This item applies only to operations with Operation = 3 or 4.
      * @return zero if the data is successfully set; otherwise it returns a nonzero value.
      */
-    fun setStageData_1(name: String, stage: Int, numberOperations: Int, operation: IntArrayByRef, objectType: StringArrayByRef, objectName: StringArrayByRef, age: IntArrayByRef, myType: StringArrayByRef, myName: StringArrayByRef, sF: DoubleArrayByRef): Int =
+    fun setStageData_1(name: String, stage: Int, numberOperations: Int, operation: AIntArrayByRef, objectType: AStringArrayByRef, objectName: AStringArrayByRef, age: AIntArrayByRef, myType: AStringArrayByRef, myName: AStringArrayByRef, sF: ADoubleArrayByRef): Int =
             callFunctionInt("SetStageData_1", name, stage, numberOperations, operation, objectType, objectName, age, myType, myName, sF)
 
     /**
@@ -301,7 +301,7 @@ interface StaticNonlinearStagedV14 : SapComponent {
      * @param comment This is an array that includes a comment for each stage. The comment may be a blank string.
      * @return zero if the data is successfully initialized; otherwise, it returns a nonzero value.
      */
-    fun setStageDefinitions_1(name: String, numberStages: Int, duration: IntArrayByRef, output: BooleanArrayByRef, outputName: StringArrayByRef, comment: StringArrayByRef): Int =
+    fun setStageDefinitions_1(name: String, numberStages: Int, duration: AIntArrayByRef, output: ABooleanArrayByRef, outputName: AStringArrayByRef, comment: AStringArrayByRef): Int =
             callFunctionInt("SetStageDefinitions_1", name, numberStages, duration, output, outputName, comment)
 
     /**

@@ -34,7 +34,7 @@ interface CoordSysV14 : SapComponent {
      * @param rZ, RY, RX The rotation of an axis of the new coordinate system relative to the global coordinate system is defined as follows: (1) Rotate the coordinate system about the positive global Z-axis as defined by the RZ item. (2) Rotate the coordinate system about the positive global Y-axis as defined by the RY item. (3) Rotate the coordinate system about the positive global X-axis as defined by the RX item. Note that the order in which these rotations are performed is important. RX, RY and RZ are angles in degrees (deg).
      * @return zero if the coordinate system data is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getCoordSys(name: String, x: DoubleByRef, y: DoubleByRef, z: DoubleByRef, rZ: DoubleByRef, rY: DoubleByRef, rX: DoubleByRef): Int =
+    fun getCoordSys(name: String, x: ADoubleByRef, y: ADoubleByRef, z: ADoubleByRef, rZ: ADoubleByRef, rY: ADoubleByRef, rX: ADoubleByRef): Int =
             callFunctionInt("GetCoordSys", name, x, y, z, rZ, rY, rX)
 
     /**
@@ -43,7 +43,7 @@ interface CoordSysV14 : SapComponent {
      * @param myName This is a one-dimensional array of coordinate system names.
      * @return zero if the names are successfully retrieved, otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: IntByRef, myName: StringArrayByRef): Int =
+    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef): Int =
             callFunctionInt("GetNameList", numberNames, myName)
 
     /**
@@ -53,7 +53,7 @@ interface CoordSysV14 : SapComponent {
      * In the equation, c0 through c8 are the nine values from the transformation array; (x, y, z) are the coordinates of a point in the CSys coordinate system; (ux, uy, uz) are the offset of the origin of the CSys coordinate system from the global coordinate system; and (gx, gy, gz) are the global coordinates of the point.
      * @return zero if the coordinate system transformation matrix is successfully returned, otherwise it returns a nonzero value.
      */
-    fun getTransformationMatrix(name: String, value: DoubleArrayByRef): Int =
+    fun getTransformationMatrix(name: String, value: ADoubleArrayByRef): Int =
             callFunctionInt("GetTransformationMatrix", name, value)
 
     /**
