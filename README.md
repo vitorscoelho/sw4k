@@ -5,6 +5,15 @@ Only SAP2000 v14, for a while.
 
 Example (Kotlin):
 ```kotlin
+import vitorscoelho.sw4k.comutils.DoubleArrayByRef
+import vitorscoelho.sw4k.comutils.IntByRef
+import vitorscoelho.sw4k.comutils.StringArrayByRef
+import vitorscoelho.sw4k.comutils.byRef
+import vitorscoelho.sw4k.comutils.dlls.LoaderJacobDll
+import vitorscoelho.sw4k.sap.SapObject
+import vitorscoelho.sw4k.sapenums.*
+import java.text.DecimalFormat
+
 fun kotlinExample() {
     LoaderJacobDll.load() //this is mandatory before anything
     //create Sap2000 object
@@ -165,16 +174,13 @@ fun kotlinExample() {
         )
         sapResults[i] = if (i <= 3) u3[0] else u1[0]
     }
-
     //close Sap2000
     sapObject.applicationExit(false)
-
     //fill independent results (hand calculated)
     val indResults = doubleArrayOf(-0.02639, 0.06296, 0.06296, -0.2963, 0.3125, 0.11556, 0.00651)
     val dfResults = DecimalFormat("0.00000")
     val dfPercentage = DecimalFormat("0%")
     (0..6).forEach { i ->
-        Assert.assertEquals(indResults[i], sapResults[i], 0.000009)
         val sapResult = dfResults.format(sapResults[i])
         val indResult = dfResults.format(indResults[i])
         val percentage = dfPercentage.format(sapResults[i] / indResults[i] - 1)
@@ -185,8 +191,15 @@ fun kotlinExample() {
 
 Example (Java):
 ```java
+import vitorscoelho.sw4k.comutils.*;
+import vitorscoelho.sw4k.comutils.dlls.LoaderJacobDll;
+import vitorscoelho.sw4k.sap.SapObject;
+import vitorscoelho.sw4k.sapenums.*;
+import vitorscoelho.sw4k.sapversions.v14.SapModelV14;
+import vitorscoelho.sw4k.sapversions.v14.SapObjectV14;
+
 public class ExampleSapDocJava {
-    public void example() {
+    public void javaExample() {
         LoaderJacobDll.load(); //this is mandatory before anything
         //create Sap2000 object
         SapObjectV14 sapObject = SapObject.v14();
@@ -361,16 +374,13 @@ public class ExampleSapDocJava {
                 sapResults[i] = u1.get(0);
             }
         }
-
         //close Sap2000
         sapObject.applicationExit(false);
-
         //fill independent results (hand calculated)
         double[] indResults = new double[]{-0.02639, 0.06296, 0.06296, -0.2963, 0.3125, 0.11556, 0.00651};
         DecimalFormat dfResults = new DecimalFormat("0.00000");
         DecimalFormat dfPercentage = new DecimalFormat("0%");
         for (int i = 0; i <= 6; i++) {
-            Assert.assertEquals(indResults[i],sapResults[i],0.000009);
             String sapResult = dfResults.format(sapResults[i]);
             String indResult = dfResults.format(indResults[i]);
             String percentage = dfPercentage.format(sapResults[i] / indResults[i] - 1);
