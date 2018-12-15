@@ -143,7 +143,7 @@ class ExampleSapDocKotlin {
         //switch to k-in units
         sapModel.setPresentUnits(Units.kip_in_F.sapId)
         //save model
-        sapModel.file.save("C:\\SapApiV14\\API_1-001.sdb")//TODO remover a pasta depois
+        sapModel.file.save("C:\\SapApiV14\\API_1-001.sdb")
         //run model (this will create the analysis model)
         sapModel.analyze.runAnalysis()
         //initialize for Sap2000 results

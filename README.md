@@ -135,7 +135,7 @@ fun kotlinExample() {
     //switch to k-in units
     sapModel.setPresentUnits(Units.kip_in_F.sapId)
     //save model
-    sapModel.file.save("C:\\SapApiV14\\API_1-001.sdb")//TODO remover a pasta depois
+    sapModel.file.save("C:\\SapApiV14\\API_1-001.sdb")
     //run model (this will create the analysis model)
     sapModel.analyze.runAnalysis()
     //initialize for Sap2000 results
@@ -232,7 +232,6 @@ public class ExampleSapDocJava {
         //switch to k-ft units
         sapModel.setPresentUnits(Units.kip_ft_F.getSapId());
         //add load patterns
-        //name: String, myType: Int, selfWTMultiplier: Double = 0.0, addLoadCase: Boolean = true
         sapModel.getLoadPatterns().add("1", LoadPatternType.OTHER.getSapId(), 1.0, true);
         sapModel.getLoadPatterns().add("2", LoadPatternType.OTHER.getSapId(), 0.0, true);
         sapModel.getLoadPatterns().add("3", LoadPatternType.OTHER.getSapId(), 0.0, true);
@@ -247,9 +246,6 @@ public class ExampleSapDocJava {
                 new DoubleArrayByRef(0.0, 0.0, -10.0, 0.0, 0.0, 0.0),
                 false, "Global", ItemType.OBJECT.getSapId()
         );
-        //setLoadDistributed(name: String, loadPat: String, myType: Int, dir: Int, dist1: Double,
-        // dist2: Double, val1: Double, val2: Double, cSys: String = "Global", relDist: Boolean = true,
-        // replace: Boolean = true, itemType: Int = ItemType.OBJECT.sapId)
         sapModel.getFrameObj().setLoadDistributed(
                 "3",
                 "2",
@@ -326,7 +322,7 @@ public class ExampleSapDocJava {
         //switch to k-in units
         sapModel.setPresentUnits(Units.kip_in_F.getSapId());
         //save model
-        sapModel.getFile().save("C:\\SapApiV14\\API_1-001.sdb");//TODO remover a pasta depois
+        sapModel.getFile().save("C:\\SapApiV14\\API_1-001.sdb");
         //run model (this will create the analysis model)
         sapModel.getAnalyze().runAnalysis();
         //initialize for Sap2000 results
