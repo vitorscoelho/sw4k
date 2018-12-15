@@ -65,7 +65,8 @@ internal interface ByRefArray1D<S, T> : ByRefType<S> {
     fun isNotEmpty(): Boolean = !isEmpty()
 }
 
-class DoubleArrayByRef(override var value: DoubleArray = doubleArrayOf()) : ByRefArray1D<DoubleArray, Double> {
+class DoubleArrayByRef(vararg values: Double = doubleArrayOf()) : ByRefArray1D<DoubleArray, Double> {
+    override var value: DoubleArray = values
     override fun get(index: Int): Double = value[index]
     override fun set(index: Int, value: Double) = this@DoubleArrayByRef.value.set(index, value)
     override fun size(): Int = this.value.size
@@ -77,9 +78,10 @@ class DoubleArrayByRef(override var value: DoubleArray = doubleArrayOf()) : ByRe
     override fun toString(): String = this.toStringArray()
 }
 
-fun DoubleArray.byRef(): DoubleArrayByRef = DoubleArrayByRef(this)
+fun DoubleArray.byRef(): DoubleArrayByRef = DoubleArrayByRef(*this)
 
-class IntArrayByRef(override var value: IntArray = intArrayOf()) : ByRefArray1D<IntArray, Int> {
+class IntArrayByRef(vararg values: Int = intArrayOf()) : ByRefArray1D<IntArray, Int> {
+    override var value: IntArray = values
     override fun get(index: Int): Int = value[index]
     override fun set(index: Int, value: Int) = this@IntArrayByRef.value.set(index, value)
     override fun size(): Int = this.value.size
@@ -91,9 +93,10 @@ class IntArrayByRef(override var value: IntArray = intArrayOf()) : ByRefArray1D<
     override fun toString(): String = this.toStringArray()
 }
 
-fun IntArray.byRef(): IntArrayByRef = IntArrayByRef(this)
+fun IntArray.byRef(): IntArrayByRef = IntArrayByRef(*this)
 
-class BooleanArrayByRef(override var value: BooleanArray = booleanArrayOf()) : ByRefArray1D<BooleanArray, Boolean> {
+class BooleanArrayByRef(vararg values: Boolean = booleanArrayOf()) : ByRefArray1D<BooleanArray, Boolean> {
+    override var value: BooleanArray = values
     override fun get(index: Int): Boolean = value[index]
     override fun set(index: Int, value: Boolean) = this@BooleanArrayByRef.value.set(index, value)
     override fun size(): Int = this.value.size
@@ -105,9 +108,10 @@ class BooleanArrayByRef(override var value: BooleanArray = booleanArrayOf()) : B
     override fun toString(): String = this.toStringArray()
 }
 
-fun BooleanArray.byRef(): BooleanArrayByRef = BooleanArrayByRef(this)
+fun BooleanArray.byRef(): BooleanArrayByRef = BooleanArrayByRef(*this)
 
-class StringArrayByRef(override var value: Array<String> = emptyArray()) : ByRefArray1D<Array<String>, String> {
+class StringArrayByRef(vararg values: String = emptyArray()) : ByRefArray1D<Array<String>, String> {
+    override var value: Array<String> = arrayOf(*values)
     override fun get(index: Int): String = value[index]
     override fun set(index: Int, value: String) = this@StringArrayByRef.value.set(index, value)
     override fun size(): Int = this.value.size
@@ -119,7 +123,7 @@ class StringArrayByRef(override var value: Array<String> = emptyArray()) : ByRef
     override fun toString(): String = this.toStringArray()
 }
 
-fun Array<String>.byRef(): StringArrayByRef = StringArrayByRef(this)
+fun Array<String>.byRef(): StringArrayByRef = StringArrayByRef(*this)
 
 
 private fun ByRefArray1D<*, *>.toStringArray(): String {
