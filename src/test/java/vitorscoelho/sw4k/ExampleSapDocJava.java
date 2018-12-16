@@ -3,7 +3,6 @@ package vitorscoelho.sw4k;
 import org.junit.Assert;
 import org.junit.Test;
 import vitorscoelho.sw4k.comutils.*;
-import vitorscoelho.sw4k.comutils.dlls.LoaderJacobDll;
 import vitorscoelho.sw4k.sap.SapObject;
 import vitorscoelho.sw4k.sapenums.*;
 import vitorscoelho.sw4k.sapversions.v14.SapModelV14;
@@ -14,7 +13,6 @@ import java.text.DecimalFormat;
 public class ExampleSapDocJava {
     @Test
     public void example() {
-        LoaderJacobDll.load(); //this is mandatory before anything
         //create Sap2000 object
         SapObjectV14 sapObject = SapObject.v14();
         //start Sap2000 application

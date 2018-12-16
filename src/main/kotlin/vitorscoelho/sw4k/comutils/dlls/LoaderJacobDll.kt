@@ -45,7 +45,7 @@ object LoaderJacobDll {
             System.setProperty(LibraryLoader.JACOB_DLL_PATH, temporaryDll.absolutePath)
             LibraryLoader.loadJacobLibrary()
 
-            System.out.println("Jacob dll been loaded!")
+            System.out.println("Jacob dll loaded!")
 
             /* Temporary file will be removed after terminating-closing-ending the application-program */
             temporaryDll.deleteOnExit()

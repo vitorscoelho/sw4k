@@ -4,7 +4,6 @@ import org.junit.Assert
 import org.junit.Test
 import vitorscoelho.sw4k.comutils.DoubleArrayByRef
 import vitorscoelho.sw4k.comutils.byRef
-import vitorscoelho.sw4k.comutils.dlls.LoaderJacobDll
 import vitorscoelho.sw4k.sap.SapObject
 import vitorscoelho.sw4k.sapenums.*
 import java.text.DecimalFormat
@@ -12,7 +11,6 @@ import java.text.DecimalFormat
 class ExampleSapDocKotlin {
     @Test
     fun example() {
-        LoaderJacobDll.load() //this is mandatory before anything
         //create Sap2000 object
         val sapObject = SapObject.v14()
         //start Sap2000 application

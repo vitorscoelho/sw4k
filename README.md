@@ -1,21 +1,18 @@
 # sw4k
 It is a simple wrapper of SAP2000 functions for Kotlin/Java.
+It uses JACOB (https://sourceforge.net/projects/jacob-project/) to make Java-COM bridge.
 
 Only SAP2000 v14, for a while.
 
-Example (Kotlin):
+Example (SAP2000 with Kotlin):
 ```kotlin
 import vitorscoelho.sw4k.comutils.DoubleArrayByRef
-import vitorscoelho.sw4k.comutils.IntByRef
-import vitorscoelho.sw4k.comutils.StringArrayByRef
 import vitorscoelho.sw4k.comutils.byRef
-import vitorscoelho.sw4k.comutils.dlls.LoaderJacobDll
 import vitorscoelho.sw4k.sap.SapObject
 import vitorscoelho.sw4k.sapenums.*
 import java.text.DecimalFormat
 
 fun kotlinExample() {
-    LoaderJacobDll.load() //this is mandatory before anything
     //create Sap2000 object
     val sapObject = SapObject.v14()
     //start Sap2000 application
@@ -159,23 +156,15 @@ fun kotlinExample() {
         sapModel.results.jointDispl(
                 name = pointNameForResult,
                 itemTypeElm = ItemTypeElm.OBJECT_ELM.sapId,
-                numberResults = IntByRef(),
-                obj = StringArrayByRef(),
-                elm = StringArrayByRef(),
-                loadCase = StringArrayByRef(),
-                stepType = StringArrayByRef(),
-                stepNum = DoubleArrayByRef(),
                 u1 = u1,
-                u2 = DoubleArrayByRef(),
-                u3 = u3,
-                r1 = DoubleArrayByRef(),
-                r2 = DoubleArrayByRef(),
-                r3 = DoubleArrayByRef()
+                u3 = u3
         )
         sapResults[i] = if (i <= 3) u3[0] else u1[0]
     }
+
     //close Sap2000
     sapObject.applicationExit(false)
+
     //fill independent results (hand calculated)
     val indResults = doubleArrayOf(-0.02639, 0.06296, 0.06296, -0.2963, 0.3125, 0.11556, 0.00651)
     val dfResults = DecimalFormat("0.00000")
@@ -189,18 +178,17 @@ fun kotlinExample() {
 }
 ```
 
-Example (Java):
+Example (SAP2000 with Java):
 ```java
 import vitorscoelho.sw4k.comutils.*;
-import vitorscoelho.sw4k.comutils.dlls.LoaderJacobDll;
 import vitorscoelho.sw4k.sap.SapObject;
 import vitorscoelho.sw4k.sapenums.*;
 import vitorscoelho.sw4k.sapversions.v14.SapModelV14;
 import vitorscoelho.sw4k.sapversions.v14.SapObjectV14;
+import java.text.DecimalFormat;
 
 public class ExampleSapDocJava {
     public void javaExample() {
-        LoaderJacobDll.load(); //this is mandatory before anything
         //create Sap2000 object
         SapObjectV14 sapObject = SapObject.v14();
         //start Sap2000 application
@@ -220,14 +208,14 @@ public class ExampleSapDocJava {
         //define frame section property modifiers
         sapModel.getPropFrame().setModifiers("R1", new DoubleArrayByRef(1000.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0));
         //add points by coordinates
-        sapModel.getPointObj().addCartesian(0.0, 0.0, 0.0, new StringByRef(), "Bottom point", "Global", false, 0);
-        sapModel.getPointObj().addCartesian(0.0, 0.0, 10.0 * 12.0, new StringByRef(), "Middle point", "Global", false, 0);
-        sapModel.getPointObj().addCartesian(8.0 * 12.0, 0.0, 16.0 * 12.0, new StringByRef(), "Right point", "Global", false, 0);
-        sapModel.getPointObj().addCartesian(-4.0 * 12.0, 0.0, 10.0 * 12.0, new StringByRef(), "Left point", "Global", false, 0);
+        sapModel.getPointObj().addCartesian(0.0, 0.0, 0.0, StringByRef.UNNECESSARY(), "Bottom point", "Global", false, 0);
+        sapModel.getPointObj().addCartesian(0.0, 0.0, 10.0 * 12.0, StringByRef.UNNECESSARY(), "Middle point", "Global", false, 0);
+        sapModel.getPointObj().addCartesian(8.0 * 12.0, 0.0, 16.0 * 12.0, StringByRef.UNNECESSARY(), "Right point", "Global", false, 0);
+        sapModel.getPointObj().addCartesian(-4.0 * 12.0, 0.0, 10.0 * 12.0, StringByRef.UNNECESSARY(), "Left point", "Global", false, 0);
         //add frame object by points
-        sapModel.getFrameObj().addByPoint("Bottom point", "Middle point", new StringByRef(), "R1", "1");
-        sapModel.getFrameObj().addByPoint("Middle point", "Right point", new StringByRef(), "R1", "2");
-        sapModel.getFrameObj().addByPoint("Left point", "Middle point", new StringByRef(), "R1", "3");
+        sapModel.getFrameObj().addByPoint("Bottom point", "Middle point", StringByRef.UNNECESSARY(), "R1", "1");
+        sapModel.getFrameObj().addByPoint("Middle point", "Right point", StringByRef.UNNECESSARY(), "R1", "2");
+        sapModel.getFrameObj().addByPoint("Left point", "Middle point", StringByRef.UNNECESSARY(), "R1", "3");
         //assign point object restraint at base
         sapModel.getPointObj().setRestraint(
                 "Bottom point",
@@ -355,18 +343,18 @@ public class ExampleSapDocJava {
             sapModel.getResults().jointDispl(
                     pointNameForResult,
                     ItemTypeElm.OBJECT_ELM.getSapId(),
-                    new IntByRef(),
-                    new StringArrayByRef(),
-                    new StringArrayByRef(),
-                    new StringArrayByRef(),
-                    new StringArrayByRef(),
-                    new DoubleArrayByRef(),
+                    IntByRef.UNNECESSARY(),
+                    StringArrayByRef.UNNECESSARY(),
+                    StringArrayByRef.UNNECESSARY(),
+                    StringArrayByRef.UNNECESSARY(),
+                    StringArrayByRef.UNNECESSARY(),
+                    DoubleArrayByRef.UNNECESSARY(),
                     u1,
-                    new DoubleArrayByRef(),
+                    DoubleArrayByRef.UNNECESSARY(),
                     u3,
-                    new DoubleArrayByRef(),
-                    new DoubleArrayByRef(),
-                    new DoubleArrayByRef()
+                    DoubleArrayByRef.UNNECESSARY(),
+                    DoubleArrayByRef.UNNECESSARY(),
+                    DoubleArrayByRef.UNNECESSARY()
             );
             if (i <= 3) {
                 sapResults[i] = u3.get(0);
@@ -374,8 +362,10 @@ public class ExampleSapDocJava {
                 sapResults[i] = u1.get(0);
             }
         }
+
         //close Sap2000
         sapObject.applicationExit(false);
+
         //fill independent results (hand calculated)
         double[] indResults = new double[]{-0.02639, 0.06296, 0.06296, -0.2963, 0.3125, 0.11556, 0.00651};
         DecimalFormat dfResults = new DecimalFormat("0.00000");

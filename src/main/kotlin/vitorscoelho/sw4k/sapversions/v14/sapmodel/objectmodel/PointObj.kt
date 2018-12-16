@@ -52,7 +52,7 @@ interface PointObjV14 : SapComponent {
      * @param mergeNumber Two points objects in the same location will merge only if their merge number assignments are the same. By default all pointobjects have a merge number of zero.
      * @return zero if the point object is successfully added or merged, otherwise it returns a nonzero value.
      */
-    fun addSpherical(r: Double, a: Double, b: Double, name: AStringByRef, userName: String = "", cSys: String = "Global", mergeOff: Boolean = false, mergeNumber: Int = 0): Int =
+    fun addSpherical(r: Double, a: Double, b: Double, name: AStringByRef = StringByRef.UNNECESSARY, userName: String = "", cSys: String = "Global", mergeOff: Boolean = false, mergeNumber: Int = 0): Int =
             callFunctionInt("AddSpherical", r, a, b, name, userName, cSys, mergeOff, mergeNumber)
 
     /**

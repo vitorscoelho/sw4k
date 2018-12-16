@@ -59,7 +59,7 @@ interface ResultsV14 : SapComponent {
      * @param vAngle The angle measured counter clockwise (when the local 3 axis is pointing toward you) from the area local 1 axis to the direction of Vmax. This item is only reported for area elements with properties that allow plate bending behavior. (deg)
      * @return zero if the forces are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun areaForceShell(name: String, itemTypeElm: Int, numberResults: AIntByRef = IntByRef(), obj: AStringArrayByRef = StringArrayByRef.UNNECESSARY, elm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, pointElm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef(), f11: ADoubleArrayByRef = DoubleArrayByRef(), f22: ADoubleArrayByRef = DoubleArrayByRef(), f12: ADoubleArrayByRef = DoubleArrayByRef(), fMax: ADoubleArrayByRef = DoubleArrayByRef(), fMin: ADoubleArrayByRef = DoubleArrayByRef(), fAngle: ADoubleArrayByRef = DoubleArrayByRef(), fvm: ADoubleArrayByRef = DoubleArrayByRef(), m11: ADoubleArrayByRef = DoubleArrayByRef(), m22: ADoubleArrayByRef = DoubleArrayByRef(), m12: ADoubleArrayByRef = DoubleArrayByRef(), mMax: ADoubleArrayByRef = DoubleArrayByRef(), mMin: ADoubleArrayByRef = DoubleArrayByRef(), mAngle: ADoubleArrayByRef = DoubleArrayByRef(), v13: ADoubleArrayByRef = DoubleArrayByRef(), v23: ADoubleArrayByRef = DoubleArrayByRef(), vMax: ADoubleArrayByRef = DoubleArrayByRef(), vAngle: ADoubleArrayByRef = DoubleArrayByRef()): Int =
+    fun areaForceShell(name: String, itemTypeElm: Int, numberResults: AIntByRef = IntByRef.UNNECESSARY, obj: AStringArrayByRef = StringArrayByRef.UNNECESSARY, elm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, pointElm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY , f11: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY , f22: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY , f12: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY , fMax: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY , fMin: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY , fAngle: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY , fvm: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY , m11: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY , m22: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY , m12: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY , mMax: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY , mMin: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY , mAngle: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY , v13: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY , v23: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY , vMax: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY , vAngle: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY ): Int =
             callFunctionInt("AreaForceShell", name, itemTypeElm, numberResults, obj, elm, pointElm, loadCase, stepType, stepNum, f11, f22, f12, fMax, fMin, fAngle, fvm, m11, m22, m12, mMax, mMin, mAngle, v13, v23, vMax, vAngle)
 
     /**
@@ -100,7 +100,7 @@ interface ResultsV14 : SapComponent {
      * @param m1, M2, M3 These are one dimensional arrays that include the joint moment components about the point element local axes. (FL)
      * @return zero if the forces are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun areaJointForcePlane(name: String, itemTypeElm: Int, numberResults: AIntByRef = IntByRef(), obj: AStringArrayByRef = StringArrayByRef.UNNECESSARY, elm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, pointElm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef(), f1: ADoubleArrayByRef = DoubleArrayByRef(), f2: ADoubleArrayByRef = DoubleArrayByRef(), f3: ADoubleArrayByRef = DoubleArrayByRef(), m1: ADoubleArrayByRef = DoubleArrayByRef(), m2: ADoubleArrayByRef = DoubleArrayByRef(), m3: ADoubleArrayByRef = DoubleArrayByRef()): Int =
+    fun areaJointForcePlane(name: String, itemTypeElm: Int, numberResults: AIntByRef = IntByRef.UNNECESSARY, obj: AStringArrayByRef = StringArrayByRef.UNNECESSARY, elm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, pointElm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY , f1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY , f2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY , f3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY , m1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY , m2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY , m3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY ): Int =
             callFunctionInt("AreaJointForcePlane", name, itemTypeElm, numberResults, obj, elm, pointElm, loadCase, stepType, stepNum, f1, f2, f3, m1, m2, m3)
 
     /**
@@ -141,7 +141,7 @@ interface ResultsV14 : SapComponent {
      * @param m1, M2, M3 These are one dimensional arrays that include the joint moment components about the point element local axes. (FL)
      * @return zero if the forces are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun areaJointForceShell(name: String, itemTypeElm: Int, numberResults: AIntByRef, obj: AStringArrayByRef, elm: AStringArrayByRef, pointElm: AStringArrayByRef, loadCase: AStringArrayByRef, stepType: AStringArrayByRef, stepNum: ADoubleArrayByRef, f1: ADoubleArrayByRef, f2: ADoubleArrayByRef, f3: ADoubleArrayByRef, m1: ADoubleArrayByRef, m2: ADoubleArrayByRef, m3: ADoubleArrayByRef): Int =
+    fun areaJointForceShell(name: String, itemTypeElm: Int, numberResults: AIntByRef = IntByRef.UNNECESSARY, obj: AStringArrayByRef = StringArrayByRef.UNNECESSARY, elm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, pointElm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, f1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, f2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, f3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("AreaJointForceShell", name, itemTypeElm, numberResults, obj, elm, pointElm, loadCase, stepType, stepNum, f1, f2, f3, m1, m2, m3)
 
     /**
@@ -184,7 +184,7 @@ interface ResultsV14 : SapComponent {
      * @param svm The plane element internal Von Mises stress at the specified point element. (F/L2)
      * @return zero if the stresses are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun areaStressPlane(name: String, itemTypeElm: Int, numberResults: AIntByRef, obj: AStringArrayByRef, elm: AStringArrayByRef, pointElm: AStringArrayByRef, loadCase: AStringArrayByRef, stepType: AStringArrayByRef, stepNum: ADoubleArrayByRef, s11: ADoubleArrayByRef, s22: ADoubleArrayByRef, s33: ADoubleArrayByRef, s12: ADoubleArrayByRef, sMax: ADoubleArrayByRef, sMin: ADoubleArrayByRef, sAngle: ADoubleArrayByRef, svm: ADoubleArrayByRef): Int =
+    fun areaStressPlane(name: String, itemTypeElm: Int, numberResults: AIntByRef = IntByRef.UNNECESSARY, obj: AStringArrayByRef = StringArrayByRef.UNNECESSARY, elm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, pointElm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, s11: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, s22: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, s33: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, s12: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, sMax: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, sMin: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, sAngle: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, svm: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("AreaStressPlane", name, itemTypeElm, numberResults, obj, elm, pointElm, loadCase, stepType, stepNum, s11, s22, s33, s12, sMax, sMin, sAngle, svm)
 
     /**
@@ -230,7 +230,7 @@ interface ResultsV14 : SapComponent {
      * @param sAngleAvg The angle measured counter clockwise (when the local 3 axis is pointing toward you) from the area local 1 axis to the direction of SMaxAvg. This item is only reported for area elements with properties that allow plate bending behavior. (deg)
      * @return zero if the stresses are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun areaStressShell(name: String, itemTypeElm: Int, numberResults: AIntByRef, obj: AStringArrayByRef, elm: AStringArrayByRef, pointElm: AStringArrayByRef, loadCase: AStringArrayByRef, stepType: AStringArrayByRef, stepNum: ADoubleArrayByRef, s11Top: ADoubleArrayByRef, s22Top: ADoubleArrayByRef, s12Top: ADoubleArrayByRef, sMaxTop: ADoubleArrayByRef, sMinTop: ADoubleArrayByRef, sAngleTop: ADoubleArrayByRef, sVMTop: ADoubleArrayByRef, s11Bot: ADoubleArrayByRef, s22Bot: ADoubleArrayByRef, s12Bot: ADoubleArrayByRef, sMaxBot: ADoubleArrayByRef, sMinBot: ADoubleArrayByRef, sAngleBot: ADoubleArrayByRef, sVMBot: ADoubleArrayByRef, s13Avg: ADoubleArrayByRef, s23Avg: ADoubleArrayByRef, sMaxAvg: ADoubleArrayByRef, sAngleAvg: ADoubleArrayByRef): Int =
+    fun areaStressShell(name: String, itemTypeElm: Int, numberResults: AIntByRef = IntByRef.UNNECESSARY, obj: AStringArrayByRef = StringArrayByRef.UNNECESSARY, elm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, pointElm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, s11Top: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, s22Top: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, s12Top: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, sMaxTop: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, sMinTop: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, sAngleTop: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, sVMTop: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, s11Bot: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, s22Bot: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, s12Bot: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, sMaxBot: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, sMinBot: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, sAngleBot: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, sVMBot: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, s13Avg: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, s23Avg: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, sMaxAvg: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, sAngleAvg: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("AreaStressShell", name, itemTypeElm, numberResults, obj, elm, pointElm, loadCase, stepType, stepNum, s11Top, s22Top, s12Top, sMaxTop, sMinTop, sAngleTop, sVMTop, s11Bot, s22Bot, s12Bot, sMaxBot, sMinBot, sAngleBot, sVMBot, s13Avg, s23Avg, sMaxAvg, sAngleAvg)
 
     /**
@@ -279,7 +279,7 @@ interface ResultsV14 : SapComponent {
      * @param sAngleAvg The angle measured counter clockwise (when the local 3 axis is pointing toward you) from the area local 1 axis to the direction of SMaxAvg. (deg)
      * @return zero if the stresses are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun areaStressShellLayered(name: String, itemTypeElm: Int, numberResults: AIntByRef, obj: AStringArrayByRef, elm: AStringArrayByRef, layer: AStringArrayByRef, intPtNum: AIntArrayByRef, intPtLoc: ADoubleArrayByRef, pointElm: AStringArrayByRef, loadCase: AStringArrayByRef, stepType: AStringArrayByRef, stepNum: ADoubleArrayByRef, s11: ADoubleArrayByRef, s22: ADoubleArrayByRef, s12: ADoubleArrayByRef, sMax: ADoubleArrayByRef, sMin: ADoubleArrayByRef, sAngle: ADoubleArrayByRef, svm: ADoubleArrayByRef, s13Avg: ADoubleArrayByRef, s23Avg: ADoubleArrayByRef, sMaxAvg: ADoubleArrayByRef, sAngleAvg: ADoubleArrayByRef): Int =
+    fun areaStressShellLayered(name: String, itemTypeElm: Int, numberResults: AIntByRef = IntByRef.UNNECESSARY, obj: AStringArrayByRef = StringArrayByRef.UNNECESSARY, elm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, layer: AStringArrayByRef = StringArrayByRef.UNNECESSARY, intPtNum: AIntArrayByRef = IntArrayByRef.UNNECESSARY, intPtLoc: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, pointElm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, s11: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, s22: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, s12: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, sMax: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, sMin: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, sAngle: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, svm: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, s13Avg: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, s23Avg: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, sMaxAvg: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, sAngleAvg: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("AreaStressShellLayered", name, itemTypeElm, numberResults, obj, elm, layer, intPtNum, intPtLoc, pointElm, loadCase, stepType, stepNum, s11, s22, s12, sMax, sMin, sAngle, svm, s13Avg, s23Avg, sMaxAvg, sAngleAvg)
 
     /**
@@ -301,7 +301,7 @@ interface ResultsV14 : SapComponent {
      * @param r1, R2, R3 These are one dimensional arrays that include the rotational mass moment of inertia about the point element local 1, 2 and 3 axes, respectively, for each result. (ML2)
      * @return zero if the masses are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun assembledJointMass(name: String, itemTypeElm: Int, numberResults: AIntByRef, pointElm: AStringArrayByRef, u1: ADoubleArrayByRef, u2: ADoubleArrayByRef, u3: ADoubleArrayByRef, r1: ADoubleArrayByRef, r2: ADoubleArrayByRef, r3: ADoubleArrayByRef): Int =
+    fun assembledJointMass(name: String, itemTypeElm: Int, numberResults: AIntByRef = IntByRef.UNNECESSARY, pointElm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, u1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("AssembledJointMass", name, itemTypeElm, numberResults, pointElm, u1, u2, u3, r1, r2, r3)
 
     /**
@@ -330,7 +330,7 @@ interface ResultsV14 : SapComponent {
      * @param gx, gy, gz These are the global X, Y and Z coordinates of the point at which the base reactions are reported. (L)
      * @return zero if the reactions are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun baseReact(numberResults: AIntByRef, loadCase: AStringArrayByRef, stepType: AStringArrayByRef, stepNum: ADoubleArrayByRef, fx: ADoubleArrayByRef, fy: ADoubleArrayByRef, fz: ADoubleArrayByRef, mx: ADoubleArrayByRef, my: ADoubleArrayByRef, mz: ADoubleArrayByRef, gx: ADoubleByRef, gy: ADoubleByRef, gz: ADoubleByRef): Int =
+    fun baseReact(numberResults: AIntByRef = IntByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, fx: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, fy: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, fz: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, mx: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, my: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, mz: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, gx: ADoubleByRef = DoubleByRef.UNNECESSARY, gy: ADoubleByRef = DoubleByRef.UNNECESSARY, gz: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("BaseReact", numberResults, loadCase, stepType, stepNum, fx, fy, fz, mx, my, mz, gx, gy, gz)
 
     /**
@@ -375,7 +375,7 @@ interface ResultsV14 : SapComponent {
      * @param zCentroidForFZ This is an array of the Z coordinates of the centroid of all Z-direction translational reaction forces for each result (L). This item is reported as zero if the sum of all translational reaction forces in the Z-direction is zero.
      * @return zero if the reactions are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun baseReactWithCentroid(numberResults: AIntByRef, loadCase: AStringArrayByRef, stepType: AStringArrayByRef, stepNum: ADoubleArrayByRef, fx: ADoubleArrayByRef, fy: ADoubleArrayByRef, fz: ADoubleArrayByRef, mx: ADoubleArrayByRef, my: ADoubleArrayByRef, mz: ADoubleArrayByRef, gx: ADoubleByRef, gy: ADoubleByRef, gz: ADoubleByRef, xCentroidForFX: ADoubleArrayByRef, yCentroidForFX: ADoubleArrayByRef, zCentroidForFX: ADoubleArrayByRef, xCentroidForFY: ADoubleArrayByRef, yCentroidForFY: ADoubleArrayByRef, zCentroidForFY: ADoubleArrayByRef, xCentroidForFZ: ADoubleArrayByRef, yCentroidForFZ: ADoubleArrayByRef, zCentroidForFZ: ADoubleArrayByRef): Int =
+    fun baseReactWithCentroid(numberResults: AIntByRef = IntByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, fx: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, fy: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, fz: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, mx: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, my: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, mz: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, gx: ADoubleByRef = DoubleByRef.UNNECESSARY, gy: ADoubleByRef = DoubleByRef.UNNECESSARY, gz: ADoubleByRef = DoubleByRef.UNNECESSARY, xCentroidForFX: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, yCentroidForFX: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, zCentroidForFX: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, xCentroidForFY: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, yCentroidForFY: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, zCentroidForFY: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, xCentroidForFZ: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, yCentroidForFZ: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, zCentroidForFZ: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("BaseReactWithCentroid", numberResults, loadCase, stepType, stepNum, fx, fy, fz, mx, my, mz, gx, gy, gz, xCentroidForFX, yCentroidForFX, zCentroidForFX, xCentroidForFY, yCentroidForFY, zCentroidForFY, xCentroidForFZ, yCentroidForFZ, zCentroidForFZ)
 
     /**
@@ -404,7 +404,7 @@ interface ResultsV14 : SapComponent {
      * @param stress This is an array that includes the longitudinal stress value for each result. (F/L2)
      * @return zero if the information is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun bridgeSuperCutLongitStress(name: String, cutIndex: Int, pointIndex: Int, numberResults: AIntByRef, loadCase: AStringArrayByRef, stepType: AStringArrayByRef, stepNum: ADoubleArrayByRef, stress: ADoubleArrayByRef): Int =
+    fun bridgeSuperCutLongitStress(name: String, cutIndex: Int, pointIndex: Int, numberResults: AIntByRef = IntByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, stress: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("BridgeSuperCutLongitStress", name, cutIndex, pointIndex, numberResults, loadCase, stepType, stepNum, stress)
 
     /**
@@ -431,7 +431,7 @@ interface ResultsV14 : SapComponent {
      * @param factor This is an array that includes the buckling factors.
      * @return zero if the factors are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun bucklingFactor(numberResults: AIntByRef, loadCase: AStringArrayByRef, stepType: AStringArrayByRef, stepNum: ADoubleArrayByRef, factor: ADoubleArrayByRef): Int =
+    fun bucklingFactor(numberResults: AIntByRef = IntByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, factor: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("BucklingFactor", numberResults, loadCase, stepType, stepNum, factor)
 
     /**
@@ -473,7 +473,7 @@ interface ResultsV14 : SapComponent {
      * @param t, M2, M3 These are one dimensional arrays that include the torsion, moment about the local 2axis, and moment about the local 3-axis, respectively, for each result. (FL)
      * @return zero if the forces are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun frameForce(name: String, itemTypeElm: Int, numberResults: AIntByRef, obj: AStringArrayByRef, objSta: ADoubleArrayByRef, elm: AStringArrayByRef, elmSta: ADoubleArrayByRef, loadCase: AStringArrayByRef, stepType: AStringArrayByRef, stepNum: ADoubleArrayByRef, p: ADoubleArrayByRef, v2: ADoubleArrayByRef, v3: ADoubleArrayByRef, t: ADoubleArrayByRef, m2: ADoubleArrayByRef, m3: ADoubleArrayByRef): Int =
+    fun frameForce(name: String, itemTypeElm: Int, numberResults: AIntByRef = IntByRef.UNNECESSARY, obj: AStringArrayByRef = StringArrayByRef.UNNECESSARY, objSta: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, elm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, elmSta: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, p: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, v2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, v3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, t: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("FrameForce", name, itemTypeElm, numberResults, obj, objSta, elm, elmSta, loadCase, stepType, stepNum, p, v2, v3, t, m2, m3)
 
     /**
@@ -514,7 +514,7 @@ interface ResultsV14 : SapComponent {
      * @param m1, M2, M3 These are one dimensional arrays that include the joint moment components about the point element local axes. (FL)
      * @return zero if the forces are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun frameJointForce(name: String, itemTypeElm: Int, numberResults: AIntByRef, obj: AStringArrayByRef, elm: AStringArrayByRef, pointElm: AStringArrayByRef, loadCase: AStringArrayByRef, stepType: AStringArrayByRef, stepNum: ADoubleArrayByRef, f1: ADoubleArrayByRef, f2: ADoubleArrayByRef, f3: ADoubleArrayByRef, m1: ADoubleArrayByRef, m2: ADoubleArrayByRef, m3: ADoubleArrayByRef): Int =
+    fun frameJointForce(name: String, itemTypeElm: Int, numberResults: AIntByRef = IntByRef.UNNECESSARY, obj: AStringArrayByRef = StringArrayByRef.UNNECESSARY, elm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, pointElm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, f1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, f2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, f3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("FrameJointForce", name, itemTypeElm, numberResults, obj, elm, pointElm, loadCase, stepType, stepNum, f1, f2, f3, m1, m2, m3)
 
     /**
@@ -544,7 +544,7 @@ interface ResultsV14 : SapComponent {
      * @param value This is an array of the generalized displacement values for each result.(L) when DType is Translation , (rad) when DType is Rotation.
      * @return zero if the displacements are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun generalizedDispl(name: String, numberResults: AIntByRef, gd: AStringArrayByRef, loadCase: AStringArrayByRef, stepType: AStringArrayByRef, stepNum: ADoubleArrayByRef, dType: AStringArrayByRef, value: ADoubleArrayByRef): Int =
+    fun generalizedDispl(name: String, numberResults: AIntByRef = IntByRef.UNNECESSARY, gd: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GeneralizedDispl", name, numberResults, gd, loadCase, stepType, stepNum, dType, value)
 
     /**
@@ -584,7 +584,7 @@ interface ResultsV14 : SapComponent {
      * @param r1, R2, R3 These are one dimensional arrays that include the rotational acceleration about the point element local 1, 2 and 3 axes, respectively, for each result. (rad/s2)
      * @return zero if the accelerations are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun jointAcc(name: String, itemTypeElm: Int, numberResults: AIntByRef, obj: AStringArrayByRef, elm: AStringArrayByRef, loadCase: AStringArrayByRef, stepType: AStringArrayByRef, stepNum: ADoubleArrayByRef, u1: ADoubleArrayByRef, u2: ADoubleArrayByRef, u3: ADoubleArrayByRef, r1: ADoubleArrayByRef, r2: ADoubleArrayByRef, r3: ADoubleArrayByRef): Int =
+    fun jointAcc(name: String, itemTypeElm: Int, numberResults: AIntByRef = IntByRef.UNNECESSARY, obj: AStringArrayByRef = StringArrayByRef.UNNECESSARY, elm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("JointAcc", name, itemTypeElm, numberResults, obj, elm, loadCase, stepType, stepNum, u1, u2, u3, r1, r2, r3)
 
     /**
@@ -624,7 +624,7 @@ interface ResultsV14 : SapComponent {
      * @param r1, R2, R3 These are one dimensional arrays that include the rotational acceleration about the point element local 1, 2 and 3 axes, respectively, for each result. (rad/s2)
      * @return zero if the accelerations are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun jointAccAbs(name: String, itemTypeElm: Int, numberResults: AIntByRef, obj: AStringArrayByRef, elm: AStringArrayByRef, loadCase: AStringArrayByRef, stepType: AStringArrayByRef, stepNum: ADoubleArrayByRef, u1: ADoubleArrayByRef, u2: ADoubleArrayByRef, u3: ADoubleArrayByRef, r1: ADoubleArrayByRef, r2: ADoubleArrayByRef, r3: ADoubleArrayByRef): Int =
+    fun jointAccAbs(name: String, itemTypeElm: Int, numberResults: AIntByRef = IntByRef.UNNECESSARY, obj: AStringArrayByRef = StringArrayByRef.UNNECESSARY, elm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("JointAccAbs", name, itemTypeElm, numberResults, obj, elm, loadCase, stepType, stepNum, u1, u2, u3, r1, r2, r3)
 
     /**
@@ -664,7 +664,7 @@ interface ResultsV14 : SapComponent {
      * @param r1, R2, R3 These are one dimensional arrays that include the rotation about the point element local 1, 2 and 3 axes, respectively, for each result. (rad)
      * @return zero if the displacements are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun jointDispl(name: String, itemTypeElm: Int, numberResults: AIntByRef = IntByRef.UNNECESSARY, obj: AStringArrayByRef = StringArrayByRef.UNNECESSARY, elm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
+    fun jointDispl(name: String, itemTypeElm: Int, numberResults: AIntByRef = IntByRef.UNNECESSARY, obj: AStringArrayByRef = StringArrayByRef.UNNECESSARY, elm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY , u1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY , u2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY , u3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY , r1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY , r2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY , r3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY ): Int =
             callFunctionInt("JointDispl", name, itemTypeElm, numberResults, obj, elm, loadCase, stepType, stepNum, u1, u2, u3, r1, r2, r3)
 
     /**
@@ -704,7 +704,7 @@ interface ResultsV14 : SapComponent {
      * @param r1, R2, R3 These are one dimensional arrays that include the rotation about the point element local 1, 2 and 3 axes, respectively, for each result. (rad)
      * @return zero if the displacements are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun jointDisplAbs(name: String, itemTypeElm: Int, numberResults: AIntByRef, obj: AStringArrayByRef, elm: AStringArrayByRef, loadCase: AStringArrayByRef, stepType: AStringArrayByRef, stepNum: ADoubleArrayByRef, u1: ADoubleArrayByRef, u2: ADoubleArrayByRef, u3: ADoubleArrayByRef, r1: ADoubleArrayByRef, r2: ADoubleArrayByRef, r3: ADoubleArrayByRef): Int =
+    fun jointDisplAbs(name: String, itemTypeElm: Int, numberResults: AIntByRef = IntByRef.UNNECESSARY, obj: AStringArrayByRef = StringArrayByRef.UNNECESSARY, elm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("JointDisplAbs", name, itemTypeElm, numberResults, obj, elm, loadCase, stepType, stepNum, u1, u2, u3, r1, r2, r3)
 
     /**
@@ -744,7 +744,7 @@ interface ResultsV14 : SapComponent {
      * @param m1, M2, M3 These are one dimensional arrays that include the reaction moments about the point element local 1, 2 and 3 axes, respectively, for each result. (FL)
      * @return zero if the reactions are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun jointReact(name: String, itemTypeElm: Int, numberResults: AIntByRef, obj: AStringArrayByRef, elm: AStringArrayByRef, loadCase: AStringArrayByRef, stepType: AStringArrayByRef, stepNum: ADoubleArrayByRef, f1: ADoubleArrayByRef, f2: ADoubleArrayByRef, f3: ADoubleArrayByRef, m1: ADoubleArrayByRef, m2: ADoubleArrayByRef, m3: ADoubleArrayByRef): Int =
+    fun jointReact(name: String, itemTypeElm: Int, numberResults: AIntByRef = IntByRef.UNNECESSARY, obj: AStringArrayByRef = StringArrayByRef.UNNECESSARY, elm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, f1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, f2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, f3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("JointReact", name, itemTypeElm, numberResults, obj, elm, loadCase, stepType, stepNum, f1, f2, f3, m1, m2, m3)
 
     /**
@@ -784,7 +784,7 @@ interface ResultsV14 : SapComponent {
      * @param r1, R2, R3 These are one dimensional arrays that include the rotational velocity about the point element local 1, 2 and 3 axes, respectively, for each result. (rad/s)
      * @return zero if the velocities are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun gJointVel(name: String, itemTypeElm: Int, numberResults: AIntByRef, obj: AStringArrayByRef, elm: AStringArrayByRef, loadCase: AStringArrayByRef, stepType: AStringArrayByRef, stepNum: ADoubleArrayByRef, u1: ADoubleArrayByRef, u2: ADoubleArrayByRef, u3: ADoubleArrayByRef, r1: ADoubleArrayByRef, r2: ADoubleArrayByRef, r3: ADoubleArrayByRef): Int =
+    fun gJointVel(name: String, itemTypeElm: Int, numberResults: AIntByRef = IntByRef.UNNECESSARY, obj: AStringArrayByRef = StringArrayByRef.UNNECESSARY, elm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GJointVel", name, itemTypeElm, numberResults, obj, elm, loadCase, stepType, stepNum, u1, u2, u3, r1, r2, r3)
 
     /**
@@ -824,7 +824,7 @@ interface ResultsV14 : SapComponent {
      * @param r1, R2, R3 These are one dimensional arrays that include the rotational velocity about the point element local 1, 2 and 3 axes, respectively, for each result. (rad/s)
      * @return zero if the velocities are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun jointVelAbs(name: String, itemTypeElm: Int, numberResults: AIntByRef, obj: AStringArrayByRef, elm: AStringArrayByRef, loadCase: AStringArrayByRef, stepType: AStringArrayByRef, stepNum: ADoubleArrayByRef, u1: ADoubleArrayByRef, u2: ADoubleArrayByRef, u3: ADoubleArrayByRef, r1: ADoubleArrayByRef, r2: ADoubleArrayByRef, r3: ADoubleArrayByRef): Int =
+    fun jointVelAbs(name: String, itemTypeElm: Int, numberResults: AIntByRef = IntByRef.UNNECESSARY, obj: AStringArrayByRef = StringArrayByRef.UNNECESSARY, elm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("JointVelAbs", name, itemTypeElm, numberResults, obj, elm, loadCase, stepType, stepNum, u1, u2, u3, r1, r2, r3)
 
     /**
@@ -865,7 +865,7 @@ interface ResultsV14 : SapComponent {
      * @param r1, R2, R3 These are one dimensional arrays that include the internal rotational deformation of the link about the link element local axes. (rad)
      * @return zero if the deformations are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun linkDeformation(name: String, itemTypeElm: Int, numberResults: AIntByRef, obj: AStringArrayByRef, elm: AStringArrayByRef, loadCase: AStringArrayByRef, stepType: AStringArrayByRef, stepNum: ADoubleArrayByRef, u1: ADoubleArrayByRef, u2: ADoubleArrayByRef, u3: ADoubleArrayByRef, r1: ADoubleArrayByRef, r2: ADoubleArrayByRef, r3: ADoubleArrayByRef): Int =
+    fun linkDeformation(name: String, itemTypeElm: Int, numberResults: AIntByRef = IntByRef.UNNECESSARY, obj: AStringArrayByRef = StringArrayByRef.UNNECESSARY, elm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("LinkDeformation", name, itemTypeElm, numberResults, obj, elm, loadCase, stepType, stepNum, u1, u2, u3, r1, r2, r3)
 
     /**
@@ -909,7 +909,7 @@ interface ResultsV14 : SapComponent {
      * @param m2, M3 These are one dimensional arrays that include the link moment components about the link element local axes. (FL)
      * @return zero if the forces are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun linkForce(name: String, itemTypeElm: Int, numberResults: AIntByRef, obj: AStringArrayByRef, elm: AStringArrayByRef, pointElm: AStringArrayByRef, loadCase: AStringArrayByRef, stepType: AStringArrayByRef, stepNum: ADoubleArrayByRef, p: ADoubleArrayByRef, v2: ADoubleArrayByRef, v3: ADoubleArrayByRef, t: ADoubleArrayByRef, m2: ADoubleArrayByRef, m3: ADoubleArrayByRef): Int =
+    fun linkForce(name: String, itemTypeElm: Int, numberResults: AIntByRef = IntByRef.UNNECESSARY, obj: AStringArrayByRef = StringArrayByRef.UNNECESSARY, elm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, pointElm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, p: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, v2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, v3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, t: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("LinkForce", name, itemTypeElm, numberResults, obj, elm, pointElm, loadCase, stepType, stepNum, p, v2, v3, t, m2, m3)
 
     /**
@@ -951,7 +951,7 @@ interface ResultsV14 : SapComponent {
      * @param m1, M2, M3 These are one dimensional arrays that include the joint moment components about the point element local axes. (FL)
      * @return zero if the forces are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun linkJointForce(name: String, itemTypeElm: Int, numberResults: AIntByRef, obj: AStringArrayByRef, elm: AStringArrayByRef, pointElm: AStringArrayByRef, loadCase: AStringArrayByRef, stepType: AStringArrayByRef, stepNum: ADoubleArrayByRef, f1: ADoubleArrayByRef, f2: ADoubleArrayByRef, f3: ADoubleArrayByRef, m1: ADoubleArrayByRef, m2: ADoubleArrayByRef, m3: ADoubleArrayByRef): Int =
+    fun linkJointForce(name: String, itemTypeElm: Int, numberResults: AIntByRef = IntByRef.UNNECESSARY, obj: AStringArrayByRef = StringArrayByRef.UNNECESSARY, elm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, pointElm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, f1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, f2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, f3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("LinkJointForce", name, itemTypeElm, numberResults, obj, elm, pointElm, loadCase, stepType, stepNum, f1, f2, f3, m1, m2, m3)
 
     /**
@@ -968,7 +968,7 @@ interface ResultsV14 : SapComponent {
      * @param dyn This is an array that includes the percent dynamic load participation ratio.
      * @return zero if the data is successfully recovered; otherwise it returns a nonzero value.
      */
-    fun modalLoadParticipationRatios(numberResults: AIntByRef, loadCase: AStringArrayByRef, itemType: AStringArrayByRef, item: AStringArrayByRef, stat: ADoubleArrayByRef, dyn: ADoubleArrayByRef): Int =
+    fun modalLoadParticipationRatios(numberResults: AIntByRef = IntByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, itemType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, item: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stat: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dyn: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("ModalLoadParticipationRatios", numberResults, loadCase, itemType, item, stat, dyn)
 
     /**
@@ -1007,7 +1007,7 @@ interface ResultsV14 : SapComponent {
      * @param sumRz This is an array that includes the cumulative sum of the modal participating mass ratios for the structure Rz degree of freedom.
      * @return zero if the data is successfully recovered; otherwise it returns a nonzero value.
      */
-    fun modalParticipatingMassRatios(numberResults: AIntByRef, loadCase: AStringArrayByRef, stepType: AStringArrayByRef, stepNum: ADoubleArrayByRef, period: ADoubleArrayByRef, ux: ADoubleArrayByRef, uy: ADoubleArrayByRef, uz: ADoubleArrayByRef, sumUx: ADoubleArrayByRef, sumUy: ADoubleArrayByRef, sumUz: ADoubleArrayByRef, rx: ADoubleArrayByRef, ry: ADoubleArrayByRef, rz: ADoubleArrayByRef, sumRx: ADoubleArrayByRef, sumRy: ADoubleArrayByRef, sumRz: ADoubleArrayByRef): Int =
+    fun modalParticipatingMassRatios(numberResults: AIntByRef = IntByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, period: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ux: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, uy: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, uz: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, sumUx: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, sumUy: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, sumUz: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, rx: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ry: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, rz: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, sumRx: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, sumRy: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, sumRz: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("ModalParticipatingMassRatios", numberResults, loadCase, stepType, stepNum, period, ux, uy, uz, sumUx, sumUy, sumUz, rx, ry, rz, sumRx, sumRy, sumRz)
 
     /**
@@ -1042,7 +1042,7 @@ interface ResultsV14 : SapComponent {
      * @param modalStiff This is an array that includes the modal stiffness for the specified mode. This is a measure of the strain energy in the structure as it is deforming in the specified mode. (FL)
      * @return zero if the data is successfully recovered; otherwise it returns a nonzero value.
      */
-    fun modalParticipationFactors(numberResults: AIntByRef, loadCase: AStringArrayByRef, stepType: AStringArrayByRef, stepNum: ADoubleArrayByRef, period: ADoubleArrayByRef, ux: ADoubleArrayByRef, uy: ADoubleArrayByRef, uz: ADoubleArrayByRef, rx: ADoubleArrayByRef, ry: ADoubleArrayByRef, rz: ADoubleArrayByRef, modalMass: ADoubleArrayByRef, modalStiff: ADoubleArrayByRef): Int =
+    fun modalParticipationFactors(numberResults: AIntByRef = IntByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, period: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ux: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, uy: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, uz: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, rx: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ry: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, rz: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, modalMass: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, modalStiff: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("ModalParticipationFactors", numberResults, loadCase, stepType, stepNum, period, ux, uy, uz, rx, ry, rz, modalMass, modalStiff)
 
     /**
@@ -1072,7 +1072,7 @@ interface ResultsV14 : SapComponent {
      * @param eigenValue This is an array that includes the eigenvalue for the specified mode for each result. (rad2/s2)
      * @return zero if the data is successfully recovered, otherwise it returns a nonzero value.
      */
-    fun modalPeriod(numberResults: AIntByRef, loadCase: AStringArrayByRef, stepType: AStringArrayByRef, stepNum: ADoubleArrayByRef, period: ADoubleArrayByRef, frequency: ADoubleArrayByRef, circFreq: ADoubleArrayByRef, eigenValue: ADoubleArrayByRef): Int =
+    fun modalPeriod(numberResults: AIntByRef = IntByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, period: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, frequency: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, circFreq: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, eigenValue: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("ModalPeriod", numberResults, loadCase, stepType, stepNum, period, frequency, circFreq, eigenValue)
 
     /**
@@ -1112,7 +1112,7 @@ interface ResultsV14 : SapComponent {
      * @param r1, R2, R3 These are one dimensional arrays that include the rotation about the point element local 1, 2 and 3 axes, respectively, for each result. (rad)
      * @return zero if the displacements are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun modeShape(name: String, itemTypeElm: Int, numberResults: AIntByRef, obj: AStringArrayByRef, elm: AStringArrayByRef, loadCase: AStringArrayByRef, stepType: AStringArrayByRef, stepNum: ADoubleArrayByRef, u1: ADoubleArrayByRef, u2: ADoubleArrayByRef, u3: ADoubleArrayByRef, r1: ADoubleArrayByRef, r2: ADoubleArrayByRef, r3: ADoubleArrayByRef): Int =
+    fun modeShape(name: String, itemTypeElm: Int, numberResults: AIntByRef = IntByRef.UNNECESSARY, obj: AStringArrayByRef = StringArrayByRef.UNNECESSARY, elm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("ModeShape", name, itemTypeElm, numberResults, obj, elm, loadCase, stepType, stepNum, u1, u2, u3, r1, r2, r3)
 
     /**
@@ -1152,7 +1152,7 @@ interface ResultsV14 : SapComponent {
      * @param r1, R2, R3 These are one dimensional arrays that include the internal rotational deformation of the panel zone (link) about the link element local axes. (rad)
      * @return zero if the deformations are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun panelZoneDeformation(name: String, itemTypeElm: Int, numberResults: AIntByRef, elm: AStringArrayByRef, loadCase: AStringArrayByRef, stepType: AStringArrayByRef, stepNum: ADoubleArrayByRef, u1: ADoubleArrayByRef, u2: ADoubleArrayByRef, u3: ADoubleArrayByRef, r1: ADoubleArrayByRef, r2: ADoubleArrayByRef, r3: ADoubleArrayByRef): Int =
+    fun panelZoneDeformation(name: String, itemTypeElm: Int, numberResults: AIntByRef = IntByRef.UNNECESSARY, elm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("PanelZoneDeformation", name, itemTypeElm, numberResults, elm, loadCase, stepType, stepNum, u1, u2, u3, r1, r2, r3)
 
     /**
@@ -1195,7 +1195,7 @@ interface ResultsV14 : SapComponent {
      * @param m2, M3 These are one dimensional arrays that include the panel zone (link) moment components about the link element local axes. (FL)
      * @return zero if the forces are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun panelZoneForce(name: String, itemTypeElm: Int, numberResults: AIntByRef, elm: AStringArrayByRef, pointElm: AStringArrayByRef, loadCase: AStringArrayByRef, stepType: AStringArrayByRef, stepNum: ADoubleArrayByRef, p: ADoubleArrayByRef, v2: ADoubleArrayByRef, v3: ADoubleArrayByRef, t: ADoubleArrayByRef, m2: ADoubleArrayByRef, m3: ADoubleArrayByRef): Int =
+    fun panelZoneForce(name: String, itemTypeElm: Int, numberResults: AIntByRef = IntByRef.UNNECESSARY, elm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, pointElm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, p: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, v2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, v3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, t: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("PanelZoneForce", name, itemTypeElm, numberResults, elm, pointElm, loadCase, stepType, stepNum, p, v2, v3, t, m2, m3)
 
     /**
@@ -1224,7 +1224,7 @@ interface ResultsV14 : SapComponent {
      * @param m1, M2, M3 These are one dimensional arrays that include the moments about the section cut local axes for each result. (FL)
      * @return zero if the section cut forces are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun sectionCutAnalysis(numberResults: AIntByRef, sCut: AStringArrayByRef, loadCase: AStringArrayByRef, stepType: AStringArrayByRef, stepNum: ADoubleArrayByRef, f1: ADoubleArrayByRef, f2: ADoubleArrayByRef, f3: ADoubleArrayByRef, m1: ADoubleArrayByRef, m2: ADoubleArrayByRef, m3: ADoubleArrayByRef): Int =
+    fun sectionCutAnalysis(numberResults: AIntByRef = IntByRef.UNNECESSARY, sCut: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, f1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, f2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, f3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("SectionCutAnalysis", numberResults, sCut, loadCase, stepType, stepNum, f1, f2, f3, m1, m2, m3)
 
     /**
@@ -1253,7 +1253,7 @@ interface ResultsV14 : SapComponent {
      * @param t, M2, M3 These are one dimensional arrays that include the torsion, moment about the section cut local 2 axis and moment about the section cut local 3-axis, respectively, for each result. (FL)
      * @return zero if the section cut forces are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun sectionCutDesign(numberResults: AIntByRef, sCut: AStringArrayByRef, loadCase: AStringArrayByRef, stepType: AStringArrayByRef, stepNum: ADoubleArrayByRef, p: ADoubleArrayByRef, v2: ADoubleArrayByRef, v3: ADoubleArrayByRef, t: ADoubleArrayByRef, m2: ADoubleArrayByRef, m3: ADoubleArrayByRef): Int =
+    fun sectionCutDesign(numberResults: AIntByRef = IntByRef.UNNECESSARY, sCut: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, p: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, v2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, v3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, t: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("SectionCutDesign", numberResults, sCut, loadCase, stepType, stepNum, p, v2, v3, t, m2, m3)
 
     /**
@@ -1294,7 +1294,7 @@ interface ResultsV14 : SapComponent {
      * @param m1, M2, M3 These are one dimensional arrays that include the joint moment components about the point element local axes. (FL)
      * @return zero if the forces are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun solidJointForce(name: String, itemTypeElm: Int, numberResults: AIntByRef, obj: AStringArrayByRef, elm: AStringArrayByRef, pointElm: AStringArrayByRef, loadCase: AStringArrayByRef, stepType: AStringArrayByRef, stepNum: ADoubleArrayByRef, f1: ADoubleArrayByRef, f2: ADoubleArrayByRef, f3: ADoubleArrayByRef, m1: ADoubleArrayByRef, m2: ADoubleArrayByRef, m3: ADoubleArrayByRef): Int =
+    fun solidJointForce(name: String, itemTypeElm: Int, numberResults: AIntByRef = IntByRef.UNNECESSARY, obj: AStringArrayByRef = StringArrayByRef.UNNECESSARY, elm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, pointElm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, f1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, f2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, f3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("SolidJointForce", name, itemTypeElm, numberResults, obj, elm, pointElm, loadCase, stepType, stepNum, f1, f2, f3, m1, m2, m3)
 
     /**
@@ -1339,6 +1339,6 @@ interface ResultsV14 : SapComponent {
      * @param dirCosMin1, DirCosMin2, DirCosMin3 These are three direction cosines defining the orientation of the minimum principal stress with respect to the solid element local axes.
      * @return zero if the stresses are successfully recovered, otherwise it returns a nonzero value.
      */
-    fun solidStress(name: String, itemTypeElm: Int, numberResults: AIntByRef, obj: AStringArrayByRef, elm: AStringArrayByRef, pointElm: AStringArrayByRef, loadCase: AStringArrayByRef, stepType: AStringArrayByRef, stepNum: ADoubleArrayByRef, s11: ADoubleArrayByRef, s22: ADoubleArrayByRef, s33: ADoubleArrayByRef, s12: ADoubleArrayByRef, s13: ADoubleArrayByRef, s23: ADoubleArrayByRef, sMax: ADoubleArrayByRef, sMid: ADoubleArrayByRef, sMin: ADoubleArrayByRef, svm: ADoubleArrayByRef, dirCosMax1: ADoubleArrayByRef, dirCosMax2: ADoubleArrayByRef, dirCosMax3: ADoubleArrayByRef, dirCosMid1: ADoubleArrayByRef, dirCosMid2: ADoubleArrayByRef, dirCosMid3: ADoubleArrayByRef, dirCosMin1: ADoubleArrayByRef, dirCosMin2: ADoubleArrayByRef, dirCosMin3: ADoubleArrayByRef): Int =
+    fun solidStress(name: String, itemTypeElm: Int, numberResults: AIntByRef = IntByRef.UNNECESSARY, obj: AStringArrayByRef = StringArrayByRef.UNNECESSARY, elm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, pointElm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, stepNum: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, s11: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, s22: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, s33: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, s12: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, s13: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, s23: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, sMax: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, sMid: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, sMin: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, svm: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dirCosMax1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dirCosMax2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dirCosMax3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dirCosMid1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dirCosMid2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dirCosMid3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dirCosMin1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dirCosMin2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dirCosMin3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("SolidStress", name, itemTypeElm, numberResults, obj, elm, pointElm, loadCase, stepType, stepNum, s11, s22, s33, s12, s13, s23, sMax, sMid, sMin, svm, dirCosMax1, dirCosMax2, dirCosMax3, dirCosMid1, dirCosMid2, dirCosMid3, dirCosMin1, dirCosMin2, dirCosMin3)
 }
