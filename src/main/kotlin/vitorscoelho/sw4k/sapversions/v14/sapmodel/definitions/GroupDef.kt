@@ -50,7 +50,7 @@ interface GroupDefV14 : SapComponent {
      * @param objectName This is an array that includes the name of each item in the group.
      * @return zero if the group assignment is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getAssignments(name: String, numberItems: AIntByRef, objectType: AIntArrayByRef, objectName: AStringArrayByRef): Int =
+    fun getAssignments(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, objectType: AIntArrayByRef = IntArrayByRef.UNNECESSARY, objectName: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetAssignments", name, numberItems, objectType, objectName)
 
     /**
@@ -69,7 +69,7 @@ interface GroupDefV14 : SapComponent {
      * @param specifiedForMassAndWeight This item is True if the group is specified to be used for reporting group masses and weight; otherwise it is False.
      * @return zero if the group data is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getGroup(name: String, color: AIntByRef, specifiedForSelection: ABooleanByRef, specifiedForSectionCutDefinition: ABooleanByRef, specifiedForSteelDesign: ABooleanByRef, specifiedForConcreteDesign: ABooleanByRef, specifiedForAluminumDesign: ABooleanByRef, specifiedForColdFormedDesign: ABooleanByRef, specifiedForStaticNLActiveStage: ABooleanByRef, specifiedForBridgeResponseOutput: ABooleanByRef, specifiedForAutoSeismicOutput: ABooleanByRef, specifiedForAutoWindOutput: ABooleanByRef, specifiedForMassAndWeight: ABooleanByRef): Int =
+    fun getGroup(name: String, color: AIntByRef = IntByRef.UNNECESSARY, specifiedForSelection: ABooleanByRef, specifiedForSectionCutDefinition: ABooleanByRef, specifiedForSteelDesign: ABooleanByRef, specifiedForConcreteDesign: ABooleanByRef, specifiedForAluminumDesign: ABooleanByRef, specifiedForColdFormedDesign: ABooleanByRef, specifiedForStaticNLActiveStage: ABooleanByRef, specifiedForBridgeResponseOutput: ABooleanByRef, specifiedForAutoSeismicOutput: ABooleanByRef, specifiedForAutoWindOutput: ABooleanByRef, specifiedForMassAndWeight: ABooleanByRef): Int =
             callFunctionInt("GetGroup", name, color, specifiedForSelection, specifiedForSectionCutDefinition, specifiedForSteelDesign, specifiedForConcreteDesign, specifiedForAluminumDesign, specifiedForColdFormedDesign, specifiedForStaticNLActiveStage, specifiedForBridgeResponseOutput, specifiedForAutoSeismicOutput, specifiedForAutoWindOutput, specifiedForMassAndWeight)
 
     /**
@@ -78,7 +78,7 @@ interface GroupDefV14 : SapComponent {
      * @param myName This is a one-dimensional array of group names.
      * @return zero if the names are successfully retrieved, otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef): Int =
+    fun getNameList(numberNames: AIntByRef = IntByRef.UNNECESSARY, myName: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetNameList", numberNames, myName)
 
     /**

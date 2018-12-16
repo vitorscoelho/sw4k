@@ -10,7 +10,7 @@ interface SDShapeV14 : SapComponent {
      * @param all If this item is True, all shapes in the section designer property specified by the Name item are deleted.
      * @return zero if the shape is successfully deleted; otherwise it returns a nonzero value.
      */
-    fun delete (name:String,shapeName:AStringByRef,all:Boolean=false):Int=
+    fun delete (name:String,shapeName: AStringByRef = StringByRef.UNNECESSARY,all:Boolean=false):Int=
             callFunctionInt("Delete",name,shapeName,all)
     /**
      * This function retrieves property data for an Angle shape in a section designer section.
@@ -28,7 +28,7 @@ interface SDShapeV14 : SapComponent {
      * @param rotation The counter clockwise rotation of the shape from its default orientation. (deg)
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getAngle (name:String,shapeName:String,matProp:AStringByRef,propName:AStringByRef,color:AIntByRef,xCenter:ADoubleByRef,yCenter:ADoubleByRef,h:ADoubleByRef,bf:ADoubleByRef,tf:ADoubleByRef,tw:ADoubleByRef,rotation:ADoubleByRef):Int=
+    fun getAngle (name:String,shapeName:String,matProp: AStringByRef = StringByRef.UNNECESSARY,propName: AStringByRef = StringByRef.UNNECESSARY,color: AIntByRef = IntByRef.UNNECESSARY,xCenter: ADoubleByRef = DoubleByRef.UNNECESSARY,yCenter: ADoubleByRef = DoubleByRef.UNNECESSARY,h: ADoubleByRef = DoubleByRef.UNNECESSARY,bf: ADoubleByRef = DoubleByRef.UNNECESSARY,tf: ADoubleByRef = DoubleByRef.UNNECESSARY,tw: ADoubleByRef = DoubleByRef.UNNECESSARY,rotation: ADoubleByRef = DoubleByRef.UNNECESSARY):Int=
             callFunctionInt("GetAngle",name,shapeName,matProp,propName,color,xCenter,yCenter,h,bf,tf,tw,rotation)
     /**
      * This function retrieves property data for a Channel shape in a section designer section.
@@ -46,7 +46,7 @@ interface SDShapeV14 : SapComponent {
      * @param rotation The counter clockwise rotation of the shape from its default orientation. (deg)
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getChannel (name:String,shapeName:String,matProp:AStringByRef,propName:AStringByRef,color:AIntByRef,xCenter:ADoubleByRef,yCenter:ADoubleByRef,h:ADoubleByRef,bf:ADoubleByRef,tf:ADoubleByRef,tw:ADoubleByRef,rotation:ADoubleByRef):Int=
+    fun getChannel (name:String,shapeName:String,matProp: AStringByRef = StringByRef.UNNECESSARY,propName: AStringByRef = StringByRef.UNNECESSARY,color: AIntByRef = IntByRef.UNNECESSARY,xCenter: ADoubleByRef = DoubleByRef.UNNECESSARY,yCenter: ADoubleByRef = DoubleByRef.UNNECESSARY,h: ADoubleByRef = DoubleByRef.UNNECESSARY,bf: ADoubleByRef = DoubleByRef.UNNECESSARY,tf: ADoubleByRef = DoubleByRef.UNNECESSARY,tw: ADoubleByRef = DoubleByRef.UNNECESSARY,rotation: ADoubleByRef = DoubleByRef.UNNECESSARY):Int=
             callFunctionInt("GetChannel",name,shapeName,matProp,propName,color,xCenter,yCenter,h,bf,tf,tw,rotation)
     /**
      * This function retrieves property data for a Double Angle shape in a section designer section.
@@ -65,7 +65,7 @@ interface SDShapeV14 : SapComponent {
      * @param rotation The counter clockwise rotation of the shape from its default orientation. (deg)
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getDblAngle (name:String,shapeName:String,matProp:AStringByRef,propName:AStringByRef,color:AIntByRef,xCenter:ADoubleByRef,yCenter:ADoubleByRef,h:ADoubleByRef,w:ADoubleByRef,tf:ADoubleByRef,tw:ADoubleByRef,dis:ADoubleByRef,rotation:ADoubleByRef):Int=
+    fun getDblAngle (name:String,shapeName:String,matProp: AStringByRef = StringByRef.UNNECESSARY,propName: AStringByRef = StringByRef.UNNECESSARY,color: AIntByRef = IntByRef.UNNECESSARY,xCenter: ADoubleByRef = DoubleByRef.UNNECESSARY,yCenter: ADoubleByRef = DoubleByRef.UNNECESSARY,h: ADoubleByRef = DoubleByRef.UNNECESSARY,w: ADoubleByRef = DoubleByRef.UNNECESSARY,tf: ADoubleByRef = DoubleByRef.UNNECESSARY,tw: ADoubleByRef = DoubleByRef.UNNECESSARY,dis: ADoubleByRef = DoubleByRef.UNNECESSARY,rotation: ADoubleByRef = DoubleByRef.UNNECESSARY):Int=
             callFunctionInt("GetDblAngle",name,shapeName,matProp,propName,color,xCenter,yCenter,h,w,tf,tw,dis,rotation)
     /**
      * This function retrieves property data for an I-section shape in a section designer section.
@@ -85,7 +85,7 @@ interface SDShapeV14 : SapComponent {
      * @param rotation The counter clockwise rotation of the shape from its default orientation. (deg)
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getISection (name:String,shapeName:String,matProp:AStringByRef,propName:AStringByRef,color:AIntByRef,xCenter:ADoubleByRef,yCenter:ADoubleByRef,h:ADoubleByRef,bf:ADoubleByRef,tf:ADoubleByRef,tw:ADoubleByRef,bfb:ADoubleByRef,tfb:ADoubleByRef,rotation:ADoubleByRef):Int=
+    fun getISection (name:String,shapeName:String,matProp: AStringByRef = StringByRef.UNNECESSARY,propName: AStringByRef = StringByRef.UNNECESSARY,color: AIntByRef = IntByRef.UNNECESSARY,xCenter: ADoubleByRef = DoubleByRef.UNNECESSARY,yCenter: ADoubleByRef = DoubleByRef.UNNECESSARY,h: ADoubleByRef = DoubleByRef.UNNECESSARY,bf: ADoubleByRef = DoubleByRef.UNNECESSARY,tf: ADoubleByRef = DoubleByRef.UNNECESSARY,tw: ADoubleByRef = DoubleByRef.UNNECESSARY,bfb: ADoubleByRef = DoubleByRef.UNNECESSARY,tfb: ADoubleByRef = DoubleByRef.UNNECESSARY,rotation: ADoubleByRef = DoubleByRef.UNNECESSARY):Int=
             callFunctionInt("GetISection",name,shapeName,matProp,propName,color,xCenter,yCenter,h,bf,tf,tw,bfb,tfb,rotation)
     /**
      * This function retrieves property data for a Pipe shape in a section designer section.
@@ -100,7 +100,7 @@ interface SDShapeV14 : SapComponent {
      * @param thickness The wall thickness of the Pipe. (L)
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getPipe (name:String,shapeName:String,matProp:AStringByRef,propName:AStringByRef,color:AIntByRef,xCenter:ADoubleByRef,yCenter:ADoubleByRef,diameter:ADoubleByRef,thickness:ADoubleByRef):Int=
+    fun getPipe (name:String,shapeName:String,matProp: AStringByRef = StringByRef.UNNECESSARY,propName: AStringByRef = StringByRef.UNNECESSARY,color: AIntByRef = IntByRef.UNNECESSARY,xCenter: ADoubleByRef = DoubleByRef.UNNECESSARY,yCenter: ADoubleByRef = DoubleByRef.UNNECESSARY,diameter: ADoubleByRef = DoubleByRef.UNNECESSARY,thickness: ADoubleByRef = DoubleByRef.UNNECESSARY):Int=
             callFunctionInt("GetPipe",name,shapeName,matProp,propName,color,xCenter,yCenter,diameter,thickness)
     /**
      * This function retrieves property data for an Plate shape in a section designer section.
@@ -115,7 +115,7 @@ interface SDShapeV14 : SapComponent {
      * @param rotation The counter clockwise rotation of the shape from its default orientation. (deg)
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getPlate (name:String,shapeName:String,matProp:AStringByRef,color:AIntByRef,xCenter:ADoubleByRef,yCenter:ADoubleByRef,thickness:ADoubleByRef,w:ADoubleByRef,rotation:ADoubleByRef):Int=
+    fun getPlate (name:String,shapeName:String,matProp: AStringByRef = StringByRef.UNNECESSARY,color: AIntByRef = IntByRef.UNNECESSARY,xCenter: ADoubleByRef = DoubleByRef.UNNECESSARY,yCenter: ADoubleByRef = DoubleByRef.UNNECESSARY,thickness: ADoubleByRef = DoubleByRef.UNNECESSARY,w: ADoubleByRef = DoubleByRef.UNNECESSARY,rotation: ADoubleByRef = DoubleByRef.UNNECESSARY):Int=
             callFunctionInt("GetPlate",name,shapeName,matProp,color,xCenter,yCenter,thickness,w,rotation)
     /**
      * This function retrieves property data for a reference circle shape in a section designer section.
@@ -127,7 +127,7 @@ interface SDShapeV14 : SapComponent {
      * @param diameter The diameter of the circular shape. (L)
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getRefCircle (name:String,shapeName:String,xCenter:ADoubleByRef,yCenter:ADoubleByRef,diameter:ADoubleByRef):Int=
+    fun getRefCircle (name:String,shapeName:String,xCenter: ADoubleByRef = DoubleByRef.UNNECESSARY,yCenter: ADoubleByRef = DoubleByRef.UNNECESSARY,diameter: ADoubleByRef = DoubleByRef.UNNECESSARY):Int=
             callFunctionInt("GetRefCircle",name,shapeName,xCenter,yCenter,diameter)
     /**
      * This function retrieves property data for a reference line shape in a section designer section.
@@ -139,7 +139,7 @@ interface SDShapeV14 : SapComponent {
      * @param y2 The section designer Y coordinate of the second drawn end point of the line pattern reinforcing. (L)
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getRefLine (name:String,shapeName:String,x1:ADoubleByRef,y1:ADoubleByRef,x2:ADoubleByRef,y2:ADoubleByRef):Int=
+    fun getRefLine (name:String,shapeName:String,x1: ADoubleByRef = DoubleByRef.UNNECESSARY,y1: ADoubleByRef = DoubleByRef.UNNECESSARY,x2: ADoubleByRef = DoubleByRef.UNNECESSARY,y2: ADoubleByRef = DoubleByRef.UNNECESSARY):Int=
             callFunctionInt("GetRefLine",name,shapeName,x1,y1,x2,y2)
     /**
      * This function retrieves property data for a circular reinforcing shape in a section designer section.
@@ -154,7 +154,7 @@ interface SDShapeV14 : SapComponent {
      * @param matRebar The material property for the reinforcing steel.
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getReinfCircle (name:String, shapeName:String, xCenter:ADoubleByRef, yCenter:ADoubleByRef, diameter:ADoubleByRef, numberBars:AIntByRef, rotation:ADoubleByRef, rebarSize:AStringByRef, matRebar:AStringByRef):Int=
+    fun getReinfCircle (name:String, shapeName:String, xCenter: ADoubleByRef = DoubleByRef.UNNECESSARY, yCenter: ADoubleByRef = DoubleByRef.UNNECESSARY, diameter: ADoubleByRef = DoubleByRef.UNNECESSARY, numberBars: AIntByRef = IntByRef.UNNECESSARY, rotation: ADoubleByRef = DoubleByRef.UNNECESSARY, rebarSize: AStringByRef = StringByRef.UNNECESSARY, matRebar: AStringByRef = StringByRef.UNNECESSARY):Int=
             callFunctionInt("GetReinfCircle",name,shapeName,xCenter,yCenter,diameter,numberBars,rotation,rebarSize,matRebar)
     /**
      * This function retrieves corner point reinforcing data for solid rectangle, circle and polygon shapes in a section designer property.
@@ -165,7 +165,7 @@ interface SDShapeV14 : SapComponent {
      * @param rebarSize This is an array that includes None or the name of a defined rebar, indicating the rebar assignment to the considered corner point.
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getReinfCorner (name:String,shapeName:String,numberItems:AIntByRef,pointNum:AIntArrayByRef,rebarSize:AStringArrayByRef):Int=
+    fun getReinfCorner (name:String,shapeName:String,numberItems: AIntByRef = IntByRef.UNNECESSARY,pointNum: AIntArrayByRef = IntArrayByRef.UNNECESSARY,rebarSize: AStringArrayByRef = StringArrayByRef.UNNECESSARY):Int=
             callFunctionInt("GetReinfCorner",name,shapeName,numberItems,pointNum,rebarSize)
     /**
      * This function retrieves edge reinforcing data for solid rectangle, circle, polygon, and rectangular reinforcing shapes in a section designer property.
@@ -178,7 +178,7 @@ interface SDShapeV14 : SapComponent {
      * @param cover This is an array that includes the rebar clear cover along the considered edge. (L)
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getReinfEdge (name:String,shapeName:String,numberItems:AIntByRef,edgeNum:AIntArrayByRef,rebarSize:AStringArrayByRef,spacing:ADoubleArrayByRef,cover:ADoubleArrayByRef):Int=
+    fun getReinfEdge (name:String,shapeName:String,numberItems: AIntByRef = IntByRef.UNNECESSARY,edgeNum: AIntArrayByRef = IntArrayByRef.UNNECESSARY,rebarSize: AStringArrayByRef = StringArrayByRef.UNNECESSARY,spacing: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY,cover: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY):Int=
             callFunctionInt("GetReinfEdge",name,shapeName,numberItems,edgeNum,rebarSize,spacing,cover)
     /**
      * This function retrieves property data for a line reinforcing shape in a section designer section.
@@ -194,7 +194,7 @@ interface SDShapeV14 : SapComponent {
      * @param matRebar The material property for the reinforcing steel.
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getReinfLine (name:String,shapeName:String,x1:ADoubleByRef,y1:ADoubleByRef,x2:ADoubleByRef,y2:ADoubleByRef,spacing:ADoubleByRef,rebarSize:AStringByRef,endBars:ABooleanByRef,matRebar:AStringByRef):Int=
+    fun getReinfLine (name:String,shapeName:String,x1: ADoubleByRef = DoubleByRef.UNNECESSARY,y1: ADoubleByRef = DoubleByRef.UNNECESSARY,x2: ADoubleByRef = DoubleByRef.UNNECESSARY,y2: ADoubleByRef = DoubleByRef.UNNECESSARY,spacing: ADoubleByRef = DoubleByRef.UNNECESSARY,rebarSize: AStringByRef = StringByRef.UNNECESSARY,endBars:ABooleanByRef,matRebar: AStringByRef = StringByRef.UNNECESSARY):Int=
             callFunctionInt("GetReinfLine",name,shapeName,x1,y1,x2,y2,spacing,rebarSize,endBars,matRebar)
     /**
      * This function retrieves property data for a rectangular reinforcing shape in a section designer section.
@@ -208,7 +208,7 @@ interface SDShapeV14 : SapComponent {
      * @param matRebar The material property for the reinforcing steel.
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getReinfRectangular (name:String,shapeName:String,xCenter:ADoubleByRef,yCenter:ADoubleByRef,h:ADoubleByRef,w:ADoubleByRef,rotation:ADoubleByRef,matRebar:AStringByRef):Int=
+    fun getReinfRectangular (name:String,shapeName:String,xCenter: ADoubleByRef = DoubleByRef.UNNECESSARY,yCenter: ADoubleByRef = DoubleByRef.UNNECESSARY,h: ADoubleByRef = DoubleByRef.UNNECESSARY,w: ADoubleByRef = DoubleByRef.UNNECESSARY,rotation: ADoubleByRef = DoubleByRef.UNNECESSARY,matRebar: AStringByRef = StringByRef.UNNECESSARY):Int=
             callFunctionInt("GetReinfRectangular",name,shapeName,xCenter,yCenter,h,w,rotation,matRebar)
     /**
      * This function retrieves property data for a single bar reinforcing shape in a section designer section.
@@ -220,7 +220,7 @@ interface SDShapeV14 : SapComponent {
      * @param matRebar The material property for the reinforcing steel.
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getReinfSingle (name:String,shapeName:String,xCenter:ADoubleByRef,yCenter:ADoubleByRef,rebarSize:AStringByRef,matRebar:AStringByRef):Int=
+    fun getReinfSingle (name:String,shapeName:String,xCenter: ADoubleByRef = DoubleByRef.UNNECESSARY,yCenter: ADoubleByRef = DoubleByRef.UNNECESSARY,rebarSize: AStringByRef = StringByRef.UNNECESSARY,matRebar: AStringByRef = StringByRef.UNNECESSARY):Int=
             callFunctionInt("GetReinfSingle",name,shapeName,xCenter,yCenter,rebarSize,matRebar)
     /**
      * This function retrieves property data for a solid circle shape in a section designer section.
@@ -241,7 +241,7 @@ interface SDShapeV14 : SapComponent {
      * @param matRebar The material property for the edge and corner reinforcing steel associated with the shape. This item applies only when the MatProp item is a concrete material and the Reinf item is True.
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getSolidCircle (name:String,shapeName:String,matProp:AStringByRef,sSOverwrite:AStringByRef,color:AIntByRef,xCenter:ADoubleByRef,yCenter:ADoubleByRef,diameter:ADoubleByRef,reinf:ABooleanByRef,numberBars:AIntByRef,rotation:ADoubleByRef,barCover:ADoubleByRef,rebarSize:AStringByRef,matRebar:AStringByRef):Int=
+    fun getSolidCircle (name:String,shapeName:String,matProp: AStringByRef = StringByRef.UNNECESSARY,sSOverwrite: AStringByRef = StringByRef.UNNECESSARY,color: AIntByRef = IntByRef.UNNECESSARY,xCenter: ADoubleByRef = DoubleByRef.UNNECESSARY,yCenter: ADoubleByRef = DoubleByRef.UNNECESSARY,diameter: ADoubleByRef = DoubleByRef.UNNECESSARY,reinf:ABooleanByRef,numberBars: AIntByRef = IntByRef.UNNECESSARY,rotation: ADoubleByRef = DoubleByRef.UNNECESSARY,barCover: ADoubleByRef = DoubleByRef.UNNECESSARY,rebarSize: AStringByRef = StringByRef.UNNECESSARY,matRebar: AStringByRef = StringByRef.UNNECESSARY):Int=
             callFunctionInt("GetSolidCircle",name,shapeName,matProp,sSOverwrite,color,xCenter,yCenter,diameter,reinf,numberBars,rotation,barCover,rebarSize,matRebar)
     /**
      * This function retrieves property data for a solid rectangular shape in a section designer section.
@@ -260,7 +260,7 @@ interface SDShapeV14 : SapComponent {
      * @param matRebar The material property for the edge and corner reinforcing steel associated with the shape. This item applies only when the MatProp item is a concrete material and the Reinf item is True.
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getSolidRect (name:String,shapeName:String,matProp:AStringByRef,sSOverwrite:AStringByRef,color:AIntByRef,xCenter:ADoubleByRef,yCenter:ADoubleByRef,h:ADoubleByRef,w:ADoubleByRef,rotation:ADoubleByRef,reinf:ABooleanByRef,matRebar:AStringByRef):Int=
+    fun getSolidRect (name:String,shapeName:String,matProp: AStringByRef = StringByRef.UNNECESSARY,sSOverwrite: AStringByRef = StringByRef.UNNECESSARY,color: AIntByRef = IntByRef.UNNECESSARY,xCenter: ADoubleByRef = DoubleByRef.UNNECESSARY,yCenter: ADoubleByRef = DoubleByRef.UNNECESSARY,h: ADoubleByRef = DoubleByRef.UNNECESSARY,w: ADoubleByRef = DoubleByRef.UNNECESSARY,rotation: ADoubleByRef = DoubleByRef.UNNECESSARY,reinf:ABooleanByRef,matRebar: AStringByRef = StringByRef.UNNECESSARY):Int=
             callFunctionInt("GetSolidRect",name,shapeName,matProp,sSOverwrite,color,xCenter,yCenter,h,w,rotation,reinf,matRebar)
     /**
      * This function retrieves property data for a solid sector shape in a section designer section.
@@ -275,7 +275,7 @@ interface SDShapeV14 : SapComponent {
      * @param radius The radius of the circle defining the Sector. (L)
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getSolidSector (name:String,shapeName:String,matProp:AStringByRef,color:AIntByRef,xCenter:ADoubleByRef,yCenter:ADoubleByRef,angle:ADoubleByRef,rotation:ADoubleByRef,radius:ADoubleByRef):Int=
+    fun getSolidSector (name:String,shapeName:String,matProp: AStringByRef = StringByRef.UNNECESSARY,color: AIntByRef = IntByRef.UNNECESSARY,xCenter: ADoubleByRef = DoubleByRef.UNNECESSARY,yCenter: ADoubleByRef = DoubleByRef.UNNECESSARY,angle: ADoubleByRef = DoubleByRef.UNNECESSARY,rotation: ADoubleByRef = DoubleByRef.UNNECESSARY,radius: ADoubleByRef = DoubleByRef.UNNECESSARY):Int=
             callFunctionInt("GetSolidSector",name,shapeName,matProp,color,xCenter,yCenter,angle,rotation,radius)
     /**
      * This function retrieves property data for a solid segment shape in a section designer section.
@@ -290,7 +290,7 @@ interface SDShapeV14 : SapComponent {
      * @param radius The radius of the circle defining the segment.
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getSolidSegment (name:String,shapeName:String,matProp:AStringByRef,color:AIntByRef,xCenter:ADoubleByRef,yCenter:ADoubleByRef,angle:ADoubleByRef,rotation:ADoubleByRef,radius:ADoubleByRef):Int=
+    fun getSolidSegment (name:String,shapeName:String,matProp: AStringByRef = StringByRef.UNNECESSARY,color: AIntByRef = IntByRef.UNNECESSARY,xCenter: ADoubleByRef = DoubleByRef.UNNECESSARY,yCenter: ADoubleByRef = DoubleByRef.UNNECESSARY,angle: ADoubleByRef = DoubleByRef.UNNECESSARY,rotation: ADoubleByRef = DoubleByRef.UNNECESSARY,radius: ADoubleByRef = DoubleByRef.UNNECESSARY):Int=
             callFunctionInt("GetSolidSegment",name,shapeName,matProp,color,xCenter,yCenter,angle,rotation,radius)
     /**
      * This function retrieves property data for a Tee shape in a section designer section.
@@ -308,7 +308,7 @@ interface SDShapeV14 : SapComponent {
      * @param rotation The counter clockwise rotation of the shape from its default orientation. (deg)
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getTee (name:String,shapeName:String,matProp:AStringByRef,propName:AStringByRef,color:AIntByRef,xCenter:ADoubleByRef,yCenter:ADoubleByRef,h:ADoubleByRef,bf:ADoubleByRef,tf:ADoubleByRef,tw:ADoubleByRef,rotation:ADoubleByRef):Int=
+    fun getTee (name:String,shapeName:String,matProp: AStringByRef = StringByRef.UNNECESSARY,propName: AStringByRef = StringByRef.UNNECESSARY,color: AIntByRef = IntByRef.UNNECESSARY,xCenter: ADoubleByRef = DoubleByRef.UNNECESSARY,yCenter: ADoubleByRef = DoubleByRef.UNNECESSARY,h: ADoubleByRef = DoubleByRef.UNNECESSARY,bf: ADoubleByRef = DoubleByRef.UNNECESSARY,tf: ADoubleByRef = DoubleByRef.UNNECESSARY,tw: ADoubleByRef = DoubleByRef.UNNECESSARY,rotation: ADoubleByRef = DoubleByRef.UNNECESSARY):Int=
             callFunctionInt("GetTee",name,shapeName,matProp,propName,color,xCenter,yCenter,h,bf,tf,tw,rotation)
     /**
      * This function retrieves property data for a Tube shape in a section designer section.
@@ -326,7 +326,7 @@ interface SDShapeV14 : SapComponent {
      * @param rotation The counter clockwise rotation of the shape from its default orientation. (deg)
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getTube (name:String,shapeName:String,matProp:AStringByRef,propName:AStringByRef,color:AIntByRef,xCenter:ADoubleByRef,yCenter:ADoubleByRef,h:ADoubleByRef,w:ADoubleByRef,tf:ADoubleByRef,tw:ADoubleByRef,rotation:ADoubleByRef):Int=
+    fun getTube (name:String,shapeName:String,matProp: AStringByRef = StringByRef.UNNECESSARY,propName: AStringByRef = StringByRef.UNNECESSARY,color: AIntByRef = IntByRef.UNNECESSARY,xCenter: ADoubleByRef = DoubleByRef.UNNECESSARY,yCenter: ADoubleByRef = DoubleByRef.UNNECESSARY,h: ADoubleByRef = DoubleByRef.UNNECESSARY,w: ADoubleByRef = DoubleByRef.UNNECESSARY,tf: ADoubleByRef = DoubleByRef.UNNECESSARY,tw: ADoubleByRef = DoubleByRef.UNNECESSARY,rotation: ADoubleByRef = DoubleByRef.UNNECESSARY):Int=
             callFunctionInt("GetTube",name,shapeName,matProp,propName,color,xCenter,yCenter,h,w,tf,tw,rotation)
     /**
      * This function adds a new Angle shape or modifies an existing shape to be an Angle shape in a section designer property.
@@ -348,7 +348,7 @@ interface SDShapeV14 : SapComponent {
      * @param tw The web thickness. (L)
      * @return zero if the shape is successfully added or modified; otherwise it returns a nonzero value.
      */
-    fun setAngle (name:String,shapeName:AStringByRef,matProp:String,propName:String,xCenter:Double,yCenter:Double,rotation:Double,color:Int=-1,h:Double=24.0,bf:Double=24.0,tf:Double=2.4,tw:Double=2.4):Int=
+    fun setAngle (name:String,shapeName: AStringByRef = StringByRef.UNNECESSARY,matProp:String,propName:String,xCenter:Double,yCenter:Double,rotation:Double,color:Int=-1,h:Double=24.0,bf:Double=24.0,tf:Double=2.4,tw:Double=2.4):Int=
             callFunctionInt("SetAngle",name,shapeName,matProp,propName,xCenter,yCenter,rotation,color,h,bf,tf,tw)
     /**
      * This function adds a new Channel shape or modifies an existing shape to be a Channel shape in a section designer property.
@@ -369,7 +369,7 @@ interface SDShapeV14 : SapComponent {
      * @param tw The web thickness. (L)
      * @return zero if the shape is successfully added or modified; otherwise it returns a nonzero value.
      */
-    fun setChannel (name:String,shapeName:AStringByRef,matProp:String,propName:String,xCenter:Double,yCenter:Double,rotation:Double,color:Int=-1,h:Double=24.0,bf:Double=24.0,tf:Double=2.4,tw:Double=2.4):Int=
+    fun setChannel (name:String,shapeName: AStringByRef = StringByRef.UNNECESSARY,matProp:String,propName:String,xCenter:Double,yCenter:Double,rotation:Double,color:Int=-1,h:Double=24.0,bf:Double=24.0,tf:Double=2.4,tw:Double=2.4):Int=
             callFunctionInt("SetChannel",name,shapeName,matProp,propName,xCenter,yCenter,rotation,color,h,bf,tf,tw)
     /**
      * This function adds a new Double Angle shape or modifies an existing shape to be an Double Angle shape in a section designer property.
@@ -392,7 +392,7 @@ interface SDShapeV14 : SapComponent {
      * @param dis Separation between the two flanges that are parallel. (L)
      * @return zero if the shape is successfully added or modified; otherwise it returns a nonzero value.
      */
-    fun setDblAngle (name:String,shapeName:AStringByRef,matProp:String,propName:String,xCenter:Double,yCenter:Double,rotation:Double,color:Int=-1,h:Double=24.0,w:Double=24.0,tf:Double=2.4,tw:Double=2.4,dis:Double=1.2):Int=
+    fun setDblAngle (name:String,shapeName: AStringByRef = StringByRef.UNNECESSARY,matProp:String,propName:String,xCenter:Double,yCenter:Double,rotation:Double,color:Int=-1,h:Double=24.0,w:Double=24.0,tf:Double=2.4,tw:Double=2.4,dis:Double=1.2):Int=
             callFunctionInt("SetDblAngle",name,shapeName,matProp,propName,xCenter,yCenter,rotation,color,h,w,tf,tw,dis)
     /**
      * This function adds a new I-section shape or modifies an existing shape to be an I-section shape in a section designer property.
@@ -416,7 +416,7 @@ interface SDShapeV14 : SapComponent {
      * @param tfb The bottom flange thickness. (L)
      * @return zero if the shape is successfully added or modified; otherwise it returns a nonzero value.
      */
-    fun setISection (name:String,shapeName:AStringByRef,matProp:String,propName:String,xCenter:Double,yCenter:Double,rotation:Double,color:Int=-1,h:Double=24.0,bf:Double=24.0,tf:Double=2.4,tw:Double=2.4,bfb:Double=24.0,tfb:Double=2.4):Int=
+    fun setISection (name:String,shapeName: AStringByRef = StringByRef.UNNECESSARY,matProp:String,propName:String,xCenter:Double,yCenter:Double,rotation:Double,color:Int=-1,h:Double=24.0,bf:Double=24.0,tf:Double=2.4,tw:Double=2.4,bfb:Double=24.0,tfb:Double=2.4):Int=
             callFunctionInt("SetISection",name,shapeName,matProp,propName,xCenter,yCenter,rotation,color,h,bf,tf,tw,bfb,tfb)
     /**
      * This function adds a new Pipe shape or modifies an existing shape to be a Pipe shape in a section designer property.
@@ -435,7 +435,7 @@ interface SDShapeV14 : SapComponent {
      * @param thickness The wall thickness of the Pipe. (L)
      * @return zero if the shape is successfully added or modified; otherwise it returns a nonzero value.
      */
-    fun setPipe (name:String,shapeName:AStringByRef,matProp:String,propName:String,xCenter:Double,yCenter:Double,color:Int=-1,diameter:Double=24.0,thickness:Double=2.4):Int=
+    fun setPipe (name:String,shapeName: AStringByRef = StringByRef.UNNECESSARY,matProp:String,propName:String,xCenter:Double,yCenter:Double,color:Int=-1,diameter:Double=24.0,thickness:Double=2.4):Int=
             callFunctionInt("SetPipe",name,shapeName,matProp,propName,xCenter,yCenter,color,diameter,thickness)
     /**
      * This function adds a new Plate shape or modifies an existing shape to be a Plate shape in a section designer property.
@@ -451,7 +451,7 @@ interface SDShapeV14 : SapComponent {
      * @param w The width of the Plate. (L)
      * @return zero if the shape is successfully added or modified; otherwise it returns a nonzero value.
      */
-    fun setPlate (name:String,shapeName:AStringByRef,matProp:String,xCenter:Double,yCenter:Double,rotation:Double,color:Int=-1,thickness:Double=2.4,w:Double=24.0):Int=
+    fun setPlate (name:String,shapeName: AStringByRef = StringByRef.UNNECESSARY,matProp:String,xCenter:Double,yCenter:Double,rotation:Double,color:Int=-1,thickness:Double=2.4,w:Double=24.0):Int=
             callFunctionInt("SetPlate",name,shapeName,matProp,xCenter,yCenter,rotation,color,thickness,w)
     /**
      * This function adds a new reference circle shape or modifies an existing shape to be a reference circle shape in a section designer property.
@@ -463,7 +463,7 @@ interface SDShapeV14 : SapComponent {
      * @param diameter The diameter of the circular shape. (L)
      * @return zero if the shape is successfully added or modified; otherwise it returns a nonzero value.
      */
-    fun setRefCircle (name:String,shapeName:AStringByRef,xCenter:Double,yCenter:Double,diameter:Double):Int=
+    fun setRefCircle (name:String,shapeName: AStringByRef = StringByRef.UNNECESSARY,xCenter:Double,yCenter:Double,diameter:Double):Int=
             callFunctionInt("SetRefCircle",name,shapeName,xCenter,yCenter,diameter)
     /**
      * This function adds a new reference line shape or modifies an existing shape to be a reference line shape in a section designer property.
@@ -476,7 +476,7 @@ interface SDShapeV14 : SapComponent {
      * @param y2 The section designer Y coordinate of the second drawn end point of the line pattern reinforcing. (L)
      * @return zero if the shape is successfully added or modified; otherwise it returns a nonzero value.
      */
-    fun setRefLine (name:String,shapeName:AStringByRef,x1:Double,y1:Double,x2:Double,y2:Double):Int=
+    fun setRefLine (name:String,shapeName: AStringByRef = StringByRef.UNNECESSARY,x1:Double,y1:Double,x2:Double,y2:Double):Int=
             callFunctionInt("SetRefLine",name,shapeName,x1,y1,x2,y2)
     /**
      * This function adds a new circular reinforcing shape or modifies an existing shape to be an circular reinforcing shape in a section designer property.
@@ -492,7 +492,7 @@ interface SDShapeV14 : SapComponent {
      * @param matRebar The material property for the reinforcing steel.
      * @return zero if the shape is successfully added or modified; otherwise it returns a nonzero value.
      */
-    fun setReinfCircle (name:String,shapeName:AStringByRef,xCenter:Double,yCenter:Double,diameter:Double,numberBars:Int,rotation:Double,rebarSize:Double,matRebar:String=""):Int=
+    fun setReinfCircle (name:String,shapeName: AStringByRef = StringByRef.UNNECESSARY,xCenter:Double,yCenter:Double,diameter:Double,numberBars:Int,rotation:Double,rebarSize:Double,matRebar:String=""):Int=
             callFunctionInt("SetReinfCircle",name,shapeName,xCenter,yCenter,diameter,numberBars,rotation,rebarSize,matRebar)
     /**
      * This function specifies corner reinforcing in solid rectangle, circle and polygon shapes in a section designer property.
@@ -503,7 +503,7 @@ interface SDShapeV14 : SapComponent {
      * @param all If this item is True, the specified rebar data applies to all corners in the shape.
      * @return zero if the reinforcing is successfully specified; otherwise it returns a nonzero value.
      */
-    fun setReinfCorner (name:String,shapeName:AStringByRef,pointNum:Int,rebarSize:String,all:Boolean=false):Int=
+    fun setReinfCorner (name:String,shapeName: AStringByRef = StringByRef.UNNECESSARY,pointNum:Int,rebarSize:String,all:Boolean=false):Int=
             callFunctionInt("SetReinfCorner",name,shapeName,pointNum,rebarSize,all)
     /**
      * This function specifies edge reinforcing in solid rectangle, circle, polygon and rectangular reinforcing shapes in a section designer property.
@@ -516,7 +516,7 @@ interface SDShapeV14 : SapComponent {
      * @param all If this item is True, the specified rebar data applies to all edges in the shape.
      * @return zero if the reinforcing is successfully specified; otherwise it returns a nonzero value.
      */
-    fun setReinfEdge (name:String,shapeName:AStringByRef,edgeNum:Int,rebarSize:String,spacing:Double,cover:Double,all:Boolean=false):Int=
+    fun setReinfEdge (name:String,shapeName: AStringByRef = StringByRef.UNNECESSARY,edgeNum:Int,rebarSize:String,spacing:Double,cover:Double,all:Boolean=false):Int=
             callFunctionInt("SetReinfEdge",name,shapeName,edgeNum,rebarSize,spacing,cover,all)
     /**
      * This function adds a new line reinforcing shape or modifies an existing shape to be a line reinforcing shape in a section designer property.
@@ -533,7 +533,7 @@ interface SDShapeV14 : SapComponent {
      * @param matRebar The material property for the reinforcing steel.
      * @return zero if the shape is successfully added or modified; otherwise it returns a nonzero value.
      */
-    fun setReinfLine (name:String,shapeName:AStringByRef,x1:Double,y1:Double,x2:Double,y2:Double,spacing:Double=6.0,rebarSize:String="",endBars:Boolean=false,matRebar:String):Int=
+    fun setReinfLine (name:String,shapeName: AStringByRef = StringByRef.UNNECESSARY,x1:Double,y1:Double,x2:Double,y2:Double,spacing:Double=6.0,rebarSize:String="",endBars:Boolean=false,matRebar:String):Int=
             callFunctionInt("SetReinfLine",name,shapeName,x1,y1,x2,y2,spacing,rebarSize,endBars,matRebar)
     /**
      * This function adds a new rectangular reinforcing shape or modifies an existing shape to be a rectangular reinforcing shape in a section designer property.
@@ -548,7 +548,7 @@ interface SDShapeV14 : SapComponent {
      * @param matRebar The material property for the reinforcing steel.
      * @return zero if the shape is successfully added or modified; otherwise it returns a nonzero value.
      */
-    fun setReinfRectangular (name:String,shapeName:AStringByRef,xCenter:Double,yCenter:Double,rotation:Double,h:Double,w:Double,matRebar:String=""):Int=
+    fun setReinfRectangular (name:String,shapeName: AStringByRef = StringByRef.UNNECESSARY,xCenter:Double,yCenter:Double,rotation:Double,h:Double,w:Double,matRebar:String=""):Int=
             callFunctionInt("SetReinfRectangular",name,shapeName,xCenter,yCenter,rotation,h,w,matRebar)
     /**
      * This function adds a new single bar reinforcing shape or modifies an existing shape to be a single bar reinforcing shape in a section designer property.
@@ -561,7 +561,7 @@ interface SDShapeV14 : SapComponent {
      * @param matRebar The material property for the reinforcing steel.
      * @return zero if the shape is successfully added or modified; otherwise it returns a nonzero value.
      */
-    fun setReinfSingle (name:String,shapeName:AStringByRef,xCenter:Double,yCenter:Double,rebarSize:String="",matRebar:AStringByRef=StringByRef("")):Int=
+    fun setReinfSingle (name:String,shapeName: AStringByRef = StringByRef.UNNECESSARY,xCenter:Double,yCenter:Double,rebarSize:String="",matRebar: AStringByRef = StringByRef("")):Int=
             callFunctionInt("SetReinfSingle",name,shapeName,xCenter,yCenter,rebarSize,matRebar)
     /**
      * This function adds a new solid circle shape or modifies an existing shape to be a solid circle shape in a section designer property.
@@ -584,7 +584,7 @@ interface SDShapeV14 : SapComponent {
      * @param matRebar The material property for the edge and corner reinforcing steel associated with the shape. This item applies only when the MatProp item is a concrete material and the Reinf item is True.
      * @return zero if the shape is successfully added or modified; otherwise it returns a nonzero value.
      */
-    fun setSolidCircle (name:String,shapeName:AStringByRef,matProp:String,sSOverwrite:String,xCenter:Double,yCenter:Double,diameter:Double=24.0,color:Int=-1,reinf:Boolean=false,numberBars:Int=8,rotation:Double=22.5,cover:Double=2.0,rebarSize:String="",matRebar:String=""):Int=
+    fun setSolidCircle (name:String,shapeName: AStringByRef = StringByRef.UNNECESSARY,matProp:String,sSOverwrite:String,xCenter:Double,yCenter:Double,diameter:Double=24.0,color:Int=-1,reinf:Boolean=false,numberBars:Int=8,rotation:Double=22.5,cover:Double=2.0,rebarSize:String="",matRebar:String=""):Int=
             callFunctionInt("SetSolidCircle",name,shapeName,matProp,sSOverwrite,xCenter,yCenter,diameter,color,reinf,numberBars,rotation,cover,rebarSize,matRebar)
     /**
      * This function adds a new solid rectangle shape or modifies an existing shape to be an solid rectangle shape in a section designer property.
@@ -607,7 +607,7 @@ interface SDShapeV14 : SapComponent {
      * @param matRebar The material property for the edge and corner reinforcing steel associated with the shape. This item applies only when the MatProp item is a concrete material and the Reinf item is True.
      * @return zero if the shape is successfully added or modified; otherwise it returns a nonzero value.
      */
-    fun setSolidRect (name:String,shapeName:AStringByRef,matProp:String,sSOverwrite:String,xCenter:Double,yCenter:Double,h:Double,w:Double,rotation:Double,color:Int=-1,reinf:Boolean=false,matRebar:String=""):Int=
+    fun setSolidRect (name:String,shapeName: AStringByRef = StringByRef.UNNECESSARY,matProp:String,sSOverwrite:String,xCenter:Double,yCenter:Double,h:Double,w:Double,rotation:Double,color:Int=-1,reinf:Boolean=false,matRebar:String=""):Int=
             callFunctionInt("SetSolidRect",name,shapeName,matProp,sSOverwrite,xCenter,yCenter,h,w,rotation,color,reinf,matRebar)
     /**
      * This function adds a new solid sector shape or modifies an existing shape to be a solid sector shape in a section designer property.
@@ -623,7 +623,7 @@ interface SDShapeV14 : SapComponent {
      * @param color The fill color assigned to the shape. If Color is specified as -1, the program will automatically assign the default fill color.
      * @return zero if the shape is successfully added or modified; otherwise it returns a nonzero value.
      */
-    fun setSolidSector (name:String,shapeName:AStringByRef,matProp:String,xCenter:Double,yCenter:Double,angle:Double,rotation:Double,radius:Double,color:Int=-1):Int=
+    fun setSolidSector (name:String,shapeName: AStringByRef = StringByRef.UNNECESSARY,matProp:String,xCenter:Double,yCenter:Double,angle:Double,rotation:Double,radius:Double,color:Int=-1):Int=
             callFunctionInt("SetSolidSector",name,shapeName,matProp,xCenter,yCenter,angle,rotation,radius,color)
     /**
      * This function adds a new solid segment shape or modifies an existing shape to be a solid segment shape in a section designer property.
@@ -639,7 +639,7 @@ interface SDShapeV14 : SapComponent {
      * @param color The fill color assigned to the shape. If Color is specified as -1, the program will automatically assign the default fill color.
      * @return zero if the shape is successfully added or modified; otherwise it returns a nonzero value.
      */
-    fun setSolidSegment (name:String,shapeName:AStringByRef,matProp:String,xCenter:Double,yCenter:Double,angle:Double,rotation:Double,radius:Double,color:Int=-1):Int=
+    fun setSolidSegment (name:String,shapeName: AStringByRef = StringByRef.UNNECESSARY,matProp:String,xCenter:Double,yCenter:Double,angle:Double,rotation:Double,radius:Double,color:Int=-1):Int=
             callFunctionInt("SetSolidSegment",name,shapeName,matProp,xCenter,yCenter,angle,rotation,radius,color)
     /**
      * This function adds a new Tee shape or modifies an existing shape to be a Tee shape in a section designer property.
@@ -661,7 +661,7 @@ interface SDShapeV14 : SapComponent {
      * @param tw The web thickness. (L)
      * @return zero if the shape is successfully added or modified; otherwise it returns a nonzero value.
      */
-    fun setTee (name:String,shapeName:AStringByRef,matProp:String,propName:String,xCenter:Double,yCenter:Double,rotation:Double,color:Int=-1,h:Double=24.0,bf:Double=24.0,tf:Double=2.4,tw:Double=2.4):Int=
+    fun setTee (name:String,shapeName: AStringByRef = StringByRef.UNNECESSARY,matProp:String,propName:String,xCenter:Double,yCenter:Double,rotation:Double,color:Int=-1,h:Double=24.0,bf:Double=24.0,tf:Double=2.4,tw:Double=2.4):Int=
             callFunctionInt("SetTee",name,shapeName,matProp,propName,xCenter,yCenter,rotation,color,h,bf,tf,tw)
     /**
      * This function adds a new Tube shape or modifies an existing shape to be a Tube shape in a section designer property.
@@ -683,6 +683,6 @@ interface SDShapeV14 : SapComponent {
      * @param tw The web thickness. (L)
      * @return zero if the shape is successfully added or modified; otherwise it returns a nonzero value.
      */
-    fun setTube (name:String,shapeName:AStringByRef,matProp:String,propName:String,xCenter:Double,yCenter:Double,rotation:Double,color:Int=-1,h:Double=24.0,w:Double=24.0,tf:Double=2.4,tw:Double=2.4):Int=
+    fun setTube (name:String,shapeName: AStringByRef = StringByRef.UNNECESSARY,matProp:String,propName:String,xCenter:Double,yCenter:Double,rotation:Double,color:Int=-1,h:Double=24.0,w:Double=24.0,tf:Double=2.4,tw:Double=2.4):Int=
             callFunctionInt("SetTube",name,shapeName,matProp,propName,xCenter,yCenter,rotation,color,h,w,tf,tw)
 }

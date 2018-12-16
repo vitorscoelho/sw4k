@@ -17,7 +17,7 @@ interface LinkObjV14 : SapComponent {
      * @param cSys The name of the coordinate system in which the link object end point coordinates are defined.
      * @return zero if the link object is successfully added; otherwise it returns a nonzero value.
      */
-    fun addByCoord(xi: Double, yi: Double, zi: Double, xj: Double, yj: Double, zj: Double, name: AStringByRef= StringByRef.UNNECESSARY, isSingleJoint: Boolean = false, propName: String = "Default", userName: String = "", cSys: String = "Global"): Int =
+    fun addByCoord(xi: Double, yi: Double, zi: Double, xj: Double, yj: Double, zj: Double, name: AStringByRef = StringByRef.UNNECESSARY, isSingleJoint: Boolean = false, propName: String = "Default", userName: String = "", cSys: String = "Global"): Int =
             callFunctionInt("AddByCoord", xi, yi, zi, xj, yj, zj, name, isSingleJoint, propName, userName, cSys)
 
     /**
@@ -32,7 +32,7 @@ interface LinkObjV14 : SapComponent {
      * @param userName This is an optional user specified name for the link object. If a UserName is specified and that name is already used for another link object, the program ignores the UserName.
      * @return zero if the link object is successfully added; otherwise it returns a nonzero value.
      */
-    fun addByPoint(point1: String, point2: String, name: AStringByRef=StringByRef.UNNECESSARY, isSingleJoint: Boolean = false, propName: String = "Default", userName: String = ""): Int =
+    fun addByPoint(point1: String, point2: String, name: AStringByRef = StringByRef.UNNECESSARY, isSingleJoint: Boolean = false, propName: String = "Default", userName: String = ""): Int =
             callFunctionInt("AddByPoint", point1, point2, name, isSingleJoint, propName, userName)
 
     /**
@@ -119,7 +119,7 @@ interface LinkObjV14 : SapComponent {
      * @param elm The name of the link element created from the specified link object.
      * @return zero if the link element name is successfully retrieved; otherwise it returns nonzero. An error occurs if the analysis model does not exist.
      */
-    fun getElm(name: String, elm: AStringByRef): Int =
+    fun getElm(name: String, elm: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetElm", name, elm)
 
     /**
@@ -128,7 +128,7 @@ interface LinkObjV14 : SapComponent {
      * @param GUID The GUID (Global Unique ID) for the specified link object.
      * @return zero if the link object GUID is successfully retrieved; otherwise it returns nonzero.
      */
-    fun getGUID(name: String, GUID: AStringByRef): Int =
+    fun getGUID(name: String, GUID: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetGUID", name, GUID)
 
     /**
@@ -160,7 +160,7 @@ interface LinkObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected link objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadDeformation(name: String, numberItems: AIntByRef, linkName: AStringArrayByRef, loadPat: AStringArrayByRef, dof1: ABooleanArrayByRef, dof2: ABooleanArrayByRef, dof3: ABooleanArrayByRef, dof4: ABooleanArrayByRef, dof5: ABooleanArrayByRef, dof6: ABooleanArrayByRef, u1: ADoubleArrayByRef, u2: ADoubleArrayByRef, u3: ADoubleArrayByRef, r1: ADoubleArrayByRef, r2: ADoubleArrayByRef, r3: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadDeformation(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, linkName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, dof1: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, dof2: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, dof3: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, dof4: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, dof5: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, dof6: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, u1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadDeformation", name, numberItems, linkName, loadPat, dof1, dof2, dof3, dof4, dof5, dof6, u1, u2, u3, r1, r2, r3, itemType)
 
     /**
@@ -180,7 +180,7 @@ interface LinkObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected link objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadGravity(name: String, numberItems: AIntByRef, linkName: AStringArrayByRef, loadPat: AStringArrayByRef, cSys: AStringArrayByRef, x: ADoubleArrayByRef, y: ADoubleArrayByRef, z: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadGravity(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, linkName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, cSys: AStringArrayByRef = StringArrayByRef.UNNECESSARY, x: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, y: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, z: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadGravity", name, numberItems, linkName, loadPat, cSys, x, y, z, itemType)
 
     /**
@@ -219,7 +219,7 @@ interface LinkObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected link objects, and the Name item is ignored.
      * @return zero if the target force assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadTargetForce(name: String, numberItems: AIntByRef, linkName: AStringArrayByRef, loadPat: AStringArrayByRef, dof1: ABooleanArrayByRef, dof2: ABooleanArrayByRef, dof3: ABooleanArrayByRef, dof4: ABooleanArrayByRef, dof5: ABooleanArrayByRef, dof6: ABooleanArrayByRef, p: ADoubleArrayByRef, v2: ADoubleArrayByRef, v3: ADoubleArrayByRef, t: ADoubleArrayByRef, m2: ADoubleArrayByRef, m3: ADoubleArrayByRef, t1: ADoubleArrayByRef, t2: ADoubleArrayByRef, t3: ADoubleArrayByRef, t4: ADoubleArrayByRef, t5: ADoubleArrayByRef, t6: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadTargetForce(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, linkName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, dof1: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, dof2: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, dof3: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, dof4: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, dof5: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, dof6: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, p: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, v2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, v3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, t: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, t1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, t2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, t3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, t4: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, t5: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, t6: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadTargetForce", name, numberItems, linkName, loadPat, dof1, dof2, dof3, dof4, dof5, dof6, p, v2, v3, t, m2, m3, t1, t2, t3, t4, t5, t6, itemType)
 
     /**
@@ -246,7 +246,7 @@ interface LinkObjV14 : SapComponent {
      * @param plane2 This is 12 or 13, indicating that the local plane determined by the plane reference vector is the 1-2 or 1-3 plane. This item applies only when the Active item is True.
      * @return zero if the advanced local axes assignments are assigned successfully; otherwise it returns a nonzero value.
      */
-    fun getLocalAxesAdvanced(name: String, active: ABooleanByRef, axVectOpt: AIntByRef, axCSys: AStringByRef, axDir: AIntArrayByRef, axPt: AStringArrayByRef, axVect: ADoubleArrayByRef, plane2: AIntByRef, plVectOpt: AIntByRef, plCSys: AStringByRef, plDir: AIntArrayByRef, plPt: AStringArrayByRef, plVect: ADoubleArrayByRef): Int =
+    fun getLocalAxesAdvanced(name: String, active: ABooleanByRef, axVectOpt: AIntByRef = IntByRef.UNNECESSARY, axCSys: AStringByRef = StringByRef.UNNECESSARY, axDir: AIntArrayByRef = IntArrayByRef.UNNECESSARY, axPt: AStringArrayByRef = StringArrayByRef.UNNECESSARY, axVect: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, plane2: AIntByRef = IntByRef.UNNECESSARY, plVectOpt: AIntByRef = IntByRef.UNNECESSARY, plCSys: AStringByRef = StringByRef.UNNECESSARY, plDir: AIntArrayByRef = IntArrayByRef.UNNECESSARY, plPt: AStringArrayByRef = StringArrayByRef.UNNECESSARY, plVect: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetLocalAxesAdvanced", name, active, axVectOpt, axCSys, axDir, axPt, axVect, plane2, plVectOpt, plCSys, plDir, plPt, plVect)
 
     /**
@@ -256,7 +256,7 @@ interface LinkObjV14 : SapComponent {
      * @param advanced This item is True if the link object local axes orientation was obtained using advanced local axes parameters.
      * @return zero if the assignment is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLocalAxes(name: String, ang: ADoubleByRef, advanced: ABooleanByRef): Int =
+    fun getLocalAxes(name: String, ang: ADoubleByRef = DoubleByRef.UNNECESSARY, advanced: ABooleanByRef): Int =
             callFunctionInt("GetLocalAxes", name, ang, advanced)
 
     /**
@@ -265,7 +265,7 @@ interface LinkObjV14 : SapComponent {
      * @param myName This is a one-dimensional array of link object names.
      * @return zero if the names are successfully retrieved; otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef): Int =
+    fun getNameList(numberNames: AIntByRef = IntByRef.UNNECESSARY, myName: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetNameList", numberNames, myName)
 
     /**
@@ -275,7 +275,7 @@ interface LinkObjV14 : SapComponent {
      * @param point2 The name of the point object at the J-End of the specified link object.
      * @return zero if the point names are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getPoints(name: String, point1: AStringByRef, point2: AStringByRef): Int =
+    fun getPoints(name: String, point1: AStringByRef = StringByRef.UNNECESSARY, point2: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetPoints", name, point1, point2)
 
     /**
@@ -284,7 +284,7 @@ interface LinkObjV14 : SapComponent {
      * @param propName The name of the frequency dependent link property assigned to the link object. This item is None if there is no frequency dependent link property assigned to the link object.
      * @return zero if the property is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getProperty(name: String, propName: AStringByRef): Int =
+    fun getProperty(name: String, propName: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetProperty", name, propName)
 
     /**
@@ -293,7 +293,7 @@ interface LinkObjV14 : SapComponent {
      * @param propName The name of the link property assigned to the link object.
      * @return zero if the property is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getPropertyFD(name: String, propName: AStringByRef): Int =
+    fun getPropertyFD(name: String, propName: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetPropertyFD", name, propName)
 
     /**
@@ -315,7 +315,7 @@ interface LinkObjV14 : SapComponent {
      * If this item is False, the transformation matrix is between the present coordinate system, and the link object local coordinate system.
      * @return zero if the link object transformation matrix is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getTransformationMatrix(name: String, value: ADoubleArrayByRef, isGlobal: Boolean = true): Int =
+    fun getTransformationMatrix(name: String, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, isGlobal: Boolean = true): Int =
             callFunctionInt("GetTransformationMatrix", name, value, isGlobal)
 
     /**
@@ -371,7 +371,7 @@ interface LinkObjV14 : SapComponent {
      * If this item is SelectedObjects, assignment is made to all selected link objects, and the Name item is ignored.
      * @return zero if the loads are successfully assigned; otherwise it returns a nonzero value.
      */
-    fun setLoadDeformation(name: String, loadPat: String, dof: ABooleanArrayByRef, d: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun setLoadDeformation(name: String, loadPat: String, dof: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, d: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("SetLoadDeformation", name, loadPat, dof, d, itemType)
 
     /**
@@ -427,7 +427,7 @@ interface LinkObjV14 : SapComponent {
      * If this item is SelectedObjects, assignment is made to all selected link objects, and the Name item is ignored.
      * @return zero if the target forces are successfully assigned; otherwise it returns a nonzero value.
      */
-    fun setLoadTargetForce(name: String, loadPat: String, dof: ABooleanArrayByRef, f: ADoubleArrayByRef, rd: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun setLoadTargetForce(name: String, loadPat: String, dof: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, f: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, rd: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("SetLoadTargetForce", name, loadPat, dof, f, rd, itemType)
 
     /**
@@ -461,7 +461,7 @@ interface LinkObjV14 : SapComponent {
      * If this item is Selection, assignment is made to all selected link objects and the Name item is ignored.
      * @return zero if the advanced local axes assignments are assigned successfully; otherwise, it returns a nonzero value.
      */
-    fun setLocalAxesAdvanced(name: String, active: Boolean, axVectOpt: Int, axCSys: String, axDir: AIntArrayByRef, axPt: AStringArrayByRef, axVect: ADoubleArrayByRef, plane2: Int, plVectOpt: Int, plCSys: String, plDir: AIntArrayByRef, plPt: AStringArrayByRef, plVect: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun setLocalAxesAdvanced(name: String, active: Boolean, axVectOpt: Int, axCSys: String, axDir: AIntArrayByRef = IntArrayByRef.UNNECESSARY, axPt: AStringArrayByRef = StringArrayByRef.UNNECESSARY, axVect: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, plane2: Int, plVectOpt: Int, plCSys: String, plDir: AIntArrayByRef = IntArrayByRef.UNNECESSARY, plPt: AStringArrayByRef = StringArrayByRef.UNNECESSARY, plVect: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("SetLocalAxesAdvanced", name, active, axVectOpt, axCSys, axDir, axPt, axVect, plane2, plVectOpt, plCSys, plDir, plPt, plVect, itemType)
 
     /**

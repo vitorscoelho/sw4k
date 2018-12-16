@@ -15,7 +15,7 @@ interface FuncRSV14 : SapComponent {
      * @param dampRatio The damping ratio for the function, 0 <= DampRatio < 1.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getAASHTO2006(name: String, AASHTO2006A: ADoubleByRef, AASHTO2006SoilProfileType: AIntByRef, dampRatio: ADoubleByRef): Int =
+    fun getAASHTO2006(name: String, AASHTO2006A: ADoubleByRef = DoubleByRef.UNNECESSARY, AASHTO2006SoilProfileType: AIntByRef = IntByRef.UNNECESSARY, dampRatio: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetAASHTO2006", name, AASHTO2006A, AASHTO2006SoilProfileType, dampRatio)
 
     /**
@@ -39,7 +39,7 @@ interface FuncRSV14 : SapComponent {
      * @param dampRatio The damping ratio for the function, 0 <= DampRatio < 1.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getAASHTO2007(name: String, AASHTO2007Option: AIntByRef, AASHTO2007Latitude: ADoubleByRef, AASHTO2007Longitude: ADoubleByRef, AASHTO2007ZipCode: AStringByRef, AASHTO2007SS: ADoubleByRef, AASHTO2007S1: ADoubleByRef, AASHTO2007PGA: ADoubleByRef, AASHTO2007SiteClass: AIntByRef, AASHTO2007Fa: ADoubleByRef, AASHTO2007Fv: ADoubleByRef, AASHTO2007Fpga: ADoubleByRef, dampRatio: ADoubleByRef): Int =
+    fun getAASHTO2007(name: String, AASHTO2007Option: AIntByRef = IntByRef.UNNECESSARY, AASHTO2007Latitude: ADoubleByRef = DoubleByRef.UNNECESSARY, AASHTO2007Longitude: ADoubleByRef = DoubleByRef.UNNECESSARY, AASHTO2007ZipCode: AStringByRef = StringByRef.UNNECESSARY, AASHTO2007SS: ADoubleByRef = DoubleByRef.UNNECESSARY, AASHTO2007S1: ADoubleByRef = DoubleByRef.UNNECESSARY, AASHTO2007PGA: ADoubleByRef = DoubleByRef.UNNECESSARY, AASHTO2007SiteClass: AIntByRef = IntByRef.UNNECESSARY, AASHTO2007Fa: ADoubleByRef = DoubleByRef.UNNECESSARY, AASHTO2007Fv: ADoubleByRef = DoubleByRef.UNNECESSARY, AASHTO2007Fpga: ADoubleByRef = DoubleByRef.UNNECESSARY, dampRatio: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetAASHTO2007", name, AASHTO2007Option, AASHTO2007Latitude, AASHTO2007Longitude, AASHTO2007ZipCode, AASHTO2007SS, AASHTO2007S1, AASHTO2007PGA, AASHTO2007SiteClass, AASHTO2007Fa, AASHTO2007Fv, AASHTO2007Fpga, dampRatio)
 
     /**
@@ -58,7 +58,7 @@ interface FuncRSV14 : SapComponent {
      * @param dampRatio The damping ratio for the function, 0 <= DampRatio < 1.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getAS11702007(name: String, AS2007SiteClass: AIntByRef, AS2007kp: ADoubleByRef, AS2007Z: ADoubleByRef, AS2007Sp: ADoubleByRef, AS2007Mu: ADoubleByRef, dampRatio: ADoubleByRef): Int =
+    fun getAS11702007(name: String, AS2007SiteClass: AIntByRef = IntByRef.UNNECESSARY, AS2007kp: ADoubleByRef = DoubleByRef.UNNECESSARY, AS2007Z: ADoubleByRef = DoubleByRef.UNNECESSARY, AS2007Sp: ADoubleByRef = DoubleByRef.UNNECESSARY, AS2007Mu: ADoubleByRef = DoubleByRef.UNNECESSARY, dampRatio: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetAS11702007", name, AS2007SiteClass, AS2007kp, AS2007Z, AS2007Sp, AS2007Mu, dampRatio)
 
     /**
@@ -71,7 +71,7 @@ interface FuncRSV14 : SapComponent {
      * @param dampRatio The damping ratio for the function, 0 <= DampRatio < 1.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getBOCA96(name: String, BOCA96Aa: ADoubleByRef, BOCA96Av: ADoubleByRef, BOCA96S: ADoubleByRef, BOCA96R: ADoubleByRef, dampRatio: ADoubleByRef): Int =
+    fun getBOCA96(name: String, BOCA96Aa: ADoubleByRef = DoubleByRef.UNNECESSARY, BOCA96Av: ADoubleByRef = DoubleByRef.UNNECESSARY, BOCA96S: ADoubleByRef = DoubleByRef.UNNECESSARY, BOCA96R: ADoubleByRef = DoubleByRef.UNNECESSARY, dampRatio: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetBOCA96", name, BOCA96Aa, BOCA96Av, BOCA96S, BOCA96R, dampRatio)
 
     /**
@@ -90,7 +90,7 @@ interface FuncRSV14 : SapComponent {
      * @param dampRatio The damping ratio for the function, 0 <= DampRatio < 1.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getChinese2002(name: String, JGJ32002AlphaMax: ADoubleByRef, JGJ32002SI: AIntByRef, JGJ32002Tg: ADoubleByRef, JGJ32002PTDF: ADoubleByRef, dampRatio: ADoubleByRef): Int =
+    fun getChinese2002(name: String, JGJ32002AlphaMax: ADoubleByRef = DoubleByRef.UNNECESSARY, JGJ32002SI: AIntByRef = IntByRef.UNNECESSARY, JGJ32002Tg: ADoubleByRef = DoubleByRef.UNNECESSARY, JGJ32002PTDF: ADoubleByRef = DoubleByRef.UNNECESSARY, dampRatio: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetChinese2002", name, JGJ32002AlphaMax, JGJ32002SI, JGJ32002Tg, JGJ32002PTDF, dampRatio)
 
     /**
@@ -105,7 +105,7 @@ interface FuncRSV14 : SapComponent {
      * @param dampRatio The damping ratio for the function, 0 <= DampRatio < 1.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getEuroCode8(name: String, euroCode8AG: ADoubleByRef, euroCode8S: AIntByRef, euroCode8n: ADoubleByRef, dampRatio: ADoubleByRef): Int =
+    fun getEuroCode8(name: String, euroCode8AG: ADoubleByRef = DoubleByRef.UNNECESSARY, euroCode8S: AIntByRef = IntByRef.UNNECESSARY, euroCode8n: ADoubleByRef = DoubleByRef.UNNECESSARY, dampRatio: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetEuroCode8", name, euroCode8AG, euroCode8S, euroCode8n, dampRatio)
 
     /**
@@ -126,7 +126,7 @@ interface FuncRSV14 : SapComponent {
      * @param dampRatio The damping ratio for the function, 0 <= DampRatio < 1.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getEurocode82004(name: String, EURO2004GroundType: AIntByRef, EURO2004SpectrumType: AIntByRef, EURO2004ag: ADoubleByRef, EURO2004Beta: ADoubleByRef, EURO2004q: ADoubleByRef, dampRatio: ADoubleByRef): Int =
+    fun getEurocode82004(name: String, EURO2004GroundType: AIntByRef = IntByRef.UNNECESSARY, EURO2004SpectrumType: AIntByRef = IntByRef.UNNECESSARY, EURO2004ag: ADoubleByRef = DoubleByRef.UNNECESSARY, EURO2004Beta: ADoubleByRef = DoubleByRef.UNNECESSARY, EURO2004q: ADoubleByRef = DoubleByRef.UNNECESSARY, dampRatio: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetEurocode82004", name, EURO2004GroundType, EURO2004SpectrumType, EURO2004ag, EURO2004Beta, EURO2004q, dampRatio)
 
     /**
@@ -140,7 +140,7 @@ interface FuncRSV14 : SapComponent {
      * * 2 = Period
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getFromFile(name: String, fileName: AStringByRef, headLines: AIntByRef, dampRatio: ADoubleByRef, valueType: AIntByRef): Int =
+    fun getFromFile(name: String, fileName: AStringByRef = StringByRef.UNNECESSARY, headLines: AIntByRef = IntByRef.UNNECESSARY, dampRatio: ADoubleByRef = DoubleByRef.UNNECESSARY, valueType: AIntByRef = IntByRef.UNNECESSARY): Int =
             callFunctionInt("GetFromFile", name, fileName, headLines, dampRatio, valueType)
 
     /**
@@ -151,7 +151,7 @@ interface FuncRSV14 : SapComponent {
      * @param dampRatio The damping ratio for the function, 0 <= DampRatio < 1.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getIBC2003(name: String, IBC2003SS: ADoubleByRef, IBC2003S1: ADoubleByRef, dampRatio: ADoubleByRef): Int =
+    fun getIBC2003(name: String, IBC2003SS: ADoubleByRef = DoubleByRef.UNNECESSARY, IBC2003S1: ADoubleByRef = DoubleByRef.UNNECESSARY, dampRatio: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetIBC2003", name, IBC2003SS, IBC2003S1, dampRatio)
 
     /**
@@ -176,7 +176,7 @@ interface FuncRSV14 : SapComponent {
      * @param dampRatio The damping ratio for the function, 0 <= DampRatio < 1.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getIBC2006(name: String, IBC2006Option: AIntByRef, IBC2006Latitude: ADoubleByRef, IBC2006Longitude: ADoubleByRef, IBC2006ZipCode: AStringByRef, IBC2006SS: ADoubleByRef, IBC2006S1: ADoubleByRef, IBC2006TL: ADoubleByRef, IBC2006SiteClass: AIntByRef, IBC2006Fa: ADoubleByRef, IBC2006Fv: ADoubleByRef, dampRatio: ADoubleByRef): Int =
+    fun getIBC2006(name: String, IBC2006Option: AIntByRef = IntByRef.UNNECESSARY, IBC2006Latitude: ADoubleByRef = DoubleByRef.UNNECESSARY, IBC2006Longitude: ADoubleByRef = DoubleByRef.UNNECESSARY, IBC2006ZipCode: AStringByRef = StringByRef.UNNECESSARY, IBC2006SS: ADoubleByRef = DoubleByRef.UNNECESSARY, IBC2006S1: ADoubleByRef = DoubleByRef.UNNECESSARY, IBC2006TL: ADoubleByRef = DoubleByRef.UNNECESSARY, IBC2006SiteClass: AIntByRef = IntByRef.UNNECESSARY, IBC2006Fa: ADoubleByRef = DoubleByRef.UNNECESSARY, IBC2006Fv: ADoubleByRef = DoubleByRef.UNNECESSARY, dampRatio: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetIBC2006", name, IBC2006Option, IBC2006Latitude, IBC2006Longitude, IBC2006ZipCode, IBC2006SS, IBC2006S1, IBC2006TL, IBC2006SiteClass, IBC2006Fa, IBC2006Fv, dampRatio)
 
     /**
@@ -190,7 +190,7 @@ interface FuncRSV14 : SapComponent {
      * @param dampRatio The damping ratio for the function, 0 <= DampRatio < 1.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getIS18932002(name: String, INZ: ADoubleByRef, INS: AIntByRef, dampRatio: ADoubleByRef): Int =
+    fun getIS18932002(name: String, INZ: ADoubleByRef = DoubleByRef.UNNECESSARY, INS: AIntByRef = IntByRef.UNNECESSARY, dampRatio: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetIS18932002", name, INZ, INS, dampRatio)
 
     /**
@@ -217,7 +217,7 @@ interface FuncRSV14 : SapComponent {
      * @param dampRatio The damping ratio for the function, 0 <= DampRatio < 1.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getItalian3274(name: String, italag: ADoubleByRef, italSoilType: AIntByRef, italq: ADoubleByRef, italLevel: ADoubleByRef, dampRatio: ADoubleByRef): Int =
+    fun getItalian3274(name: String, italag: ADoubleByRef = DoubleByRef.UNNECESSARY, italSoilType: AIntByRef = IntByRef.UNNECESSARY, italq: ADoubleByRef = DoubleByRef.UNNECESSARY, italLevel: ADoubleByRef = DoubleByRef.UNNECESSARY, dampRatio: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetItalian3274", name, italag, italSoilType, italq, italLevel, dampRatio)
 
     /**
@@ -240,7 +240,7 @@ interface FuncRSV14 : SapComponent {
      * @param dampRatio The damping ratio for the function, 0 <= DampRatio < 1.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getNBCC2005(name: String, NBCC2005PGA: ADoubleByRef, NBCC2005S02: ADoubleByRef, NBCC2005S05: ADoubleByRef, NBCC2005S1: ADoubleByRef, NBCC2005S2: ADoubleByRef, NBCC2005SiteClass: AIntByRef, NBCC2005Fa: ADoubleByRef, NBCC2005Fv: ADoubleByRef, dampRatio: ADoubleByRef): Int =
+    fun getNBCC2005(name: String, NBCC2005PGA: ADoubleByRef = DoubleByRef.UNNECESSARY, NBCC2005S02: ADoubleByRef = DoubleByRef.UNNECESSARY, NBCC2005S05: ADoubleByRef = DoubleByRef.UNNECESSARY, NBCC2005S1: ADoubleByRef = DoubleByRef.UNNECESSARY, NBCC2005S2: ADoubleByRef = DoubleByRef.UNNECESSARY, NBCC2005SiteClass: AIntByRef = IntByRef.UNNECESSARY, NBCC2005Fa: ADoubleByRef = DoubleByRef.UNNECESSARY, NBCC2005Fv: ADoubleByRef = DoubleByRef.UNNECESSARY, dampRatio: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetNBCC2005", name, NBCC2005PGA, NBCC2005S02, NBCC2005S05, NBCC2005S1, NBCC2005S2, NBCC2005SiteClass, NBCC2005Fa, NBCC2005Fv, dampRatio)
 
     /**
@@ -252,7 +252,7 @@ interface FuncRSV14 : SapComponent {
      * @param dampRatio The damping ratio for the function, 0 <= DampRatio < 1.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getNBCC95(name: String, NBCC95ZVR: ADoubleByRef, NBCC95ZA: AIntByRef, NBCC95ZV: AIntByRef, dampRatio: ADoubleByRef): Int =
+    fun getNBCC95(name: String, NBCC95ZVR: ADoubleByRef = DoubleByRef.UNNECESSARY, NBCC95ZA: AIntByRef = IntByRef.UNNECESSARY, NBCC95ZV: AIntByRef = IntByRef.UNNECESSARY, dampRatio: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetNBCC95", name, NBCC95ZVR, NBCC95ZA, NBCC95ZV, dampRatio)
 
     /**
@@ -276,7 +276,7 @@ interface FuncRSV14 : SapComponent {
      * @param dampRatio The damping ratio for the function, 0 <= DampRatio < 1.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getNCHRP2007(name: String, NCHRP2007Option: AIntByRef, NCHRP2007Latitude: ADoubleByRef, NCHRP2007Longitude: ADoubleByRef, NCHRP2007ZipCode: AStringByRef, NCHRP2007SS: ADoubleByRef, NCHRP2007S1: ADoubleByRef, NCHRP2007SiteClass: AIntByRef, NCHRP2007Fa: ADoubleByRef, NCHRP2007Fv: ADoubleByRef, dampRatio: ADoubleByRef): Int =
+    fun getNCHRP2007(name: String, NCHRP2007Option: AIntByRef = IntByRef.UNNECESSARY, NCHRP2007Latitude: ADoubleByRef = DoubleByRef.UNNECESSARY, NCHRP2007Longitude: ADoubleByRef = DoubleByRef.UNNECESSARY, NCHRP2007ZipCode: AStringByRef = StringByRef.UNNECESSARY, NCHRP2007SS: ADoubleByRef = DoubleByRef.UNNECESSARY, NCHRP2007S1: ADoubleByRef = DoubleByRef.UNNECESSARY, NCHRP2007SiteClass: AIntByRef = IntByRef.UNNECESSARY, NCHRP2007Fa: ADoubleByRef = DoubleByRef.UNNECESSARY, NCHRP2007Fv: ADoubleByRef = DoubleByRef.UNNECESSARY, dampRatio: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetNCHRP2007", name, NCHRP2007Option, NCHRP2007Latitude, NCHRP2007Longitude, NCHRP2007ZipCode, NCHRP2007SS, NCHRP2007S1, NCHRP2007SiteClass, NCHRP2007Fa, NCHRP2007Fv, dampRatio)
 
     /**
@@ -287,7 +287,7 @@ interface FuncRSV14 : SapComponent {
      * @param dampRatio The damping ratio for the function, 0 <= DampRatio < 1.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getNEHRP97(name: String, NEHRP97SS: ADoubleByRef, NEHRP97S1: ADoubleByRef, dampRatio: ADoubleByRef): Int =
+    fun getNEHRP97(name: String, NEHRP97SS: ADoubleByRef = DoubleByRef.UNNECESSARY, NEHRP97S1: ADoubleByRef = DoubleByRef.UNNECESSARY, dampRatio: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetNEHRP97", name, NEHRP97SS, NEHRP97S1, dampRatio)
 
     /**
@@ -305,7 +305,7 @@ interface FuncRSV14 : SapComponent {
      * @param dampRatio The damping ratio for the function, 0 <= DampRatio < 1.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getNZS11702004(name: String, NZS2004SiteClass: Int, NZS2004Z: Double, NZS2004R: Double, NZS2004N: Double, dampRatio: ADoubleByRef): Int =
+    fun getNZS11702004(name: String, NZS2004SiteClass: Int, NZS2004Z: Double, NZS2004R: Double, NZS2004N: Double, dampRatio: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetNZS11702004", name, NZS2004SiteClass, NZS2004Z, NZS2004R, NZS2004N, dampRatio)
 
     /**
@@ -319,7 +319,7 @@ interface FuncRSV14 : SapComponent {
      * @param dampRatio The damping ratio for the function, 0 <= DampRatio < 1.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getNZS42031992(name: String, NZS4203SF: ADoubleByRef, NZS4203S: AIntByRef, dampRatio: ADoubleByRef): Int =
+    fun getNZS42031992(name: String, NZS4203SF: ADoubleByRef = DoubleByRef.UNNECESSARY, NZS4203S: AIntByRef = IntByRef.UNNECESSARY, dampRatio: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetNZS42031992", name, NZS4203SF, NZS4203S, dampRatio)
 
     /**
@@ -330,7 +330,7 @@ interface FuncRSV14 : SapComponent {
      * @param dampRatio The damping ratio for the function, 0 <= DampRatio < 1.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getUBC94(name: String, UBC94Z: ADoubleByRef, UBC94S: AIntByRef, dampRatio: ADoubleByRef): Int =
+    fun getUBC94(name: String, UBC94Z: ADoubleByRef = DoubleByRef.UNNECESSARY, UBC94S: AIntByRef = IntByRef.UNNECESSARY, dampRatio: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetUBC94", name, UBC94Z, UBC94S, dampRatio)
 
     /**
@@ -341,7 +341,7 @@ interface FuncRSV14 : SapComponent {
      * @param dampRatio The damping ratio for the function, 0 <= DampRatio < 1.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getUBC97(name: String, UBC97Ca: ADoubleByRef, UBC97Cv: ADoubleByRef, dampRatio: ADoubleByRef): Int =
+    fun getUBC97(name: String, UBC97Ca: ADoubleByRef = DoubleByRef.UNNECESSARY, UBC97Cv: ADoubleByRef = DoubleByRef.UNNECESSARY, dampRatio: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetUBC97", name, UBC97Ca, UBC97Cv, dampRatio)
 
     /**
@@ -353,7 +353,7 @@ interface FuncRSV14 : SapComponent {
      * @param dampRatio The damping ratio for the function, 0 <= DampRatio < 1.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getUser(name: String, numberItems: AIntByRef, period: ADoubleArrayByRef, value: ADoubleArrayByRef, dampRatio: ADoubleByRef): Int =
+    fun getUser(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, period: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dampRatio: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetUser", name, numberItems, period, value, dampRatio)
 
     /**
@@ -392,7 +392,7 @@ interface FuncRSV14 : SapComponent {
      * @param dampRatio The damping ratio for the function, 0 <= DampRatio < 1.
      * @return zero if the function is successfully defined; otherwise it returns a nonzero value.
      */
-    fun setAASHTO2007(name: String, AASHTO2007Option: Int, AASHTO2007Latitude: Double, AASHTO2007Longitude: Double, AASHTO2007ZipCode: String, AASHTO2007SS: Double, AASHTO2007S1: Double, AASHTO2007PGA: Double, AASHTO2007SiteClass: Int, AASHTO2007Fa: Double, AASHTO2007Fv: ADoubleByRef, AASHTO2007Fpga: Double, dampRatio: Double): Int =
+    fun setAASHTO2007(name: String, AASHTO2007Option: Int, AASHTO2007Latitude: Double, AASHTO2007Longitude: Double, AASHTO2007ZipCode: String, AASHTO2007SS: Double, AASHTO2007S1: Double, AASHTO2007PGA: Double, AASHTO2007SiteClass: Int, AASHTO2007Fa: Double, AASHTO2007Fv: ADoubleByRef = DoubleByRef.UNNECESSARY, AASHTO2007Fpga: Double, dampRatio: Double): Int =
             callFunctionInt("SetAASHTO2007", name, AASHTO2007Option, AASHTO2007Latitude, AASHTO2007Longitude, AASHTO2007ZipCode, AASHTO2007SS, AASHTO2007S1, AASHTO2007PGA, AASHTO2007SiteClass, AASHTO2007Fa, AASHTO2007Fv, AASHTO2007Fpga, dampRatio)
 
     /**
@@ -529,7 +529,7 @@ interface FuncRSV14 : SapComponent {
      * @param dampRatio The damping ratio for the function, 0 <= DampRatio < 1.
      * @return zero if the function is successfully defined; otherwise it returns a nonzero value.
      */
-    fun setIBC2006(name: String, IBC2006Option: Int, IBC2006Latitude: Double, IBC2006Longitude: Double, IBC2006ZipCode: String, IBC2006SS: Double, IBC2006S1: Double, IBC2006TL: Double, IBC2006SiteClass: Int, IBC2006Fa: Double, IBC2006Fv: ADoubleByRef, dampRatio: Double): Int =
+    fun setIBC2006(name: String, IBC2006Option: Int, IBC2006Latitude: Double, IBC2006Longitude: Double, IBC2006ZipCode: String, IBC2006SS: Double, IBC2006S1: Double, IBC2006TL: Double, IBC2006SiteClass: Int, IBC2006Fa: Double, IBC2006Fv: ADoubleByRef = DoubleByRef.UNNECESSARY, dampRatio: Double): Int =
             callFunctionInt("SetIBC2006", name, IBC2006Option, IBC2006Latitude, IBC2006Longitude, IBC2006ZipCode, IBC2006SS, IBC2006S1, IBC2006TL, IBC2006SiteClass, IBC2006Fa, IBC2006Fv, dampRatio)
 
     /**
@@ -629,7 +629,7 @@ interface FuncRSV14 : SapComponent {
      * @param dampRatio The damping ratio for the function, 0 <= DampRatio < 1.
      * @return zero if the function is successfully defined; otherwise it returns a nonzero value.
      */
-    fun setNCHRP2007(name: String, NCHRP2007Option: Int, NCHRP2007Latitude: Double, NCHRP2007Longitude: Double, NCHRP2007ZipCode: String, NCHRP2007SS: Double, NCHRP2007S1: Double, NCHRP2007SiteClass: Int, NCHRP2007Fa: Double, NCHRP2007Fv: ADoubleByRef, dampRatio: Double): Int =
+    fun setNCHRP2007(name: String, NCHRP2007Option: Int, NCHRP2007Latitude: Double, NCHRP2007Longitude: Double, NCHRP2007ZipCode: String, NCHRP2007SS: Double, NCHRP2007S1: Double, NCHRP2007SiteClass: Int, NCHRP2007Fa: Double, NCHRP2007Fv: ADoubleByRef = DoubleByRef.UNNECESSARY, dampRatio: Double): Int =
             callFunctionInt("SetNCHRP2007", name, NCHRP2007Option, NCHRP2007Latitude, NCHRP2007Longitude, NCHRP2007ZipCode, NCHRP2007SS, NCHRP2007S1, NCHRP2007SiteClass, NCHRP2007Fa, NCHRP2007Fv, dampRatio)
 
     /**
@@ -706,6 +706,6 @@ interface FuncRSV14 : SapComponent {
      * @param dampRatio The damping ratio for the function, 0 <= DampRatio < 1.
      * @return zero if the function is successfully defined; otherwise it returns a nonzero value.
      */
-    fun setUser(name: String, numberItems: Int, period: ADoubleArrayByRef, value: ADoubleArrayByRef, dampRatio: Double): Int =
+    fun setUser(name: String, numberItems: Int, period: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dampRatio: Double): Int =
             callFunctionInt("SetUser", name, numberItems, period, value, dampRatio)
 }

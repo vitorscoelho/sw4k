@@ -33,7 +33,7 @@ interface SetupV14 : SapComponent {
      * @param gx, gy, gz The global coordinates of the location at which the base reactions are reported.
      * @return 0 if the coordinates are successfully retrieved, otherwise it returns nonzero.
      */
-    fun getOptionBaseReactLoc(gx: ADoubleByRef, gy: ADoubleByRef, gz: ADoubleByRef): Int =
+    fun getOptionBaseReactLoc(gx: ADoubleByRef = DoubleByRef.UNNECESSARY, gy: ADoubleByRef = DoubleByRef.UNNECESSARY, gz: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetOptionBaseReactLoc", gx, gy, gz)
 
     /**
@@ -43,7 +43,7 @@ interface SetupV14 : SapComponent {
      * @param buckModeAll If this item is True, buckling factors are reported for all calculated buckling modes. If it is False, buckling factors are reported for the buckling modes indicated by the BuckModeStart and BuckModeEnd items.
      * @return 0 if the modes are successfully retrieved, otherwise it returns nonzero.
      */
-    fun getOptionBucklingMode(buckModeStart: AIntByRef, buckModeEnd: AIntByRef, buckModeAll: ABooleanByRef): Int =
+    fun getOptionBucklingMode(buckModeStart: AIntByRef = IntByRef.UNNECESSARY, buckModeEnd: AIntByRef = IntByRef.UNNECESSARY, buckModeAll: ABooleanByRef): Int =
             callFunctionInt("GetOptionBucklingMode", buckModeStart, buckModeEnd, buckModeAll)
 
     /**
@@ -54,7 +54,7 @@ interface SetupV14 : SapComponent {
      * * 3 = Last Step
      * @return 0 if the output option is successfully retrieved, otherwise it returns nonzero.
      */
-    fun getOptionDirectHist(value: AIntByRef): Int =
+    fun getOptionDirectHist(value: AIntByRef = IntByRef.UNNECESSARY): Int =
             callFunctionInt("GetOptionDirectHist", value)
 
     /**
@@ -65,7 +65,7 @@ interface SetupV14 : SapComponent {
      * * 3 = Last Step
      * @return 0 if the output option is successfully retrieved, otherwise it returns nonzero.
      */
-    fun getOptionModalHist(value: AIntByRef): Int =
+    fun getOptionModalHist(value: AIntByRef = IntByRef.UNNECESSARY): Int =
             callFunctionInt("GetOptionModalHist", value)
 
     /**
@@ -75,7 +75,7 @@ interface SetupV14 : SapComponent {
      * @param modeShapesAll If this item is True, results are reported for all calculated modes. If it is False, results are reported for the modes indicated by the ModeShapeStart and ModeShapeEnd items.
      * @return 0 if the modes are successfully retrieved, otherwise it returns nonzero.
      */
-    fun getOptionModeShape(modeShapeStart: AIntByRef, modeShapeEnd: AIntByRef, modeShapesAll: ABooleanByRef): Int =
+    fun getOptionModeShape(modeShapeStart: AIntByRef = IntByRef.UNNECESSARY, modeShapeEnd: AIntByRef = IntByRef.UNNECESSARY, modeShapesAll: ABooleanByRef): Int =
             callFunctionInt("GetOptionModeShape", modeShapeStart, modeShapeEnd, modeShapesAll)
 
     /**
@@ -86,7 +86,7 @@ interface SetupV14 : SapComponent {
      * * 3 = Last Step
      * @return 0 if the output option is successfully retrieved, otherwise it returns nonzero.
      */
-    fun getOptionMultiStepStatic(value: AIntByRef): Int =
+    fun getOptionMultiStepStatic(value: AIntByRef = IntByRef.UNNECESSARY): Int =
             callFunctionInt("GetOptionMultiStepStatic", value)
 
     /**
@@ -96,7 +96,7 @@ interface SetupV14 : SapComponent {
      * * 2 = Multiple values, if possible
      * @return 0 if the output option is successfully retrieved, otherwise it returns nonzero.
      */
-    fun getOptionMultiValuedCombo(value: AIntByRef): Int =
+    fun getOptionMultiValuedCombo(value: AIntByRef = IntByRef.UNNECESSARY): Int =
             callFunctionInt("GetOptionMultiValuedCombo", value)
 
     /**
@@ -107,7 +107,7 @@ interface SetupV14 : SapComponent {
      * * 3 = Last Step
      * @return 0 if the output option is successfully retrieved, otherwise it returns nonzero.
      */
-    fun getOptionNLStatic(value: AIntByRef): Int =
+    fun getOptionNLStatic(value: AIntByRef = IntByRef.UNNECESSARY): Int =
             callFunctionInt("GetOptionNLStatic", value)
 
     /**
@@ -117,7 +117,7 @@ interface SetupV14 : SapComponent {
      * * 2 = sqrt(PSD)
      * @return 0 if the output option is successfully retrieved, otherwise it returns nonzero.
      */
-    fun getOptionPSD(value: AIntByRef): Int =
+    fun getOptionPSD(value: AIntByRef = IntByRef.UNNECESSARY): Int =
             callFunctionInt("GetOptionPSD", value)
 
     /**
@@ -131,7 +131,7 @@ interface SetupV14 : SapComponent {
      * * 3 = All
      * @return 0 if the output option is successfully retrieved, otherwise it returns nonzero.
      */
-    fun getOptionSteadyState(value: AIntByRef, steadyStateOption: AIntByRef): Int =
+    fun getOptionSteadyState(value: AIntByRef = IntByRef.UNNECESSARY, steadyStateOption: AIntByRef = IntByRef.UNNECESSARY): Int =
             callFunctionInt("GetOptionSteadyState", value, steadyStateOption)
 
     /**

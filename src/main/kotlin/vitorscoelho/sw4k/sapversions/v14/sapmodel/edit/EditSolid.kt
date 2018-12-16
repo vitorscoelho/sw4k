@@ -1,8 +1,6 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.edit
 
-import vitorscoelho.sw4k.comutils.AIntByRef
-import vitorscoelho.sw4k.comutils.SapComponent
-import vitorscoelho.sw4k.comutils.AStringArrayByRef
+import vitorscoelho.sw4k.comutils.*
 
 interface EditSolidV14 : SapComponent {
     /**
@@ -15,6 +13,6 @@ interface EditSolidV14 : SapComponent {
      * @param solidName This is an array of the name of each solid object created when the specified solid object is divided.
      * @return zero if the meshing is successful; otherwise it returns a nonzero value.
      */
-    fun divide(name: String, n1: Int, n2: Int, n3: Int, numberSolids: AIntByRef, solidName: AStringArrayByRef): Int =
+    fun divide(name: String, n1: Int, n2: Int, n3: Int, numberSolids: AIntByRef = IntByRef.UNNECESSARY, solidName: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("Divide", name, n1, n2, n3, numberSolids, solidName)
 }

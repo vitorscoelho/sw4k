@@ -32,7 +32,7 @@ interface ReleaseFrameV14 : SapComponent {
      * @param myName This is a one-dimensional array of frame end release names.
      * @return zero if the names are successfully retrieved; otherwise it returns nonzero values.
      */
-    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef): Int =
+    fun getNameList(numberNames: AIntByRef = IntByRef.UNNECESSARY, myName: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetNameList", numberNames, myName)
 
     /**
@@ -68,7 +68,7 @@ interface ReleaseFrameV14 : SapComponent {
      * * EndValue(5) = R3 partial fixity (FL/rad)
      * @return zero if the release assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getReleases(name: String, ii: ABooleanArrayByRef, jj: ABooleanArrayByRef, startValue: ADoubleArrayByRef, endValue: ADoubleArrayByRef): Int =
+    fun getReleases(name: String, ii: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, jj: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, startValue: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, endValue: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetReleases", name, ii, jj, startValue, endValue)
 
     /**
@@ -104,6 +104,6 @@ interface ReleaseFrameV14 : SapComponent {
      * * EndValue(5) = R3 partial fixity (FL/rad)
      * @return zero if the release is successfully defined; otherwise it returns a nonzero value.
      */
-    fun setReleases(name: String, ii: ABooleanArrayByRef, jj: ABooleanArrayByRef, startValue: ADoubleArrayByRef, endValue: ADoubleArrayByRef): Int =
+    fun setReleases(name: String, ii: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, jj: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, startValue: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, endValue: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("SetReleases", name, ii, jj, startValue, endValue)
 }

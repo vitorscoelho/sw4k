@@ -15,7 +15,7 @@ interface CableObjV14 : SapComponent {
      * @param cSys The name of the coordinate system in which the cable object end point coordinates are defined.
      * @return zero if the cable object is successfully added, otherwise it returns a nonzero value.
      */
-    fun addByCoord(xi: Double, yi: Double, zi: Double, xj: Double, yj: Double, zj: Double, name: AStringByRef= StringByRef.UNNECESSARY, propName: String = "Default", userName: String = "", cSys: String = "Global"): Int =
+    fun addByCoord(xi: Double, yi: Double, zi: Double, xj: Double, yj: Double, zj: Double, name: AStringByRef = StringByRef.UNNECESSARY, propName: String = "Default", userName: String = "", cSys: String = "Global"): Int =
             callFunctionInt("AddByCoord", xi, yi, zi, xj, yj, zj, name, propName, userName, cSys)
 
     /**
@@ -28,7 +28,7 @@ interface CableObjV14 : SapComponent {
      * @param userName This is an optional user specified name for the cable object. If a UserName is specified and that name is already used for another cable object, the program ignores the UserName.
      * @return zero if the cable object is successfully added, otherwise it returns a nonzero value.
      */
-    fun addByPoint(point1: String, point2: String, name: AStringByRef=StringByRef.UNNECESSARY, propName: String = "Default", userName: String = ""): Int =
+    fun addByPoint(point1: String, point2: String, name: AStringByRef = StringByRef.UNNECESSARY, propName: String = "Default", userName: String = ""): Int =
             callFunctionInt("AddByPoint", point1, point2, name, propName, userName)
 
     /**
@@ -218,7 +218,7 @@ interface CableObjV14 : SapComponent {
      * * Parameter(10) = Undeformed relative length
      * @return zero if the data is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getCableData(name: AStringByRef, cableType: AIntByRef, numSegs: AIntByRef, weight: ADoubleByRef, projectedLoad: ADoubleByRef, useDeformedGeom: ABooleanByRef, modelUsingFrames: ABooleanByRef, parameter: ADoubleArrayByRef): Int =
+    fun getCableData(name: AStringByRef = StringByRef.UNNECESSARY, cableType: AIntByRef = IntByRef.UNNECESSARY, numSegs: AIntByRef = IntByRef.UNNECESSARY, weight: ADoubleByRef = DoubleByRef.UNNECESSARY, projectedLoad: ADoubleByRef = DoubleByRef.UNNECESSARY, useDeformedGeom: ABooleanByRef, modelUsingFrames: ABooleanByRef, parameter: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetCableData", name, cableType, numSegs, weight, projectedLoad, useDeformedGeom, modelUsingFrames, parameter)
 
     /**
@@ -232,7 +232,7 @@ interface CableObjV14 : SapComponent {
      * @param cSys The name of the coordinate system in which the x, y and z coordinates are to be reported.
      * @return zero if the data is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getCableGeometry(name: AStringByRef, numberPoints: AIntByRef, x: ADoubleArrayByRef, y: ADoubleArrayByRef, z: ADoubleArrayByRef, sag: ADoubleArrayByRef, dist: ADoubleArrayByRef, rd: ADoubleArrayByRef, cSys: String = "Global"): Int =
+    fun getCableGeometry(name: AStringByRef = StringByRef.UNNECESSARY, numberPoints: AIntByRef = IntByRef.UNNECESSARY, x: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, y: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, z: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, sag: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dist: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, rd: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, cSys: String = "Global"): Int =
             callFunctionInt("GetCableGeometry", name, numberPoints, x, y, z, sag, dist, rd, cSys)
 
     /**
@@ -244,7 +244,7 @@ interface CableObjV14 : SapComponent {
      * @param rdj An array that includes the relative distance along the cable object to the J-End of the line element.
      * @return zero if the line element information is successfully returned; otherwise it returns nonzero. An error occurs if the analysis model does not currently exist.
      */
-    fun getElm(name: String, nelm: AIntByRef, elm: AStringArrayByRef, rdi: ADoubleArrayByRef, rdj: ADoubleArrayByRef): Int =
+    fun getElm(name: String, nelm: AIntByRef = IntByRef.UNNECESSARY, elm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, rdi: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, rdj: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetElm", name, nelm, elm, rdi, rdj)
 
     /**
@@ -253,7 +253,7 @@ interface CableObjV14 : SapComponent {
      * @param GUID The GUID (Global Unique ID) for the specified cable object.
      * @return zero if the cable object GUID is successfully retrieved; otherwise it returns nonzero.
      */
-    fun getGUID(name: String, GUID: AStringByRef): Int =
+    fun getGUID(name: String, GUID: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetGUID", name, GUID)
 
     /**
@@ -271,7 +271,7 @@ interface CableObjV14 : SapComponent {
      * @param cSys This is Local or the name of a defined coordinate system. It is the coordinate system in which the Offset1 and Offset2 items are specified.
      * @return zero if the insertion point data is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getInsertionPoint(name: String, stiffTransform: ABooleanByRef, offset1: ADoubleArrayByRef, offset2: ADoubleArrayByRef, cSys: AStringByRef): Int =
+    fun getInsertionPoint(name: String, stiffTransform: ABooleanByRef, offset1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, offset2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, cSys: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetInsertionPoint", name, stiffTransform, offset1, offset2, cSys)
 
     /**
@@ -290,7 +290,7 @@ interface CableObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected cable objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadDeformation(name: String, numberItems: AIntByRef, cableName: AStringArrayByRef, loadPat: AStringArrayByRef, u1: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadDeformation(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, cableName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, u1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadDeformation", name, numberItems, cableName, loadPat, u1, itemType)
 
     /**
@@ -322,7 +322,7 @@ interface CableObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected cable objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadDistributed(name: String, numberItems: AIntByRef, cableName: AStringArrayByRef, loadPat: AStringArrayByRef, myType: AIntArrayByRef, cSys: AStringArrayByRef, dir: AIntArrayByRef, value: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadDistributed(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, cableName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, myType: AIntArrayByRef = IntArrayByRef.UNNECESSARY, cSys: AStringArrayByRef = StringArrayByRef.UNNECESSARY, dir: AIntArrayByRef = IntArrayByRef.UNNECESSARY, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadDistributed", name, numberItems, cableName, loadPat, myType, cSys, dir, value, itemType)
 
     /**
@@ -342,7 +342,7 @@ interface CableObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected cable objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadGravity(name: String, numberItems: AIntByRef, cableName: AStringArrayByRef, loadPat: AStringArrayByRef, cSys: AStringArrayByRef, x: ADoubleArrayByRef, y: ADoubleArrayByRef, z: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadGravity(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, cableName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, cSys: AStringArrayByRef = StringArrayByRef.UNNECESSARY, x: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, y: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, z: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadGravity", name, numberItems, cableName, loadPat, cSys, x, y, z, itemType)
 
     /**
@@ -362,7 +362,7 @@ interface CableObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected cable objects, and the Name item is ignored.
      * @return zero if the strain load assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadStrain(name: String, numberItems: AIntByRef, cableName: AStringArrayByRef, loadPat: AStringArrayByRef, strain: ADoubleArrayByRef, patternName: AStringArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadStrain(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, cableName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, strain: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, patternName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadStrain", name, numberItems, cableName, loadPat, strain, patternName, itemType)
 
     /**
@@ -382,7 +382,7 @@ interface CableObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected cable objects, and the Name item is ignored.
      * @return zero if the target force assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadTargetForce(name: String, numberItems: AIntByRef, cableName: AStringArrayByRef, loadPat: AStringArrayByRef, p: ADoubleArrayByRef, rd: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadTargetForce(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, cableName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, p: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, rd: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadTargetForce", name, numberItems, cableName, loadPat, p, rd, itemType)
 
     /**
@@ -402,7 +402,7 @@ interface CableObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected cable objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadTemperature(name: String, numberItems: AIntByRef, cableName: AStringArrayByRef, loadPat: AStringArrayByRef, myType: AIntArrayByRef, value: ADoubleArrayByRef, patternName: AStringArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadTemperature(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, cableName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, myType: AIntArrayByRef = IntArrayByRef.UNNECESSARY, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, patternName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadTemperature", name, numberItems, cableName, loadPat, myType, value, patternName, itemType)
 
     /**
@@ -411,7 +411,7 @@ interface CableObjV14 : SapComponent {
      * @param massOverL The mass per unit length assigned to the cable object. (M/L)
      * @return zero if the mass assignment is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getMass(name: String, massOverL: ADoubleByRef): Int =
+    fun getMass(name: String, massOverL: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetMass", name, massOverL)
 
     /**
@@ -420,7 +420,7 @@ interface CableObjV14 : SapComponent {
      * @param propName This is None, indicating that no material overwrite exists for the specified cable object, or it is the name of an existing material property.
      * @return zero if the material overwrite assignment is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getMaterialOverwrite(name: String, propName: AStringByRef): Int =
+    fun getMaterialOverwrite(name: String, propName: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetMaterialOverwrite", name, propName)
 
     /**
@@ -431,7 +431,7 @@ interface CableObjV14 : SapComponent {
      * If PatternName is the name of a defined joint pattern, the material temperature for the cable object may vary from one end to the other. The material temperature at each end of the object is equal to the specified temperature multiplied by the pattern value at the joint at the end of the cable object.
      * @return zero if the material temperature assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getMatTemp(name: String, temp: ADoubleByRef, patternName: AStringByRef): Int =
+    fun getMatTemp(name: String, temp: ADoubleByRef = DoubleByRef.UNNECESSARY, patternName: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetMatTemp", name, temp, patternName)
 
     /**
@@ -443,7 +443,7 @@ interface CableObjV14 : SapComponent {
      * * Value(2) = Weight modifier
      * @return zero if the modifier assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getModifiers(name: String, value: ADoubleArrayByRef): Int =
+    fun getModifiers(name: String, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetModifiers", name, value)
 
     /**
@@ -452,7 +452,7 @@ interface CableObjV14 : SapComponent {
      * @param myName This is a one-dimensional array of cable object names.
      * @return zero if the names are successfully retrieved, otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef): Int =
+    fun getNameList(numberNames: AIntByRef = IntByRef.UNNECESSARY, myName: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetNameList", numberNames, myName)
 
     /**
@@ -467,7 +467,7 @@ interface CableObjV14 : SapComponent {
      * @param noOutPutAndDesignAtPointLoads If this item is True, no additional output stations are added at point load locations.
      * @return zero if the data is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getOutputStations(name: String, myType: AIntByRef, maxSegSize: ADoubleByRef, minSections: AIntByRef, noOutPutAndDesignAtElementEnds: ABooleanByRef, noOutPutAndDesignAtPointLoads: ABooleanByRef): Int =
+    fun getOutputStations(name: String, myType: AIntByRef = IntByRef.UNNECESSARY, maxSegSize: ADoubleByRef = DoubleByRef.UNNECESSARY, minSections: AIntByRef = IntByRef.UNNECESSARY, noOutPutAndDesignAtElementEnds: ABooleanByRef, noOutPutAndDesignAtPointLoads: ABooleanByRef): Int =
             callFunctionInt("GetOutputStations", name, myType, maxSegSize, minSections, noOutPutAndDesignAtElementEnds, noOutPutAndDesignAtPointLoads)
 
     /**
@@ -477,7 +477,7 @@ interface CableObjV14 : SapComponent {
      * @param point2 The name of the point object at the J-End of the specified cable object.
      * @return zero if the point names are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getPoints(name: String, point1: AStringByRef, point2: AStringByRef): Int =
+    fun getPoints(name: String, point1: AStringByRef = StringByRef.UNNECESSARY, point2: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetPoints", name, point1, point2)
 
     /**
@@ -486,7 +486,7 @@ interface CableObjV14 : SapComponent {
      * @param propName The name of the cable property assigned to the cable object.
      * @return zero if the cable object property is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getProperty(name: String, propName: AStringByRef): Int =
+    fun getProperty(name: String, propName: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetProperty", name, propName)
 
     /**
@@ -508,7 +508,7 @@ interface CableObjV14 : SapComponent {
      * If this item is False, the transformation matrix is between the present coordinate system and the cable object local coordinate system.
      * @return zero if the cable object transformation matrix is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getTransformationMatrix(name: String, value: ADoubleArrayByRef, isGlobal: Boolean = true): Int =
+    fun getTransformationMatrix(name: String, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, isGlobal: Boolean = true): Int =
             callFunctionInt("GetTransformationMatrix", name, value, isGlobal)
 
     /**
@@ -592,7 +592,7 @@ interface CableObjV14 : SapComponent {
      * If this item is SelectedObjects, assignment is made to all selected cable objects, and the Name item is ignored.
      * @return zero if the insertion point data is successfully assigned, otherwise it returns a nonzero value.
      */
-    fun setInsertionPoint(name: String, stiffTransform: Boolean, offset1: ADoubleArrayByRef, offset2: ADoubleArrayByRef, cSys: String = "Local", itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun setInsertionPoint(name: String, stiffTransform: Boolean, offset1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, offset2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, cSys: String = "Local", itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("SetInsertionPoint", name, stiffTransform, offset1, offset2, cSys, itemType)
 
     /**
@@ -609,7 +609,7 @@ interface CableObjV14 : SapComponent {
      * If this item is SelectedObjects, assignment is made to all selected cable objects, and the Name item is ignored.
      * @return zero if the loads are successfully assigned, otherwise it returns a nonzero value.
      */
-    fun setLoadDeformation(name: String, loadPat: String, d: ADoubleByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun setLoadDeformation(name: String, loadPat: String, d: ADoubleByRef = DoubleByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("SetLoadDeformation", name, loadPat, d, itemType)
 
     /**
@@ -697,7 +697,7 @@ interface CableObjV14 : SapComponent {
      * If this item is SelectedObjects, assignment is made to all selected cable objects, and the Name item is ignored.
      * @return zero if the target forces are successfully assigned, otherwise it returns a nonzero value.
      */
-    fun setLoadTargetForce(name: String, loadPat: String, p: ADoubleByRef, rd: ADoubleByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun setLoadTargetForce(name: String, loadPat: String, p: ADoubleByRef = DoubleByRef.UNNECESSARY, rd: ADoubleByRef = DoubleByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("SetLoadTargetForce", name, loadPat, p, rd, itemType)
 
     /**
@@ -787,7 +787,7 @@ interface CableObjV14 : SapComponent {
      * If this item is SelectedObjects, assignment is made to all selected cable objects, and the Name item is ignored.
      * @return zero if the modifier assignments are successfully assigned, otherwise it returns a nonzero value.
      */
-    fun setModifiers(name: String, value: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun setModifiers(name: String, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("SetModifiers", name, value, itemType)
 
     /**

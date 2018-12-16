@@ -19,7 +19,7 @@ interface OptionsV14 : SapComponent {
      * @param textFileMaxChar The maximum line length in the text file (ShrinkFact > = 80).
      * @return zero if the items are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getDimensions(cuttingPlaneTol: ADoubleByRef, worldSpacing: ADoubleByRef, nudgeValue: ADoubleByRef, pixelClickSize: AIntByRef, pixelSnapSize: AIntByRef, scrLinThk: AIntByRef, prtLinThk: AIntByRef, maxFont: AIntByRef, minFont: AIntByRef, zoomStep: AIntByRef, shrinkFact: AIntByRef, textFileMaxChar: AIntByRef): Int =
+    fun getDimensions(cuttingPlaneTol: ADoubleByRef = DoubleByRef.UNNECESSARY, worldSpacing: ADoubleByRef = DoubleByRef.UNNECESSARY, nudgeValue: ADoubleByRef = DoubleByRef.UNNECESSARY, pixelClickSize: AIntByRef = IntByRef.UNNECESSARY, pixelSnapSize: AIntByRef = IntByRef.UNNECESSARY, scrLinThk: AIntByRef = IntByRef.UNNECESSARY, prtLinThk: AIntByRef = IntByRef.UNNECESSARY, maxFont: AIntByRef = IntByRef.UNNECESSARY, minFont: AIntByRef = IntByRef.UNNECESSARY, zoomStep: AIntByRef = IntByRef.UNNECESSARY, shrinkFact: AIntByRef = IntByRef.UNNECESSARY, textFileMaxChar: AIntByRef = IntByRef.UNNECESSARY): Int =
             callFunctionInt("GetDimensions", cuttingPlaneTol, worldSpacing, nudgeValue, pixelClickSize, pixelSnapSize, scrLinThk, prtLinThk, maxFont, minFont, zoomStep, shrinkFact, textFileMaxChar)
 
     /**

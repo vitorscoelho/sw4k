@@ -45,7 +45,7 @@ interface PropAreaV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the property.
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getAsolid(name: String, matProp: AStringByRef, matAng: ADoubleByRef, arc: ADoubleByRef, incompatible: ABooleanByRef, cSys: AStringByRef, color: AIntByRef, notes: AStringByRef, GUID: AStringByRef): Int =
+    fun getAsolid(name: String, matProp: AStringByRef = StringByRef.UNNECESSARY, matAng: ADoubleByRef = DoubleByRef.UNNECESSARY, arc: ADoubleByRef = DoubleByRef.UNNECESSARY, incompatible: ABooleanByRef, cSys: AStringByRef = StringByRef.UNNECESSARY, color: AIntByRef = IntByRef.UNNECESSARY, notes: AStringByRef = StringByRef.UNNECESSARY, GUID: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetAsolid", name, matProp, matAng, arc, incompatible, cSys, color, notes, GUID)
 
     /**
@@ -64,7 +64,7 @@ interface PropAreaV14 : SapComponent {
      * * Value(9) = Weight modifier
      * @return zero if the modifier assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getModifiers(name: String, value: ADoubleArrayByRef): Int =
+    fun getModifiers(name: String, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetModifiers", name, value)
 
     /**
@@ -78,7 +78,7 @@ interface PropAreaV14 : SapComponent {
      * * 3 = Asolid
      * @return zero if the names are successfully retrieved; otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef, propType: Int = 0): Int =
+    fun getNameList(numberNames: AIntByRef = IntByRef.UNNECESSARY, myName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, propType: Int = 0): Int =
             callFunctionInt("GetNameList", numberNames, myName, propType)
 
     /**
@@ -96,7 +96,7 @@ interface PropAreaV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the property.
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getPlane(name: String, myType: AIntByRef, matProp: AStringByRef, matAng: ADoubleByRef, thickness: ADoubleByRef, incompatible: ABooleanByRef, color: AIntByRef, notes: AStringByRef, GUID: AStringByRef): Int =
+    fun getPlane(name: String, myType: AIntByRef = IntByRef.UNNECESSARY, matProp: AStringByRef = StringByRef.UNNECESSARY, matAng: ADoubleByRef = DoubleByRef.UNNECESSARY, thickness: ADoubleByRef = DoubleByRef.UNNECESSARY, incompatible: ABooleanByRef, color: AIntByRef = IntByRef.UNNECESSARY, notes: AStringByRef = StringByRef.UNNECESSARY, GUID: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetPlane", name, myType, matProp, matAng, thickness, incompatible, color, notes, GUID)
 
     /**
@@ -113,7 +113,7 @@ interface PropAreaV14 : SapComponent {
      * This item applies only when SteelLayoutOption = 2.
      * @return zero if the parameters are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getShellDesign(name: String, matProp: AStringByRef, steelLayoutOption: AIntByRef, designCoverTopDir1: ADoubleByRef, designCoverTopDir2: ADoubleByRef, designCoverBotDir1: ADoubleByRef, designCoverBotDir2: ADoubleByRef): Int =
+    fun getShellDesign(name: String, matProp: AStringByRef = StringByRef.UNNECESSARY, steelLayoutOption: AIntByRef = IntByRef.UNNECESSARY, designCoverTopDir1: ADoubleByRef = DoubleByRef.UNNECESSARY, designCoverTopDir2: ADoubleByRef = DoubleByRef.UNNECESSARY, designCoverBotDir1: ADoubleByRef = DoubleByRef.UNNECESSARY, designCoverBotDir2: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetShellDesign", name, matProp, steelLayoutOption, designCoverTopDir1, designCoverTopDir2, designCoverBotDir1, designCoverBotDir2)
 
     /**
@@ -131,7 +131,7 @@ interface PropAreaV14 : SapComponent {
      * @param s11Type, S22Type, S12Type These are arrays that include 0, 1 or 2, indicating the material component behavior.
      * @return an error if the specified area property is not a shell-type property specified to be a layered shell.
      */
-    fun getShellLayer_1(name: String, numberLayers: AIntByRef, layerName: AStringArrayByRef, dist: ADoubleArrayByRef, thickness: ADoubleArrayByRef, type: AIntArrayByRef, numIntegrationPts: AIntArrayByRef, matProp: AStringArrayByRef, matAng: ADoubleArrayByRef, s11Type: AIntArrayByRef, s22Type: AIntArrayByRef, s12Type: AIntArrayByRef): Int =
+    fun getShellLayer_1(name: String, numberLayers: AIntByRef = IntByRef.UNNECESSARY, layerName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, dist: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, thickness: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, type: AIntArrayByRef = IntArrayByRef.UNNECESSARY, numIntegrationPts: AIntArrayByRef = IntArrayByRef.UNNECESSARY, matProp: AStringArrayByRef = StringArrayByRef.UNNECESSARY, matAng: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, s11Type: AIntArrayByRef = IntArrayByRef.UNNECESSARY, s22Type: AIntArrayByRef = IntArrayByRef.UNNECESSARY, s12Type: AIntArrayByRef = IntArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetShellLayer_1", name, numberLayers, layerName, dist, thickness, type, numIntegrationPts, matProp, matAng, s11Type, s22Type, s12Type)
 
     /**
@@ -157,7 +157,7 @@ interface PropAreaV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the property.
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getShell_1(name: String, shellType: AIntByRef, includeDrillingDOF: ABooleanByRef, matProp: AStringByRef, matAng: ADoubleByRef, thickness: ADoubleByRef, bending: ADoubleByRef, color: AIntByRef, notes: AStringByRef, GUID: AStringByRef): Int =
+    fun getShell_1(name: String, shellType: AIntByRef = IntByRef.UNNECESSARY, includeDrillingDOF: ABooleanByRef, matProp: AStringByRef = StringByRef.UNNECESSARY, matAng: ADoubleByRef = DoubleByRef.UNNECESSARY, thickness: ADoubleByRef = DoubleByRef.UNNECESSARY, bending: ADoubleByRef = DoubleByRef.UNNECESSARY, color: AIntByRef = IntByRef.UNNECESSARY, notes: AStringByRef = StringByRef.UNNECESSARY, GUID: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetShell_1", name, shellType, includeDrillingDOF, matProp, matAng, thickness, bending, color, notes, GUID)
 
     /**
@@ -169,7 +169,7 @@ interface PropAreaV14 : SapComponent {
      * * 3 = Asolid
      * @return zero if the type is successfully retrieved; otherwise it returns nonzero.
      */
-    fun getType(name: String, propType: AIntByRef): Int =
+    fun getType(name: String, propType: AIntByRef = IntByRef.UNNECESSARY): Int =
             callFunctionInt("GetType", name, propType)
 
     /**
@@ -205,7 +205,7 @@ interface PropAreaV14 : SapComponent {
      * * Value(9) = Weight modifier
      * @return zero if the modifiers are successfully assigned; otherwise it returns a nonzero value.
      */
-    fun setModifiers(name: String, value: ADoubleArrayByRef): Int =
+    fun setModifiers(name: String, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("SetModifiers", name, value)
 
     /**
@@ -258,7 +258,7 @@ interface PropAreaV14 : SapComponent {
      * @param s11Type, S22Type, S12Type These are arrays that include 0, 1 or 2, indicating the material component behavior.
      * @return an error if the specified area property is not a shell-type property specified to be a layered shell.
      */
-    fun setShellLayer_1(name: String, numberLayers: AIntByRef, layerName: AStringArrayByRef, dist: ADoubleArrayByRef, thickness: ADoubleArrayByRef, type: AIntArrayByRef, numIntegrationPts: AIntArrayByRef, matProp: AStringArrayByRef, matAng: ADoubleArrayByRef, s11Type: AIntArrayByRef, s22Type: AIntArrayByRef, s12Type: AIntArrayByRef): Int =
+    fun setShellLayer_1(name: String, numberLayers: AIntByRef = IntByRef.UNNECESSARY, layerName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, dist: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, thickness: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, type: AIntArrayByRef = IntArrayByRef.UNNECESSARY, numIntegrationPts: AIntArrayByRef = IntArrayByRef.UNNECESSARY, matProp: AStringArrayByRef = StringArrayByRef.UNNECESSARY, matAng: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, s11Type: AIntArrayByRef = IntArrayByRef.UNNECESSARY, s22Type: AIntArrayByRef = IntArrayByRef.UNNECESSARY, s12Type: AIntArrayByRef = IntArrayByRef.UNNECESSARY): Int =
             callFunctionInt("SetShellLayer_1", name, numberLayers, layerName, dist, thickness, type, numIntegrationPts, matProp, matAng, s11Type, s22Type, s12Type)
 
     /**

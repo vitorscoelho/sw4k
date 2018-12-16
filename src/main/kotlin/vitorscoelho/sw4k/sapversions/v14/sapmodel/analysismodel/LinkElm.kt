@@ -40,7 +40,7 @@ interface LinkElmV14 : SapComponent {
      * If this item is SelectionElm, the load assignments are retrieved for link elements corresponding to all selected link objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadDeformation(name: String, numberItems: AIntByRef, linkName: AStringArrayByRef, loadPat: AStringArrayByRef, dof1: ABooleanArrayByRef, dof2: ABooleanArrayByRef, dof3: ABooleanArrayByRef, dof4: ABooleanArrayByRef, dof5: ABooleanArrayByRef, dof6: ABooleanArrayByRef, u1: ADoubleArrayByRef, u2: ADoubleArrayByRef, u3: ADoubleArrayByRef, r1: ADoubleArrayByRef, r2: ADoubleArrayByRef, r3: ADoubleArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
+    fun getLoadDeformation(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, linkName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, dof1: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, dof2: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, dof3: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, dof4: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, dof5: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, dof6: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, u1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
             callFunctionInt("GetLoadDeformation", name, numberItems, linkName, loadPat, dof1, dof2, dof3, dof4, dof5, dof6, u1, u2, u3, r1, r2, r3, itemTypeElm)
 
     /**
@@ -64,7 +64,7 @@ interface LinkElmV14 : SapComponent {
      * If this item is SelectionElm, the load assignments are retrieved for link elements corresponding to all selected link objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadGravity(name: String, numberItems: AIntByRef, linkName: AStringArrayByRef, loadPat: AStringArrayByRef, cSys: AStringArrayByRef, x: ADoubleArrayByRef, y: ADoubleArrayByRef, z: ADoubleArrayByRef, itemTypeElm: Int = ItemTypeElm.OBJECT_ELM.sapId): Int =
+    fun getLoadGravity(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, linkName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, cSys: AStringArrayByRef = StringArrayByRef.UNNECESSARY, x: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, y: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, z: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemTypeElm: Int = ItemTypeElm.OBJECT_ELM.sapId): Int =
             callFunctionInt("GetLoadGravity", name, numberItems, linkName, loadPat, cSys, x, y, z, itemTypeElm)
 
     /**
@@ -102,7 +102,7 @@ interface LinkElmV14 : SapComponent {
      * If this item is SelectionElm, the load assignments are retrieved for link elements corresponding to all selected link objects, and the Name item is ignored.
      * @return zero if the target force assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadTargetForce(name: String, numberItems: AIntByRef, linkName: AStringArrayByRef, loadPat: AStringArrayByRef, dof1: ABooleanArrayByRef, dof2: ABooleanArrayByRef, dof3: ABooleanArrayByRef, dof4: ABooleanArrayByRef, dof5: ABooleanArrayByRef, dof6: ABooleanArrayByRef, p: ADoubleArrayByRef, v2: ADoubleArrayByRef, v3: ADoubleArrayByRef, t: ADoubleArrayByRef, m2: ADoubleArrayByRef, m3: ADoubleArrayByRef, t1: ADoubleArrayByRef, t2: ADoubleArrayByRef, t3: ADoubleArrayByRef, t4: ADoubleArrayByRef, t5: ADoubleArrayByRef, t6: ADoubleArrayByRef, itemTypeElm: Int = ItemTypeElm.OBJECT_ELM.sapId): Int =
+    fun getLoadTargetForce(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, linkName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, dof1: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, dof2: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, dof3: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, dof4: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, dof5: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, dof6: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, p: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, v2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, v3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, t: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, t1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, t2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, t3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, t4: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, t5: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, t6: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemTypeElm: Int = ItemTypeElm.OBJECT_ELM.sapId): Int =
             callFunctionInt("GetLoadTargetForce", name, numberItems, linkName, loadPat, dof1, dof2, dof3, dof4, dof5, dof6, p, v2, v3, t, m2, m3, t1, t2, t3, t4, t5, t6, itemTypeElm)
 
     /**
@@ -111,7 +111,7 @@ interface LinkElmV14 : SapComponent {
      * @param ang This is the angle that the local 2 and 3 axes are rotated about the positive local 1 axis, from the default orientation. The rotation for a positive angle appears counter clockwise when the local +1 axis is pointing toward you. (deg)
      * @return zero if the assignment is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLocalAxes(name: String, ang: ADoubleByRef): Int =
+    fun getLocalAxes(name: String, ang: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetLocalAxes", name, ang)
 
     /**
@@ -120,7 +120,7 @@ interface LinkElmV14 : SapComponent {
      * @param myName This is a one-dimensional array of link element names.
      * @return zero if the names are successfully retrieved; otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef): Int =
+    fun getNameList(numberNames: AIntByRef = IntByRef.UNNECESSARY, myName: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetNameList", numberNames, myName)
 
     /**
@@ -134,7 +134,7 @@ interface LinkElmV14 : SapComponent {
      * * 9: Obj is a point object that has a panel zone assignment. The specified link element is internally added by the program at the point object (panel zone) location to model the panel zone.
      * @return zero if the object is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getObj(name: String, obj: AStringByRef, objType: AIntByRef): Int =
+    fun getObj(name: String, obj: AStringByRef = StringByRef.UNNECESSARY, objType: AIntByRef = IntByRef.UNNECESSARY): Int =
             callFunctionInt("GetObj", name, obj, objType)
 
     /**
@@ -144,7 +144,7 @@ interface LinkElmV14 : SapComponent {
      * @param point2 The name of the point element at the J-End of the specified link element.
      * @return zero if the point names are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getPoints(name: String, point1: AStringByRef, point2: AStringByRef): Int =
+    fun getPoints(name: String, point1: AStringByRef = StringByRef.UNNECESSARY, point2: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetPoints", name, point1, point2)
 
     /**
@@ -153,7 +153,7 @@ interface LinkElmV14 : SapComponent {
      * @param propName The name of the frequency dependent link property assigned to the link element.
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getPropertyFD(name: String, propName: AStringByRef): Int =
+    fun getPropertyFD(name: String, propName: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetPropertyFD", name, propName)
 
     /**
@@ -163,7 +163,7 @@ interface LinkElmV14 : SapComponent {
      * @param propName The name of the link property assigned to the link element.
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getProperty(name: String, propName: AStringByRef): Int =
+    fun getProperty(name: String, propName: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetProperty", name, propName)
 
     /**
@@ -173,6 +173,6 @@ interface LinkElmV14 : SapComponent {
      * In the equation, c0 through c8 are the nine values from the transformation array, (Local1, Local2, Local3) are an item (such as a load) in the element local coordinate system, and (GlobalX, GlobalY, GlobalZ) are the same item in the global coordinate system.
      * @return zero if the transformation matrix is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getTransformationMatrix(name: String, value: ADoubleArrayByRef): Int =
+    fun getTransformationMatrix(name: String, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetTransformationMatrix", name, value)
 }

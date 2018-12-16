@@ -1,8 +1,6 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.definitions
 
-import vitorscoelho.sw4k.comutils.AIntByRef
-import vitorscoelho.sw4k.comutils.SapComponent
-import vitorscoelho.sw4k.comutils.AStringArrayByRef
+import vitorscoelho.sw4k.comutils.*
 import vitorscoelho.sw4k.sapenums.LoadPatternType
 import vitorscoelho.sw4k.sapenums.LoadCaseType
 import vitorscoelho.sw4k.sapversions.v14.sapmodel.definitions.loadcases.*
@@ -75,7 +73,7 @@ interface LoadCasesV14 : SapComponent {
      * @param myName Array filled with the names.
      * @return zero if the names are successfully retrieved, otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef): Int =
+    fun getNameList(numberNames: AIntByRef = IntByRef.UNNECESSARY, myName: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetNameList", numberNames, myName)
 
     /**
@@ -85,7 +83,7 @@ interface LoadCasesV14 : SapComponent {
      * @param caseType This optional value is one of the following items in the [LoadCaseType] enumeration.
      * @return zero if the names are successfully retrieved, otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef, caseType: Int): Int =
+    fun getNameList(numberNames: AIntByRef = IntByRef.UNNECESSARY, myName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, caseType: Int): Int =
             callFunctionInt("GetNameList", numberNames, myName, caseType)
 
     /**
@@ -165,7 +163,7 @@ interface LoadCasesV14 : SapComponent {
      * * 1 = Automatically created by the bridge construction scheduler
      * @return zero if the type is successfully retrieved; otherwise it returns nonzero.
      */
-    fun getType_1(name: String, caseType: AIntByRef, subType: AIntByRef, designType: AIntByRef, designTypeOption: AIntByRef, auto: AIntByRef): Int =
+    fun getType_1(name: String, caseType: AIntByRef = IntByRef.UNNECESSARY, subType: AIntByRef = IntByRef.UNNECESSARY, designType: AIntByRef = IntByRef.UNNECESSARY, designTypeOption: AIntByRef = IntByRef.UNNECESSARY, auto: AIntByRef = IntByRef.UNNECESSARY): Int =
             callFunctionInt("GetType_1", name, caseType, subType, designType, designTypeOption, auto)
 
     /**

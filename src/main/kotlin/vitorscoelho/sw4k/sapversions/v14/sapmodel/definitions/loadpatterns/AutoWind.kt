@@ -18,7 +18,7 @@ interface AutoWindV14 : SapComponent {
      * @param sSLFactor The structural safety level multiplier.
      * @return zero if the parameters are successfully assigned; otherwise, it returns a nonzero value.
      */
-    fun getAPI4F2008(name: String, exposureFrom: AIntByRef, dirAngle: ADoubleByRef, userZ: ABooleanByRef, topZ: ADoubleByRef, bottomZ: ADoubleByRef, windSpeed: ADoubleByRef, sSLFactor: ADoubleByRef): Int =
+    fun getAPI4F2008(name: String, exposureFrom: AIntByRef = IntByRef.UNNECESSARY, dirAngle: ADoubleByRef = DoubleByRef.UNNECESSARY, userZ: ABooleanByRef, topZ: ADoubleByRef = DoubleByRef.UNNECESSARY, bottomZ: ADoubleByRef = DoubleByRef.UNNECESSARY, windSpeed: ADoubleByRef = DoubleByRef.UNNECESSARY, sSLFactor: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetAPI4F2008", name, exposureFrom, dirAngle, userZ, topZ, bottomZ, windSpeed, sSLFactor)
 
     /**
@@ -52,7 +52,7 @@ interface AutoWindV14 : SapComponent {
      * @param userExposure If this item is True, the wind exposure widths are provided by the user. If it is False, the wind exposure widths are calculated by the program from the extents of the diaphragms.
      * @return zero if the parameters are successfully assigned; otherwise it returns a nonzero value.
      */
-    fun getASCE702(name: String, exposureFrom: AIntByRef, dirAngle: ADoubleByRef, cpw: ADoubleByRef, cpl: ADoubleByRef, ASCECase: AIntByRef, ASCEe1: ADoubleByRef, ASCEe2: ADoubleByRef, userZ: ABooleanByRef, topZ: ADoubleByRef, bottomZ: ADoubleByRef, windSpeed: ADoubleByRef, exposureType: AIntByRef, importanceFactor: ADoubleByRef, kzt: ADoubleByRef, gustFactor: ADoubleByRef, kd: ADoubleByRef, solidGrossRatio: ADoubleByRef, userExposure: ABooleanByRef): Int =
+    fun getASCE702(name: String, exposureFrom: AIntByRef = IntByRef.UNNECESSARY, dirAngle: ADoubleByRef = DoubleByRef.UNNECESSARY, cpw: ADoubleByRef = DoubleByRef.UNNECESSARY, cpl: ADoubleByRef = DoubleByRef.UNNECESSARY, ASCECase: AIntByRef = IntByRef.UNNECESSARY, ASCEe1: ADoubleByRef = DoubleByRef.UNNECESSARY, ASCEe2: ADoubleByRef = DoubleByRef.UNNECESSARY, userZ: ABooleanByRef, topZ: ADoubleByRef = DoubleByRef.UNNECESSARY, bottomZ: ADoubleByRef = DoubleByRef.UNNECESSARY, windSpeed: ADoubleByRef = DoubleByRef.UNNECESSARY, exposureType: AIntByRef = IntByRef.UNNECESSARY, importanceFactor: ADoubleByRef = DoubleByRef.UNNECESSARY, kzt: ADoubleByRef = DoubleByRef.UNNECESSARY, gustFactor: ADoubleByRef = DoubleByRef.UNNECESSARY, kd: ADoubleByRef = DoubleByRef.UNNECESSARY, solidGrossRatio: ADoubleByRef = DoubleByRef.UNNECESSARY, userExposure: ABooleanByRef): Int =
             callFunctionInt("GetASCE702", name, exposureFrom, dirAngle, cpw, cpl, ASCECase, ASCEe1, ASCEe2, userZ, topZ, bottomZ, windSpeed, exposureType, importanceFactor, kzt, gustFactor, kd, solidGrossRatio, userExposure)
 
     /**
@@ -85,7 +85,7 @@ interface AutoWindV14 : SapComponent {
      * @param userExposure If this item is True, the wind exposure widths are provided by the user. If it is False, the wind exposure widths are calculated by the program from the extents of the diaphragms.
      * @return zero if the parameters are successfully assigned; otherwise it returns a nonzero value.
      */
-    fun getASCE705(name: String, exposureFrom: AIntByRef, dirAngle: ADoubleByRef, cpw: ADoubleByRef, cpl: ADoubleByRef, ASCECase: AIntByRef, ASCEe1: ADoubleByRef, ASCEe2: ADoubleByRef, userZ: ABooleanByRef, topZ: ADoubleByRef, bottomZ: ADoubleByRef, windSpeed: ADoubleByRef, exposureType: AIntByRef, importanceFactor: ADoubleByRef, kzt: ADoubleByRef, gustFactor: ADoubleByRef, kd: ADoubleByRef, solidGrossRatio: ADoubleByRef, userExposure: ABooleanByRef): Int =
+    fun getASCE705(name: String, exposureFrom: AIntByRef = IntByRef.UNNECESSARY, dirAngle: ADoubleByRef = DoubleByRef.UNNECESSARY, cpw: ADoubleByRef = DoubleByRef.UNNECESSARY, cpl: ADoubleByRef = DoubleByRef.UNNECESSARY, ASCECase: AIntByRef = IntByRef.UNNECESSARY, ASCEe1: ADoubleByRef = DoubleByRef.UNNECESSARY, ASCEe2: ADoubleByRef = DoubleByRef.UNNECESSARY, userZ: ABooleanByRef, topZ: ADoubleByRef = DoubleByRef.UNNECESSARY, bottomZ: ADoubleByRef = DoubleByRef.UNNECESSARY, windSpeed: ADoubleByRef = DoubleByRef.UNNECESSARY, exposureType: AIntByRef = IntByRef.UNNECESSARY, importanceFactor: ADoubleByRef = DoubleByRef.UNNECESSARY, kzt: ADoubleByRef = DoubleByRef.UNNECESSARY, gustFactor: ADoubleByRef = DoubleByRef.UNNECESSARY, kd: ADoubleByRef = DoubleByRef.UNNECESSARY, solidGrossRatio: ADoubleByRef = DoubleByRef.UNNECESSARY, userExposure: ABooleanByRef): Int =
             callFunctionInt("GetASCE705", name, exposureFrom, dirAngle, cpw, cpl, ASCECase, ASCEe1, ASCEe2, userZ, topZ, bottomZ, windSpeed, exposureType, importanceFactor, kzt, gustFactor, kd, solidGrossRatio, userExposure)
 
     /**
@@ -111,7 +111,7 @@ interface AutoWindV14 : SapComponent {
      * @param userExposure If this item is True, the wind exposure widths are provided by the user. If it is False, the wind exposure widths are calculated by the program from the extents of the diaphragms.
      * @return zero if the parameters are successfully assigned; otherwise it returns a nonzero value.
      */
-    fun getASCE788(name: String, exposureFrom: AIntByRef, dirAngle: ADoubleByRef, cpw: ADoubleByRef, cpl: ADoubleByRef, userZ: ABooleanByRef, topZ: ADoubleByRef, bottomZ: ADoubleByRef, windSpeed: ADoubleByRef, exposureType: AIntByRef, importanceFactor: ADoubleByRef, gustFactor: ADoubleByRef, userExposure: ABooleanByRef): Int =
+    fun getASCE788(name: String, exposureFrom: AIntByRef = IntByRef.UNNECESSARY, dirAngle: ADoubleByRef = DoubleByRef.UNNECESSARY, cpw: ADoubleByRef = DoubleByRef.UNNECESSARY, cpl: ADoubleByRef = DoubleByRef.UNNECESSARY, userZ: ABooleanByRef, topZ: ADoubleByRef = DoubleByRef.UNNECESSARY, bottomZ: ADoubleByRef = DoubleByRef.UNNECESSARY, windSpeed: ADoubleByRef = DoubleByRef.UNNECESSARY, exposureType: AIntByRef = IntByRef.UNNECESSARY, importanceFactor: ADoubleByRef = DoubleByRef.UNNECESSARY, gustFactor: ADoubleByRef = DoubleByRef.UNNECESSARY, userExposure: ABooleanByRef): Int =
             callFunctionInt("GetASCE788", name, exposureFrom, dirAngle, cpw, cpl, userZ, topZ, bottomZ, windSpeed, exposureType, importanceFactor, gustFactor, userExposure)
 
     /**
@@ -138,7 +138,7 @@ interface AutoWindV14 : SapComponent {
      * @param userExposure If this item is True, the wind exposure widths are provided by the user. If it is False, the wind exposure widths are calculated by the program from the extents of the diaphragms.
      * @return zero if the parameters are successfully assigned; otherwise it returns a nonzero value.
      */
-    fun getASCE795(name: String, exposureFrom: AIntByRef, dirAngle: ADoubleByRef, cpw: ADoubleByRef, cpl: ADoubleByRef, userZ: ABooleanByRef, topZ: ADoubleByRef, bottomZ: ADoubleByRef, windSpeed: ADoubleByRef, exposureType: AIntByRef, importanceFactor: ADoubleByRef, kzt: ADoubleByRef, gustFactor: ADoubleByRef, userExposure: ABooleanByRef): Int =
+    fun getASCE795(name: String, exposureFrom: AIntByRef = IntByRef.UNNECESSARY, dirAngle: ADoubleByRef = DoubleByRef.UNNECESSARY, cpw: ADoubleByRef = DoubleByRef.UNNECESSARY, cpl: ADoubleByRef = DoubleByRef.UNNECESSARY, userZ: ABooleanByRef, topZ: ADoubleByRef = DoubleByRef.UNNECESSARY, bottomZ: ADoubleByRef = DoubleByRef.UNNECESSARY, windSpeed: ADoubleByRef = DoubleByRef.UNNECESSARY, exposureType: AIntByRef = IntByRef.UNNECESSARY, importanceFactor: ADoubleByRef = DoubleByRef.UNNECESSARY, kzt: ADoubleByRef = DoubleByRef.UNNECESSARY, gustFactor: ADoubleByRef = DoubleByRef.UNNECESSARY, userExposure: ABooleanByRef): Int =
             callFunctionInt("GetASCE795", name, exposureFrom, dirAngle, cpw, cpl, userZ, topZ, bottomZ, windSpeed, exposureType, importanceFactor, kzt, gustFactor, userExposure)
 
     /**
@@ -165,7 +165,7 @@ interface AutoWindV14 : SapComponent {
      * @param userExposure If this item is True, the wind exposure widths are provided by the user. If it is False, the wind exposure widths are calculated by the program from the extents of the diaphragms.
      * @return zero if the parameters are successfully assigned; otherwise it returns a nonzero value.
      */
-    fun getBOCA96(name: String, exposureFrom: AIntByRef, dirAngle: ADoubleByRef, cpw: ADoubleByRef, cpl: ADoubleByRef, userZ: ABooleanByRef, topZ: ADoubleByRef, bottomZ: ADoubleByRef, windSpeed: ADoubleByRef, exposureType: AIntByRef, importanceFactor: ADoubleByRef, userGust: ABooleanByRef, gustFactor: ADoubleByRef, userExposure: ABooleanByRef): Int =
+    fun getBOCA96(name: String, exposureFrom: AIntByRef = IntByRef.UNNECESSARY, dirAngle: ADoubleByRef = DoubleByRef.UNNECESSARY, cpw: ADoubleByRef = DoubleByRef.UNNECESSARY, cpl: ADoubleByRef = DoubleByRef.UNNECESSARY, userZ: ABooleanByRef, topZ: ADoubleByRef = DoubleByRef.UNNECESSARY, bottomZ: ADoubleByRef = DoubleByRef.UNNECESSARY, windSpeed: ADoubleByRef = DoubleByRef.UNNECESSARY, exposureType: AIntByRef = IntByRef.UNNECESSARY, importanceFactor: ADoubleByRef = DoubleByRef.UNNECESSARY, userGust: ABooleanByRef, gustFactor: ADoubleByRef = DoubleByRef.UNNECESSARY, userExposure: ABooleanByRef): Int =
             callFunctionInt("GetBOCA96", name, exposureFrom, dirAngle, cpw, cpl, userZ, topZ, bottomZ, windSpeed, exposureType, importanceFactor, userGust, gustFactor, userExposure)
 
     /**
@@ -186,7 +186,7 @@ interface AutoWindV14 : SapComponent {
      * @param userExposure If this item is True, the wind exposure widths are provided by the user. If it is False, the wind exposure widths are calculated by the program from the extents of the diaphragms.
      * @return zero if the parameters are successfully assigned; otherwise it returns a nonzero value.
      */
-    fun getBS639995(name: String, exposureFrom: AIntByRef, dirAngle: ADoubleByRef, cpw: ADoubleByRef, cpl: ADoubleByRef, userZ: ABooleanByRef, topZ: ADoubleByRef, bottomZ: ADoubleByRef, ve: ADoubleByRef, ca: ADoubleByRef, cr: ADoubleByRef, userExposure: ABooleanByRef): Int =
+    fun getBS639995(name: String, exposureFrom: AIntByRef = IntByRef.UNNECESSARY, dirAngle: ADoubleByRef = DoubleByRef.UNNECESSARY, cpw: ADoubleByRef = DoubleByRef.UNNECESSARY, cpl: ADoubleByRef = DoubleByRef.UNNECESSARY, userZ: ABooleanByRef, topZ: ADoubleByRef = DoubleByRef.UNNECESSARY, bottomZ: ADoubleByRef = DoubleByRef.UNNECESSARY, ve: ADoubleByRef = DoubleByRef.UNNECESSARY, ca: ADoubleByRef = DoubleByRef.UNNECESSARY, cr: ADoubleByRef = DoubleByRef.UNNECESSARY, userExposure: ABooleanByRef): Int =
             callFunctionInt("GetBS639995", name, exposureFrom, dirAngle, cpw, cpl, userZ, topZ, bottomZ, ve, ca, cr, userExposure)
 
     /**
@@ -218,7 +218,7 @@ interface AutoWindV14 : SapComponent {
      * @param userExposure If this item is True, the wind exposure widths are provided by the user. If it is False, the wind exposure widths are calculated by the program from the extents of the diaphragms.
      * @return zero if the parameters are successfully assigned; otherwise it returns a nonzero value.
      */
-    fun getChinese2002(name: String, exposureFrom: AIntByRef, dirAngle: ADoubleByRef, buildingWidth: ADoubleByRef, us: ADoubleByRef, userZ: ABooleanByRef, topZ: ADoubleByRef, bottomZ: ADoubleByRef, wzero: ADoubleByRef, rt: AIntByRef, phiZOpt: AIntByRef, t1Opt: AIntByRef, userT: ADoubleByRef, dampRatio: ADoubleByRef, userExposure: ABooleanByRef): Int =
+    fun getChinese2002(name: String, exposureFrom: AIntByRef = IntByRef.UNNECESSARY, dirAngle: ADoubleByRef = DoubleByRef.UNNECESSARY, buildingWidth: ADoubleByRef = DoubleByRef.UNNECESSARY, us: ADoubleByRef = DoubleByRef.UNNECESSARY, userZ: ABooleanByRef, topZ: ADoubleByRef = DoubleByRef.UNNECESSARY, bottomZ: ADoubleByRef = DoubleByRef.UNNECESSARY, wzero: ADoubleByRef = DoubleByRef.UNNECESSARY, rt: AIntByRef = IntByRef.UNNECESSARY, phiZOpt: AIntByRef = IntByRef.UNNECESSARY, t1Opt: AIntByRef = IntByRef.UNNECESSARY, userT: ADoubleByRef = DoubleByRef.UNNECESSARY, dampRatio: ADoubleByRef = DoubleByRef.UNNECESSARY, userExposure: ABooleanByRef): Int =
             callFunctionInt("GetChinese2002", name, exposureFrom, dirAngle, buildingWidth, us, userZ, topZ, bottomZ, wzero, rt, phiZOpt, t1Opt, userT, dampRatio, userExposure)
 
     /**
@@ -246,7 +246,7 @@ interface AutoWindV14 : SapComponent {
      * @param userExposure If this item is True, the wind exposure widths are provided by the user. If it is False, the wind exposure widths are calculated by the program from the extents of the diaphragms.
      * @return zero if the parameters are successfully assigned; otherwise it returns a nonzero value.
      */
-    fun getEurocode12005(name: String, exposureFrom: AIntByRef, dirAngle: ADoubleByRef, cpw: ADoubleByRef, cpl: ADoubleByRef, userZ: ABooleanByRef, topZ: ADoubleByRef, bottomZ: ADoubleByRef, windSpeed: ADoubleByRef, terrain: AIntByRef, orography: ADoubleByRef, k1: ADoubleByRef, csCd: ADoubleByRef, userExposure: ABooleanByRef): Int =
+    fun getEurocode12005(name: String, exposureFrom: AIntByRef = IntByRef.UNNECESSARY, dirAngle: ADoubleByRef = DoubleByRef.UNNECESSARY, cpw: ADoubleByRef = DoubleByRef.UNNECESSARY, cpl: ADoubleByRef = DoubleByRef.UNNECESSARY, userZ: ABooleanByRef, topZ: ADoubleByRef = DoubleByRef.UNNECESSARY, bottomZ: ADoubleByRef = DoubleByRef.UNNECESSARY, windSpeed: ADoubleByRef = DoubleByRef.UNNECESSARY, terrain: AIntByRef = IntByRef.UNNECESSARY, orography: ADoubleByRef = DoubleByRef.UNNECESSARY, k1: ADoubleByRef = DoubleByRef.UNNECESSARY, csCd: ADoubleByRef = DoubleByRef.UNNECESSARY, userExposure: ABooleanByRef): Int =
             callFunctionInt("GetEurocode12005", name, exposureFrom, dirAngle, cpw, cpl, userZ, topZ, bottomZ, windSpeed, terrain, orography, k1, csCd, userExposure)
 
     /**
@@ -260,7 +260,7 @@ interface AutoWindV14 : SapComponent {
      * @param height This is an array that includes the exposure height for the wind load applied to the specified diaphragm. (L)
      * @return zero if the parameters are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getExposure(name: String, num: AIntByRef, diaph: AStringArrayByRef, x: ADoubleArrayByRef, y: ADoubleArrayByRef, myWidth: ADoubleArrayByRef, height: ADoubleArrayByRef): Int =
+    fun getExposure(name: String, num: AIntByRef = IntByRef.UNNECESSARY, diaph: AStringArrayByRef = StringArrayByRef.UNNECESSARY, x: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, y: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, myWidth: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, height: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetExposure", name, num, diaph, x, y, myWidth, height)
 
     /**
@@ -286,7 +286,7 @@ interface AutoWindV14 : SapComponent {
      * @param userExposure If this item is True, the wind exposure widths are provided by the user. If it is False, the wind exposure widths are calculated by the program from the extents of the diaphragms.
      * @return zero if the parameters are successfully assigned; otherwise it returns a nonzero value.
      */
-    fun getIS8751987(name: String, exposureFrom: AIntByRef, dirAngle: ADoubleByRef, cpw: ADoubleByRef, cpl: ADoubleByRef, userZ: ABooleanByRef, topZ: ADoubleByRef, bottomZ: ADoubleByRef, windSpeed: ADoubleByRef, terrain: AIntByRef, tClass: AIntByRef, k1: ADoubleByRef, k3: ADoubleByRef, userExposure: ABooleanByRef): Int =
+    fun getIS8751987(name: String, exposureFrom: AIntByRef = IntByRef.UNNECESSARY, dirAngle: ADoubleByRef = DoubleByRef.UNNECESSARY, cpw: ADoubleByRef = DoubleByRef.UNNECESSARY, cpl: ADoubleByRef = DoubleByRef.UNNECESSARY, userZ: ABooleanByRef, topZ: ADoubleByRef = DoubleByRef.UNNECESSARY, bottomZ: ADoubleByRef = DoubleByRef.UNNECESSARY, windSpeed: ADoubleByRef = DoubleByRef.UNNECESSARY, terrain: AIntByRef = IntByRef.UNNECESSARY, tClass: AIntByRef = IntByRef.UNNECESSARY, k1: ADoubleByRef = DoubleByRef.UNNECESSARY, k3: ADoubleByRef = DoubleByRef.UNNECESSARY, userExposure: ABooleanByRef): Int =
             callFunctionInt("GetIS8751987", name, exposureFrom, dirAngle, cpw, cpl, userZ, topZ, bottomZ, windSpeed, terrain, tClass, k1, k3, userExposure)
 
     /**
@@ -305,7 +305,7 @@ interface AutoWindV14 : SapComponent {
      * @param userExposure If this item is True, the wind exposure widths are provided by the user. If it is False, the wind exposure widths are calculated by the program from the extents of the diaphragms.
      * @return zero if the parameters are successfully assigned; otherwise it returns a nonzero value.
      */
-    fun getMexican(name: String, exposureFrom: AIntByRef, dirAngle: ADoubleByRef, cpw: ADoubleByRef, cpl: ADoubleByRef, userZ: ABooleanByRef, topZ: ADoubleByRef, bottomZ: ADoubleByRef, windSpeed: ADoubleByRef, userExposure: ABooleanByRef): Int =
+    fun getMexican(name: String, exposureFrom: AIntByRef = IntByRef.UNNECESSARY, dirAngle: ADoubleByRef = DoubleByRef.UNNECESSARY, cpw: ADoubleByRef = DoubleByRef.UNNECESSARY, cpl: ADoubleByRef = DoubleByRef.UNNECESSARY, userZ: ABooleanByRef, topZ: ADoubleByRef = DoubleByRef.UNNECESSARY, bottomZ: ADoubleByRef = DoubleByRef.UNNECESSARY, windSpeed: ADoubleByRef = DoubleByRef.UNNECESSARY, userExposure: ABooleanByRef): Int =
             callFunctionInt("GetMexican", name, exposureFrom, dirAngle, cpw, cpl, userZ, topZ, bottomZ, windSpeed, userExposure)
 
     /**
@@ -326,7 +326,7 @@ interface AutoWindV14 : SapComponent {
      * @param userExposure If this item is True, the wind exposure widths are provided by the user. If it is False, the wind exposure widths are calculated by the program from the extents of the diaphragms.
      * @return zero if the parameters are successfully assigned; otherwise it returns a nonzero value.
      */
-    fun getNBCC2005(name: String, exposureFrom: AIntByRef, dirAngle: ADoubleByRef, cpw: ADoubleByRef, cpl: ADoubleByRef, userZ: ABooleanByRef, topZ: ADoubleByRef, bottomZ: ADoubleByRef, q: ADoubleByRef, gustFactor: ADoubleByRef, importanceFactor: ADoubleByRef, userExposure: ABooleanByRef): Int =
+    fun getNBCC2005(name: String, exposureFrom: AIntByRef = IntByRef.UNNECESSARY, dirAngle: ADoubleByRef = DoubleByRef.UNNECESSARY, cpw: ADoubleByRef = DoubleByRef.UNNECESSARY, cpl: ADoubleByRef = DoubleByRef.UNNECESSARY, userZ: ABooleanByRef, topZ: ADoubleByRef = DoubleByRef.UNNECESSARY, bottomZ: ADoubleByRef = DoubleByRef.UNNECESSARY, q: ADoubleByRef = DoubleByRef.UNNECESSARY, gustFactor: ADoubleByRef = DoubleByRef.UNNECESSARY, importanceFactor: ADoubleByRef = DoubleByRef.UNNECESSARY, userExposure: ABooleanByRef): Int =
             callFunctionInt("GetNBCC2005", name, exposureFrom, dirAngle, cpw, cpl, userZ, topZ, bottomZ, q, gustFactor, importanceFactor, userExposure)
 
     /**
@@ -346,7 +346,7 @@ interface AutoWindV14 : SapComponent {
      * @param userExposure If this item is True, the wind exposure widths are provided by the user. If it is False, the wind exposure widths are calculated by the program from the extents of the diaphragms.
      * @return zero if the parameters are successfully assigned; otherwise it returns a nonzero value.
      */
-    fun getNBCC95(name: String, exposureFrom: AIntByRef, dirAngle: ADoubleByRef, cpw: ADoubleByRef, cpl: ADoubleByRef, userZ: ABooleanByRef, topZ: ADoubleByRef, bottomZ: ADoubleByRef, q: ADoubleByRef, gustFactor: ADoubleByRef, userExposure: ABooleanByRef): Int =
+    fun getNBCC95(name: String, exposureFrom: AIntByRef = IntByRef.UNNECESSARY, dirAngle: ADoubleByRef = DoubleByRef.UNNECESSARY, cpw: ADoubleByRef = DoubleByRef.UNNECESSARY, cpl: ADoubleByRef = DoubleByRef.UNNECESSARY, userZ: ABooleanByRef, topZ: ADoubleByRef = DoubleByRef.UNNECESSARY, bottomZ: ADoubleByRef = DoubleByRef.UNNECESSARY, q: ADoubleByRef = DoubleByRef.UNNECESSARY, gustFactor: ADoubleByRef = DoubleByRef.UNNECESSARY, userExposure: ABooleanByRef): Int =
             callFunctionInt("GetNBCC95", name, exposureFrom, dirAngle, cpw, cpl, userZ, topZ, bottomZ, q, gustFactor, userExposure)
 
     /**
@@ -371,7 +371,7 @@ interface AutoWindV14 : SapComponent {
      * @param userExposure If this item is True, the wind exposure widths are provided by the user. If it is False, the wind exposure widths are calculated by the program from the extents of the diaphragms.
      * @return zero if the parameters are successfully assigned; otherwise it returns a nonzero value.
      */
-    fun getUBC94(name: String, exposureFrom: AIntByRef, dirAngle: ADoubleByRef, cpw: ADoubleByRef, cpl: ADoubleByRef, userZ: ABooleanByRef, topZ: ADoubleByRef, bottomZ: ADoubleByRef, windSpeed: ADoubleByRef, exposureType: AIntByRef, importanceFactor: ADoubleByRef, gustFactor: ADoubleByRef, userExposure: ABooleanByRef): Int =
+    fun getUBC94(name: String, exposureFrom: AIntByRef = IntByRef.UNNECESSARY, dirAngle: ADoubleByRef = DoubleByRef.UNNECESSARY, cpw: ADoubleByRef = DoubleByRef.UNNECESSARY, cpl: ADoubleByRef = DoubleByRef.UNNECESSARY, userZ: ABooleanByRef, topZ: ADoubleByRef = DoubleByRef.UNNECESSARY, bottomZ: ADoubleByRef = DoubleByRef.UNNECESSARY, windSpeed: ADoubleByRef = DoubleByRef.UNNECESSARY, exposureType: AIntByRef = IntByRef.UNNECESSARY, importanceFactor: ADoubleByRef = DoubleByRef.UNNECESSARY, gustFactor: ADoubleByRef = DoubleByRef.UNNECESSARY, userExposure: ABooleanByRef): Int =
             callFunctionInt("GetUBC94", name, exposureFrom, dirAngle, cpw, cpl, userZ, topZ, bottomZ, windSpeed, exposureType, importanceFactor, gustFactor, userExposure)
 
     /**
@@ -396,7 +396,7 @@ interface AutoWindV14 : SapComponent {
      * @param userExposure If this item is True, the wind exposure widths are provided by the user. If it is False, the wind exposure widths are calculated by the program from the extents of the diaphragms.
      * @return zero if the parameters are successfully assigned; otherwise it returns a nonzero value.
      */
-    fun getUBC97(name: String, exposureFrom: AIntByRef, dirAngle: ADoubleByRef, cpw: ADoubleByRef, cpl: ADoubleByRef, userZ: ABooleanByRef, topZ: ADoubleByRef, bottomZ: ADoubleByRef, windSpeed: ADoubleByRef, exposureType: AIntByRef, importanceFactor: ADoubleByRef, gustFactor: ADoubleByRef, userExposure: ABooleanByRef): Int =
+    fun getUBC97(name: String, exposureFrom: AIntByRef = IntByRef.UNNECESSARY, dirAngle: ADoubleByRef = DoubleByRef.UNNECESSARY, cpw: ADoubleByRef = DoubleByRef.UNNECESSARY, cpl: ADoubleByRef = DoubleByRef.UNNECESSARY, userZ: ABooleanByRef, topZ: ADoubleByRef = DoubleByRef.UNNECESSARY, bottomZ: ADoubleByRef = DoubleByRef.UNNECESSARY, windSpeed: ADoubleByRef = DoubleByRef.UNNECESSARY, exposureType: AIntByRef = IntByRef.UNNECESSARY, importanceFactor: ADoubleByRef = DoubleByRef.UNNECESSARY, gustFactor: ADoubleByRef = DoubleByRef.UNNECESSARY, userExposure: ABooleanByRef): Int =
             callFunctionInt("GetUBC97", name, exposureFrom, dirAngle, cpw, cpl, userZ, topZ, bottomZ, windSpeed, exposureType, importanceFactor, gustFactor, userExposure)
 
     /**
@@ -411,7 +411,7 @@ interface AutoWindV14 : SapComponent {
      * @param y This is an array that includes the global Y-coordinate of the point where the wind force load is applied to the diaphragm. (L)
      * @return zero if the parameters are successfully assigned, otherwise it returns a nonzero value.
      */
-    fun getUserLoad(name: String, num: AIntByRef, diaph: AStringArrayByRef, fx: ADoubleArrayByRef, fy: ADoubleArrayByRef, mz: ADoubleArrayByRef, x: ADoubleArrayByRef, y: ADoubleArrayByRef): Int =
+    fun getUserLoad(name: String, num: AIntByRef = IntByRef.UNNECESSARY, diaph: AStringArrayByRef = StringArrayByRef.UNNECESSARY, fx: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, fy: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, mz: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, x: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, y: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetUserLoad", name, num, diaph, fx, fx, mz, x, y)
 
     /**

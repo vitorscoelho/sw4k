@@ -2,6 +2,7 @@ package vitorscoelho.sw4k.sapversions.v14.sapmodel.definitions.loadcases
 
 import vitorscoelho.sw4k.comutils.SapComponent
 import vitorscoelho.sw4k.comutils.AStringByRef
+import vitorscoelho.sw4k.comutils.StringByRef
 
 interface HyperStaticV14 : SapComponent {
     /**
@@ -10,7 +11,7 @@ interface HyperStaticV14 : SapComponent {
      * @param baseCase The name of an existing static linear load case that is the base case for the specified hyperstatic load case.
      * @return zero if the base case is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getBaseCase (name:String,baseCase: AStringByRef):Int=
+    fun getBaseCase (name:String,baseCase: AStringByRef = StringByRef.UNNECESSARY):Int=
             callFunctionInt("GetBaseCase",name,baseCase)
     /**
      * This function sets the base case for the specified hyperstatic load case.

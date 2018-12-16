@@ -287,7 +287,7 @@ interface FrameObjV14 : SapComponent {
      * @param autoMeshMaxLength This item is applicable only when the AutoMesh item is True. It is the maximum length of auto meshed frame elements. If this item is zero, the element length is not checked when the automatic meshing is done. (L)
      * @return zero if the meshing assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getAutoMesh(name: String, autoMesh: ABooleanByRef, autoMeshAtPoints: ABooleanByRef, autoMeshAtLines: ABooleanByRef, numSegs: AIntByRef, autoMeshMaxLength: ADoubleByRef): Int =
+    fun getAutoMesh(name: String, autoMesh: ABooleanByRef, autoMeshAtPoints: ABooleanByRef, autoMeshAtLines: ABooleanByRef, numSegs: AIntByRef = IntByRef.UNNECESSARY, autoMeshMaxLength: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetAutoMesh", name, autoMesh, autoMeshAtPoints, autoMeshAtLines, numSegs, autoMeshMaxLength)
 
     /**
@@ -305,7 +305,7 @@ interface FrameObjV14 : SapComponent {
      * @param numSegs This is an array that includes the number of segments into which the program internally divides the curved frame.
      * @return zero if the curved frame object data is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getCurved(numberItems: AIntByRef, myType: AIntArrayByRef, gx: ADoubleArrayByRef, gy: ADoubleArrayByRef, gz: ADoubleArrayByRef, pointName: AStringArrayByRef, radius: ADoubleArrayByRef, numSegs: AIntArrayByRef): Int =
+    fun getCurved(numberItems: AIntByRef = IntByRef.UNNECESSARY, myType: AIntArrayByRef = IntArrayByRef.UNNECESSARY, gx: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, gy: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, gz: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, pointName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, radius: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, numSegs: AIntArrayByRef = IntArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetCurved", numberItems, myType, gx, gy, gz, pointName, radius, numSegs)
 
     /**
@@ -319,7 +319,7 @@ interface FrameObjV14 : SapComponent {
      * * 9 = No Design
      * @return zero if the design procedure is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getDesignProcedure(name: String, myType: AIntByRef): Int =
+    fun getDesignProcedure(name: String, myType: AIntByRef = IntByRef.UNNECESSARY): Int =
             callFunctionInt("GetDesignProcedure", name, myType)
 
     /**
@@ -331,7 +331,7 @@ interface FrameObjV14 : SapComponent {
      * @param rdj An array that includes the relative distance along the line object to the J-End of the frame element.
      * @return zero if the frame element information is successfully returned; otherwise it returns nonzero. An error occurs if the analysis model does not exist.
      */
-    fun getElm(name: String, nelm: AIntByRef, elm: AStringArrayByRef, rdi: ADoubleArrayByRef, rdj: ADoubleArrayByRef): Int =
+    fun getElm(name: String, nelm: AIntByRef = IntByRef.UNNECESSARY, elm: AStringArrayByRef = StringArrayByRef.UNNECESSARY, rdi: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, rdj: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetElm", name, nelm, elm, rdi, rdj)
 
     /**
@@ -343,7 +343,7 @@ interface FrameObjV14 : SapComponent {
      * @param rz The rigid zone factor. This is the fraction of the end offset length assumed to be rigid for bending and shear deformations.
      * @return zero if the offsets are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getEndLengthOffset(name: String, autoOffset: ABooleanByRef, length1: ADoubleByRef, length2: ADoubleByRef, rz: ADoubleByRef): Int =
+    fun getEndLengthOffset(name: String, autoOffset: ABooleanByRef, length1: ADoubleByRef = DoubleByRef.UNNECESSARY, length2: ADoubleByRef = DoubleByRef.UNNECESSARY, rz: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetEndLengthOffset", name, autoOffset, length1, length2, rz)
 
     /**
@@ -355,7 +355,7 @@ interface FrameObjV14 : SapComponent {
      * @param skewJ The angle in degrees measured counter clockwise from the positive local 3-axis to a line parallel to the J-End of the frame object (-90 < SkewJ < 90). (deg)
      * @return zero if the end skew data is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getEndSkew(name: String, skewI: ADoubleByRef, skewJ: ADoubleByRef): Int =
+    fun getEndSkew(name: String, skewI: ADoubleByRef = DoubleByRef.UNNECESSARY, skewJ: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetEndSkew", name, skewI, skewJ)
 
     /**
@@ -371,7 +371,7 @@ interface FrameObjV14 : SapComponent {
      * @param tf This item applies only when MyType = 1 or MyType = 3. If this item is True, the fireproofing is assumed to be applied to the top flange of the section. If it is False, the program assumes no fireproofing is applied to the section top flange. This flag applies for I, channel and double channel sections.
      * @return zero if the fireproofing assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getFireproofing(name: String, myType: AIntByRef, thickness: ADoubleByRef, perimeter: ADoubleByRef, density: ADoubleByRef, tf: ABooleanByRef): Int =
+    fun getFireproofing(name: String, myType: AIntByRef = IntByRef.UNNECESSARY, thickness: ADoubleByRef = DoubleByRef.UNNECESSARY, perimeter: ADoubleByRef = DoubleByRef.UNNECESSARY, density: ADoubleByRef = DoubleByRef.UNNECESSARY, tf: ABooleanByRef): Int =
             callFunctionInt("GetFireproofing", name, myType, thickness, perimeter, density, tf)
 
     /**
@@ -380,7 +380,7 @@ interface FrameObjV14 : SapComponent {
      * @param GUID The GUID (Global Unique ID) for the specified frame object.
      * @return zero if the frame object GUID is successfully retrieved; otherwise it returns nonzero.
      */
-    fun getGUID(name: String, GUID: AStringByRef): Int =
+    fun getGUID(name: String, GUID: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetGUID", name, GUID)
 
     /**
@@ -397,7 +397,7 @@ interface FrameObjV14 : SapComponent {
      * @param cSys This is either Local or the name of a defined coordinate system. It is the coordinate system in which the Offset1 and Offset2 items are specified.
      * @return zero if the insertion point data is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getInsertionPoint(name: String, cardinalPoint: AIntByRef, mirror2: ABooleanByRef, stiffTransform: ABooleanByRef, offset1: ADoubleArrayByRef, offset2: ADoubleArrayByRef, cSys: AStringByRef): Int =
+    fun getInsertionPoint(name: String, cardinalPoint: AIntByRef = IntByRef.UNNECESSARY, mirror2: ABooleanByRef, stiffTransform: ABooleanByRef, offset1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, offset2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, cSys: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetInsertionPoint", name, cardinalPoint, mirror2, stiffTransform, offset1, offset2, cSys)
 
     /**
@@ -420,7 +420,7 @@ interface FrameObjV14 : SapComponent {
      * This item does not apply for point bracing (when MyType = 1).
      * @return zero if the assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLateralBracing(name: String, numberItems: AIntByRef, frameName: AStringArrayByRef, myType: AIntArrayByRef, loc: AIntArrayByRef, rd1: ADoubleArrayByRef, rd2: ADoubleArrayByRef, dist1: ADoubleArrayByRef, dist2: ADoubleArrayByRef): Int =
+    fun getLateralBracing(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, frameName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, myType: AIntArrayByRef = IntArrayByRef.UNNECESSARY, loc: AIntArrayByRef = IntArrayByRef.UNNECESSARY, rd1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, rd2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dist1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dist2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetLateralBracing", name, numberItems, frameName, myType, loc, rd1, rd2, dist1, dist2)
 
     /**
@@ -452,7 +452,7 @@ interface FrameObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected frame objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadDeformation(name: String, numberItems: AIntByRef, frameName: AStringArrayByRef, loadPat: AStringArrayByRef, dof1: ABooleanArrayByRef, dof2: ABooleanArrayByRef, dof3: ABooleanArrayByRef, dof4: ABooleanArrayByRef, dof5: ABooleanArrayByRef, dof6: ABooleanArrayByRef, u1: ADoubleArrayByRef, u2: ADoubleArrayByRef, u3: ADoubleArrayByRef, r1: ADoubleArrayByRef, r2: ADoubleArrayByRef, r3: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadDeformation(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, frameName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, dof1: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, dof2: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, dof3: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, dof4: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, dof5: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, dof6: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, u1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadDeformation", name, numberItems, frameName, loadPat, dof1, dof2, dof3, dof4, dof5, dof6, u1, u2, u3, r1, r2, r3, itemType)
 
     /**
@@ -493,7 +493,7 @@ interface FrameObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected frame objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadDistributed(name: String, numberItems: AIntByRef, frameName: AStringArrayByRef, loadPat: AStringArrayByRef, myType: AIntArrayByRef, cSys: AStringArrayByRef, dir: AIntArrayByRef, rd1: ADoubleArrayByRef, rd2: ADoubleArrayByRef, dist1: ADoubleArrayByRef, dist2: ADoubleArrayByRef, val1: ADoubleArrayByRef, val2: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadDistributed(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, frameName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, myType: AIntArrayByRef = IntArrayByRef.UNNECESSARY, cSys: AStringArrayByRef = StringArrayByRef.UNNECESSARY, dir: AIntArrayByRef = IntArrayByRef.UNNECESSARY, rd1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, rd2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dist1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dist2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, val1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, val2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadDistributed", name, numberItems, frameName, loadPat, myType, cSys, dir, rd1, rd2, dist1, dist2, val1, val2, itemType)
 
     /**
@@ -513,7 +513,7 @@ interface FrameObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected frame objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadGravity(name: String, numberItems: AIntByRef, frameName: AStringArrayByRef, loadPat: AStringArrayByRef, cSys: AStringArrayByRef, x: ADoubleArrayByRef, y: ADoubleArrayByRef, z: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadGravity(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, frameName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, cSys: AStringArrayByRef = StringArrayByRef.UNNECESSARY, x: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, y: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, z: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadGravity", name, numberItems, frameName, loadPat, cSys, x, y, z, itemType)
 
     /**
@@ -551,7 +551,7 @@ interface FrameObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected frame objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadPoint(name: String, numberItems: AIntByRef, frameName: AStringArrayByRef, loadPat: AStringArrayByRef, myType: AIntArrayByRef, cSys: AStringArrayByRef, dir: AIntArrayByRef, relDist: ADoubleArrayByRef, dist: ADoubleArrayByRef, value: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadPoint(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, frameName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, myType: AIntArrayByRef = IntArrayByRef.UNNECESSARY, cSys: AStringArrayByRef = StringArrayByRef.UNNECESSARY, dir: AIntArrayByRef = IntArrayByRef.UNNECESSARY, relDist: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dist: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadPoint", name, numberItems, frameName, loadPat, myType, cSys, dir, relDist, dist, value, itemType)
 
     /**
@@ -578,7 +578,7 @@ interface FrameObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected frame objects, and the Name item is ignored.
      * @return zero if the strain load assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadStrain(name: String, numberItems: AIntByRef, frameName: AStringArrayByRef, loadPat: AStringArrayByRef, dof: AIntArrayByRef, value: ADoubleArrayByRef, patternName: AStringArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadStrain(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, frameName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, dof: AIntArrayByRef = IntArrayByRef.UNNECESSARY, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, patternName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadStrain", name, numberItems, frameName, loadPat, dof, value, patternName, itemType)
 
     /**
@@ -617,7 +617,7 @@ interface FrameObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected frame objects, and the Name item is ignored.
      * @return zero if the target force assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadTargetForce(name: String, numberItems: AIntByRef, frameName: AStringArrayByRef, loadPat: AStringArrayByRef, dof1: ABooleanArrayByRef, dof2: ABooleanArrayByRef, dof3: ABooleanArrayByRef, dof4: ABooleanArrayByRef, dof5: ABooleanArrayByRef, dof6: ABooleanArrayByRef, p: ADoubleArrayByRef, v2: ADoubleArrayByRef, v3: ADoubleArrayByRef, t: ADoubleArrayByRef, m2: ADoubleArrayByRef, m3: ADoubleArrayByRef, t1: ADoubleArrayByRef, t2: ADoubleArrayByRef, t3: ADoubleArrayByRef, t4: ADoubleArrayByRef, t5: ADoubleArrayByRef, t6: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadTargetForce(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, frameName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, dof1: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, dof2: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, dof3: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, dof4: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, dof5: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, dof6: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, p: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, v2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, v3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, t: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, t1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, t2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, t3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, t4: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, t5: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, t6: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadTargetForce", name, numberItems, frameName, loadPat, dof1, dof2, dof3, dof4, dof5, dof6, p, v2, v3, t, m2, m3, t1, t2, t3, t4, t5, t6, itemType)
 
     /**
@@ -641,7 +641,7 @@ interface FrameObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected frame objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadTemperature(name: String, numberItems: AIntByRef, frameName: AStringArrayByRef, loadPat: AStringArrayByRef, myType: AIntArrayByRef, value: ADoubleArrayByRef, patternName: AStringArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadTemperature(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, frameName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, myType: AIntArrayByRef = IntArrayByRef.UNNECESSARY, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, patternName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadTemperature", name, numberItems, frameName, loadPat, myType, value, patternName, itemType)
 
     /**
@@ -668,7 +668,7 @@ interface FrameObjV14 : SapComponent {
      * @param plVect This is an array dimensioned to 3 (3 doubles) that defines the plane reference vector. This item applies when the Active item is True and the PlVectOpt item is 3.
      * @return zero if the advanced local axes assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLocalAxesAdvanced(name: String, active: ABooleanByRef, plane2: AIntByRef, plVectOpt: AIntByRef, plCSys: AStringByRef, plDir: AIntArrayByRef, plPt: AStringArrayByRef, plVect: ADoubleArrayByRef): Int =
+    fun getLocalAxesAdvanced(name: String, active: ABooleanByRef, plane2: AIntByRef = IntByRef.UNNECESSARY, plVectOpt: AIntByRef = IntByRef.UNNECESSARY, plCSys: AStringByRef = StringByRef.UNNECESSARY, plDir: AIntArrayByRef = IntArrayByRef.UNNECESSARY, plPt: AStringArrayByRef = StringArrayByRef.UNNECESSARY, plVect: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetLocalAxesAdvanced", name, active, plane2, plVectOpt, plCSys, plDir, plPt, plVect)
 
     /**
@@ -678,7 +678,7 @@ interface FrameObjV14 : SapComponent {
      * @param advanced This item is True if the line object local axes orientation was obtained using advanced local axes parameters.
      * @return zero if the assignment is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLocalAxes(name: String, ang: ADoubleByRef, advanced: ABooleanByRef): Int =
+    fun getLocalAxes(name: String, ang: ADoubleByRef = DoubleByRef.UNNECESSARY, advanced: ABooleanByRef): Int =
             callFunctionInt("GetLocalAxes", name, ang, advanced)
 
     /**
@@ -687,7 +687,7 @@ interface FrameObjV14 : SapComponent {
      * @param massOverL The mass per unit length assigned to the frame object. (M/L)
      * @return zero if the mass assignment is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getMass(name: String, massOverL: ADoubleByRef): Int =
+    fun getMass(name: String, massOverL: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetMass", name, massOverL)
 
     /**
@@ -696,7 +696,7 @@ interface FrameObjV14 : SapComponent {
      * @param propName This is None, indicating that no material overwrite exists for the specified frame object, or it is the name of an existing material property.
      * @return zero if the material overwrite assignment is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getMaterialOverwrite(name: String, propName: AStringByRef): Int =
+    fun getMaterialOverwrite(name: String, propName: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetMaterialOverwrite", name, propName)
 
     /**
@@ -707,7 +707,7 @@ interface FrameObjV14 : SapComponent {
      * If PatternName is the name of a defined joint pattern, the material temperature for the frame object may vary from one end to the other. The material temperature at each end of the object is equal to the specified temperature multiplied by the pattern value at the joint at the end of the frame object.
      * @return zero if the material temperature assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getMatTemp(name: String, temp: ADoubleByRef, patternName: AStringByRef): Int =
+    fun getMatTemp(name: String, temp: ADoubleByRef = DoubleByRef.UNNECESSARY, patternName: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetMatTemp", name, temp, patternName)
 
     /**
@@ -724,7 +724,7 @@ interface FrameObjV14 : SapComponent {
      * * Value(7) = Weight modifier
      * @return zero if the modifier assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getModifiers(name: String, value: ADoubleArrayByRef): Int =
+    fun getModifiers(name: String, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetModifiers", name, value)
 
     /**
@@ -733,7 +733,7 @@ interface FrameObjV14 : SapComponent {
      * @param myName This is a one-dimensional array of frame object names.
      * @return zero if the names are successfully retrieved, otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef): Int =
+    fun getNameList(numberNames: AIntByRef = IntByRef.UNNECESSARY, myName: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetNameList", numberNames, myName)
 
     /**
@@ -748,7 +748,7 @@ interface FrameObjV14 : SapComponent {
      * @param noOutPutAndDesignAtPointLoads If this item is True, no additional output stations are added at point load locations.
      * @return zero if the data is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getOutputStations(name: String, myType: AIntByRef, maxSegSize: ADoubleByRef, minSections: AIntByRef, noOutPutAndDesignAtElementEnds: ABooleanByRef, noOutPutAndDesignAtPointLoads: ABooleanByRef): Int =
+    fun getOutputStations(name: String, myType: AIntByRef = IntByRef.UNNECESSARY, maxSegSize: ADoubleByRef = DoubleByRef.UNNECESSARY, minSections: AIntByRef = IntByRef.UNNECESSARY, noOutPutAndDesignAtElementEnds: ABooleanByRef, noOutPutAndDesignAtPointLoads: ABooleanByRef): Int =
             callFunctionInt("GetOutputStations", name, myType, maxSegSize, minSections, noOutPutAndDesignAtElementEnds, noOutPutAndDesignAtPointLoads)
 
     /**
@@ -764,7 +764,7 @@ interface FrameObjV14 : SapComponent {
      * @param cSys This is an array that contains the name of the coordinate system in which each projected P-Delta force is defined. This item is blank when the Dir item is zero, that is, when the P-Delta force is defined in the frame object local 1-axis direction.
      * @return zero if the assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getPDeltaForce(name: String, numberForces: AIntByRef, pDeltaForce: ADoubleArrayByRef, dir: AIntArrayByRef, cSys: AStringArrayByRef): Int =
+    fun getPDeltaForce(name: String, numberForces: AIntByRef = IntByRef.UNNECESSARY, pDeltaForce: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dir: AIntArrayByRef = IntArrayByRef.UNNECESSARY, cSys: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetPDeltaForce", name, numberForces, pDeltaForce, dir, cSys)
 
     /**
@@ -774,7 +774,7 @@ interface FrameObjV14 : SapComponent {
      * @param point2 The name of the point object at the J-End of the specified frame object.
      * @return zero if the point names are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getPoints(name: String, point1: AStringByRef, point2: AStringByRef): Int =
+    fun getPoints(name: String, point1: AStringByRef = StringByRef.UNNECESSARY, point2: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetPoints", name, point1, point2)
 
     /**
@@ -796,7 +796,7 @@ interface FrameObjV14 : SapComponent {
      * * StartValue(5) and EndValue(5) = R3 partial fixity (FL/rad)
      * @return zero if the assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getReleases(name: String, ii: ABooleanArrayByRef, jj: ABooleanArrayByRef, startValue: ADoubleArrayByRef, endValue: ADoubleArrayByRef): Int =
+    fun getReleases(name: String, ii: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, jj: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, startValue: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, endValue: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetReleases", name, ii, jj, startValue, endValue)
 
     /**
@@ -808,7 +808,7 @@ interface FrameObjV14 : SapComponent {
      * @param sVarRelStartLoc This is the relative distance along the nonprismatic section to the I-End (start) of the frame object. This item is ignored when the sVarTotalLengthitem is 0.
      * @return an error if the section property assigned to the frame object is not a nonprismatic property.
      */
-    fun getSectionNonPrismatic(name: String, propName: AStringByRef, sVarTotalLength: ADoubleByRef, sVarRelStartLoc: ADoubleByRef): Int =
+    fun getSectionNonPrismatic(name: String, propName: AStringByRef = StringByRef.UNNECESSARY, sVarTotalLength: ADoubleByRef = DoubleByRef.UNNECESSARY, sVarRelStartLoc: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetSectionNonPrismatic", name, propName, sVarTotalLength, sVarRelStartLoc)
 
     /**
@@ -818,7 +818,7 @@ interface FrameObjV14 : SapComponent {
      * @param sAuto This is the name of the auto select list assigned to the frame object, if any. If this item is returned as a blank string, no auto select list is assigned to the frame object.
      * @return zero if the frame object property is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getSection(name: String, propName: AStringByRef, sAuto: AStringByRef): Int =
+    fun getSection(name: String, propName: AStringByRef = StringByRef.UNNECESSARY, sAuto: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetSection", name, propName, sAuto)
 
     /**
@@ -856,7 +856,7 @@ interface FrameObjV14 : SapComponent {
      * @param ang Each value in this array is the angle that the link local 2-axis is rotated from its default orientation. This item applies only when the corresponding MyType = 2. (deg)
      * @return zero if the assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getSpring(name: String, numberSprings: AIntByRef, myType: AIntArrayByRef, s: ADoubleArrayByRef, simpleSpringType: AIntArrayByRef, linkProp: AStringArrayByRef, springLocalOneType: AIntArrayByRef, dir: AIntArrayByRef, plane23Angle: ADoubleArrayByRef, vecX: ADoubleArrayByRef, vecY: ADoubleArrayByRef, vecZ: ADoubleArrayByRef, cSys: AStringArrayByRef, ang: ADoubleArrayByRef): Int =
+    fun getSpring(name: String, numberSprings: AIntByRef = IntByRef.UNNECESSARY, myType: AIntArrayByRef = IntArrayByRef.UNNECESSARY, s: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, simpleSpringType: AIntArrayByRef = IntArrayByRef.UNNECESSARY, linkProp: AStringArrayByRef = StringArrayByRef.UNNECESSARY, springLocalOneType: AIntArrayByRef = IntArrayByRef.UNNECESSARY, dir: AIntArrayByRef = IntArrayByRef.UNNECESSARY, plane23Angle: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, vecX: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, vecY: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, vecZ: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, cSys: AStringArrayByRef = StringArrayByRef.UNNECESSARY, ang: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetSpring", name, numberSprings, myType, s, simpleSpringType, linkProp, springLocalOneType, dir, plane23Angle, vecX, vecY, vecZ, cSys, ang)
 
     /**
@@ -869,7 +869,7 @@ interface FrameObjV14 : SapComponent {
      * @param limitTension The tension force limit for the frame object. (F)
      * @return zero if the assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getTCLimits(name: String, limitCompressionExists: ABooleanByRef, limitCompression: ADoubleByRef, limitTensionExists: ABooleanByRef, limitTension: ADoubleByRef): Int =
+    fun getTCLimits(name: String, limitCompressionExists: ABooleanByRef, limitCompression: ADoubleByRef = DoubleByRef.UNNECESSARY, limitTensionExists: ABooleanByRef, limitTension: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetTCLimits", name, limitCompressionExists, limitCompression, limitTensionExists, limitTension)
 
     /**
@@ -882,7 +882,7 @@ interface FrameObjV14 : SapComponent {
      * If this item is False, the transformation matrix is between the present coordinate system and the frame object local coordinate system.
      * @return zero if the frame object transformation matrix is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getTransformationMatrix(name: String, value: ADoubleArrayByRef, isGlobal: Boolean = true): Int =
+    fun getTransformationMatrix(name: String, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, isGlobal: Boolean = true): Int =
             callFunctionInt("GetTransformationMatrix", name, value, isGlobal)
 
     /**
@@ -891,7 +891,7 @@ interface FrameObjV14 : SapComponent {
      * @param myType This is Straight or Curved, indicating the type of frame object.
      * @return zero if the frame object type is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getType(name: String, myType: AStringByRef): Int =
+    fun getType(name: String, myType: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetType", name, myType)
 
     /**
@@ -1078,7 +1078,7 @@ interface FrameObjV14 : SapComponent {
      * If this item is SelectedObjects, assignment is made to all selected frame objects, and the Name item is ignored.
      * @return zero if the insertion point data is successfully assigned, otherwise it returns a nonzero value.
      */
-    fun setInsertionPoint(name: String, cardinalPoint: Int, mirror2: Boolean, stiffTransform: Boolean, offset1: ADoubleArrayByRef, offset2: ADoubleArrayByRef, cSys: String = "Local", itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun setInsertionPoint(name: String, cardinalPoint: Int, mirror2: Boolean, stiffTransform: Boolean, offset1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, offset2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, cSys: String = "Local", itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("SetInsertionPoint", name, cardinalPoint, mirror2, stiffTransform, offset1, offset2, cSys, itemType)
 
     /**
@@ -1135,7 +1135,7 @@ interface FrameObjV14 : SapComponent {
      * If this item is SelectedObjects, assignment is made to all selected frame objects and the Name item is ignored.
      * @return zero if the loads are successfully assigned, otherwise it returns a nonzero value.
      */
-    fun setLoadDeformation(name: String, loadPat: String, dof: ABooleanArrayByRef, d: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun setLoadDeformation(name: String, loadPat: String, dof: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, d: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("SetLoadDeformation", name, loadPat, dof, d, itemType)
 
     /**
@@ -1294,7 +1294,7 @@ interface FrameObjV14 : SapComponent {
      * If this item is SelectedObjects, assignment is made to all selected frame objects, and the Name item is ignored.
      * @return zero if the target forces are successfully assigned, otherwise it returns a nonzero value.
      */
-    fun setLoadTargetForce(name: String, loadPat: String, dof: ABooleanArrayByRef, f: ADoubleArrayByRef, rd: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun setLoadTargetForce(name: String, loadPat: String, dof: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, f: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, rd: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("SetLoadTargetForce", name, loadPat, dof, f, rd, itemType)
 
     /**
@@ -1352,7 +1352,7 @@ interface FrameObjV14 : SapComponent {
      * If this item is Selection, assignment is made to all selected frame objects and the Name item is ignored.
      * @return zero if the advanced local axes assignments are assigned successfully; otherwise it returns a nonzero value.
      */
-    fun setLocalAxesAdvanced(name: String, active: Boolean, plane2: Int, plVectOpt: Int, plCSys: String, plDir: AIntArrayByRef, plPt: AStringArrayByRef, plVect: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun setLocalAxesAdvanced(name: String, active: Boolean, plane2: Int, plVectOpt: Int, plCSys: String, plDir: AIntArrayByRef = IntArrayByRef.UNNECESSARY, plPt: AStringArrayByRef = StringArrayByRef.UNNECESSARY, plVect: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("SetLocalAxesAdvanced", name, active, plane2, plVectOpt, plCSys, plDir, plPt, plVect, itemType)
 
     /**
@@ -1443,7 +1443,7 @@ interface FrameObjV14 : SapComponent {
      * If this item is SelectedObjects, assignment is made to all selected frame objects, and the Name item is ignored.
      * @return zero if the modifier assignments are successfully assigned, otherwise it returns a nonzero value.
      */
-    fun setModifiers(name: String, value: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun setModifiers(name: String, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("SetModifiers", name, value, itemType)
 
     /**
@@ -1525,7 +1525,7 @@ interface FrameObjV14 : SapComponent {
      * If this item is SelectedObjects, assignment is made to all selected frame objects, and the Name item is ignored.
      * @return zero if the assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun setReleases(name: String, ii: ABooleanArrayByRef, jj: ABooleanArrayByRef, startValue: ADoubleArrayByRef, endValue: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun setReleases(name: String, ii: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, jj: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, startValue: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, endValue: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("SetReleases", name, ii, jj, startValue, endValue, itemType)
 
     /**
@@ -1595,7 +1595,7 @@ interface FrameObjV14 : SapComponent {
      * If this item is SelectedObjects, assignment is made to all selected frame objects, and the Name item is ignored.
      * @return zero if the assignments are successfully applied, otherwise it returns a nonzero value.
      */
-    fun setSpring(name: String, myType: Int, s: Double, simpleSpringType: Int, linkProp: String, springLocalOneType: Int, dir: Int, plane23Angle: Double, vec: ADoubleArrayByRef, ang: Double, replace: Boolean, cSys: String = "Local", itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun setSpring(name: String, myType: Int, s: Double, simpleSpringType: Int, linkProp: String, springLocalOneType: Int, dir: Int, plane23Angle: Double, vec: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ang: Double, replace: Boolean, cSys: String = "Local", itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("SetSpring", name, myType, s, simpleSpringType, linkProp, springLocalOneType, dir, plane23Angle, vec, ang, replace, cSys, itemType)
 
     /**

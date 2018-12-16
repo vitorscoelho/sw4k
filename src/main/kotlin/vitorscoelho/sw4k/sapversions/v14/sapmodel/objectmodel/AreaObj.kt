@@ -15,7 +15,7 @@ interface AreaObjV14 : SapComponent {
      * @param cSys The name of the coordinate system in which the area object point coordinates are defined.
      * @return zero if the area object is successfully added, otherwise it returns a nonzero value.
      */
-    fun addByCoord(numberPoints: Int, x: ADoubleArrayByRef, y: ADoubleArrayByRef, z: ADoubleArrayByRef, name: AStringByRef = StringByRef.UNNECESSARY, propName: String = "Default", userName: String = "", cSys: String = "Global"): Int =
+    fun addByCoord(numberPoints: Int, x: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, y: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, z: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, name: AStringByRef = StringByRef.UNNECESSARY, propName: String = "Default", userName: String = "", cSys: String = "Global"): Int =
             callFunctionInt("AddByCoord", numberPoints, x, y, z, name, propName, userName, cSys)
 
     /**
@@ -28,7 +28,7 @@ interface AreaObjV14 : SapComponent {
      * @param userName This is an optional user specified name for the area object. If a UserName is specified and that name is already used for another area object, the program ignores the UserName.
      * @return zero if the area object is successfully added; otherwise it returns a nonzero value.
      */
-    fun addByPoint(numberPoints: Int, point: AStringArrayByRef, name: AStringByRef = StringByRef.UNNECESSARY, propName: String = "Default", userName: String = ""): Int =
+    fun addByPoint(numberPoints: Int, point: AStringArrayByRef = StringArrayByRef.UNNECESSARY, name: AStringByRef = StringByRef.UNNECESSARY, propName: String = "Default", userName: String = ""): Int =
             callFunctionInt("AddByPoint", numberPoints, point, name, propName, userName)
 
     /**
@@ -289,7 +289,7 @@ interface AreaObjV14 : SapComponent {
      * @param subMeshSize This item applies when the SubMesh item is True. It is the maximum size of area objects to remain when the auto meshing is complete. (L)
      * @return zero if the meshing assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getAutoMesh(name: String, meshType: AIntByRef, n1: AIntByRef, n2: AIntByRef, maxSize1: ADoubleByRef, maxSize2: ADoubleByRef, pointOnEdgeFromLine: ABooleanByRef, pointOnEdgeFromPoint: ABooleanByRef, extendCookieCutLines: ABooleanByRef, rotation: ADoubleByRef, maxSizeGeneral: ADoubleByRef, localAxesOnEdge: ABooleanByRef, localAxesOnFace: ABooleanByRef, restraintsOnEdge: ABooleanByRef, restraintsOnFace: ABooleanByRef, group: AStringByRef, subMesh: ABooleanByRef, subMeshSize: ADoubleByRef): Int =
+    fun getAutoMesh(name: String, meshType: AIntByRef = IntByRef.UNNECESSARY, n1: AIntByRef = IntByRef.UNNECESSARY, n2: AIntByRef = IntByRef.UNNECESSARY, maxSize1: ADoubleByRef = DoubleByRef.UNNECESSARY, maxSize2: ADoubleByRef = DoubleByRef.UNNECESSARY, pointOnEdgeFromLine: ABooleanByRef, pointOnEdgeFromPoint: ABooleanByRef, extendCookieCutLines: ABooleanByRef, rotation: ADoubleByRef = DoubleByRef.UNNECESSARY, maxSizeGeneral: ADoubleByRef = DoubleByRef.UNNECESSARY, localAxesOnEdge: ABooleanByRef, localAxesOnFace: ABooleanByRef, restraintsOnEdge: ABooleanByRef, restraintsOnFace: ABooleanByRef, group: AStringByRef = StringByRef.UNNECESSARY, subMesh: ABooleanByRef, subMeshSize: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetAutoMesh", name, meshType, n1, n2, maxSize1, maxSize2, pointOnEdgeFromLine, pointOnEdgeFromPoint, extendCookieCutLines, rotation, maxSizeGeneral, localAxesOnEdge, localAxesOnFace, restraintsOnEdge, restraintsOnFace, group, subMesh, subMeshSize)
 
     /**
@@ -308,7 +308,7 @@ interface AreaObjV14 : SapComponent {
      * @param elm An array that includes the name of a area element created from the specified area object.
      * @return zero if the area element information is successfully returned; otherwise it returns nonzero. An error occurs if the analysis model does not currently exist.
      */
-    fun getElm(name: String, nelm: AIntByRef, elm: AStringArrayByRef): Int =
+    fun getElm(name: String, nelm: AIntByRef = IntByRef.UNNECESSARY, elm: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetElm", name, nelm, elm)
 
     /**
@@ -317,7 +317,7 @@ interface AreaObjV14 : SapComponent {
      * @param GUID The GUID (Global Unique ID) for the specified area object.
      * @return zero if the area object GUID is successfully retrieved; otherwise, it returns nonzero.
      */
-    fun getGUID(name: String, GUID: AStringByRef): Int =
+    fun getGUID(name: String, GUID: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetGUID", name, GUID)
 
     /**
@@ -337,7 +337,7 @@ interface AreaObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected area objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadGravity(name: String, numberItems: AIntByRef, areaName: AStringArrayByRef, loadPat: AStringArrayByRef, cSys: AStringArrayByRef, x: ADoubleArrayByRef, y: ADoubleArrayByRef, z: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadGravity(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, areaName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, cSys: AStringArrayByRef = StringArrayByRef.UNNECESSARY, x: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, y: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, z: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadGravity", name, numberItems, areaName, loadPat, cSys, x, y, z, itemType)
 
     /**
@@ -357,7 +357,7 @@ interface AreaObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected area objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadPorePressure(name: String, numberItems: AIntByRef, areaName: AStringArrayByRef, loadPat: AStringArrayByRef, value: ADoubleArrayByRef, patternName: AStringArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadPorePressure(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, areaName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, patternName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadPorePressure", name, numberItems, areaName, loadPat, value, patternName, itemType)
 
     /**
@@ -376,7 +376,7 @@ interface AreaObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected area objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadRotate(name: String, numberItems: AIntByRef, areaName: AStringArrayByRef, loadPat: AStringArrayByRef, value: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadRotate(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, areaName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadRotate", name, numberItems, areaName, loadPat, value, itemType)
 
     /**
@@ -405,7 +405,7 @@ interface AreaObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected area objects, and the Name item is ignored.
      * @return zero if the strain load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadStrain(name: String, numberItems: AIntByRef, areaName: AStringArrayByRef, loadPat: AStringArrayByRef, component: AIntArrayByRef, value: ADoubleArrayByRef, patternName: AStringArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadStrain(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, areaName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, component: AIntArrayByRef = IntArrayByRef.UNNECESSARY, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, patternName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadStrain", name, numberItems, areaName, loadPat, component, value, patternName, itemType)
 
     /**
@@ -430,7 +430,7 @@ interface AreaObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected area objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadSurfacePressure(name: String, numberItems: AIntByRef, areaName: AStringArrayByRef, loadPat: AStringArrayByRef, face: AIntArrayByRef, value: ADoubleArrayByRef, patternName: AStringArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadSurfacePressure(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, areaName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, face: AIntArrayByRef = IntArrayByRef.UNNECESSARY, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, patternName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadSurfacePressure", name, numberItems, areaName, loadPat, face, value, patternName, itemType)
 
     /**
@@ -453,7 +453,7 @@ interface AreaObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected area objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadTemperature(name: String, numberItems: AIntByRef, areaName: AStringArrayByRef, loadPat: AStringArrayByRef, myType: AIntArrayByRef, value: ADoubleArrayByRef, patternName: AStringArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadTemperature(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, areaName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, myType: AIntArrayByRef = IntArrayByRef.UNNECESSARY, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, patternName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadTemperature", name, numberItems, areaName, loadPat, myType, value, patternName, itemType)
 
     /**
@@ -490,7 +490,7 @@ interface AreaObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected area objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadUniformToFrame(name: String, numberItems: AIntByRef, areaName: AStringArrayByRef, loadPat: AStringArrayByRef, cSys: AStringArrayByRef, dir: AIntArrayByRef, value: ADoubleArrayByRef, distType: AIntArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadUniformToFrame(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, areaName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, cSys: AStringArrayByRef = StringArrayByRef.UNNECESSARY, dir: AIntArrayByRef = IntArrayByRef.UNNECESSARY, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, distType: AIntArrayByRef = IntArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadUniformToFrame", name, numberItems, areaName, loadPat, cSys, dir, value, distType, itemType)
 
     /**
@@ -523,7 +523,7 @@ interface AreaObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected area objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadUniform(name: String, numberItems: AIntByRef, areaName: AStringArrayByRef, loadPat: AStringArrayByRef, cSys: AStringArrayByRef, dir: AIntArrayByRef, value: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadUniform(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, areaName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, cSys: AStringArrayByRef = StringArrayByRef.UNNECESSARY, dir: AIntArrayByRef = IntArrayByRef.UNNECESSARY, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadUniform", name, numberItems, areaName, loadPat, cSys, dir, value, itemType)
 
     /**
@@ -545,7 +545,7 @@ interface AreaObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected area objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadWindPressure(name: String, numberItems: AIntByRef, areaName: AStringArrayByRef, loadPat: AStringArrayByRef, myType: ADoubleArrayByRef, cp: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadWindPressure(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, areaName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, myType: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, cp: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadWindPressure", name, numberItems, areaName, loadPat, myType, cp, itemType)
 
     /**
@@ -572,7 +572,7 @@ interface AreaObjV14 : SapComponent {
      * @param plVect This is an array dimensioned to 3 (3 doubles) that defines the plane reference vector. This item applies when the Active item is True and the PlVectOpt item is 3.
      * @return zero if the advanced local axes assignments are retrieved successfully; otherwise it returns a nonzero value.
      */
-    fun getLocalAxesAdvanced(name: String, active: ABooleanByRef, plane2: AIntByRef, plVectOpt: AIntByRef, plCSys: AStringByRef, plDir: AIntArrayByRef, plPt: AStringArrayByRef, plVect: ADoubleArrayByRef): Int =
+    fun getLocalAxesAdvanced(name: String, active: ABooleanByRef, plane2: AIntByRef = IntByRef.UNNECESSARY, plVectOpt: AIntByRef = IntByRef.UNNECESSARY, plCSys: AStringByRef = StringByRef.UNNECESSARY, plDir: AIntArrayByRef = IntArrayByRef.UNNECESSARY, plPt: AStringArrayByRef = StringArrayByRef.UNNECESSARY, plVect: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetLocalAxesAdvanced", name, active, plane2, plVectOpt, plCSys, plDir, plPt, plVect)
 
     /**
@@ -582,7 +582,7 @@ interface AreaObjV14 : SapComponent {
      * @param advanced This item is True if the area object local axes orientation was obtained using advanced local axes parameters.
      * @return zero if the assignment is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLocalAxes(name: String, ang: ADoubleByRef, advanced: ABooleanByRef): Int =
+    fun getLocalAxes(name: String, ang: ADoubleByRef = DoubleByRef.UNNECESSARY, advanced: ABooleanByRef): Int =
             callFunctionInt("GetLocalAxes", name, ang, advanced)
 
     /**
@@ -591,7 +591,7 @@ interface AreaObjV14 : SapComponent {
      * @param massOverL2 The mass per unit area assigned to the area object. [M/L2]
      * @return zero if the mass assignment is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getMass(name: String, massOverL2: ADoubleByRef): Int =
+    fun getMass(name: String, massOverL2: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetMass", name, massOverL2)
 
     /**
@@ -600,7 +600,7 @@ interface AreaObjV14 : SapComponent {
      * @param propName This is None, indicating that no material overwrite exists for the specified area object, or it is the name of an existing material property.
      * @return zero if the material overwrite assignment is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getMaterialOverwrite(name: String, propName: AStringByRef): Int =
+    fun getMaterialOverwrite(name: String, propName: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetMaterialOverwrite", name, propName)
 
     /**
@@ -611,7 +611,7 @@ interface AreaObjV14 : SapComponent {
      * If PatternName is the name of a defined joint pattern, the material temperature for the area object may vary. The material temperature at each corner point around the area object perimeter is equal to the specified temperature multiplied by the pattern value at the associated point object. The material temperature at other points in the area object is calculated by interpolation from the corner points.
      * @return zero if the material temperature assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getMatTemp(name: String, temp: ADoubleByRef, patternName: AStringByRef): Int =
+    fun getMatTemp(name: String, temp: ADoubleByRef = DoubleByRef.UNNECESSARY, patternName: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetMatTemp", name, temp, patternName)
 
     /**
@@ -630,7 +630,7 @@ interface AreaObjV14 : SapComponent {
      * * Value(9) = Weight modifier
      * @return zero if the modifier assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getModifiers(name: String, value: ADoubleArrayByRef): Int =
+    fun getModifiers(name: String, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetModifiers", name, value)
 
     /**
@@ -639,7 +639,7 @@ interface AreaObjV14 : SapComponent {
      * @param myName This is a one-dimensional array of area object names.
      * @return zero if the names are successfully retrieved, otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef): Int =
+    fun getNameList(numberNames: AIntByRef = IntByRef.UNNECESSARY, myName: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetNameList", numberNames, myName)
 
     /**
@@ -654,7 +654,7 @@ interface AreaObjV14 : SapComponent {
      * @param offset This item applies only when OffsetType = 2. It is an array of joint offsets for each of the points that define the area object. (L)
      * @return zero if the assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getOffsets(name: String, offsetType: AIntByRef, offsetPattern: AStringByRef, offsetPatternSF: ADoubleByRef, offset: ADoubleArrayByRef): Int =
+    fun getOffsets(name: String, offsetType: AIntByRef = IntByRef.UNNECESSARY, offsetPattern: AStringByRef = StringByRef.UNNECESSARY, offsetPatternSF: ADoubleByRef = DoubleByRef.UNNECESSARY, offset: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetOffsets", name, offsetType, offsetPattern, offsetPatternSF, offset)
 
     /**
@@ -664,7 +664,7 @@ interface AreaObjV14 : SapComponent {
      * @param point This is an array containing the names of the point objects that define the area object. The point names are in order around the area object.
      * @return zero if the point object names are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getPoints(name: String, numberPoints: AIntByRef, point: AStringArrayByRef): Int =
+    fun getPoints(name: String, numberPoints: AIntByRef = IntByRef.UNNECESSARY, point: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetPoints", name, numberPoints, point)
 
     /**
@@ -673,7 +673,7 @@ interface AreaObjV14 : SapComponent {
      * @param propName The name of the area property assigned to the area object. This item is None if no area property is assigned to the area object.
      * @return zero if the property is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getProperty(name: String, propName: AStringByRef): Int =
+    fun getProperty(name: String, propName: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetProperty", name, propName)
 
     /**
@@ -687,7 +687,7 @@ interface AreaObjV14 : SapComponent {
      * This array is internally dimensioned by Sap2000 to (NumberEdges - 1).
      * @return zero if the selected status is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getSelectedEdge(name: String, numberEdges: AIntByRef, selected: ABooleanArrayByRef): Int =
+    fun getSelectedEdge(name: String, numberEdges: AIntByRef = IntByRef.UNNECESSARY, selected: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetSelectedEdge", name, numberEdges, selected)
 
     /**
@@ -730,7 +730,7 @@ interface AreaObjV14 : SapComponent {
      * @param ang Each value in this array is the angle that the link local 2-axis is rotated from its default orientation. This item applies only when the corresponding MyType = 2. (deg)
      * @return zero if the assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getSpring(name: String, numberSprings: AIntByRef, myType: AIntArrayByRef, s: ADoubleArrayByRef, simpleSpringType: AIntArrayByRef, linkProp: AStringArrayByRef, face: AIntArrayByRef, springLocalOneType: AIntArrayByRef, dir: AIntArrayByRef, outward: ABooleanArrayByRef, vecX: ADoubleArrayByRef, vecY: ADoubleArrayByRef, vecZ: ADoubleArrayByRef, cSys: AStringArrayByRef, ang: ADoubleArrayByRef): Int =
+    fun getSpring(name: String, numberSprings: AIntByRef = IntByRef.UNNECESSARY, myType: AIntArrayByRef = IntArrayByRef.UNNECESSARY, s: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, simpleSpringType: AIntArrayByRef = IntArrayByRef.UNNECESSARY, linkProp: AStringArrayByRef = StringArrayByRef.UNNECESSARY, face: AIntArrayByRef = IntArrayByRef.UNNECESSARY, springLocalOneType: AIntArrayByRef = IntArrayByRef.UNNECESSARY, dir: AIntArrayByRef = IntArrayByRef.UNNECESSARY, outward: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, vecX: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, vecY: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, vecZ: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, cSys: AStringArrayByRef = StringArrayByRef.UNNECESSARY, ang: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetSpring", name, numberSprings, myType, s, simpleSpringType, linkProp, face, springLocalOneType, dir, outward, vecX, vecY, vecZ, cSys, ang)
 
     /**
@@ -745,7 +745,7 @@ interface AreaObjV14 : SapComponent {
      * @param thickness This item applies only when ThicknessType = 2. It is an array of thicknesses at each of the points that define the area object. (L)
      * @return zero if the assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getThickness(name: String, thicknessType: AIntByRef, thicknessPattern: AStringByRef, thicknessPatternSF: ADoubleByRef, thickness: ADoubleArrayByRef): Int =
+    fun getThickness(name: String, thicknessType: AIntByRef = IntByRef.UNNECESSARY, thicknessPattern: AStringByRef = StringByRef.UNNECESSARY, thicknessPatternSF: ADoubleByRef = DoubleByRef.UNNECESSARY, thickness: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetThickness", name, thicknessType, thicknessPattern, thicknessPatternSF, thickness)
 
     /**
@@ -758,7 +758,7 @@ interface AreaObjV14 : SapComponent {
      * If this item is False, the transformation matrix is between the present coordinate system and the area object local coordinate system.
      * @return zero if the area object transformation matrix is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getTransformationMatrix(name: String, value: ADoubleArrayByRef, isGlobal: Boolean = true): Int =
+    fun getTransformationMatrix(name: String, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, isGlobal: Boolean = true): Int =
             callFunctionInt("GetTransformationMatrix", name, value, isGlobal)
 
     /**
@@ -1085,7 +1085,7 @@ interface AreaObjV14 : SapComponent {
      * If this item is Selection, assignment is made to all selected area objects and the Name item is ignored.
      * @return zero if the advanced local axes assignments are successfully assigned; otherwise it returns a nonzero value.
      */
-    fun setLocalAxesAdvanced(name: String, active: Boolean, plane2: Int, plVectOpt: Int, plCSys: String, plDir: AIntArrayByRef, plPt: AStringArrayByRef, plVect: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun setLocalAxesAdvanced(name: String, active: Boolean, plane2: Int, plVectOpt: Int, plCSys: String, plDir: AIntArrayByRef = IntArrayByRef.UNNECESSARY, plPt: AStringArrayByRef = StringArrayByRef.UNNECESSARY, plVect: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("SetLocalAxesAdvanced", name, active, plane2, plVectOpt, plCSys, plDir, plPt, plVect, itemType)
 
     /**
@@ -1178,7 +1178,7 @@ interface AreaObjV14 : SapComponent {
      * If this item is SelectedObjects, assignment is made to all selected area objects, and the Name item is ignored.
      * @return zero if the modifier assignments are successfully assigned; otherwise it returns a nonzero value.
      */
-    fun setModifiers(name: String, value: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun setModifiers(name: String, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("SetModifiers", name, value, itemType)
 
     /**
@@ -1200,7 +1200,7 @@ interface AreaObjV14 : SapComponent {
      * If this item is SelectedObjects, assignment is made to all selected area objects, and the Name item is ignored.
      * @return zero if the offsets are successfully assigned; otherwise it returns a nonzero value.
      */
-    fun setOffsets(name: String, offsetType: Int, offsetPattern: String, offsetPatternSF: Double, offset: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun setOffsets(name: String, offsetType: Int, offsetPattern: String, offsetPatternSF: Double, offset: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("SetOffsets", name, offsetType, offsetPattern, offsetPatternSF, offset, itemType)
 
     /**
@@ -1281,7 +1281,7 @@ interface AreaObjV14 : SapComponent {
      * If this item is SelectedObjects, assignment is made to all selected area objects, and the Name item is ignored.
      * @return zero if the assignments are successfully applied; otherwise it returns a nonzero value.
      */
-    fun setSpring(name: String, myType: Int, s: Double, simpleSpringType: Int, linkProp: String, face: Int, springLocalOneType: Int, dir: Int, outward: Boolean, vec: ADoubleArrayByRef, ang: Double, replace: Boolean, cSys: String = "Local", itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun setSpring(name: String, myType: Int, s: Double, simpleSpringType: Int, linkProp: String, face: Int, springLocalOneType: Int, dir: Int, outward: Boolean, vec: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ang: Double, replace: Boolean, cSys: String = "Local", itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("SetSpring", name, myType, s, simpleSpringType, linkProp, face, springLocalOneType, dir, outward, vec, ang, replace, cSys, itemType)
 
     /**
@@ -1303,6 +1303,6 @@ interface AreaObjV14 : SapComponent {
      * If this item is SelectedObjects, assignment is made to all selected area objects, and the Name item is ignored.
      * @return zero if the thickness overwrites are successfully assigned; otherwise it returns a nonzero value.
      */
-    fun setThickness(name: String, thicknessType: Int, thicknessPattern: String, thicknessPatternSF: Double, thickness: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun setThickness(name: String, thicknessType: Int, thicknessPattern: String, thicknessPatternSF: Double, thickness: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("SetThickness", name, thicknessType, thicknessPattern, thicknessPatternSF, thickness, itemType)
 }

@@ -10,7 +10,7 @@ interface ModalRitzV14 : SapComponent {
      * If the specified initial case is a nonlinear static or nonlinear direct integration time history load case, the stiffness at the end of that case is used. If the initial case is anything else, zero initial conditions are assumed.
      * @return zero if the initial condition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getInitialCase(name: String, initialCase: AStringByRef): Int =
+    fun getInitialCase(name: String, initialCase: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetInitialCase", name, initialCase)
 
     /**
@@ -26,7 +26,7 @@ interface ModalRitzV14 : SapComponent {
      * @param targetPar This is an array that includes the target dynamic participation ratio.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoads(name: String, numberLoads: AIntByRef, loadType: AStringArrayByRef, loadName: AStringArrayByRef, ritzMaxCyc: AIntArrayByRef, targetPar: ADoubleArrayByRef): Int =
+    fun getLoads(name: String, numberLoads: AIntByRef = IntByRef.UNNECESSARY, loadType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, ritzMaxCyc: AIntArrayByRef = IntArrayByRef.UNNECESSARY, targetPar: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetLoads", name, numberLoads, loadType, loadName, ritzMaxCyc, targetPar)
 
     /**
@@ -36,7 +36,7 @@ interface ModalRitzV14 : SapComponent {
      * @param minModes The minimum number of modes requested.
      * @return zero if the number of modes is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getNumberModes(name: String, maxModes: AIntByRef, minModes: AIntByRef): Int =
+    fun getNumberModes(name: String, maxModes: AIntByRef = IntByRef.UNNECESSARY, minModes: AIntByRef = IntByRef.UNNECESSARY): Int =
             callFunctionInt("GetNumberModes", name, maxModes, minModes)
 
     /**
@@ -70,7 +70,7 @@ interface ModalRitzV14 : SapComponent {
      * @param targetPar This is an array that includes the target dynamic participation ratio.
      * @return zero if the data is successfully set; otherwise it returns a nonzero value.
      */
-    fun setLoads(name: String, numberLoads: Int, loadType: AStringArrayByRef, loadName: AStringArrayByRef, ritzMaxCyc: AIntArrayByRef, targetPar: ADoubleArrayByRef): Int =
+    fun setLoads(name: String, numberLoads: Int, loadType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, ritzMaxCyc: AIntArrayByRef = IntArrayByRef.UNNECESSARY, targetPar: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("SetLoads", name, numberLoads, loadType, loadName, ritzMaxCyc, targetPar)
 
     /**

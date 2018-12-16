@@ -1,9 +1,6 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.definitions
 
-import vitorscoelho.sw4k.comutils.ADoubleArrayByRef
-import vitorscoelho.sw4k.comutils.AIntByRef
-import vitorscoelho.sw4k.comutils.SapComponent
-import vitorscoelho.sw4k.comutils.AStringArrayByRef
+import vitorscoelho.sw4k.comutils.*
 import vitorscoelho.sw4k.sapenums.GeneralizedDisplacementType
 
 interface GDisplV14 : SapComponent {
@@ -34,7 +31,7 @@ interface GDisplV14 : SapComponent {
      * @param count The number of point objects included in the specified generalized displacement.
      * @return zero if the count is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun countPoint(name: String, count: AIntByRef): Int =
+    fun countPoint(name: String, count: AIntByRef = IntByRef.UNNECESSARY): Int =
             callFunctionInt("CountPoint", name, count)
 
     /**
@@ -66,7 +63,7 @@ interface GDisplV14 : SapComponent {
      * @param myName This is a one-dimensional array of generalized displacement names.
      * @return zero if the names are successfully retrieved, otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef): Int =
+    fun getNameList(numberNames: AIntByRef = IntByRef.UNNECESSARY, myName: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetNameList", numberNames, myName)
 
     /**
@@ -77,7 +74,7 @@ interface GDisplV14 : SapComponent {
      * @param u1, U2, U3, R1, R2, R3 These are arrays that include the unitless scale factors for each of the displacement degrees of freedom of the associated point objects that are included in the generalized displacement definition.
      * @return zero if the data is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getPoint(name: String, numberItems: AIntByRef, pointName: AStringArrayByRef, u1: ADoubleArrayByRef, u2: ADoubleArrayByRef, u3: ADoubleArrayByRef, r1: ADoubleArrayByRef, r2: ADoubleArrayByRef, r3: ADoubleArrayByRef): Int =
+    fun getPoint(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, pointName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, u1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetPoint", name, numberItems, pointName, u1, u2, u3, r1, r2, r3)
 
     /**
@@ -88,7 +85,7 @@ interface GDisplV14 : SapComponent {
      * * 2 = Rotational
      * @return zero if the type is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getType(name: String, myType: AIntByRef): Int =
+    fun getType(name: String, myType: AIntByRef = IntByRef.UNNECESSARY): Int =
             callFunctionInt("GetType", name, myType)
 
     /**
@@ -104,7 +101,7 @@ interface GDisplV14 : SapComponent {
      * * SF(5) = R3 scale factor
      * @return zero if the data is successfully added or modified, otherwise it returns a nonzero value.
      */
-    fun setPoint(name: String, pointName: String, sF: ADoubleArrayByRef): Int =
+    fun setPoint(name: String, pointName: String, sF: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("SetPoint", name, pointName, sF)
 
     /**

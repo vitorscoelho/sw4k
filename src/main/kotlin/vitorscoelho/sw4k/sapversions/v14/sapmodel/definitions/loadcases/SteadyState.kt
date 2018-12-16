@@ -13,7 +13,7 @@ interface SteadyStateV14 : SapComponent {
      * @param hysConStiffCoeff The stiffness proportional damping coefficient.
      * @return zero if the damping is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getDampConstant(name: String, hysConMassCoeff: ADoubleByRef, hysConStiffCoeff: ADoubleByRef): Int =
+    fun getDampConstant(name: String, hysConMassCoeff: ADoubleByRef = DoubleByRef.UNNECESSARY, hysConStiffCoeff: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetDampConstant", name, hysConMassCoeff, hysConStiffCoeff)
 
     /**
@@ -28,7 +28,7 @@ interface SteadyStateV14 : SapComponent {
      * @param hysIntStiffCoeff This is an array that includes the stiffness proportional damping coefficient.
      * @return zero if the damping is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getDampInterpolated(name: String, hysIntFreqUnits: AIntByRef, hysIntNumFreqs: AIntByRef, hysIntFreq: ADoubleArrayByRef, hysIntMassCoeff: ADoubleArrayByRef, hysIntStiffCoeff: ADoubleArrayByRef): Int =
+    fun getDampInterpolated(name: String, hysIntFreqUnits: AIntByRef = IntByRef.UNNECESSARY, hysIntNumFreqs: AIntByRef = IntByRef.UNNECESSARY, hysIntFreq: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, hysIntMassCoeff: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, hysIntStiffCoeff: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetDampInterpolated", name, hysIntFreqUnits, hysIntNumFreqs, hysIntFreq, hysIntMassCoeff, hysIntStiffCoeff)
 
     /**
@@ -39,7 +39,7 @@ interface SteadyStateV14 : SapComponent {
      * * 2 = Interpolated hysteretic damping by frequency
      * @return zero if the type is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getDampType(name: String, dampType: AIntByRef): Int =
+    fun getDampType(name: String, dampType: AIntByRef = IntByRef.UNNECESSARY): Int =
             callFunctionInt("GetDampType", name, dampType)
 
     /**
@@ -58,7 +58,7 @@ interface SteadyStateV14 : SapComponent {
      * @param freqSpecified This is an array that includes the added specified frequencies. This item applies only when FreqAddModalDev = True.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getFreqData(name: String, freqFirst: ADoubleByRef, freqLast: ADoubleByRef, freqNumIncs: AIntByRef, freqAddModal: ABooleanByRef, freqAddModalDev: ABooleanByRef, freqAddSpecified: ABooleanByRef, modalCase: AStringByRef, freqNumModalDev: AIntByRef, freqModalDev: ADoubleArrayByRef, freqNumSpecified: AIntByRef, freqSpecified: ADoubleArrayByRef): Int =
+    fun getFreqData(name: String, freqFirst: ADoubleByRef = DoubleByRef.UNNECESSARY, freqLast: ADoubleByRef = DoubleByRef.UNNECESSARY, freqNumIncs: AIntByRef = IntByRef.UNNECESSARY, freqAddModal: ABooleanByRef, freqAddModalDev: ABooleanByRef, freqAddSpecified: ABooleanByRef, modalCase: AStringByRef = StringByRef.UNNECESSARY, freqNumModalDev: AIntByRef = IntByRef.UNNECESSARY, freqModalDev: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, freqNumSpecified: AIntByRef = IntByRef.UNNECESSARY, freqSpecified: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetFreqData", name, freqFirst, freqLast, freqNumIncs, freqAddModal, freqAddModalDev, freqAddSpecified, modalCase, freqNumModalDev, freqModalDev, freqNumSpecified, freqSpecified)
 
     /**
@@ -68,7 +68,7 @@ interface SteadyStateV14 : SapComponent {
      * If the specified initial case is a nonlinear static or nonlinear direct integration time history load case, the stiffness at the end of that case is used. If the initial case is anything else, zero initial conditions are assumed.
      * @return zero if the initial condition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getInitialCase(name: String, initialCase: AStringByRef): Int =
+    fun getInitialCase(name: String, initialCase: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetInitialCase", name, initialCase)
 
     /**
@@ -88,7 +88,7 @@ interface SteadyStateV14 : SapComponent {
      * This item applies only when the LoadType item is Accel.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoads(name: String, numberLoads: AIntByRef, loadType: AStringArrayByRef, loadName: AStringArrayByRef, func: AStringArrayByRef, sF: ADoubleArrayByRef, phaseAngle: ADoubleArrayByRef, cSys: AStringArrayByRef, ang: ADoubleArrayByRef): Int =
+    fun getLoads(name: String, numberLoads: AIntByRef = IntByRef.UNNECESSARY, loadType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, func: AStringArrayByRef = StringArrayByRef.UNNECESSARY, sF: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, phaseAngle: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, cSys: AStringArrayByRef = StringArrayByRef.UNNECESSARY, ang: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetLoads", name, numberLoads, loadType, loadName, func, sF, phaseAngle, cSys, ang)
 
     /**
@@ -121,7 +121,7 @@ interface SteadyStateV14 : SapComponent {
      * @param hysIntStiffCoeff This is an array that includes the stiffness proportional damping coefficient.
      * @return zero if the damping is successfully set; otherwise it returns a nonzero value.
      */
-    fun setDampInterpolated(name: String, hysIntFreqUnits: Int, hysIntNumFreqs: Int, hysIntFreq: ADoubleArrayByRef, hysIntMassCoeff: ADoubleArrayByRef, hysIntStiffCoeff: ADoubleArrayByRef): Int =
+    fun setDampInterpolated(name: String, hysIntFreqUnits: Int, hysIntNumFreqs: Int, hysIntFreq: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, hysIntMassCoeff: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, hysIntStiffCoeff: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("SetDampInterpolated", name, hysIntFreqUnits, hysIntNumFreqs, hysIntFreq, hysIntMassCoeff, hysIntStiffCoeff)
 
     /**
@@ -140,7 +140,7 @@ interface SteadyStateV14 : SapComponent {
      * @param freqSpecified This is an array that includes the added specified frequencies. This item applies only when FreqAddModalDev = True.
      * @return zero if the data is successfully set; otherwise it returns a nonzero value.
      */
-    fun setFreqData(name: String, freqFirst: Double, freqLast: Double, freqNumIncs: Int, freqAddModal: Boolean, freqAddModalDev: Boolean, freqAddSpecified: Boolean, modalCase: String, freqNumModalDev: Int, freqModalDev: ADoubleArrayByRef, freqNumSpecified: Int, freqSpecified: ADoubleArrayByRef): Int =
+    fun setFreqData(name: String, freqFirst: Double, freqLast: Double, freqNumIncs: Int, freqAddModal: Boolean, freqAddModalDev: Boolean, freqAddSpecified: Boolean, modalCase: String, freqNumModalDev: Int, freqModalDev: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, freqNumSpecified: Int, freqSpecified: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("SetFreqData", name, freqFirst, freqLast, freqNumIncs, freqAddModal, freqAddModalDev, freqAddSpecified, modalCase, freqNumModalDev, freqModalDev, freqNumSpecified, freqSpecified)
 
     /**
@@ -170,6 +170,6 @@ interface SteadyStateV14 : SapComponent {
      * This item applies only when the LoadType item is Accel.
      * @return zero if the data is successfully set; otherwise it returns a nonzero value.
      */
-    fun setLoads(name: String, numberLoads: Int, loadType: AStringArrayByRef, loadName: AStringArrayByRef, func: AStringArrayByRef, sF: ADoubleArrayByRef, phaseAngle: ADoubleArrayByRef, cSys: AStringArrayByRef, ang: ADoubleArrayByRef): Int =
+    fun setLoads(name: String, numberLoads: Int, loadType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, func: AStringArrayByRef = StringArrayByRef.UNNECESSARY, sF: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, phaseAngle: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, cSys: AStringArrayByRef = StringArrayByRef.UNNECESSARY, ang: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("SetLoads", name, numberLoads, loadType, loadName, func, sF, phaseAngle, cSys, ang)
 }

@@ -20,7 +20,7 @@ interface FuncSSV14 : SapComponent {
      * * 2 = RPM
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getFromFile(name: String, fileName: AStringByRef, headLines: AIntByRef, preChars: AIntByRef, pointsPerLine: AIntByRef, valueType: AIntByRef, freeFormat: ABooleanByRef, numberFixed: AIntByRef, freqTypeInFile: AIntByRef): Int =
+    fun getFromFile(name: String, fileName: AStringByRef = StringByRef.UNNECESSARY, headLines: AIntByRef = IntByRef.UNNECESSARY, preChars: AIntByRef = IntByRef.UNNECESSARY, pointsPerLine: AIntByRef = IntByRef.UNNECESSARY, valueType: AIntByRef = IntByRef.UNNECESSARY, freeFormat: ABooleanByRef, numberFixed: AIntByRef = IntByRef.UNNECESSARY, freqTypeInFile: AIntByRef = IntByRef.UNNECESSARY): Int =
             callFunctionInt("GetFromFile", name, fileName, headLines, preChars, pointsPerLine, valueType, freeFormat, numberFixed, freqTypeInFile)
 
     /**
@@ -31,7 +31,7 @@ interface FuncSSV14 : SapComponent {
      * @param value This is an array that includes the function value for each data point.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getUser(name: String, numberItems: AIntByRef, frequency: ADoubleArrayByRef, value: ADoubleArrayByRef): Int =
+    fun getUser(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, frequency: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetUser", name, numberItems, frequency, value)
 
     /**
@@ -62,6 +62,6 @@ interface FuncSSV14 : SapComponent {
      * @param value This is an array that includes the function value for each data point.
      * @return zero if the function is successfully defined; otherwise it returns a nonzero value.
      */
-    fun setUser(name: String, numberItems: Int, frequency: ADoubleArrayByRef, value: ADoubleArrayByRef): Int =
+    fun setUser(name: String, numberItems: Int, frequency: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("SetUser", name, numberItems, frequency, value)
 }

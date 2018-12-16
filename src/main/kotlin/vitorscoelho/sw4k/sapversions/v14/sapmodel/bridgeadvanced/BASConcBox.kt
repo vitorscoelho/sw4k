@@ -11,7 +11,7 @@ interface BASConcBoxV14 : SapComponent {
      * @param count The number of stress points in this web for this section cut in this bridge object. They will be identified in subsequent API functions using the indices 0 to Count-1.
      * @return zero if the count is successfully retrieved; otherwise it returns a nonzero value. If the bridge object is not currently linked to existing objects in the model, an error is returned.
      */
-    fun countSuperCutWebStressPoint(name: String, cutIndex: Int, webIndex: Int, count: AIntByRef): Int =
+    fun countSuperCutWebStressPoint(name: String, cutIndex: Int, webIndex: Int, count: AIntByRef = IntByRef.UNNECESSARY): Int =
             callFunctionInt("CountSuperCutWebStressPoint", name, cutIndex, webIndex, count)
 
     /**
@@ -25,7 +25,7 @@ interface BASConcBoxV14 : SapComponent {
      * @param inertia Moment of inertia of the region above/below specified coordinate Y, taken about a horizontal axis at Ycg. (L4)
      * @return zero if the information is successfully retrieved; otherwise it returns a nonzero value. If the bridge object is not currently linked to existing objects in the model, an error is returned.
      */
-    fun getSuperCutSectionPropsAtY(name: String, cutIndex: Int, Y: Double, aboveY: Boolean, ycg: ADoubleByRef, area: ADoubleByRef, inertia: ADoubleByRef): Int =
+    fun getSuperCutSectionPropsAtY(name: String, cutIndex: Int, Y: Double, aboveY: Boolean, ycg: ADoubleByRef = DoubleByRef.UNNECESSARY, area: ADoubleByRef = DoubleByRef.UNNECESSARY, inertia: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetSuperCutSectionPropsAtY", name, cutIndex, Y, aboveY, ycg, area, inertia)
 
     /**
@@ -53,7 +53,7 @@ interface BASConcBoxV14 : SapComponent {
      * Value > 0. (L)
      * @return zero if the information is successfully retrieved; otherwise it returns a nonzero value. If the bridge object is not currently linked to existing objects in the model, an error is returned.
      */
-    fun getSuperCutSectionValues(name: String, cutIndex: Int, item: Int, value: ADoubleByRef): Int =
+    fun getSuperCutSectionValues(name: String, cutIndex: Int, item: Int, value: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetSuperCutSectionValues", name, cutIndex, item, value)
 
     /**
@@ -71,7 +71,7 @@ interface BASConcBoxV14 : SapComponent {
      * @param y4 The bottommost Y coordinate where the vertical line cuts an interior cell. This item is returned as zero when Status < 2.
      * @return zero if the information is successfully retrieved; otherwise it returns a nonzero value. If the bridge object is not currently linked to existing objects in the model, an error is returned.
      */
-    fun getSuperCutSlabCoordsAtX(name: String, cutIndex: Int, X: Double, status: AIntByRef, y1: ADoubleByRef, y2: ADoubleByRef, y3: ADoubleByRef, y4: ADoubleByRef): Int =
+    fun getSuperCutSlabCoordsAtX(name: String, cutIndex: Int, X: Double, status: AIntByRef = IntByRef.UNNECESSARY, y1: ADoubleByRef = DoubleByRef.UNNECESSARY, y2: ADoubleByRef = DoubleByRef.UNNECESSARY, y3: ADoubleByRef = DoubleByRef.UNNECESSARY, y4: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetSuperCutSlabCoordsAtX", name, cutIndex, X, status, y1, y2, y3, y4)
 
     /**
@@ -83,7 +83,7 @@ interface BASConcBoxV14 : SapComponent {
      * @param tendonObj The name of the tendon object created by the program from the bridge object tendon corresponding to TendonIndex.
      * @return zero if the information is successfully retrieved; otherwise it returns a nonzero value. If the bridge object is not currently linked to existing objects in the model, an error is returned.
      */
-    fun getSuperCutTendonNames(name: String, cutIndex: Int, tendonIndex: Int, bridgeTendon: AStringByRef, tendonObj: AStringByRef): Int =
+    fun getSuperCutTendonNames(name: String, cutIndex: Int, tendonIndex: Int, bridgeTendon: AStringByRef = StringByRef.UNNECESSARY, tendonObj: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetSuperCutTendonNames", name, cutIndex, tendonIndex, bridgeTendon, tendonObj)
 
     /**
@@ -107,7 +107,7 @@ interface BASConcBoxV14 : SapComponent {
      * * 5 = Tendon slope. Any value OK. (L/L)
      * @return zero if the information is successfully retrieved; otherwise it returns a nonzero value. If the bridge object is not currently linked to existing objects in the model, an error is returned.
      */
-    fun getSuperCutTendonValues(name: String, cutIndex: Int, tendonIndex: Int, item: Int, value: ADoubleByRef): Int =
+    fun getSuperCutTendonValues(name: String, cutIndex: Int, tendonIndex: Int, item: Int, value: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetSuperCutTendonValues", name, cutIndex, tendonIndex, item, value)
 
     /**
@@ -121,7 +121,7 @@ interface BASConcBoxV14 : SapComponent {
      * @param webRight This is a array of X coordinates of the right side of each web. If the web is not cut by a horizontal line at the specified Y coordinate, this value is returned as zero.
      * @return zero if the information is successfully retrieved; otherwise it returns a nonzero value. If the bridge object is not currently linked to existing objects in the model, an error is returned.
      */
-    fun getSuperCutWebCoordsAtY(name: String, cutIndex: Int, Y: Double, numberWebs: AIntByRef, webIsCut: ABooleanArrayByRef, webLeft: ADoubleArrayByRef, webRight: ADoubleArrayByRef): Int =
+    fun getSuperCutWebCoordsAtY(name: String, cutIndex: Int, Y: Double, numberWebs: AIntByRef = IntByRef.UNNECESSARY, webIsCut: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, webLeft: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, webRight: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetSuperCutWebCoordsAtY", name, cutIndex, Y, numberWebs, webIsCut, webLeft, webRight)
 
     /**
@@ -135,7 +135,7 @@ interface BASConcBoxV14 : SapComponent {
      * @param note A description of the stress point that may be used for identification. Points that are pre-defined by the program will have prescribed notes.
      * @return zero if the information is successfully retrieved; otherwise it returns a nonzero value. If the bridge object is not currently linked to existing objects in the model, an error is returned.
      */
-    fun getSuperCutWebStressPoint(name: String, cutIndex: Int, webIndex: Int, pointIndex: Int, x: ADoubleByRef, y: ADoubleByRef, matProp: AStringByRef, note: AStringByRef): Int =
+    fun getSuperCutWebStressPoint(name: String, cutIndex: Int, webIndex: Int, pointIndex: Int, x: ADoubleByRef = DoubleByRef.UNNECESSARY, y: ADoubleByRef = DoubleByRef.UNNECESSARY, matProp: AStringByRef = StringByRef.UNNECESSARY, note: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetSuperCutWebStressPoint", name, cutIndex, webIndex, pointIndex, x, y, matProp, note)
 
     /**
@@ -155,6 +155,6 @@ interface BASConcBoxV14 : SapComponent {
      * Value >= 0. (L)
      * @return zero if the information is successfully retrieved; otherwise it returns a nonzero value. An error is returned for items 3, 4, 5 and 6 if the WebIndex is specified as 0. If the bridge object is not currently linked to existing objects in the model, an error is returned.
      */
-    fun getSuperCutWebValues(name: String, cutIndex: Int, webIndex: Int, item: Int, value: ADoubleByRef): Int =
+    fun getSuperCutWebValues(name: String, cutIndex: Int, webIndex: Int, item: Int, value: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetSuperCutWebValues", name, cutIndex, webIndex, item, value)
 }

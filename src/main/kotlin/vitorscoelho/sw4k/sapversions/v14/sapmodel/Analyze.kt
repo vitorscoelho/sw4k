@@ -32,7 +32,7 @@ interface AnalyzeV14 : SapComponent {
      * * DOF(5) = RZ
      * @return zero if the degrees of freedom are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getActiveDOF(DOF: ABooleanArrayByRef): Int = callFunctionInt("GetActiveDOF", DOF)
+    fun getActiveDOF(DOF: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY): Int = callFunctionInt("GetActiveDOF", DOF)
 
     /**
      * This function retrieves the status for all load cases.
@@ -45,7 +45,7 @@ interface AnalyzeV14 : SapComponent {
      * * 4 = Finished
      * @return zero if the status is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getCaseStatus(numberItems: AIntByRef, caseName: AStringArrayByRef, status: AIntArrayByRef): Int =
+    fun getCaseStatus(numberItems: AIntByRef = IntByRef.UNNECESSARY, caseName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, status: AIntArrayByRef = IntArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetCaseStatus", numberItems, caseName, status)
 
     /**
@@ -55,7 +55,7 @@ interface AnalyzeV14 : SapComponent {
      * @param run This is an array of boolean values indicating if the specified load case is to be run.
      * @return zero if the flags are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getRunCaseFlag(numberItems: AIntByRef, caseName: AStringArrayByRef, run: ABooleanArrayByRef): Int =
+    fun getRunCaseFlag(numberItems: AIntByRef = IntByRef.UNNECESSARY, caseName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, run: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetRunCaseFlag", numberItems, caseName, run)
 
     /**
@@ -67,7 +67,7 @@ interface AnalyzeV14 : SapComponent {
      * @param stiffCase The name of the load case used when outputting the mass and stiffness matrices to text files If this item is blank, no matrices are output.
      * @return zero if the options are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getSolverOption(solverType: AIntByRef, force32BitSolver: ABooleanByRef, stiffCase: AStringByRef): Int =
+    fun getSolverOption(solverType: AIntByRef = IntByRef.UNNECESSARY, force32BitSolver: ABooleanByRef, stiffCase: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetSolverOption", solverType, force32BitSolver, stiffCase)
 
     /**
@@ -99,7 +99,7 @@ interface AnalyzeV14 : SapComponent {
      * * DOF(5) = RZ
      * @return zero if the degrees of freedom are successfully set; otherwise it returns a nonzero value.
      */
-    fun setActiveDOF(DOF: ABooleanArrayByRef): Int = callFunctionInt("SetActiveDOF", DOF)
+    fun setActiveDOF(DOF: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY): Int = callFunctionInt("SetActiveDOF", DOF)
 
     /**
      * This function sets the run flag for load cases.

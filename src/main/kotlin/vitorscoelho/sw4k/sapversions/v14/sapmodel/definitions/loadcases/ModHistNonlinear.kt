@@ -12,7 +12,7 @@ interface ModHistNonlinearV14 : SapComponent {
      * @param damp The constant damping for all modes (0 <= Damp < 1).
      * @return zero if the option is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getDampConstant(name: String, damp: ADoubleByRef): Int =
+    fun getDampConstant(name: String, damp: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetDampConstant", name, damp)
 
     /**
@@ -26,7 +26,7 @@ interface ModHistNonlinearV14 : SapComponent {
      * @param damp This is an array that includes the damping for the specified period of frequency (0 <= Damp < 1).
      * @return zero if the option is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getDampInterpolated(name: String, dampType: AIntByRef, numberItems: AIntByRef, time: ADoubleArrayByRef, damp: ADoubleArrayByRef): Int =
+    fun getDampInterpolated(name: String, dampType: AIntByRef = IntByRef.UNNECESSARY, numberItems: AIntByRef = IntByRef.UNNECESSARY, time: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, damp: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetDampInterpolated", name, dampType, numberItems, time, damp)
 
     /**
@@ -37,7 +37,7 @@ interface ModHistNonlinearV14 : SapComponent {
      * @param damp This is an array that includes the damping for the specified mode (0 <= Damp < 1).
      * @return zero if the overrides are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getDampInterpolated(name: String, numberItems: AIntByRef, mode: AIntArrayByRef, damp: ADoubleArrayByRef): Int =
+    fun getDampInterpolated(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, mode: AIntArrayByRef = IntArrayByRef.UNNECESSARY, damp: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetDampInterpolated", name, numberItems, mode, damp)
 
     /**
@@ -59,7 +59,7 @@ interface ModHistNonlinearV14 : SapComponent {
      * This item applies only when DampType = 2 or 3.
      * @return zero if the option is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getDampProportional(name: String, dampType: AIntByRef, dampa: ADoubleByRef, dampb: ADoubleByRef, dampf1: ADoubleByRef, dampf2: ADoubleByRef, dampd1: ADoubleByRef, dampd2: ADoubleByRef): Int =
+    fun getDampProportional(name: String, dampType: AIntByRef = IntByRef.UNNECESSARY, dampa: ADoubleByRef = DoubleByRef.UNNECESSARY, dampb: ADoubleByRef = DoubleByRef.UNNECESSARY, dampf1: ADoubleByRef = DoubleByRef.UNNECESSARY, dampf2: ADoubleByRef = DoubleByRef.UNNECESSARY, dampd1: ADoubleByRef = DoubleByRef.UNNECESSARY, dampd2: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetDampProportional", name, dampType, dampa, dampb, dampf1, dampf2, dampd1, dampd2)
 
     /**
@@ -74,7 +74,7 @@ interface ModHistNonlinearV14 : SapComponent {
      * * 6 = Interpolated damping by frequency
      * @return zero if the type is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getDampType(name: String, dampType: AIntByRef): Int =
+    fun getDampType(name: String, dampType: AIntByRef = IntByRef.UNNECESSARY): Int =
             callFunctionInt("GetDampType", name, dampType)
 
     /**
@@ -84,7 +84,7 @@ interface ModHistNonlinearV14 : SapComponent {
      * If the specified initial case is not a nonlinear modal time history load case, zero initial conditions are assumed.
      * @return zero if the initial condition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getInitialCase(name: String, initialCase: AStringByRef): Int =
+    fun getInitialCase(name: String, initialCase: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetInitialCase", name, initialCase)
 
     /**
@@ -105,7 +105,7 @@ interface ModHistNonlinearV14 : SapComponent {
      * This item applies only when the LoadType item is Accel.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoads(name: String, numberLoads: AIntByRef, loadType: AStringArrayByRef, loadName: AStringArrayByRef, func: AStringArrayByRef, sF: ADoubleArrayByRef, tF: ADoubleArrayByRef, aT: ADoubleArrayByRef, cSys: AStringArrayByRef, ang: ADoubleArrayByRef): Int =
+    fun getLoads(name: String, numberLoads: AIntByRef = IntByRef.UNNECESSARY, loadType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, func: AStringArrayByRef = StringArrayByRef.UNNECESSARY, sF: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, tF: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, aT: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, cSys: AStringArrayByRef = StringArrayByRef.UNNECESSARY, ang: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetLoads", name, numberLoads, loadType, loadName, func, sF, tF, aT, cSys, ang)
 
     /**
@@ -114,7 +114,7 @@ interface ModHistNonlinearV14 : SapComponent {
      * @param modalCase This is None or the name of an existing modal analysis case. It specifies the modal load case on which any mode-type load assignments to the specified load case are based.
      * @return zero if the modal case is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getModalCase(name: String, modalCase: AStringByRef): Int =
+    fun getModalCase(name: String, modalCase: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetModalCase", name, modalCase)
 
     /**
@@ -130,7 +130,7 @@ interface ModHistNonlinearV14 : SapComponent {
      * @param cf The convergence factor.
      * @return zero if the parameters are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getSolControlParameters(name: String, tstat: ADoubleByRef, dtmax: ADoubleByRef, dtmin: ADoubleByRef, ftol: ADoubleByRef, etol: ADoubleByRef, itmax: AIntByRef, itmin: AIntByRef, cf: ADoubleByRef): Int =
+    fun getSolControlParameters(name: String, tstat: ADoubleByRef = DoubleByRef.UNNECESSARY, dtmax: ADoubleByRef = DoubleByRef.UNNECESSARY, dtmin: ADoubleByRef = DoubleByRef.UNNECESSARY, ftol: ADoubleByRef = DoubleByRef.UNNECESSARY, etol: ADoubleByRef = DoubleByRef.UNNECESSARY, itmax: AIntByRef = IntByRef.UNNECESSARY, itmin: AIntByRef = IntByRef.UNNECESSARY, cf: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetSolControlParameters", name, tstat, dtmax, dtmin, ftol, etol, itmax, itmin, cf)
 
     /**
@@ -140,7 +140,7 @@ interface ModHistNonlinearV14 : SapComponent {
      * @param DT The output time step size.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getTimeStep(name: String, nstep: AIntByRef, DT: ADoubleByRef): Int =
+    fun getTimeStep(name: String, nstep: AIntByRef = IntByRef.UNNECESSARY, DT: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetTimeStep", name, nstep, DT)
 
     /**
@@ -171,7 +171,7 @@ interface ModHistNonlinearV14 : SapComponent {
      * @param damp This is an array that includes the damping for the specified period of frequency (0 <= Damp < 1).
      * @return zero if the damping is successfully set; otherwise it returns a nonzero value.
      */
-    fun setDampInterpolated(name: String, dampType: Int, numberItems: Int, time: ADoubleArrayByRef, damp: ADoubleArrayByRef): Int =
+    fun setDampInterpolated(name: String, dampType: Int, numberItems: Int, time: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, damp: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("SetDampInterpolated", name, dampType, numberItems, time, damp)
 
     /**
@@ -182,7 +182,7 @@ interface ModHistNonlinearV14 : SapComponent {
      * @param damp This is an array that includes the damping for the specified mode (0 <= Damp < 1).
      * @return zero if the overrides are successfully set; otherwise it returns a nonzero value.
      */
-    fun setDampOverrides(name: String, numberItems: Int, mode: AIntArrayByRef, damp: ADoubleArrayByRef): Int =
+    fun setDampOverrides(name: String, numberItems: Int, mode: AIntArrayByRef = IntArrayByRef.UNNECESSARY, damp: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("SetDampOverrides", name, numberItems, mode, damp)
 
     /**
@@ -235,7 +235,7 @@ interface ModHistNonlinearV14 : SapComponent {
      * This item applies only when the LoadType item is Accel.
      * @return zero if the data is successfully set; otherwise it returns a nonzero value.
      */
-    fun setLoads(name: String, numberLoads: Int, loadType: AStringArrayByRef, loadName: AStringArrayByRef, func: AStringArrayByRef, sF: ADoubleArrayByRef, tF: ADoubleArrayByRef, aT: ADoubleArrayByRef, cSys: AStringArrayByRef, ang: ADoubleArrayByRef): Int =
+    fun setLoads(name: String, numberLoads: Int, loadType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, func: AStringArrayByRef = StringArrayByRef.UNNECESSARY, sF: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, tF: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, aT: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, cSys: AStringArrayByRef = StringArrayByRef.UNNECESSARY, ang: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("SetLoads", name, numberLoads, loadType, loadName, func, sF, tF, aT, cSys, ang)
 
     /**

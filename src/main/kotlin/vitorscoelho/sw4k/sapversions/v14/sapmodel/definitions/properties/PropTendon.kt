@@ -32,7 +32,7 @@ interface PropTendonV14 : SapComponent {
      * @param myName This is a one-dimensional array of tendon property names.
      * @return zero if the names are successfully retrieved; otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef): Int =
+    fun getNameList(numberNames: AIntByRef = IntByRef.UNNECESSARY, myName: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetNameList", numberNames, myName)
 
     /**
@@ -48,7 +48,7 @@ interface PropTendonV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the property.
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getProp(name: String, matProp: AStringByRef, modelingOption: AIntByRef, area: ADoubleByRef, color: AIntByRef, notes: AStringByRef, GUID: AStringByRef): Int =
+    fun getProp(name: String, matProp: AStringByRef = StringByRef.UNNECESSARY, modelingOption: AIntByRef = IntByRef.UNNECESSARY, area: ADoubleByRef = DoubleByRef.UNNECESSARY, color: AIntByRef = IntByRef.UNNECESSARY, notes: AStringByRef = StringByRef.UNNECESSARY, GUID: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetProp", name, matProp, modelingOption, area, color, notes, GUID)
 
     /**

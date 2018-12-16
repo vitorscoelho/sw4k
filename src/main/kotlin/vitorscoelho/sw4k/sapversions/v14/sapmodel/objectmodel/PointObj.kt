@@ -69,7 +69,7 @@ interface PointObjV14 : SapComponent {
      * @param name This optional item is the name of an existing point object.
      * @return zero if the count is successfully completed, otherwise it returns a nonzero value.
      */
-    fun countConstraint(count: AIntByRef, name: String = ""): Int =
+    fun countConstraint(count: AIntByRef = IntByRef.UNNECESSARY, name: String = ""): Int =
             callFunctionInt("CountConstraint", count, name)
 
     /**
@@ -83,7 +83,7 @@ interface PointObjV14 : SapComponent {
      * @param loadPat This optional item is the name of an existing load pattern.
      * @return zero if the count is successfully completed, otherwise it returns a nonzero value.
      */
-    fun countLoadDispl(count: AIntByRef, name: String = "", loadPat: String = ""): Int =
+    fun countLoadDispl(count: AIntByRef = IntByRef.UNNECESSARY, name: String = "", loadPat: String = ""): Int =
             callFunctionInt("CountLoadDispl", count, name, loadPat)
 
     /**
@@ -97,7 +97,7 @@ interface PointObjV14 : SapComponent {
      * @param loadPat This optional item is the name of an existing load pattern.
      * @return zero if the count is successfully completed, otherwise it returns a nonzero value.
      */
-    fun countLoadForce(count: AIntByRef, name: String = "", loadPat: String = ""): Int =
+    fun countLoadForce(count: AIntByRef = IntByRef.UNNECESSARY, name: String = "", loadPat: String = ""): Int =
             callFunctionInt("CountLoadForce", count, name, loadPat)
 
     /**
@@ -269,7 +269,7 @@ interface PointObjV14 : SapComponent {
      * @param commonTo The total number of objects (line, area, solid and link) that connect to the specified point object.
      * @return zero if the CommonTo is successfully calculated, otherwise it returns a nonzero value.
      */
-    fun getCommonTo(name: String, commonTo: AIntByRef): Int =
+    fun getCommonTo(name: String, commonTo: AIntByRef = IntByRef.UNNECESSARY): Int =
             callFunctionInt("GetCommonTo", name, commonTo)
 
     /**
@@ -287,7 +287,7 @@ interface PointObjV14 : SapComponent {
      * @param pointNumber This is an array that includes the point number within the considered object that corresponds to the specified point object.
      * @return zero if the list is successfully filled; otherwise it returns nonzero.
      */
-    fun getConnectivity(name: String, numberItems: AIntByRef, objectType: AIntArrayByRef, objectName: AStringArrayByRef, pointNumber: AIntArrayByRef): Int =
+    fun getConnectivity(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, objectType: AIntArrayByRef = IntArrayByRef.UNNECESSARY, objectName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, pointNumber: AIntArrayByRef = IntArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetConnectivity", name, numberItems, objectType, objectName, pointNumber)
 
     /**
@@ -305,7 +305,7 @@ interface PointObjV14 : SapComponent {
      * If this item is SelectedObjects, the constraint assignments are retrieved for all selected point objects and the Name item is ignored.
      * @return zero if the constraint name list is successfully filled, otherwise it returns nonzero.
      */
-    fun getConstraint(name: String, numberItems: AIntByRef, pointName: AStringArrayByRef, constraintName: AStringArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getConstraint(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, pointName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, constraintName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetConstraint", name, numberItems, pointName, constraintName, itemType)
 
     /**
@@ -316,7 +316,7 @@ interface PointObjV14 : SapComponent {
      * @param cSys The name of a defined coordinate system. If Csys is not specified, the Global coordinate system is assumed.
      * @return zero if the coordinates are successfully returned; otherwise it returns nonzero. If successful, the function returns the x, y and z coordinates of the specified point object in the Present Units. The coordinates are reported in the coordinate system specified by Csys
      */
-    fun getCoordCartesian(name: String, x: ADoubleByRef, y: ADoubleByRef, z: ADoubleByRef, cSys: String = "Global"): Int =
+    fun getCoordCartesian(name: String, x: ADoubleByRef = DoubleByRef.UNNECESSARY, y: ADoubleByRef = DoubleByRef.UNNECESSARY, z: ADoubleByRef = DoubleByRef.UNNECESSARY, cSys: String = "Global"): Int =
             callFunctionInt("GetCoordCartesian", name, x, y, z, cSys)
 
     /**
@@ -327,7 +327,7 @@ interface PointObjV14 : SapComponent {
      * @param cSys The name of a defined coordinate system. If Csys is not specified, the Global coordinate system is assumed.
      * @return zero if the coordinates are successfully returned; otherwise it returns nonzero. If successful, the function returns the r, theta and z coordinates of the specified point object in the Present Units. The coordinates are reported in the coordinate system specified by CSys.
      */
-    fun getCoordCylindrical(name: String, r: ADoubleByRef, theta: ADoubleByRef, z: ADoubleByRef, cSys: String = "Global"): Int =
+    fun getCoordCylindrical(name: String, r: ADoubleByRef = DoubleByRef.UNNECESSARY, theta: ADoubleByRef = DoubleByRef.UNNECESSARY, z: ADoubleByRef = DoubleByRef.UNNECESSARY, cSys: String = "Global"): Int =
             callFunctionInt("GetCoordCylindrical", name, r, theta, z, cSys)
 
     /**
@@ -338,7 +338,7 @@ interface PointObjV14 : SapComponent {
      * @param cSys The name of the coordinate system in which the joint coordinates are returned.
      * @return zero if the coordinates are successfully returned; otherwise it returns nonzero. If successful, the function returns the r, a and b coordinates of the specified point object in the Present Units. The coordinates are reported in the coordinate system specified by CSys.
      */
-    fun getCoordSpherical(name: String, r: ADoubleByRef, a: ADoubleByRef, b: ADoubleByRef, cSys: String = "Global"): Int =
+    fun getCoordSpherical(name: String, r: ADoubleByRef = DoubleByRef.UNNECESSARY, a: ADoubleByRef = DoubleByRef.UNNECESSARY, b: ADoubleByRef = DoubleByRef.UNNECESSARY, cSys: String = "Global"): Int =
             callFunctionInt("GetCoordSpherical", name, r, a, b, cSys)
 
     /**
@@ -347,7 +347,7 @@ interface PointObjV14 : SapComponent {
      * @param elm The name of the point element associated with the specified point object.
      * @return zero if the point element name is successfully returned; otherwise it returns nonzero. An error occurs if the analysis model does not currently exist.
      */
-    fun getElm(name: String, elm: AStringByRef): Int =
+    fun getElm(name: String, elm: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetElm", name, elm)
 
     /**
@@ -356,7 +356,7 @@ interface PointObjV14 : SapComponent {
      * @param GUID The GUID (Global Unique ID) for the specified point object.
      * @return zero if the point object GUID is successfully retrieved; otherwise it returns nonzero.
      */
-    fun getGUID(name: String, GUID: AStringByRef): Int =
+    fun getGUID(name: String, GUID: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetGUID", name, GUID)
 
     /**
@@ -382,7 +382,7 @@ interface PointObjV14 : SapComponent {
      * If this item is SelectedObjects, the load assignments are retrieved for all selected point objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadDispl(name: String, numberItems: AIntByRef, pointName: AStringArrayByRef, loadPat: AStringArrayByRef, lCStep: AIntArrayByRef, cSys: AStringArrayByRef, u1: ADoubleArrayByRef, u2: ADoubleArrayByRef, u3: ADoubleArrayByRef, r1: ADoubleArrayByRef, r2: ADoubleArrayByRef, r3: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadDispl(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, pointName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, lCStep: AIntArrayByRef = IntArrayByRef.UNNECESSARY, cSys: AStringArrayByRef = StringArrayByRef.UNNECESSARY, u1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadDispl", name, numberItems, pointName, loadPat, lCStep, cSys, u1, u2, u3, r1, r2, r3, itemType)
 
     /**
@@ -408,7 +408,7 @@ interface PointObjV14 : SapComponent {
      * If this item is SelectedObjects, the load assignments are retrieved for all selected point objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadForce(name: String, numberItems: AIntByRef, pointName: AStringArrayByRef, loadPat: AStringArrayByRef, lCStep: AIntArrayByRef, cSys: AStringArrayByRef, f1: ADoubleArrayByRef, f2: ADoubleArrayByRef, f3: ADoubleArrayByRef, m1: ADoubleArrayByRef, m2: ADoubleArrayByRef, m3: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadForce(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, pointName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, lCStep: AIntArrayByRef = IntArrayByRef.UNNECESSARY, cSys: AStringArrayByRef = StringArrayByRef.UNNECESSARY, f1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, f2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, f3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadForce", name, numberItems, pointName, loadPat, lCStep, cSys, f1, f2, f3, m1, m2, m3, itemType)
 
     /**
@@ -435,7 +435,7 @@ interface PointObjV14 : SapComponent {
      * @param plane2 This is 12, 13, 21, 23, 31 or 32, indicating that the local plane determined by the plane reference vector is the 1-2, 1-3, 2-1, 2-3, 3-1, or 3-2 plane. This item applies only when the Active item is True.
      * @return zero if the advanced local axes assignments are assigned successfully; otherwise it returns a nonzero value.
      */
-    fun getLocalAxesAdvanced(name: String, active: ABooleanByRef, axVectOpt: AIntByRef, axCSys: AStringByRef, axDir: AIntArrayByRef, axPt: AStringArrayByRef, axVect: ADoubleArrayByRef, plane2: AIntByRef, plVectOpt: AIntByRef, plCSys: AStringByRef, plDir: AIntArrayByRef, plPt: AStringArrayByRef, plVect: ADoubleArrayByRef): Int =
+    fun getLocalAxesAdvanced(name: String, active: ABooleanByRef, axVectOpt: AIntByRef = IntByRef.UNNECESSARY, axCSys: AStringByRef = StringByRef.UNNECESSARY, axDir: AIntArrayByRef = IntArrayByRef.UNNECESSARY, axPt: AStringArrayByRef = StringArrayByRef.UNNECESSARY, axVect: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, plane2: AIntByRef = IntByRef.UNNECESSARY, plVectOpt: AIntByRef = IntByRef.UNNECESSARY, plCSys: AStringByRef = StringByRef.UNNECESSARY, plDir: AIntArrayByRef = IntArrayByRef.UNNECESSARY, plPt: AStringArrayByRef = StringArrayByRef.UNNECESSARY, plVect: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetLocalAxesAdvanced", name, active, axVectOpt, axCSys, axDir, axPt, axVect, plane2, plVectOpt, plCSys, plDir, plPt, plVect)
 
     /**
@@ -448,7 +448,7 @@ interface PointObjV14 : SapComponent {
      * @param advanced This item is True if the point object local axes orientation was obtained using advanced local axes parameters.
      * @return zero if the local axes angles are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLocalAxes(name: String, a: ADoubleByRef, b: ADoubleByRef, c: ADoubleByRef, advanced: ABooleanByRef): Int =
+    fun getLocalAxes(name: String, a: ADoubleByRef = DoubleByRef.UNNECESSARY, b: ADoubleByRef = DoubleByRef.UNNECESSARY, c: ADoubleByRef = DoubleByRef.UNNECESSARY, advanced: ABooleanByRef): Int =
             callFunctionInt("GetLocalAxes", name, a, b, c, advanced)
 
     /**
@@ -463,7 +463,7 @@ interface PointObjV14 : SapComponent {
      * * Value(5) = R3 (ML2)
      * @return zero if the mass is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getMass(name: String, m: ADoubleArrayByRef): Int =
+    fun getMass(name: String, m: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetMass", name, m)
 
     /**
@@ -472,7 +472,7 @@ interface PointObjV14 : SapComponent {
      * @param mergeNumber The merge number assigned to the specified point object.
      * @return zero if the merge number is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getMergeNumber(name: String, mergeNumber: AIntByRef): Int =
+    fun getMergeNumber(name: String, mergeNumber: AIntByRef = IntByRef.UNNECESSARY): Int =
             callFunctionInt("GetMergeNumber", name, mergeNumber)
 
     /**
@@ -481,7 +481,7 @@ interface PointObjV14 : SapComponent {
      * @param myName This is a one-dimensional array of point object names.
      * @return zero if the names are successfully retrieved, otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef): Int =
+    fun getNameList(numberNames: AIntByRef = IntByRef.UNNECESSARY, myName: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetNameList", numberNames, myName)
 
     /**
@@ -506,7 +506,7 @@ interface PointObjV14 : SapComponent {
      * @param localAxisAngle This item applies only when PropType = 3 and LocalAxisFrom = 1. It is the angle measured counter clockwise from the positive global X-axis to the local 2-axis of the panel zone. (deg)
      * @return The function returns zero if the panel zone data is successfully retrieved, otherwise it returns a nonzero value. If no panel zone assignment is made to the point object, an error is returned.
      */
-    fun getPanelZone(name: String, propType: AIntByRef, thickness: ADoubleByRef, k1: ADoubleByRef, k2: ADoubleByRef, linkProp: AStringByRef, connectivity: AIntByRef, localAxisFrom: AIntByRef, localAxisAngle: ADoubleByRef): Int =
+    fun getPanelZone(name: String, propType: AIntByRef = IntByRef.UNNECESSARY, thickness: ADoubleByRef = DoubleByRef.UNNECESSARY, k1: ADoubleByRef = DoubleByRef.UNNECESSARY, k2: ADoubleByRef = DoubleByRef.UNNECESSARY, linkProp: AStringByRef = StringByRef.UNNECESSARY, connectivity: AIntByRef = IntByRef.UNNECESSARY, localAxisFrom: AIntByRef = IntByRef.UNNECESSARY, localAxisAngle: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetPanelZone", name, propType, thickness, k1, k2, linkProp, connectivity, localAxisFrom, localAxisAngle)
 
     /**
@@ -517,7 +517,7 @@ interface PointObjV14 : SapComponent {
      * @param value The value that the specified point object has for the specified joint pattern.
      * @return zero if the value is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getPatternValue(name: String, patternName: String, value: ADoubleByRef): Int =
+    fun getPatternValue(name: String, patternName: String, value: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetPatternValue", name, patternName, value)
 
     /**
@@ -532,7 +532,7 @@ interface PointObjV14 : SapComponent {
      * * Value(5) = R3
      * @return zero if the restraint assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getRestraint(name: String, value: ABooleanArrayByRef): Int =
+    fun getRestraint(name: String, value: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetRestraint", name, value)
 
     /**
@@ -582,7 +582,7 @@ interface PointObjV14 : SapComponent {
      * * Value(20) = R3R3 (FL/rad)
      * @return zero if the stiffnesses are successfully retrieved, otherwise it returns a nonzero value. If no springs exist at the point object, the function returns a nonzero value.
      */
-    fun getSpringCoupled(name: String, k: ADoubleArrayByRef): Int =
+    fun getSpringCoupled(name: String, k: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetSpringCoupled", name, k)
 
     /**
@@ -598,7 +598,7 @@ interface PointObjV14 : SapComponent {
      * * Value(5) = R3 (FL/rad)
      * @return zero if the stiffnesses are successfully retrieved, otherwise it returns a nonzero value. If no springs exist at the point object, the function returns a nonzero value.
      */
-    fun getSpring(name: String, k: ADoubleArrayByRef): Int =
+    fun getSpring(name: String, k: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetSpring", name, k)
 
     /**
@@ -611,7 +611,7 @@ interface PointObjV14 : SapComponent {
      * If this item is False, the transformation matrix is between the present coordinate system and the point object local coordinate system.
      * @return zero if the point object transformation matrix is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getTransformationMatrix(name: String, value: ADoubleArrayByRef, isGlobal: Boolean = true): Int =
+    fun getTransformationMatrix(name: String, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, isGlobal: Boolean = true): Int =
             callFunctionInt("GetTransformationMatrix", name, value, isGlobal)
 
     /**
@@ -688,7 +688,7 @@ interface PointObjV14 : SapComponent {
      * If this item is SelectedObjects, the load assignment is made to all selected point objects and the Name item is ignored.
      * @return zero if the load assignments are successfully made, otherwise it returns a nonzero value.
      */
-    fun setLoadDispl(name: String, loadPat: String, value: ADoubleArrayByRef, replace: Boolean = false, cSys: String = "Global", itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun setLoadDispl(name: String, loadPat: String, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, replace: Boolean = false, cSys: String = "Global", itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("SetLoadDispl", name, loadPat, value, replace, cSys, itemType)
 
     /**
@@ -713,7 +713,7 @@ interface PointObjV14 : SapComponent {
      * If this item is SelectedObjects, the load assignment is made to all selected point objects and the Name item is ignored.
      * @return zero if the load assignments are successfully made, otherwise it returns a nonzero value.
      */
-    fun setLoadForce(name: String, loadPat: String, value: ADoubleArrayByRef, replace: Boolean = false, cSys: String = "Global", itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun setLoadForce(name: String, loadPat: String, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, replace: Boolean = false, cSys: String = "Global", itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("SetLoadForce", name, loadPat, value, replace, cSys, itemType)
 
     /**
@@ -747,7 +747,7 @@ interface PointObjV14 : SapComponent {
      * If this item is Selection, assignment is made to all selected point objects and the Name item is ignored.
      * @return zero if the advanced local axes assignments are assigned successfully; otherwise it returns a nonzero value.
      */
-    fun setLocalAxesAdvanced(name: String, active: Boolean, axVectOpt: Int, axCSys: String, axDir: AIntArrayByRef, axPt: AStringArrayByRef, axVect: ADoubleArrayByRef, plane2: Int, plVectOpt: Int, plCSys: String, plDir: AIntArrayByRef, plPt: AStringArrayByRef, plVect: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun setLocalAxesAdvanced(name: String, active: Boolean, axVectOpt: Int, axCSys: String, axDir: AIntArrayByRef = IntArrayByRef.UNNECESSARY, axPt: AStringArrayByRef = StringArrayByRef.UNNECESSARY, axVect: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, plane2: Int, plVectOpt: Int, plCSys: String, plDir: AIntArrayByRef = IntArrayByRef.UNNECESSARY, plPt: AStringArrayByRef = StringArrayByRef.UNNECESSARY, plVect: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("SetLocalAxesAdvanced", name, active, axVectOpt, axCSys, axDir, axPt, axVect, plane2, plVectOpt, plCSys, plDir, plPt, plVect, itemType)
 
     /**
@@ -790,7 +790,7 @@ interface PointObjV14 : SapComponent {
      * @param replace If this item is True, all existing point mass assignments to the specified point object(s) are deleted prior to making the assignment. If it is False, the mass assignments are added to any existing assignments.
      * @return zero if the mass is successfully assigned, otherwise it returns a nonzero value.
      */
-    fun setMass(name: String, m: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId, isLocalCSys: Boolean = true, replace: Boolean = false): Int =
+    fun setMass(name: String, m: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId, isLocalCSys: Boolean = true, replace: Boolean = false): Int =
             callFunctionInt("SetMass", name, m, itemType, isLocalCSys, replace)
 
     /**
@@ -813,7 +813,7 @@ interface PointObjV14 : SapComponent {
      * @param replace If this item is True, all existing point mass assignments to the specified point object(s) are deleted prior to making the assignment. If it is False, the mass assignments are added to any previously existing assignments.
      * @return zero if the mass is successfully assigned; otherwise, it returns a nonzero value.
      */
-    fun setMassByVolume(name: String, matProp: String, m: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId, isLocalCSys: Boolean = true, replace: Boolean = false): Int =
+    fun setMassByVolume(name: String, matProp: String, m: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId, isLocalCSys: Boolean = true, replace: Boolean = false): Int =
             callFunctionInt("SetMassByVolume", name, matProp, m, itemType, isLocalCSys, replace)
 
     /**
@@ -835,7 +835,7 @@ interface PointObjV14 : SapComponent {
      * @param replace If this item is True, all existing point mass assignments to the specified point object(s) are deleted prior to making the assignment. If it is False, the mass assignments are added to any previously existing assignments.
      * @return zero if the mass is successfully assigned; otherwise. it returns a nonzero value.
      */
-    fun setMassByWeight(name: String, m: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId, isLocalCSys: Boolean = true, replace: Boolean = false): Int =
+    fun setMassByWeight(name: String, m: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId, isLocalCSys: Boolean = true, replace: Boolean = false): Int =
             callFunctionInt("SetMassByWeight", name, m, itemType, isLocalCSys, replace)
 
     /**
@@ -956,7 +956,7 @@ interface PointObjV14 : SapComponent {
      * If this item is SelectedObjects, the restraint assignment is made to all selected point objects and the Name item is ignored.
      * @return zero if the restraint assignments are successfully assigned, otherwise it returns a nonzero value.
      */
-    fun setRestraint(name: String, value: ABooleanArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun setRestraint(name: String, value: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("SetRestraint", name, value, itemType)
 
     /**
@@ -1013,7 +1013,7 @@ interface PointObjV14 : SapComponent {
      * @param replace If this item is True, all existing point spring assignments to the specified point object(s) are deleted prior to making the assignment. If it is False, the spring assignments are added to any existing assignments.
      * @return zero if the stiffnesses are successfully assigned, otherwise it returns a nonzero value.
      */
-    fun setSpring(name: String, k: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId, isLocalCSys: Boolean = false, replace: Boolean = false): Int =
+    fun setSpring(name: String, k: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId, isLocalCSys: Boolean = false, replace: Boolean = false): Int =
             callFunctionInt("SetSpring", name, k, itemType, isLocalCSys, replace)
 
     /**
@@ -1052,6 +1052,6 @@ interface PointObjV14 : SapComponent {
      * @param replace If this item is True, all existing point spring assignments to the specified point object(s) are deleted prior to making the assignment. If it is False, the spring assignments are added to any existing assignments.
      * @return zero if the stiffnesses are successfully assigned, otherwise it returns a nonzero value.
      */
-    fun setSpringCoupled(name: String, k: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId, isLocalCSys: Boolean = false, replace: Boolean = false): Int =
+    fun setSpringCoupled(name: String, k: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId, isLocalCSys: Boolean = false, replace: Boolean = false): Int =
             callFunctionInt("SetSpringCoupled", name, k, itemType, isLocalCSys, replace)
 }

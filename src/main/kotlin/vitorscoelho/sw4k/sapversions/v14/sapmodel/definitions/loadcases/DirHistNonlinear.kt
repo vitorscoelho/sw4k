@@ -26,7 +26,7 @@ interface DirHistNonlinearV14 : SapComponent {
      * This item applies only when DampType = 2 or 3.
      * @return zero if the option is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getDampProportional(name: String, dampType: AIntByRef, dampa: ADoubleByRef, dampb: ADoubleByRef, dampf1: ADoubleByRef, dampf2: ADoubleByRef, dampd1: ADoubleByRef, dampd2: ADoubleByRef): Int =
+    fun getDampProportional(name: String, dampType: AIntByRef = IntByRef.UNNECESSARY, dampa: ADoubleByRef = DoubleByRef.UNNECESSARY, dampb: ADoubleByRef = DoubleByRef.UNNECESSARY, dampf1: ADoubleByRef = DoubleByRef.UNNECESSARY, dampf2: ADoubleByRef = DoubleByRef.UNNECESSARY, dampd1: ADoubleByRef = DoubleByRef.UNNECESSARY, dampd2: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetDampProportional", name, dampType, dampa, dampb, dampf1, dampf2, dampd1, dampd2)
 
     /**
@@ -38,7 +38,7 @@ interface DirHistNonlinearV14 : SapComponent {
      * * 2 = P-delta plus large displacements
      * @return zero if the option is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getGeometricNonlinearity(name: String, nLGeomType: AIntByRef): Int =
+    fun getGeometricNonlinearity(name: String, nLGeomType: AIntByRef = IntByRef.UNNECESSARY): Int =
             callFunctionInt("GetGeometricNonlinearity", name, nLGeomType)
 
     /**
@@ -48,7 +48,7 @@ interface DirHistNonlinearV14 : SapComponent {
      * If the specified initial case is a nonlinear static or nonlinear direct integration time history load case, the state at the end of that case is used. If the initial case is anything else then zero initial conditions are assumed.
      * @return zero if the initial condition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getInitialCase(name: String, initialCase: AStringByRef): Int =
+    fun getInitialCase(name: String, initialCase: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetInitialCase", name, initialCase)
 
     /**
@@ -69,7 +69,7 @@ interface DirHistNonlinearV14 : SapComponent {
      * This item applies only when the LoadType item is Accel.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoads(name: String, numberLoads: AIntByRef, loadType: AStringArrayByRef, loadName: AStringArrayByRef, func: AStringArrayByRef, sF: ADoubleArrayByRef, tF: ADoubleArrayByRef, aT: ADoubleArrayByRef, cSys: AStringArrayByRef, ang: ADoubleArrayByRef): Int =
+    fun getLoads(name: String, numberLoads: AIntByRef = IntByRef.UNNECESSARY, loadType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, func: AStringArrayByRef = StringArrayByRef.UNNECESSARY, sF: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, tF: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, aT: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, cSys: AStringArrayByRef = StringArrayByRef.UNNECESSARY, ang: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetLoads", name, numberLoads, loadType, loadName, func, sF, tF, aT, cSys, ang)
 
     /**
@@ -87,7 +87,7 @@ interface DirHistNonlinearV14 : SapComponent {
      * @param lineSearchStepFact The line-search step factor.
      * @return zero if the parameters are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getSolControlParameters(name: String, dTMax: ADoubleByRef, dTMin: ADoubleByRef, maxIterCS: AIntByRef, maxIterNR: AIntByRef, tolConvD: ADoubleByRef, useEventStepping: ABooleanByRef, tolEventD: ADoubleByRef, maxLineSearchPerIter: AIntByRef, tolLineSearch: ADoubleByRef, lineSearchStepFact: ADoubleByRef): Int =
+    fun getSolControlParameters(name: String, dTMax: ADoubleByRef = DoubleByRef.UNNECESSARY, dTMin: ADoubleByRef = DoubleByRef.UNNECESSARY, maxIterCS: AIntByRef = IntByRef.UNNECESSARY, maxIterNR: AIntByRef = IntByRef.UNNECESSARY, tolConvD: ADoubleByRef = DoubleByRef.UNNECESSARY, useEventStepping: ABooleanByRef, tolEventD: ADoubleByRef = DoubleByRef.UNNECESSARY, maxLineSearchPerIter: AIntByRef = IntByRef.UNNECESSARY, tolLineSearch: ADoubleByRef = DoubleByRef.UNNECESSARY, lineSearchStepFact: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetSolControlParameters", name, dTMax, dTMin, maxIterCS, maxIterNR, tolConvD, useEventStepping, tolEventD, maxLineSearchPerIter, tolLineSearch, lineSearchStepFact)
 
     /**
@@ -111,7 +111,7 @@ interface DirHistNonlinearV14 : SapComponent {
      * This item applies only when IntegrationType = 5.
      * @return zero if the option is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getTimeIntegration(name: String, integrationType: AIntByRef, alpha: ADoubleByRef, beta: ADoubleByRef, gamma: ADoubleByRef, theta: ADoubleByRef, m: ADoubleByRef): Int =
+    fun getTimeIntegration(name: String, integrationType: AIntByRef = IntByRef.UNNECESSARY, alpha: ADoubleByRef = DoubleByRef.UNNECESSARY, beta: ADoubleByRef = DoubleByRef.UNNECESSARY, gamma: ADoubleByRef = DoubleByRef.UNNECESSARY, theta: ADoubleByRef = DoubleByRef.UNNECESSARY, m: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetTimeIntegration", name, integrationType, alpha, beta, gamma, theta, m)
 
     /**
@@ -121,7 +121,7 @@ interface DirHistNonlinearV14 : SapComponent {
      * @param DT The output time step size.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getTimeStep(name: String, nstep: AIntByRef, DT: ADoubleByRef): Int =
+    fun getTimeStep(name: String, nstep: AIntByRef = IntByRef.UNNECESSARY, DT: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetTimeStep", name, nstep, DT)
 
     /**
@@ -194,7 +194,7 @@ interface DirHistNonlinearV14 : SapComponent {
      * This item applies only when the LoadType item is Accel.
      * @return zero if the data is successfully set; otherwise it returns a nonzero value.
      */
-    fun setLoads(name: String, numberLoads: Int, loadType: AStringArrayByRef, loadName: AStringArrayByRef, func: AStringArrayByRef, sF: ADoubleArrayByRef, tF: ADoubleArrayByRef, aT: ADoubleArrayByRef, cSys: AStringArrayByRef, ang: ADoubleArrayByRef): Int =
+    fun setLoads(name: String, numberLoads: Int, loadType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, func: AStringArrayByRef = StringArrayByRef.UNNECESSARY, sF: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, tF: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, aT: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, cSys: AStringArrayByRef = StringArrayByRef.UNNECESSARY, ang: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("SetLoads", name, numberLoads, loadType, loadName, func, sF, tF, aT, cSys, ang)
 
     /**

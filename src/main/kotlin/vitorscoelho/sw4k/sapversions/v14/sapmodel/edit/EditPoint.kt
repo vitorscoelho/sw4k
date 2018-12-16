@@ -1,8 +1,6 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.edit
 
-import vitorscoelho.sw4k.comutils.AIntByRef
-import vitorscoelho.sw4k.comutils.SapComponent
-import vitorscoelho.sw4k.comutils.AStringArrayByRef
+import vitorscoelho.sw4k.comutils.*
 import vitorscoelho.sw4k.sapenums.EditPointAlignment
 
 interface EditPointV14 : SapComponent {
@@ -18,7 +16,7 @@ interface EditPointV14 : SapComponent {
      * @param pointName This is an array of the name of each point object that is in a new location after the alignment is complete.
      * @return zero if the alignment is successful; otherwise it returns a nonzero value.
      */
-    fun align(myType: Int, ordinate: Double, numberPoints: AIntByRef, pointName: AStringArrayByRef): Int =
+    fun align(myType: Int, ordinate: Double, numberPoints: AIntByRef = IntByRef.UNNECESSARY, pointName: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("Align", myType, ordinate, numberPoints, pointName)
 
     /**
@@ -39,7 +37,7 @@ interface EditPointV14 : SapComponent {
      * @param pointName This is an array of the name of each point object that remains at locations where connections were made.
      * @return zero if the connect is successful; otherwise it returns a nonzero value.
      */
-    fun connect(numberPoints: AIntByRef, pointName: AStringArrayByRef): Int =
+    fun connect(numberPoints: AIntByRef = IntByRef.UNNECESSARY, pointName: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("Connect", numberPoints, pointName)
 
     /**
@@ -48,7 +46,7 @@ interface EditPointV14 : SapComponent {
      * @param pointName This is an array of the name of each point object (including the original selected point objects) that is created by the disconnect action.
      * @return zero if the disconnect is successful; otherwise it returns a nonzero value.
      */
-    fun disconnect(numberPoints: AIntByRef, pointName: AStringArrayByRef): Int =
+    fun disconnect(numberPoints: AIntByRef = IntByRef.UNNECESSARY, pointName: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("Disconnect", numberPoints, pointName)
 
     /**
@@ -58,6 +56,6 @@ interface EditPointV14 : SapComponent {
      * @param pointName This is an array of the name of each selected point object that still exists after the merge is complete.
      * @return zero if the merge is successful; otherwise it returns a nonzero value.
      */
-    fun merge(mergeTol: Double, numberPoints: AIntByRef, pointName: AStringArrayByRef): Int =
+    fun merge(mergeTol: Double, numberPoints: AIntByRef = IntByRef.UNNECESSARY, pointName: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("Merge", mergeTol, numberPoints, pointName)
 }

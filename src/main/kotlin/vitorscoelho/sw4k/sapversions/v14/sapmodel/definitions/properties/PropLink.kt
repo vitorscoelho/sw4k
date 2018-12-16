@@ -116,7 +116,7 @@ interface PropLinkV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the property.
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getDamper(name: String, DOF: ABooleanArrayByRef, fixed: ABooleanArrayByRef, nonLinear: ABooleanArrayByRef, ke: ADoubleArrayByRef, ce: ADoubleArrayByRef, k: ADoubleArrayByRef, c: ADoubleArrayByRef, cexp: ADoubleArrayByRef, dj2: ADoubleByRef, dj3: ADoubleByRef, notes: AStringByRef, GUID: AStringByRef): Int =
+    fun getDamper(name: String, DOF: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, fixed: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, nonLinear: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, ke: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ce: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, k: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, c: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, cexp: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dj2: ADoubleByRef = DoubleByRef.UNNECESSARY, dj3: ADoubleByRef = DoubleByRef.UNNECESSARY, notes: AStringByRef = StringByRef.UNNECESSARY, GUID: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetDamper", name, DOF, fixed, nonLinear, ke, ce, k, c, cexp, dj2, dj3, notes, GUID)
 
     /**
@@ -208,7 +208,7 @@ interface PropLinkV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the property.
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getFrictionIsolator(name: String, DOF: ABooleanArrayByRef, fixed: ABooleanArrayByRef, nonLinear: ABooleanArrayByRef, ke: ADoubleArrayByRef, ce: ADoubleArrayByRef, k: ADoubleArrayByRef, slow: ADoubleArrayByRef, fast: ADoubleArrayByRef, rate: ADoubleArrayByRef, radius: ADoubleArrayByRef, damping: ADoubleByRef, dj2: ADoubleByRef, dj3: ADoubleByRef, notes: AStringByRef, GUID: AStringByRef): Int =
+    fun getFrictionIsolator(name: String, DOF: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, fixed: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, nonLinear: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, ke: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ce: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, k: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, slow: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, fast: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, rate: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, radius: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, damping: ADoubleByRef = DoubleByRef.UNNECESSARY, dj2: ADoubleByRef = DoubleByRef.UNNECESSARY, dj3: ADoubleByRef = DoubleByRef.UNNECESSARY, notes: AStringByRef = StringByRef.UNNECESSARY, GUID: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetFrictionIsolator", name, DOF, fixed, nonLinear, ke, ce, k, slow, fast, rate, radius, damping, dj2, dj3, notes, GUID)
 
     /**
@@ -275,7 +275,7 @@ interface PropLinkV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the property.
      * @return zero if the property data is retrieved successfully; otherwise it returns a nonzero value.
      */
-    fun getGap(name: String, DOF: ABooleanArrayByRef, fixed: ABooleanArrayByRef, nonLinear: ABooleanArrayByRef, ke: ADoubleArrayByRef, ce: ADoubleArrayByRef, k: ADoubleArrayByRef, dis: ADoubleArrayByRef, dj2: ADoubleByRef, dj3: ADoubleByRef, notes: AStringByRef, GUID: AStringByRef): Int =
+    fun getGap(name: String, DOF: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, fixed: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, nonLinear: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, ke: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ce: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, k: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dis: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dj2: ADoubleByRef = DoubleByRef.UNNECESSARY, dj3: ADoubleByRef = DoubleByRef.UNNECESSARY, notes: AStringByRef = StringByRef.UNNECESSARY, GUID: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetGap", name, DOF, fixed, nonLinear, ke, ce, k, dis, dj2, dj3, notes, GUID)
 
     /**
@@ -342,7 +342,7 @@ interface PropLinkV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the property.
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getHook(name: String, DOF: ABooleanArrayByRef, fixed: ABooleanArrayByRef, nonLinear: ABooleanArrayByRef, ke: ADoubleArrayByRef, ce: ADoubleArrayByRef, k: ADoubleArrayByRef, dis: ADoubleArrayByRef, dj2: ADoubleByRef, dj3: ADoubleByRef, notes: AStringByRef, GUID: AStringByRef): Int =
+    fun getHook(name: String, DOF: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, fixed: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, nonLinear: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, ke: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ce: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, k: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dis: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dj2: ADoubleByRef = DoubleByRef.UNNECESSARY, dj3: ADoubleByRef = DoubleByRef.UNNECESSARY, notes: AStringByRef = StringByRef.UNNECESSARY, GUID: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetHook", name, DOF, fixed, nonLinear, ke, ce, k, dis, dj2, dj3, notes, GUID)
 
     /**
@@ -430,7 +430,7 @@ interface PropLinkV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the property.
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLinear(name: String, DOF: ABooleanArrayByRef, fixed: ABooleanArrayByRef, ke: ADoubleArrayByRef, ce: ADoubleArrayByRef, dj2: ADoubleByRef, dj3: ADoubleByRef, keCoupled: ABooleanByRef, ceCoupled: ABooleanByRef, notes: AStringByRef, GUID: AStringByRef): Int =
+    fun getLinear(name: String, DOF: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, fixed: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, ke: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ce: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dj2: ADoubleByRef = DoubleByRef.UNNECESSARY, dj3: ADoubleByRef = DoubleByRef.UNNECESSARY, keCoupled: ABooleanByRef, ceCoupled: ABooleanByRef, notes: AStringByRef = StringByRef.UNNECESSARY, GUID: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetLinear", name, DOF, fixed, ke, ce, dj2, dj3, keCoupled, ceCoupled, notes, GUID)
 
     /**
@@ -481,7 +481,7 @@ interface PropLinkV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the property.
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getMultiLinearElastic(name: String, DOF: ABooleanArrayByRef, fixed: ABooleanArrayByRef, nonLinear: ABooleanArrayByRef, ke: ADoubleArrayByRef, ce: ADoubleArrayByRef, dj2: ADoubleByRef, dj3: ADoubleByRef, notes: AStringByRef, GUID: AStringByRef): Int =
+    fun getMultiLinearElastic(name: String, DOF: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, fixed: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, nonLinear: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, ke: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ce: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dj2: ADoubleByRef = DoubleByRef.UNNECESSARY, dj3: ADoubleByRef = DoubleByRef.UNNECESSARY, notes: AStringByRef = StringByRef.UNNECESSARY, GUID: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetMultiLinearElastic", name, DOF, fixed, nonLinear, ke, ce, dj2, dj3, notes, GUID)
 
     /**
@@ -532,7 +532,7 @@ interface PropLinkV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the property.
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getMultiLinearPlastic(name: String, DOF: ABooleanArrayByRef, fixed: ABooleanArrayByRef, nonLinear: ABooleanArrayByRef, ke: ADoubleArrayByRef, ce: ADoubleArrayByRef, dj2: ADoubleByRef, dj3: ADoubleByRef, notes: AStringByRef, GUID: AStringByRef): Int =
+    fun getMultiLinearPlastic(name: String, DOF: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, fixed: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, nonLinear: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, ke: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ce: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dj2: ADoubleByRef = DoubleByRef.UNNECESSARY, dj3: ADoubleByRef = DoubleByRef.UNNECESSARY, notes: AStringByRef = StringByRef.UNNECESSARY, GUID: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetMultiLinearPlastic", name, DOF, fixed, nonLinear, ke, ce, dj2, dj3, notes, GUID)
 
     /**
@@ -562,7 +562,7 @@ interface PropLinkV14 : SapComponent {
      * * 2. The specified DOF must be active.
      * * 3. The specified DOF must not be fixed.
      */
-    fun getMultiLinearPoints(name: String, DOF: Int, numberPoints: AIntByRef, f: ADoubleArrayByRef, d: ADoubleArrayByRef, myType: AIntByRef, a1: ADoubleByRef, a2: ADoubleByRef, b1: ADoubleByRef, b2: ADoubleByRef, eta: ADoubleByRef): Int =
+    fun getMultiLinearPoints(name: String, DOF: Int, numberPoints: AIntByRef = IntByRef.UNNECESSARY, f: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, d: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, myType: AIntByRef = IntByRef.UNNECESSARY, a1: ADoubleByRef = DoubleByRef.UNNECESSARY, a2: ADoubleByRef = DoubleByRef.UNNECESSARY, b1: ADoubleByRef = DoubleByRef.UNNECESSARY, b2: ADoubleByRef = DoubleByRef.UNNECESSARY, eta: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetMultiLinearPoints", name, DOF, numberPoints, f, d, myType, a1, a2, b1, b2, eta)
 
     /**
@@ -571,7 +571,7 @@ interface PropLinkV14 : SapComponent {
      * @param myName This is a one-dimensional array of link property names.
      * @return zero if the names are successfully retrieved; otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef): Int =
+    fun getNameList(numberNames: AIntByRef = IntByRef.UNNECESSARY, myName: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetNameList", numberNames, myName)
 
     /**
@@ -591,7 +591,7 @@ interface PropLinkV14 : SapComponent {
      * * ISOLATOR3 = 10 (T/C Friction isolator)
      * @return zero if the names are successfully retrieved; otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef, propType: Int): Int =
+    fun getNameList(numberNames: AIntByRef = IntByRef.UNNECESSARY, myName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, propType: Int): Int =
             callFunctionInt("GetNameList", numberNames, myName, propType)
 
     /**
@@ -604,7 +604,7 @@ interface PropLinkV14 : SapComponent {
      * * Value(3) = M3 P-delta to J-end of link as moment, M3J
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getPDelta(name: String, value: ADoubleArrayByRef): Int =
+    fun getPDelta(name: String, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetPDelta", name, value)
 
     /**
@@ -687,7 +687,7 @@ interface PropLinkV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the property.
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getPlasticWen(name: String, DOF: ABooleanArrayByRef, fixed: ABooleanArrayByRef, nonLinear: ABooleanArrayByRef, ke: ADoubleArrayByRef, ce: ADoubleArrayByRef, k: ADoubleArrayByRef, `yield`: ADoubleArrayByRef, ratio: ADoubleArrayByRef, exp: ADoubleArrayByRef, dj2: ADoubleByRef, dj3: ADoubleByRef, notes: AStringByRef, GUID: AStringByRef): Int =
+    fun getPlasticWen(name: String, DOF: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, fixed: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, nonLinear: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, ke: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ce: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, k: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, `yield`: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ratio: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, exp: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dj2: ADoubleByRef = DoubleByRef.UNNECESSARY, dj3: ADoubleByRef = DoubleByRef.UNNECESSARY, notes: AStringByRef = StringByRef.UNNECESSARY, GUID: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetPlasticWen", name, DOF, fixed, nonLinear, ke, ce, k, `yield`, ratio, exp, dj2, dj3, notes, GUID)
 
     /**
@@ -762,7 +762,7 @@ interface PropLinkV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the property.
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getRubberIsolator(name: String, DOF: ABooleanArrayByRef, fixed: ABooleanArrayByRef, nonLinear: ABooleanArrayByRef, ke: ADoubleArrayByRef, ce: ADoubleArrayByRef, k: ADoubleArrayByRef, `yield`: ADoubleArrayByRef, ratio: ADoubleArrayByRef, dj2: ADoubleByRef, dj3: ADoubleByRef, notes: AStringByRef, GUID: AStringByRef): Int =
+    fun getRubberIsolator(name: String, DOF: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, fixed: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, nonLinear: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, ke: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ce: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, k: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, `yield`: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ratio: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dj2: ADoubleByRef = DoubleByRef.UNNECESSARY, dj3: ADoubleByRef = DoubleByRef.UNNECESSARY, notes: AStringByRef = StringByRef.UNNECESSARY, GUID: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetRubberIsolator", name, DOF, fixed, nonLinear, ke, ce, k, `yield`, ratio, dj2, dj3, notes, GUID)
 
     /**
@@ -772,7 +772,7 @@ interface PropLinkV14 : SapComponent {
      * @param definedForThisArea The link property is defined for this area in an area spring. (L2)
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getSpringData(name: String, definedForThisLength: ADoubleByRef, definedForThisArea: ADoubleByRef): Int =
+    fun getSpringData(name: String, definedForThisLength: ADoubleByRef = DoubleByRef.UNNECESSARY, definedForThisArea: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetSpringData", name, definedForThisLength, definedForThisArea)
 
     /**
@@ -891,7 +891,7 @@ interface PropLinkV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the property.
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getTCFrictionIsolator(name: String, DOF: ABooleanArrayByRef, fixed: ABooleanArrayByRef, nonLinear: ABooleanArrayByRef, ke: ADoubleArrayByRef, ce: ADoubleArrayByRef, k: ADoubleArrayByRef, slow: ADoubleArrayByRef, fast: ADoubleArrayByRef, rate: ADoubleArrayByRef, radius: ADoubleArrayByRef, slowT: ADoubleArrayByRef, fastT: ADoubleArrayByRef, rateT: ADoubleArrayByRef, kt: ADoubleByRef, dis: ADoubleByRef, dist: ADoubleByRef, damping: ADoubleByRef, dj2: ADoubleByRef, dj3: ADoubleByRef, notes: AStringByRef, GUID: AStringByRef): Int =
+    fun getTCFrictionIsolator(name: String, DOF: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, fixed: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, nonLinear: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, ke: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ce: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, k: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, slow: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, fast: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, rate: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, radius: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, slowT: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, fastT: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, rateT: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, kt: ADoubleByRef = DoubleByRef.UNNECESSARY, dis: ADoubleByRef = DoubleByRef.UNNECESSARY, dist: ADoubleByRef = DoubleByRef.UNNECESSARY, damping: ADoubleByRef = DoubleByRef.UNNECESSARY, dj2: ADoubleByRef = DoubleByRef.UNNECESSARY, dj3: ADoubleByRef = DoubleByRef.UNNECESSARY, notes: AStringByRef = StringByRef.UNNECESSARY, GUID: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetTCFrictionIsolator", name, DOF, fixed, nonLinear, ke, ce, k, slow, fast, rate, radius, slowT, fastT, rateT, kt, dis, dist, damping, dj2, dj3, notes, GUID)
 
     /**
@@ -910,7 +910,7 @@ interface PropLinkV14 : SapComponent {
      * * ISOLATOR3 = 10 (T/C Friction isolator)
      * @return zero if the type is successfully retrieved; otherwise it returns nonzero.
      */
-    fun getType(name: String, propType: AIntByRef): Int =
+    fun getType(name: String, propType: AIntByRef = IntByRef.UNNECESSARY): Int =
             callFunctionInt("GetType", name, propType)
 
     /**
@@ -923,7 +923,7 @@ interface PropLinkV14 : SapComponent {
      * @param r3 The rotational inertia of the link about its local 3 axis. (ML2)
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getWeightAndMass(name: String, w: ADoubleByRef, m: ADoubleByRef, r1: ADoubleByRef, r2: ADoubleByRef, r3: ADoubleByRef): Int =
+    fun getWeightAndMass(name: String, w: ADoubleByRef = DoubleByRef.UNNECESSARY, m: ADoubleByRef = DoubleByRef.UNNECESSARY, r1: ADoubleByRef = DoubleByRef.UNNECESSARY, r2: ADoubleByRef = DoubleByRef.UNNECESSARY, r3: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetWeightAndMass", name, w, m, r1, r2, r3)
 
     /**
@@ -998,7 +998,7 @@ interface PropLinkV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the property. If this item is input as Default, the program assigns a GUID to the property.
      * @return zero if the property is successfully initialized; otherwise it returns a nonzero value.
      */
-    fun setDamper(name: String, DOF: ABooleanArrayByRef, fixed: ABooleanArrayByRef, nonLinear: ABooleanArrayByRef, ke: ADoubleArrayByRef, ce: ADoubleArrayByRef, k: ADoubleArrayByRef, c: ADoubleArrayByRef, cexp: ADoubleArrayByRef, dj2: Double, dj3: Double, notes: String = "", GUID: String = ""): Int =
+    fun setDamper(name: String, DOF: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, fixed: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, nonLinear: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, ke: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ce: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, k: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, c: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, cexp: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dj2: Double, dj3: Double, notes: String = "", GUID: String = ""): Int =
             callFunctionInt("SetDamper", name, DOF, fixed, nonLinear, ke, ce, k, c, cexp, dj2, dj3, notes, GUID)
 
     /**
@@ -1090,7 +1090,7 @@ interface PropLinkV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the property. If this item is input as Default, the program assigns a GUID to the property.
      * @return zero if the property is successfully initialized; otherwise it returns a nonzero value.
      */
-    fun setFrictionIsolator(name: String, DOF: ABooleanArrayByRef, fixed: ABooleanArrayByRef, nonLinear: ABooleanArrayByRef, ke: ADoubleArrayByRef, ce: ADoubleArrayByRef, k: ADoubleArrayByRef, slow: ADoubleArrayByRef, fast: ADoubleArrayByRef, rate: ADoubleArrayByRef, radius: ADoubleArrayByRef, damping: Double, dj2: Double, dj3: Double, notes: String = "", GUID: String = ""): Int =
+    fun setFrictionIsolator(name: String, DOF: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, fixed: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, nonLinear: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, ke: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ce: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, k: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, slow: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, fast: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, rate: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, radius: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, damping: Double, dj2: Double, dj3: Double, notes: String = "", GUID: String = ""): Int =
             callFunctionInt("SetFrictionIsolator", name, DOF, fixed, nonLinear, ke, ce, k, slow, fast, rate, radius, damping, dj2, dj3, notes, GUID)
 
     /**
@@ -1157,7 +1157,7 @@ interface PropLinkV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the property. If this item is input as Default, the program assigns a GUID to the property.
      * @return zero if the property is successfully initialized; otherwise it returns a nonzero value.
      */
-    fun setGap(name: String, DOF: ABooleanArrayByRef, fixed: ABooleanArrayByRef, nonLinear: ABooleanArrayByRef, ke: ADoubleArrayByRef, ce: ADoubleArrayByRef, k: ADoubleArrayByRef, dis: ADoubleArrayByRef, dj2: Double, dj3: Double, notes: String = "", GUID: String = ""): Int =
+    fun setGap(name: String, DOF: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, fixed: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, nonLinear: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, ke: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ce: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, k: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dis: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dj2: Double, dj3: Double, notes: String = "", GUID: String = ""): Int =
             callFunctionInt("SetGap", name, DOF, fixed, nonLinear, ke, ce, k, dis, dj2, dj3, notes, GUID)
 
     /**
@@ -1224,7 +1224,7 @@ interface PropLinkV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the property. If this item is input as Default, the program assigns a GUID to the property.
      * @return zero if the property is successfully initialized; otherwise it returns a nonzero value.
      */
-    fun setHook(name: String, DOF: ABooleanArrayByRef, fixed: ABooleanArrayByRef, nonLinear: ABooleanArrayByRef, ke: ADoubleArrayByRef, ce: ADoubleArrayByRef, k: ADoubleArrayByRef, dis: ADoubleArrayByRef, dj2: Double, dj3: Double, notes: String = "", GUID: String = ""): Int =
+    fun setHook(name: String, DOF: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, fixed: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, nonLinear: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, ke: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ce: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, k: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dis: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dj2: Double, dj3: Double, notes: String = "", GUID: String = ""): Int =
             callFunctionInt("SetHook", name, DOF, fixed, nonLinear, ke, ce, k, dis, dj2, dj3, notes, GUID)
 
     /**
@@ -1312,7 +1312,7 @@ interface PropLinkV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the property. If this item is input as Default, the program assigns a GUID to the property.
      * @return zero if the property is successfully initialized; otherwise it returns a nonzero value.
      */
-    fun setLinear(name: String, DOF: ABooleanArrayByRef, fixed: ABooleanArrayByRef, ke: ADoubleArrayByRef, ce: ADoubleArrayByRef, dj2: Double, dj3: Double, keCoupled: Boolean = false, ceCoupled: Boolean = false, notes: String = "", GUID: String = ""): Int =
+    fun setLinear(name: String, DOF: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, fixed: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, ke: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ce: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dj2: Double, dj3: Double, keCoupled: Boolean = false, ceCoupled: Boolean = false, notes: String = "", GUID: String = ""): Int =
             callFunctionInt("SetLinear", name, DOF, fixed, ke, ce, dj2, dj3, keCoupled, ceCoupled, notes, GUID)
 
     /**
@@ -1363,7 +1363,7 @@ interface PropLinkV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the property. If this item is input as Default, the program assigns a GUID to the property.
      * @return zero if the property is successfully initialized; otherwise it returns a nonzero value.
      */
-    fun setMultiLinearElastic(name: String, DOF: ABooleanArrayByRef, fixed: ABooleanArrayByRef, nonLinear: ABooleanArrayByRef, ke: ADoubleArrayByRef, ce: ADoubleArrayByRef, dj2: Double, dj3: Double, notes: String = "", GUID: String = ""): Int =
+    fun setMultiLinearElastic(name: String, DOF: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, fixed: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, nonLinear: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, ke: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ce: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dj2: Double, dj3: Double, notes: String = "", GUID: String = ""): Int =
             callFunctionInt("SetMultiLinearElastic", name, DOF, fixed, nonLinear, ke, ce, dj2, dj3, notes, GUID)
 
     /**
@@ -1414,7 +1414,7 @@ interface PropLinkV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the property. If this item is input as Default, the program assigns a GUID to the property.
      * @return zero if the property is successfully initialized; otherwise it returns a nonzero value.
      */
-    fun setMultiLinearPlastic(name: String, DOF: ABooleanArrayByRef, fixed: ABooleanArrayByRef, nonLinear: ABooleanArrayByRef, ke: ADoubleArrayByRef, ce: ADoubleArrayByRef, dj2: Double, dj3: Double, notes: String = "", GUID: String = ""): Int =
+    fun setMultiLinearPlastic(name: String, DOF: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, fixed: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, nonLinear: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, ke: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ce: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dj2: Double, dj3: Double, notes: String = "", GUID: String = ""): Int =
             callFunctionInt("SetMultiLinearPlastic", name, DOF, fixed, nonLinear, ke, ce, dj2, dj3, notes, GUID)
 
     /**
@@ -1446,7 +1446,7 @@ interface PropLinkV14 : SapComponent {
      * @param eta This item applies only to multilinear plastic link properties that have a pivot hysteresis type (MyType = 3). It is the Eta hysteresis parameter.
      * @return
      */
-    fun setMultiLinearPoints(name: String, DOF: Int, numberPoints: Int, f: ADoubleArrayByRef, d: ADoubleArrayByRef, myType: Int = 1, a1: Double = 0.0, a2: Double = 0.0, b1: Double = 0.0, b2: Double = 0.0, eta: Double = 0.0): Int =
+    fun setMultiLinearPoints(name: String, DOF: Int, numberPoints: Int, f: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, d: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, myType: Int = 1, a1: Double = 0.0, a2: Double = 0.0, b1: Double = 0.0, b2: Double = 0.0, eta: Double = 0.0): Int =
             callFunctionInt("SetMultiLinearPoints", name, DOF, numberPoints, f, d, myType, a1, a2, b1, b2, eta)
 
     /**
@@ -1459,7 +1459,7 @@ interface PropLinkV14 : SapComponent {
      * * Value(3) = M3 P-delta to J-end of link as moment, M3J
      * @return zero if the values are successfully assigned; otherwise it returns a nonzero value.
      */
-    fun setPDelta(name: String, value: ADoubleArrayByRef): Int =
+    fun setPDelta(name: String, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("SetPDelta", name, value)
 
     /**
@@ -1542,7 +1542,7 @@ interface PropLinkV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the property. If this item is input as Default, the program assigns a GUID to the property.
      * @return zero if the property is successfully initialized; otherwise it returns a nonzero value.
      */
-    fun setPlasticWen(name: String, DOF: ABooleanArrayByRef, fixed: ABooleanArrayByRef, nonLinear: ABooleanArrayByRef, ke: ADoubleArrayByRef, ce: ADoubleArrayByRef, k: ADoubleArrayByRef, `yield`: ADoubleArrayByRef, ratio: ADoubleArrayByRef, exp: ADoubleArrayByRef, dj2: Double, dj3: Double, notes: String = "", GUID: String = ""): Int =
+    fun setPlasticWen(name: String, DOF: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, fixed: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, nonLinear: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, ke: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ce: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, k: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, `yield`: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ratio: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, exp: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dj2: Double, dj3: Double, notes: String = "", GUID: String = ""): Int =
             callFunctionInt("SetPlasticWen", name, DOF, fixed, nonLinear, ke, ce, k, `yield`, ratio, exp, dj2, dj3, notes, GUID)
 
     /**
@@ -1617,7 +1617,7 @@ interface PropLinkV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the property. If this item is input as Default, the program assigns a GUID to the property.
      * @return zero if the property is successfully initialized; otherwise it returns a nonzero value.
      */
-    fun setRubberIsolator(name: String, DOF: ABooleanArrayByRef, fixed: ABooleanArrayByRef, nonLinear: ABooleanArrayByRef, ke: ADoubleArrayByRef, ce: ADoubleArrayByRef, k: ADoubleArrayByRef, `yield`: ADoubleArrayByRef, ratio: ADoubleArrayByRef, dj2: Double, dj3: Double, notes: String = "", GUID: String = ""): Int =
+    fun setRubberIsolator(name: String, DOF: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, fixed: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, nonLinear: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, ke: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ce: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, k: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, `yield`: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ratio: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dj2: Double, dj3: Double, notes: String = "", GUID: String = ""): Int =
             callFunctionInt("SetRubberIsolator", name, DOF, fixed, nonLinear, ke, ce, k, `yield`, ratio, dj2, dj3, notes, GUID)
 
     /**
@@ -1746,7 +1746,7 @@ interface PropLinkV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the property. If this item is input as Default, the program assigns a GUID to the property.
      * @return zero if the property is successfully initialized; otherwise it returns a nonzero value.
      */
-    fun setTCFrictionIsolator(name: String, DOF: ABooleanArrayByRef, fixed: ABooleanArrayByRef, nonLinear: ABooleanArrayByRef, ke: ADoubleArrayByRef, ce: ADoubleArrayByRef, k: ADoubleArrayByRef, slow: ADoubleArrayByRef, fast: ADoubleArrayByRef, rate: ADoubleArrayByRef, radius: ADoubleArrayByRef, slowT: ADoubleArrayByRef, fastT: ADoubleArrayByRef, rateT: ADoubleArrayByRef, kt: Double, dis: Double, dist: Double, damping: Double, dj2: Double, dj3: Double, notes: String = "", GUID: String = ""): Int =
+    fun setTCFrictionIsolator(name: String, DOF: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, fixed: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, nonLinear: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, ke: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ce: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, k: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, slow: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, fast: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, rate: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, radius: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, slowT: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, fastT: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, rateT: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, kt: Double, dis: Double, dist: Double, damping: Double, dj2: Double, dj3: Double, notes: String = "", GUID: String = ""): Int =
             callFunctionInt("SetTCFrictionIsolator", name, DOF, fixed, nonLinear, ke, ce, k, slow, fast, rate, radius, slowT, fastT, rateT, kt, dis, dist, damping, dj2, dj3, notes, GUID)
 
     /**

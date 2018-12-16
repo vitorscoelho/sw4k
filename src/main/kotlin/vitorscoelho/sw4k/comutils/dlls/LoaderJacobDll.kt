@@ -6,7 +6,7 @@ import java.io.FileOutputStream
 import java.lang.Exception
 
 
-object LoaderJacobDll {
+internal object LoaderJacobDll {
     /**
      * Original source code found in https://www.javaquery.com/2013/12/getting-started-with-jacob-example-with.html
      */

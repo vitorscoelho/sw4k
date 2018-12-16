@@ -17,7 +17,7 @@ interface PointElmV14 : SapComponent {
      * @param name This optional item is the name of an existing point element.
      * @return zero if the count is successfully completed, otherwise it returns a nonzero value.
      */
-    fun countConstraint(count: AIntByRef, name: String = ""): Int =
+    fun countConstraint(count: AIntByRef = IntByRef.UNNECESSARY, name: String = ""): Int =
             callFunctionInt("CountConstraint", count, name)
 
     /**
@@ -31,7 +31,7 @@ interface PointElmV14 : SapComponent {
      * @param loadPat This optional item is the name of an existing load pattern.
      * @return zero if the count is successfully completed, otherwise it returns a nonzero value.
      */
-    fun countLoadDispl(count: AIntByRef, name: String = "", loadPat: String = ""): Int =
+    fun countLoadDispl(count: AIntByRef = IntByRef.UNNECESSARY, name: String = "", loadPat: String = ""): Int =
             callFunctionInt("CountLoadDispl", count, name, loadPat)
 
     /**
@@ -45,7 +45,7 @@ interface PointElmV14 : SapComponent {
      * @param loadPat This optional item is the name of an existing load pattern.
      * @return zero if the count is successfully completed, otherwise it returns a nonzero value.
      */
-    fun countLoadForce(count: AIntByRef, name: String = "", loadPat: String = ""): Int =
+    fun countLoadForce(count: AIntByRef = IntByRef.UNNECESSARY, name: String = "", loadPat: String = ""): Int =
             callFunctionInt("CountLoadForce", count, name, loadPat)
 
     /**
@@ -75,7 +75,7 @@ interface PointElmV14 : SapComponent {
      * @param pointNumber This is an array that includes the point number within the considered element that corresponds to the specified point element.
      * @return zero if the list is successfully filled; otherwise it returns nonzero.
      */
-    fun getConnectivity(name: String, numberItems: AIntByRef, objectType: AIntArrayByRef, objectName: AStringArrayByRef, pointNumber: AIntArrayByRef): Int =
+    fun getConnectivity(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, objectType: AIntArrayByRef = IntArrayByRef.UNNECESSARY, objectName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, pointNumber: AIntArrayByRef = IntArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetConnectivity", name, numberItems, objectType, objectName, pointNumber)
 
     /**
@@ -92,7 +92,7 @@ interface PointElmV14 : SapComponent {
      * See Item Type for Elements for more information.
      * @return zero if the constraint name list is successfully filled, otherwise it returns nonzero.
      */
-    fun getConstraint(name: String, numberItems: AIntByRef, pointName: AStringArrayByRef, constraintName: AStringArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
+    fun getConstraint(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, pointName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, constraintName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
             callFunctionInt("GetConstraint", name, numberItems, pointName, constraintName, itemTypeElm)
 
     /**
@@ -103,7 +103,7 @@ interface PointElmV14 : SapComponent {
      * @param cSys The name of the coordinate system in which the joint coordinates are returned.
      * @return zero if the coordinates are successfully returned; otherwise it returns nonzero. If successful, the function returns the x, y and z coordinates of the specified point element in the Present Units. The coordinates are reported in the coordinate system specified by CSys.
      */
-    fun getCoordCartesian(name: String, x: ADoubleByRef, y: ADoubleByRef, z: ADoubleByRef, cSys: String = "Global"): Int =
+    fun getCoordCartesian(name: String, x: ADoubleByRef = DoubleByRef.UNNECESSARY, y: ADoubleByRef = DoubleByRef.UNNECESSARY, z: ADoubleByRef = DoubleByRef.UNNECESSARY, cSys: String = "Global"): Int =
             callFunctionInt("GetCoordCartesian", name, x, y, z, cSys)
 
     /**
@@ -114,7 +114,7 @@ interface PointElmV14 : SapComponent {
      * @param cSys The name of the coordinate system in which the joint coordinates are returned.
      * @return zero if the coordinates are successfully returned; otherwise it returns nonzero. If successful, the function returns the r, Theta and z coordinates of the specified point element in the Present Units. The coordinates are reported in the coordinate system specified by CSys.
      */
-    fun getCoordCylindrical(name: String, r: ADoubleByRef, theta: ADoubleByRef, z: ADoubleByRef, cSys: String = "Global"): Int =
+    fun getCoordCylindrical(name: String, r: ADoubleByRef = DoubleByRef.UNNECESSARY, theta: ADoubleByRef = DoubleByRef.UNNECESSARY, z: ADoubleByRef = DoubleByRef.UNNECESSARY, cSys: String = "Global"): Int =
             callFunctionInt("GetCoordCylindrical", name, r, theta, z, cSys)
 
     /**
@@ -125,7 +125,7 @@ interface PointElmV14 : SapComponent {
      * @param cSys The name of the coordinate system in which the joint coordinates are returned.
      * @return zero if the coordinates are successfully returned; otherwise it returns nonzero. If successful, the function returns the r, a and b coordinates of the specified point element in the Present Units. The coordinates are reported in the coordinate system specified by CSys.
      */
-    fun getCoordSpherical(name: String, r: ADoubleByRef, a: ADoubleByRef, b: ADoubleByRef, cSys: String = "Global"): Int =
+    fun getCoordSpherical(name: String, r: ADoubleByRef = DoubleByRef.UNNECESSARY, a: ADoubleByRef = DoubleByRef.UNNECESSARY, b: ADoubleByRef = DoubleByRef.UNNECESSARY, cSys: String = "Global"): Int =
             callFunctionInt("GetCoordSpherical", name, r, a, b, cSys)
 
     /**
@@ -150,7 +150,7 @@ interface PointElmV14 : SapComponent {
      * See Item Type for Elements for more information.
      * @return zero if the load assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadDispl(name: String, numberItems: AIntByRef, pointName: AStringArrayByRef, loadPat: AStringArrayByRef, lCStep: AIntArrayByRef, cSys: AStringArrayByRef, u1: ADoubleArrayByRef, u2: ADoubleArrayByRef, u3: ADoubleArrayByRef, r1: ADoubleArrayByRef, r2: ADoubleArrayByRef, r3: ADoubleArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
+    fun getLoadDispl(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, pointName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, lCStep: AIntArrayByRef = IntArrayByRef.UNNECESSARY, cSys: AStringArrayByRef = StringArrayByRef.UNNECESSARY, u1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, u3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, r3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
             callFunctionInt("GetLoadDispl", name, numberItems, pointName, loadPat, lCStep, cSys, u1, u2, u3, r1, r2, r3, itemTypeElm)
 
     /**
@@ -179,7 +179,7 @@ interface PointElmV14 : SapComponent {
      * See Item Type for Elements for more information.
      * @return zero if the load assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLoadForce(name: String, numberItems: AIntByRef, pointName: AStringArrayByRef, loadPat: AStringArrayByRef, lCStep: AIntArrayByRef, cSys: AStringArrayByRef, f1: ADoubleArrayByRef, f2: ADoubleArrayByRef, f3: ADoubleArrayByRef, m1: ADoubleArrayByRef, m2: ADoubleArrayByRef, m3: ADoubleArrayByRef, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
+    fun getLoadForce(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, pointName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, lCStep: AIntArrayByRef = IntArrayByRef.UNNECESSARY, cSys: AStringArrayByRef = StringArrayByRef.UNNECESSARY, f1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, f2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, f3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, m3: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemTypeElm: Int = ItemTypeElm.ELEMENT.sapId): Int =
             callFunctionInt("GetLoadForce", name, numberItems, pointName, loadPat, lCStep, cSys, f1, f2, f3, m1, m2, m3, itemTypeElm)
 
     /**
@@ -191,7 +191,7 @@ interface PointElmV14 : SapComponent {
      * * 3. Rotate about the resulting 1 axis by angle c.
      * @return zero if the local axes angles are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLocalAxes(name: String, a: ADoubleByRef, b: ADoubleByRef, c: ADoubleByRef): Int =
+    fun getLocalAxes(name: String, a: ADoubleByRef = DoubleByRef.UNNECESSARY, b: ADoubleByRef = DoubleByRef.UNNECESSARY, c: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetLocalAxes", name, a, b, c)
 
     /**
@@ -200,7 +200,7 @@ interface PointElmV14 : SapComponent {
      * @param mergeNumber The merge number assigned to the specified point element.
      * @return zero if the merge number is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getMergeNumber(name: String, mergeNumber: AIntByRef): Int =
+    fun getMergeNumber(name: String, mergeNumber: AIntByRef = IntByRef.UNNECESSARY): Int =
             callFunctionInt("GetMergeNumber", name, mergeNumber)
 
     /**
@@ -209,7 +209,7 @@ interface PointElmV14 : SapComponent {
      * @param myName This is a one-dimensional array of point element names.
      * @return zero if the names are successfully retrieved, otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef): Int =
+    fun getNameList(numberNames: AIntByRef = IntByRef.UNNECESSARY, myName: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetNameList", numberNames, myName)
 
     /**
@@ -225,7 +225,7 @@ interface PointElmV14 : SapComponent {
      * * 21: Obj is a defined diaphragm constraint. The specified point element was internally added by the program for application of auto wind and auto seismic loads.
      * @return zero if the object is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getObj(name: String, obj: AStringByRef, objType: AIntByRef): Int =
+    fun getObj(name: String, obj: AStringByRef = StringByRef.UNNECESSARY, objType: AIntByRef = IntByRef.UNNECESSARY): Int =
             callFunctionInt("GetObj", name, obj, objType)
 
     /**
@@ -236,7 +236,7 @@ interface PointElmV14 : SapComponent {
      * @param value The value that the specified point element has for the specified joint pattern.
      * @return zero if the value is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getPatternValue(name: String, patternName: String, value: ADoubleByRef): Int =
+    fun getPatternValue(name: String, patternName: String, value: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetPatternValue", name, patternName, value)
 
     /**
@@ -251,7 +251,7 @@ interface PointElmV14 : SapComponent {
      * * Value(5) = R3
      * @return zero if the restraint assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getRestraint(name: String, value: ABooleanArrayByRef): Int =
+    fun getRestraint(name: String, value: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetRestraint", name, value)
 
     /**
@@ -282,7 +282,7 @@ interface PointElmV14 : SapComponent {
      * * Value(20) = R3R3 (FL/rad)
      * @return zero if the stiffnesses are successfully retrieved, otherwise it returns a nonzero value. If no springs exist at the point element, the function returns a nonzero value.
      */
-    fun getSpringCoupled(name: String, k: ADoubleArrayByRef): Int =
+    fun getSpringCoupled(name: String, k: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetSpringCoupled", name, k)
 
     /**
@@ -298,7 +298,7 @@ interface PointElmV14 : SapComponent {
      * * Value(5) = R3 (FL/rad)
      * @return zero if the stiffnesses are successfully retrieved, otherwise it returns a nonzero value. If no springs exist at the point element, the function returns a nonzero value.
      */
-    fun getSpring(name: String, k: ADoubleArrayByRef): Int =
+    fun getSpring(name: String, k: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetSpring", name, k)
 
     /**
@@ -308,7 +308,7 @@ interface PointElmV14 : SapComponent {
      * In the equation, c0 through c8 are the nine values from the transformation array; (Local1, Local2, Local3) are an item (such as a point load) in the point element local coordinate system; and (GlobalX, GlobalY, GlobalZ) are the same item in the global coordinate system.
      * @return zero if the transformation matrix is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getTransformationMatrix(name: String, value: ADoubleArrayByRef): Int =
+    fun getTransformationMatrix(name: String, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetTransformationMatrix", name, value)
 
     /**

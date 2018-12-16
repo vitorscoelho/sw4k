@@ -46,7 +46,7 @@ interface RespComboV14 : SapComponent {
      * @param count The number of load case and/or combinations included in the specified combination.
      * @return zero if the count is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun countCase(name: String, count: AIntByRef): Int =
+    fun countCase(name: String, count: AIntByRef = IntByRef.UNNECESSARY): Int =
             callFunctionInt("CountCase", name, count)
 
     /**
@@ -88,7 +88,7 @@ interface RespComboV14 : SapComponent {
      * @param sF The scale factor multiplying the case or combination indicated by the CName item.
      * @return zero if the data is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getCaseList(name: String, numberItems: AIntByRef, cType: AIntArrayByRef, cName: AStringArrayByRef, sF: ADoubleArrayByRef): Int =
+    fun getCaseList(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, cType: AIntArrayByRef = IntArrayByRef.UNNECESSARY, cName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, sF: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetCaseList", name, numberItems, cType, cName, sF)
 
     /**
@@ -97,7 +97,7 @@ interface RespComboV14 : SapComponent {
      * @param myName This is a one-dimensional array of load combination names.
      * @return zero if the names are successfully retrieved, otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef): Int =
+    fun getNameList(numberNames: AIntByRef = IntByRef.UNNECESSARY, myName: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetNameList", numberNames, myName)
 
     /**
@@ -106,7 +106,7 @@ interface RespComboV14 : SapComponent {
      * @param note The user note, if any, included with the specified combination.
      * @return zero if the note is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getNote(name: String, note: AStringByRef): Int =
+    fun getNote(name: String, note: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetNote", name, note)
 
     /**
@@ -120,7 +120,7 @@ interface RespComboV14 : SapComponent {
      * * 4 = Range Additive
      * @return zero if the type is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getType(name: String, comboType: AIntByRef): Int =
+    fun getType(name: String, comboType: AIntByRef = IntByRef.UNNECESSARY): Int =
             callFunctionInt("GetType", name, comboType)
 
     /**

@@ -1,8 +1,6 @@
 package vitorscoelho.sw4k.sapversions.v14.sapmodel.edit
 
-import vitorscoelho.sw4k.comutils.ADoubleByRef
-import vitorscoelho.sw4k.comutils.SapComponent
-import vitorscoelho.sw4k.comutils.AStringArrayByRef
+import vitorscoelho.sw4k.comutils.*
 
 interface EditFrameV14 : SapComponent {
     /**
@@ -23,7 +21,7 @@ interface EditFrameV14 : SapComponent {
      * @param newName This is an array that includes the names of the two new frame objects.
      * @return zero if the frame objects are successfully divided; otherwise it returns a nonzero value.
      */
-    fun divideAtDistance(name: String, dist: Double, iEnd: Boolean, newName: AStringArrayByRef): Int =
+    fun divideAtDistance(name: String, dist: Double, iEnd: Boolean, newName: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("DivideAtDistance", name, dist, iEnd, newName)
 
     /**
@@ -33,7 +31,7 @@ interface EditFrameV14 : SapComponent {
      * @param newName This is an array that includes the names of the new frame objects.
      * @return zero if the frame objects are successfully divided; otherwise it returns a nonzero value.
      */
-    fun divideAtIntersections(name: String, num: ADoubleByRef, newName: AStringArrayByRef): Int =
+    fun divideAtIntersections(name: String, num: ADoubleByRef = DoubleByRef.UNNECESSARY, newName: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("DivideAtIntersections", name, num, newName)
 
     /**
@@ -44,7 +42,7 @@ interface EditFrameV14 : SapComponent {
      * @param newName This is an array that includes the names of the new frame objects.
      * @return zero if the frame objects are successfully divided; otherwise it returns a nonzero value.
      */
-    fun divideByRatio(name: String, num: Int, ratio: Double, newName: AStringArrayByRef): Int =
+    fun divideByRatio(name: String, num: Int, ratio: Double, newName: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("DivideByRatio", name, num, ratio, newName)
 
     /**

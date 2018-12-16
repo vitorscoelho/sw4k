@@ -11,7 +11,7 @@ interface StaticLinearMultistepV14 : SapComponent {
      * If the specified initial case is a nonlinear static or nonlinear direct integration time history load case, the stiffness at the end of that case is used. If the initial case is anything else, zero initial conditions are assumed.
      * @return zero if the initial condition is successfully retrieved; otherwise, it returns a nonzero value.
      */
-    fun getInitialCase(name: String, initialCase: AStringByRef): Int =
+    fun getInitialCase(name: String, initialCase: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetInitialCase", name, initialCase)
 
     /**
@@ -25,7 +25,7 @@ interface StaticLinearMultistepV14 : SapComponent {
      * @param sF This is an array that includes the scale factor of each load assigned to the load case. (L/s2) for Accel UX UY and UZ; otherwise unitless
      * @return zero if the data is successfully retrieved; otherwise, it returns a nonzero value.
      */
-    fun getLoads(name: String, numberLoads: AIntByRef, loadType: AStringArrayByRef, loadName: AStringArrayByRef, sF: ADoubleArrayByRef): Int =
+    fun getLoads(name: String, numberLoads: AIntByRef = IntByRef.UNNECESSARY, loadType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, sF: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetLoads", name, numberLoads, loadType, loadName, sF)
 
     /**
@@ -57,6 +57,6 @@ interface StaticLinearMultistepV14 : SapComponent {
      * @param sF This is an array that includes the scale factor of each load assigned to the load case. (L/s2) for Accel UX UY and UZ; otherwise unitless
      * @return zero if the data is successfully set; otherwise it returns a nonzero value.
      */
-    fun setLoads(name: String, numberLoads: Int, loadType: AStringArrayByRef, loadName: AStringArrayByRef, sF: ADoubleArrayByRef): Int =
+    fun setLoads(name: String, numberLoads: Int, loadType: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, sF: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("SetLoads", name, numberLoads, loadType, loadName, sF)
 }

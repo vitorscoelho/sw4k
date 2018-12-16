@@ -54,7 +54,7 @@ interface ConstraintDefV14 : SapComponent {
      * @param cSys The name of the coordinate system in which the constraint is defined.
      * @return zero if the constraint data is successfully obtained, otherwise it returns a nonzero value.
      */
-    fun getBeam(name: String, axis: AIntByRef, cSys: AStringByRef): Int =
+    fun getBeam(name: String, axis: AIntByRef = IntByRef.UNNECESSARY, cSys: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetBeam", name, axis, cSys)
 
     /**
@@ -64,7 +64,7 @@ interface ConstraintDefV14 : SapComponent {
      * @param cSys The name of the coordinate system in which the constraint is defined.
      * @return zero if the constraint data is successfully obtained, otherwise it returns a nonzero value.
      */
-    fun getBody(name: String, value: ABooleanArrayByRef, cSys: AStringByRef): Int =
+    fun getBody(name: String, value: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, cSys: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetBody", name, value, cSys)
 
     /**
@@ -82,7 +82,7 @@ interface ConstraintDefV14 : SapComponent {
      * CONSTRAINT_LINE = 13
      * @return zero if the constraint type is successfully obtained, otherwise it returns a nonzero value.
      */
-    fun getConstraintType(name: String, constraintType: AIntByRef): Int =
+    fun getConstraintType(name: String, constraintType: AIntByRef = IntByRef.UNNECESSARY): Int =
             callFunctionInt("GetConstraintType", name, constraintType)
 
     /**
@@ -96,7 +96,7 @@ interface ConstraintDefV14 : SapComponent {
      * @param cSys The name of the coordinate system in which the constraint is defined.
      * @return zero if the constraint data is successfully obtained, otherwise it returns a nonzero value.
      */
-    fun getDiaphragm(name: String, axis: AIntByRef, cSys: AStringByRef): Int =
+    fun getDiaphragm(name: String, axis: AIntByRef = IntByRef.UNNECESSARY, cSys: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetDiaphragm", name, axis, cSys)
 
     /**
@@ -106,7 +106,7 @@ interface ConstraintDefV14 : SapComponent {
      * @param cSys The name of the coordinate system in which the constraint is defined.
      * @return zero if the constraint data is successfully obtained, otherwise it returns a nonzero value.
      */
-    fun getEqual(name: String, value: ABooleanArrayByRef, cSys: AStringByRef): Int =
+    fun getEqual(name: String, value: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, cSys: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetEqual", name, value, cSys)
 
     /**
@@ -116,7 +116,7 @@ interface ConstraintDefV14 : SapComponent {
      * @param cSys The name of the coordinate system in which the constraint is defined.
      * @return zero if the constraint data is successfully obtained, otherwise it returns a nonzero value.
      */
-    fun getLine(name: String, value: ABooleanArrayByRef, cSys: AStringByRef): Int =
+    fun getLine(name: String, value: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, cSys: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetLine", name, value, cSys)
 
     /**
@@ -125,7 +125,7 @@ interface ConstraintDefV14 : SapComponent {
      * @param value Value is an array of six booleans that indicate which joint degrees of freedom are included in the constraint. In order, the degrees of freedom addressed in the array are U1, U2, U3, R1, R2 and R3.
      * @return zero if the constraint data is successfully obtained, otherwise it returns a nonzero value.
      */
-    fun getLocal(name: String, value: ABooleanArrayByRef): Int =
+    fun getLocal(name: String, value: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetLocal", name, value)
 
     /**
@@ -134,7 +134,7 @@ interface ConstraintDefV14 : SapComponent {
      * @param myName This is a one-dimensional array of joint constraint names.
      * @return zero if the names are successfully retrieved, otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef): Int =
+    fun getNameList(numberNames: AIntByRef = IntByRef.UNNECESSARY, myName: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetNameList", numberNames, myName)
 
     /**
@@ -148,7 +148,7 @@ interface ConstraintDefV14 : SapComponent {
      * @param cSys The name of the coordinate system in which the constraint is defined.
      * @return zero if the constraint data is successfully obtained, otherwise it returns a nonzero value.
      */
-    fun getPlate(name: String, axis: AIntByRef, cSys: AStringByRef): Int =
+    fun getPlate(name: String, axis: AIntByRef = IntByRef.UNNECESSARY, cSys: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetPlate", name, axis, cSys)
 
     /**
@@ -162,7 +162,7 @@ interface ConstraintDefV14 : SapComponent {
      * @param cSys The name of the coordinate system in which the constraint is defined.
      * @return zero if the constraint data is successfully obtained, otherwise it returns a nonzero value.
      */
-    fun getRod(name: String, axis: AIntByRef, cSys: AStringByRef): Int =
+    fun getRod(name: String, axis: AIntByRef = IntByRef.UNNECESSARY, cSys: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetRod", name, axis, cSys)
 
     /**
@@ -176,7 +176,7 @@ interface ConstraintDefV14 : SapComponent {
      * @param diaph This is an array that includes the name of each special rigid diaphragm constraint.
      * @return zero if the name list is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getSpecialRigidDiaphragmList(num: AIntByRef, diaph: AStringArrayByRef): Int =
+    fun getSpecialRigidDiaphragmList(num: AIntByRef = IntByRef.UNNECESSARY, diaph: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetSpecialRigidDiaphragmList", num, diaph)
 
     /**
@@ -187,7 +187,7 @@ interface ConstraintDefV14 : SapComponent {
      * @param cSys The name of the coordinate system in which the constraint is defined.
      * @return zero if the constraint data is successfully obtained, otherwise it returns a nonzero value.
      */
-    fun getWeld(name: String, value: ABooleanArrayByRef, tolerance: ADoubleByRef, cSys: AStringByRef): Int =
+    fun getWeld(name: String, value: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, tolerance: ADoubleByRef = DoubleByRef.UNNECESSARY, cSys: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetWeld", name, value, tolerance, cSys)
 
     /**
@@ -211,7 +211,7 @@ interface ConstraintDefV14 : SapComponent {
      * @param cSys The name of the coordinate system in which the constraint is defined.
      * @return zero if the constraint data is successfully added or modified, otherwise it returns a nonzero value.
      */
-    fun setBody(name: String, value: ABooleanArrayByRef, cSys: String = "Global"): Int =
+    fun setBody(name: String, value: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, cSys: String = "Global"): Int =
             callFunctionInt("SetBody", name, value, cSys)
 
     /**
@@ -235,7 +235,7 @@ interface ConstraintDefV14 : SapComponent {
      * @param cSys The name of the coordinate system in which the constraint is defined.
      * @return zero if the constraint data is successfully added or modified, otherwise it returns a nonzero value.
      */
-    fun setEqual(name: String, value: ABooleanArrayByRef, cSys: String = "Global"): Int =
+    fun setEqual(name: String, value: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, cSys: String = "Global"): Int =
             callFunctionInt("SetEqual", name, value, cSys)
 
     /**
@@ -245,7 +245,7 @@ interface ConstraintDefV14 : SapComponent {
      * @param cSys The name of the coordinate system in which the constraint is defined.
      * @return zero if the constraint data is successfully added or modified, otherwise it returns a nonzero value.
      */
-    fun setLine(name: String, value: ABooleanArrayByRef, cSys: String = "Global"): Int =
+    fun setLine(name: String, value: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, cSys: String = "Global"): Int =
             callFunctionInt("SetLine", name, value, cSys)
 
     /**
@@ -254,7 +254,7 @@ interface ConstraintDefV14 : SapComponent {
      * @param value Value is an array of six booleans that indicate which joint degrees of freedom are included in the constraint. In order, the degrees of freedom addressed in the array are U1, U2, U3, R1, R2 and R3.
      * @return zero if the constraint data is successfully added or modified, otherwise it returns a nonzero value.
      */
-    fun setLocal(name: String, value: ABooleanArrayByRef): Int =
+    fun setLocal(name: String, value: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY): Int =
             callFunctionInt("SetLocal", name, value)
 
     /**
@@ -293,6 +293,6 @@ interface ConstraintDefV14 : SapComponent {
      * @param cSys The name of the coordinate system in which the constraint is defined.
      * @return zero if the constraint data is successfully added or modified, otherwise it returns a nonzero value.
      */
-    fun setWeld(name: String, value: ABooleanArrayByRef, tolerance: Double, cSys: String = "Global"): Int =
+    fun setWeld(name: String, value: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, tolerance: Double, cSys: String = "Global"): Int =
             callFunctionInt("SetWeld", name, value, tolerance, cSys)
 }

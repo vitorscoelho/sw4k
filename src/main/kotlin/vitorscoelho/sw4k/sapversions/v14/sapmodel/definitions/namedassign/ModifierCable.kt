@@ -35,7 +35,7 @@ interface ModifierCableV14 : SapComponent {
      * * Value(2) = Weight modifier
      * @return zero if the modifier assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getModifiers(name: String, value: ADoubleArrayByRef): Int =
+    fun getModifiers(name: String, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetModifiers", name, value)
 
     /**
@@ -44,7 +44,7 @@ interface ModifierCableV14 : SapComponent {
      * @param myName This is a one-dimensional array of cable property modifier names.
      * @return zero if the names are successfully retrieved; otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef): Int =
+    fun getNameList(numberNames: AIntByRef = IntByRef.UNNECESSARY, myName: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetNameList", numberNames, myName)
 
     /**
@@ -56,6 +56,6 @@ interface ModifierCableV14 : SapComponent {
      * * Value(2) = Weight modifier
      * @return zero if the modifier is successfully defined; otherwise it returns a nonzero value.
      */
-    fun setModifiers(name: String, value: ADoubleArrayByRef): Int =
+    fun setModifiers(name: String, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("SetModifiers", name, value)
 }

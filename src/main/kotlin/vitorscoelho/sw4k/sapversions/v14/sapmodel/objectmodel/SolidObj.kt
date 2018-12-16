@@ -14,7 +14,7 @@ interface SolidObjV14 : SapComponent {
      * @param cSys The name of the coordinate system in which the solid object point coordinates are defined.
      * @return zero if the solid object is successfully added; otherwise it returns a nonzero value.
      */
-    fun addByCoord(x: ADoubleArrayByRef, y: ADoubleArrayByRef, z: ADoubleArrayByRef, name: AStringByRef = StringByRef.UNNECESSARY, propName: String = "Default", userName: String = "", cSys: String = "Global"): Int =
+    fun addByCoord(x: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, y: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, z: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, name: AStringByRef = StringByRef.UNNECESSARY, propName: String = "Default", userName: String = "", cSys: String = "Global"): Int =
             callFunctionInt("AddByCoord", x, y, z, name, propName, userName, cSys)
 
     /**
@@ -26,7 +26,7 @@ interface SolidObjV14 : SapComponent {
      * @param userName This is an optional user specified name for the solid object. If a UserName is specified and that name is already used for another solid object, the program ignores the UserName.
      * @return zero if the solid object is successfully added; otherwise it returns a nonzero value.
      */
-    fun addByPoint(point: AStringArrayByRef, name: AStringByRef = StringByRef.UNNECESSARY, propName: String = "Default", userName: String = ""): Int =
+    fun addByPoint(point: AStringArrayByRef = StringArrayByRef.UNNECESSARY, name: AStringByRef = StringByRef.UNNECESSARY, propName: String = "Default", userName: String = ""): Int =
             callFunctionInt("AddByPoint", point, name, propName, userName)
 
     /**
@@ -181,7 +181,7 @@ interface SolidObjV14 : SapComponent {
      * @param restraintsOnFace If this item is True, and if all corner points on an solid object face have the same restraint/constraint, then, if an added point on that face and the original corner points for the face have the same local axes definition, the program assigns the restraint/constraint to the added point.
      * @return zero if the meshing assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getAutoMesh(name: String, meshType: AIntByRef, n1: AIntByRef, n2: AIntByRef, n3: AIntByRef, maxSize1: ADoubleByRef, maxSize2: ADoubleByRef, maxSize3: ADoubleByRef, restraintsOnEdge: ABooleanByRef, restraintsOnFace: ABooleanByRef): Int =
+    fun getAutoMesh(name: String, meshType: AIntByRef = IntByRef.UNNECESSARY, n1: AIntByRef = IntByRef.UNNECESSARY, n2: AIntByRef = IntByRef.UNNECESSARY, n3: AIntByRef = IntByRef.UNNECESSARY, maxSize1: ADoubleByRef = DoubleByRef.UNNECESSARY, maxSize2: ADoubleByRef = DoubleByRef.UNNECESSARY, maxSize3: ADoubleByRef = DoubleByRef.UNNECESSARY, restraintsOnEdge: ABooleanByRef, restraintsOnFace: ABooleanByRef): Int =
             callFunctionInt("GetAutoMesh", name, meshType, n1, n2, n3, maxSize1, maxSize2, maxSize3, restraintsOnEdge, restraintsOnFace)
 
     /**
@@ -200,7 +200,7 @@ interface SolidObjV14 : SapComponent {
      * @param elm An array that includes the name of a solid element created from the specified solid object.
      * @return zero if the solid element information is successfully returned; otherwise it returns nonzero. An error occurs if the analysis model does not exist.
      */
-    fun getElm(name: String, nelm: AIntByRef, elm: AStringArrayByRef): Int =
+    fun getElm(name: String, nelm: AIntByRef = IntByRef.UNNECESSARY, elm: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetElm", name, nelm, elm)
 
     /**
@@ -209,7 +209,7 @@ interface SolidObjV14 : SapComponent {
      * @param GUID The GUID (Global Unique ID) for the specified solid object.
      * @return zero if the solid object GUID is successfully retrieved; otherwise it returns nonzero.
      */
-    fun getGUID(name: String, GUID: AStringByRef): Int =
+    fun getGUID(name: String, GUID: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetGUID", name, GUID)
 
     /**
@@ -229,7 +229,7 @@ interface SolidObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected solid objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadGravity(name: String, numberItems: AIntByRef, solidName: AStringArrayByRef, loadPat: AStringArrayByRef, cSys: AStringArrayByRef, x: ADoubleArrayByRef, y: ADoubleArrayByRef, z: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadGravity(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, solidName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, cSys: AStringArrayByRef = StringArrayByRef.UNNECESSARY, x: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, y: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, z: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadGravity", name, numberItems, solidName, loadPat, cSys, x, y, z, itemType)
 
     /**
@@ -249,7 +249,7 @@ interface SolidObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected solid objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadPorePressure(name: String, numberItems: AIntByRef, solidName: AStringArrayByRef, loadPat: AStringArrayByRef, value: ADoubleArrayByRef, patternName: AStringArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadPorePressure(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, solidName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, patternName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadPorePressure", name, numberItems, solidName, loadPat, value, patternName, itemType)
 
     /**
@@ -276,7 +276,7 @@ interface SolidObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected solid objects, and the Name item is ignored.
      * @return zero if the strain load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadStrain(name: String, numberItems: AIntByRef, solidName: AStringArrayByRef, loadPat: AStringArrayByRef, component: AIntArrayByRef, value: ADoubleArrayByRef, patternName: AStringArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadStrain(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, solidName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, component: AIntArrayByRef = IntArrayByRef.UNNECESSARY, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, patternName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadStrain", name, numberItems, solidName, loadPat, component, value, patternName, itemType)
 
     /**
@@ -297,7 +297,7 @@ interface SolidObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected solid objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadSurfacePressure(name: String, numberItems: AIntByRef, solidName: AStringArrayByRef, loadPat: AStringArrayByRef, face: AIntArrayByRef, value: ADoubleArrayByRef, patternName: AStringArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadSurfacePressure(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, solidName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, face: AIntArrayByRef = IntArrayByRef.UNNECESSARY, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, patternName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadSurfacePressure", name, numberItems, solidName, loadPat, face, value, patternName, itemType)
 
     /**
@@ -317,7 +317,7 @@ interface SolidObjV14 : SapComponent {
      * If this item is SelectedObjects, assignments are retrieved for all selected solid objects, and the Name item is ignored.
      * @return zero if the load assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLoadTemperature(name: String, numberItems: AIntByRef, solidName: AStringArrayByRef, loadPat: AStringArrayByRef, value: ADoubleArrayByRef, patternName: AStringArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun getLoadTemperature(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, solidName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, loadPat: AStringArrayByRef = StringArrayByRef.UNNECESSARY, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, patternName: AStringArrayByRef = StringArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("GetLoadTemperature", name, numberItems, solidName, loadPat, value, patternName, itemType)
 
     /**
@@ -344,7 +344,7 @@ interface SolidObjV14 : SapComponent {
      * @param plane2 This is 12, 13, 21, 23, 31 or 32, indicating that the local plane determined by the plane reference vector is the 1-2, 1-3, 2-1, 2-3, 3-1, 0r 3-2 plane. This item applies only when the Active item is True.
      * @return zero if the advanced local axes assignments are assigned successfully; otherwise it returns a nonzero value.
      */
-    fun getLocalAxesAdvanced(name: String, active: ABooleanByRef, axVectOpt: AIntByRef, axCSys: AStringByRef, axDir: AIntArrayByRef, axPt: AStringArrayByRef, axVect: ADoubleArrayByRef, plane2: AIntByRef, plVectOpt: AIntByRef, plCSys: AStringByRef, plDir: AIntArrayByRef, plPt: AStringArrayByRef, plVect: ADoubleArrayByRef): Int =
+    fun getLocalAxesAdvanced(name: String, active: ABooleanByRef, axVectOpt: AIntByRef = IntByRef.UNNECESSARY, axCSys: AStringByRef = StringByRef.UNNECESSARY, axDir: AIntArrayByRef = IntArrayByRef.UNNECESSARY, axPt: AStringArrayByRef = StringArrayByRef.UNNECESSARY, axVect: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, plane2: AIntByRef = IntByRef.UNNECESSARY, plVectOpt: AIntByRef = IntByRef.UNNECESSARY, plCSys: AStringByRef = StringByRef.UNNECESSARY, plDir: AIntArrayByRef = IntArrayByRef.UNNECESSARY, plPt: AStringArrayByRef = StringArrayByRef.UNNECESSARY, plVect: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetLocalAxesAdvanced", name, active, axVectOpt, axCSys, axDir, axPt, axVect, plane2, plVectOpt, plCSys, plDir, plPt, plVect)
 
     /**
@@ -357,7 +357,7 @@ interface SolidObjV14 : SapComponent {
      * @param advanced This item is True if the solid object local axes orientation was obtained using advanced local axes parameters.
      * @return zero if the local axes angles are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLocalAxes(name: String, a: ADoubleByRef, b: ADoubleByRef, c: ADoubleByRef, advanced: ABooleanByRef): Int =
+    fun getLocalAxes(name: String, a: ADoubleByRef = DoubleByRef.UNNECESSARY, b: ADoubleByRef = DoubleByRef.UNNECESSARY, c: ADoubleByRef = DoubleByRef.UNNECESSARY, advanced: ABooleanByRef): Int =
             callFunctionInt("GetLocalAxes", name, a, b, c, advanced)
 
     /**
@@ -368,7 +368,7 @@ interface SolidObjV14 : SapComponent {
      * If PatternName is the name of a defined joint pattern, the material temperature for the solid object may vary. The material temperature at each corner point of the solid object is equal to the specified temperature multiplied by the pattern value at the associated point object. The material temperature at other points in the solid object is calculated by interpolation from the corner points.
      * @return zero if the material temperature assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getMatTemp(name: String, temp: ADoubleByRef, patternName: AStringByRef): Int =
+    fun getMatTemp(name: String, temp: ADoubleByRef = DoubleByRef.UNNECESSARY, patternName: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetMatTemp", name, temp, patternName)
 
     /**
@@ -377,7 +377,7 @@ interface SolidObjV14 : SapComponent {
      * @param myName This is a one-dimensional array of solid object names.
      * @return zero if the names are successfully retrieved; otherwise it returns nonzero.
      */
-    fun getNameList(numberNames: AIntByRef, myName: AStringArrayByRef): Int =
+    fun getNameList(numberNames: AIntByRef = IntByRef.UNNECESSARY, myName: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetNameList", numberNames, myName)
 
     /**
@@ -386,7 +386,7 @@ interface SolidObjV14 : SapComponent {
      * @param point This is an array containing the names of the corner point objects of the solid object.
      * @return zero if the point object names are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getPoints(name: String, point: AStringArrayByRef): Int =
+    fun getPoints(name: String, point: AStringArrayByRef = StringArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetPoints", name, point)
 
     /**
@@ -395,7 +395,7 @@ interface SolidObjV14 : SapComponent {
      * @param propName The name of the solid property assigned to the solid object.
      * @return zero if the property is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getProperty(name: String, propName: AStringByRef): Int =
+    fun getProperty(name: String, propName: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetProperty", name, propName)
 
     /**
@@ -434,7 +434,7 @@ interface SolidObjV14 : SapComponent {
      * @param ang Each value in this array is the angle that the link local 2-axis is rotated from its default orientation. This item applies only when the corresponding MyType = 2. (deg)
      * @return zero if the assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getSpring(name: String, numberSprings: AIntByRef, myType: AIntArrayByRef, s: ADoubleArrayByRef, simpleSpringType: AIntArrayByRef, linkProp: AStringArrayByRef, face: AIntArrayByRef, springLocalOneType: AIntArrayByRef, dir: AIntArrayByRef, outward: ABooleanArrayByRef, vecX: ADoubleArrayByRef, vecY: ADoubleArrayByRef, vecZ: ADoubleArrayByRef, cSys: AStringArrayByRef, ang: ADoubleArrayByRef): Int =
+    fun getSpring(name: String, numberSprings: AIntByRef = IntByRef.UNNECESSARY, myType: AIntArrayByRef = IntArrayByRef.UNNECESSARY, s: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, simpleSpringType: AIntArrayByRef = IntArrayByRef.UNNECESSARY, linkProp: AStringArrayByRef = StringArrayByRef.UNNECESSARY, face: AIntArrayByRef = IntArrayByRef.UNNECESSARY, springLocalOneType: AIntArrayByRef = IntArrayByRef.UNNECESSARY, dir: AIntArrayByRef = IntArrayByRef.UNNECESSARY, outward: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, vecX: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, vecY: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, vecZ: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, cSys: AStringArrayByRef = StringArrayByRef.UNNECESSARY, ang: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetSpring", name, numberSprings, myType, s, simpleSpringType, linkProp, face, springLocalOneType, dir, outward, vecX, vecY, vecZ, cSys, ang)
 
     /**
@@ -447,7 +447,7 @@ interface SolidObjV14 : SapComponent {
      * If this item is False, the transformation matrix is between the present coordinate system and the solid object local coordinate system.
      * @return zero if the solid object transformation matrix is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getTransformationMatrix(name: String, value: ADoubleArrayByRef, isGlobal: Boolean = true): Int =
+    fun getTransformationMatrix(name: String, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, isGlobal: Boolean = true): Int =
             callFunctionInt("GetTransformationMatrix", name, value, isGlobal)
 
     /**
@@ -653,7 +653,7 @@ interface SolidObjV14 : SapComponent {
      * If this item is Selection, assignment is made to all selected solid objects and the Name item is ignored.
      * @return zero if the advanced local axes assignments are assigned successfully; otherwise it returns a nonzero value.
      */
-    fun setLocalAxesAdvanced(name: String, active: Boolean, axVectOpt: Int, axCSys: String, axDir: AIntArrayByRef, axPt: AStringArrayByRef, axVect: ADoubleArrayByRef, plane2: Int, plVectOpt: Int, plCSys: String, plDir: AIntArrayByRef, plPt: AStringArrayByRef, plVect: ADoubleArrayByRef, itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun setLocalAxesAdvanced(name: String, active: Boolean, axVectOpt: Int, axCSys: String, axDir: AIntArrayByRef = IntArrayByRef.UNNECESSARY, axPt: AStringArrayByRef = StringArrayByRef.UNNECESSARY, axVect: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, plane2: Int, plVectOpt: Int, plCSys: String, plDir: AIntArrayByRef = IntArrayByRef.UNNECESSARY, plPt: AStringArrayByRef = StringArrayByRef.UNNECESSARY, plVect: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("SetLocalAxesAdvanced", name, active, axVectOpt, axCSys, axDir, axPt, axVect, plane2, plVectOpt, plCSys, plDir, plPt, plVect, itemType)
 
     /**
@@ -757,6 +757,6 @@ interface SolidObjV14 : SapComponent {
      * If this item is SelectedObjects, assignment is made to all selected solid objects, and the Name item is ignored.
      * @return zero if the assignments are successfully applied; otherwise it returns a nonzero value.
      */
-    fun setSpring(name: String, myType: Int, s: Double, simpleSpringType: Int, linkProp: String, face: Int, springLocalOneType: Int, dir: Int, outward: Boolean, vec: ADoubleArrayByRef, ang: Double, replace: Boolean, cSys: String = "Local", itemType: Int = ItemType.OBJECT.sapId): Int =
+    fun setSpring(name: String, myType: Int, s: Double, simpleSpringType: Int, linkProp: String, face: Int, springLocalOneType: Int, dir: Int, outward: Boolean, vec: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ang: Double, replace: Boolean, cSys: String = "Local", itemType: Int = ItemType.OBJECT.sapId): Int =
             callFunctionInt("SetSpring", name, myType, s, simpleSpringType, linkProp, face, springLocalOneType, dir, outward, vec, ang, replace, cSys, itemType)
 }

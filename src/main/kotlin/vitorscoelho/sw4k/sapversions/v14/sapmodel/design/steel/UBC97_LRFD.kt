@@ -130,7 +130,7 @@ interface UBC97_LRFDV14 : SapComponent {
      * @param progDet If this item is True, the specified value is program determined.
      * @return zero if the item is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getOverwrite(name: String, item: Int, value: ADoubleByRef, progDet: ABooleanByRef): Int =
+    fun getOverwrite(name: String, item: Int, value: ADoubleByRef = DoubleByRef.UNNECESSARY, progDet: ABooleanByRef): Int =
             callFunctionInt("GetOverwrite", name, item, value, progDet)
 
     /**
@@ -189,7 +189,7 @@ interface UBC97_LRFDV14 : SapComponent {
      * * 2 = Step-by step
      * @return zero if the item is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getPreference(item: Int, value: ADoubleByRef): Int =
+    fun getPreference(item: Int, value: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetPreference", item, value)
 
     /**

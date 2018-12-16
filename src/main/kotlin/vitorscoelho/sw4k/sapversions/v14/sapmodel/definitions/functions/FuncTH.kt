@@ -12,7 +12,7 @@ interface FuncTHV14 : SapComponent {
      * @param cosineAmp The amplitude of the cosine function.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getCosine(name: String, cosineP: ADoubleByRef, cosineSteps: AIntByRef, cosineCycles: AIntByRef, cosineAmp: ADoubleByRef): Int =
+    fun getCosine(name: String, cosineP: ADoubleByRef = DoubleByRef.UNNECESSARY, cosineSteps: AIntByRef = IntByRef.UNNECESSARY, cosineCycles: AIntByRef = IntByRef.UNNECESSARY, cosineAmp: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetCosine", name, cosineP, cosineSteps, cosineCycles, cosineAmp)
 
     /**
@@ -29,7 +29,7 @@ interface FuncTHV14 : SapComponent {
      * @param numberFixed This item applies only when the FreeFormat item is False. It is the number of characters per item.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getFromFile(name: String, fileName: AStringByRef, headLines: AIntByRef, preChars: AIntByRef, pointsPerLine: AIntByRef, valueType: AIntByRef, freeFormat: ABooleanByRef, numberFixed: AIntByRef): Int =
+    fun getFromFile(name: String, fileName: AStringByRef = StringByRef.UNNECESSARY, headLines: AIntByRef = IntByRef.UNNECESSARY, preChars: AIntByRef = IntByRef.UNNECESSARY, pointsPerLine: AIntByRef = IntByRef.UNNECESSARY, valueType: AIntByRef = IntByRef.UNNECESSARY, freeFormat: ABooleanByRef, numberFixed: AIntByRef = IntByRef.UNNECESSARY): Int =
             callFunctionInt("GetFromFile", name, fileName, headLines, preChars, pointsPerLine, valueType, freeFormat, numberFixed)
 
     /**
@@ -40,7 +40,7 @@ interface FuncTHV14 : SapComponent {
      * @param rampMaxTime The time at the end of the ramp function. This time must be greater than the RampTime. (s)
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getRamp(name: String, rampTime: ADoubleByRef, rampAmp: ADoubleByRef, rampMaxTime: ADoubleByRef): Int =
+    fun getRamp(name: String, rampTime: ADoubleByRef = DoubleByRef.UNNECESSARY, rampAmp: ADoubleByRef = DoubleByRef.UNNECESSARY, rampMaxTime: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetRamp", name, rampTime, rampAmp, rampMaxTime)
 
     /**
@@ -52,7 +52,7 @@ interface FuncTHV14 : SapComponent {
      * @param sawAmp The maximum amplitude of the sawtooth function.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getSawtooth(name: String, sawP: ADoubleByRef, sawTime: ADoubleByRef, sawCycles: AIntByRef, sawAmp: ADoubleByRef): Int =
+    fun getSawtooth(name: String, sawP: ADoubleByRef = DoubleByRef.UNNECESSARY, sawTime: ADoubleByRef = DoubleByRef.UNNECESSARY, sawCycles: AIntByRef = IntByRef.UNNECESSARY, sawAmp: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetSawtooth", name, sawP, sawTime, sawCycles, sawAmp)
 
     /**
@@ -64,7 +64,7 @@ interface FuncTHV14 : SapComponent {
      * @param sineAmp The amplitude of the sine function.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getSine(name: String, sineP: ADoubleByRef, sineSteps: AIntByRef, sineCycles: AIntByRef, sineAmp: ADoubleByRef): Int =
+    fun getSine(name: String, sineP: ADoubleByRef = DoubleByRef.UNNECESSARY, sineSteps: AIntByRef = IntByRef.UNNECESSARY, sineCycles: AIntByRef = IntByRef.UNNECESSARY, sineAmp: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetSine", name, sineP, sineSteps, sineCycles, sineAmp)
 
     /**
@@ -75,7 +75,7 @@ interface FuncTHV14 : SapComponent {
      * @param triAmp The maximum amplitude of the triangular function.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getTriangular(name: String, triP: ADoubleByRef, triCycles: AIntByRef, triAmp: ADoubleByRef): Int =
+    fun getTriangular(name: String, triP: ADoubleByRef = DoubleByRef.UNNECESSARY, triCycles: AIntByRef = IntByRef.UNNECESSARY, triAmp: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetTriangular", name, triP, triCycles, triAmp)
 
     /**
@@ -87,7 +87,7 @@ interface FuncTHV14 : SapComponent {
      * @param value This is an array that includes the function value for each data point.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getUserPeriodic(name: String, uPCycles: AIntByRef, numberItems: AIntByRef, myTime: ADoubleArrayByRef, value: ADoubleArrayByRef): Int =
+    fun getUserPeriodic(name: String, uPCycles: AIntByRef = IntByRef.UNNECESSARY, numberItems: AIntByRef = IntByRef.UNNECESSARY, myTime: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetUserPeriodic", name, uPCycles, numberItems, myTime, value)
 
     /**
@@ -98,7 +98,7 @@ interface FuncTHV14 : SapComponent {
      * @param value This is an array that includes the function value for each data point.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getUser(name: String, numberItems: AIntByRef, myTime: ADoubleArrayByRef, value: ADoubleArrayByRef): Int =
+    fun getUser(name: String, numberItems: AIntByRef = IntByRef.UNNECESSARY, myTime: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetUser", name, numberItems, myTime, value)
 
     /**
@@ -185,7 +185,7 @@ interface FuncTHV14 : SapComponent {
      * @param value This is an array that includes the function value for each data point.
      * @return zero if the function is successfully defined; otherwise it returns a nonzero value.
      */
-    fun setUserPeriodic(name: String, uPCycles: Int, numberItems: Int, myTime: ADoubleArrayByRef, value: ADoubleArrayByRef): Int =
+    fun setUserPeriodic(name: String, uPCycles: Int, numberItems: Int, myTime: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("SetUserPeriodic", name, uPCycles, numberItems, myTime, value)
 
     /**
@@ -196,6 +196,6 @@ interface FuncTHV14 : SapComponent {
      * @param value This is an array that includes the function value for each data point.
      * @return zero if the function is successfully defined; otherwise it returns a nonzero value.
      */
-    fun setUser(name: String, numberItems: Int, myTime: ADoubleArrayByRef, value: ADoubleArrayByRef): Int =
+    fun setUser(name: String, numberItems: Int, myTime: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, value: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("SetUser", name, numberItems, myTime, value)
 }
