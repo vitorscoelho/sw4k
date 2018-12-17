@@ -12,8 +12,9 @@ import vitorscoelho.sw4k.sap.sapmodel.design.DesignColdFormed
 import vitorscoelho.sw4k.sap.sapmodel.design.DesignConcrete
 import vitorscoelho.sw4k.sap.sapmodel.design.DesignSteel
 import vitorscoelho.sw4k.sapversions.v14.SapModelV14
+import vitorscoelho.sw4k.sapversions.v15.SapModelV15
 
-class SapModel internal constructor(programName: String) : SapModelV14 {
+class SapModel internal constructor(programName: String) : SapModelV14,SapModelV15 {
     override val activeXComponentName: String = "$programName.cSapModel"
     override val areaElm = AreaElm(programName)
     override val lineElm = LineElm(programName)
