@@ -1,8 +1,11 @@
 # sw4k
 It is a simple wrapper of SAP2000 functions for Kotlin/Java.
+
 It uses JACOB (https://sourceforge.net/projects/jacob-project/) to make Java-COM bridge.
 
 Only SAP2000 v14, for a while.
+
+Obviously, SAP2000 version must be installed on your system.
 
 Example (SAP2000 with Kotlin):
 ```kotlin
