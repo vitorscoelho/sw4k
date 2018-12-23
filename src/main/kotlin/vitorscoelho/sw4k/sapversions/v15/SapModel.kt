@@ -4,6 +4,11 @@ import vitorscoelho.sw4k.sapversions.v14.SapModelV14
 import vitorscoelho.sw4k.sapversions.v15.sapmodel.*
 import vitorscoelho.sw4k.sapversions.v15.sapmodel.analysismodel.*
 import vitorscoelho.sw4k.sapversions.v15.sapmodel.analysisresults.ResultsV15
+import vitorscoelho.sw4k.sapversions.v15.sapmodel.definitions.*
+import vitorscoelho.sw4k.sapversions.v15.sapmodel.definitions.properties.*
+import vitorscoelho.sw4k.sapversions.v15.sapmodel.design.*
+import vitorscoelho.sw4k.sapversions.v15.sapmodel.edit.*
+import vitorscoelho.sw4k.sapversions.v15.sapmodel.objectmodel.*
 
 interface SapModelV15 : SapModelV14 {
     override val areaElm: AreaElmV15
