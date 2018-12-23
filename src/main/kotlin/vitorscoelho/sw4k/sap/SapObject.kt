@@ -4,7 +4,7 @@ import vitorscoelho.sw4k.comutils.dlls.LoaderJacobDll
 import vitorscoelho.sw4k.sapversions.v14.SapObjectV14
 import vitorscoelho.sw4k.sapversions.v15.SapObjectV15
 
-class SapObject private constructor(override val activeXComponentName: String, val programName: String) : SapObjectV14, SapObjectV15 {
+class SapObject private constructor(override val activeXComponentName: String, val programName: String) : SapObjectV15 {
     override val sapModel = SapModel(programName)
 
     companion object {
