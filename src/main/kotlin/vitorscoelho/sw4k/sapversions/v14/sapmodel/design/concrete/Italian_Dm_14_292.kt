@@ -50,7 +50,7 @@ interface Italian_Dm_14_292V14 : SapComponent {
      * @param progDet If this item is True, the specified value is program determined.
      * @return zero if the item is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getOverwrite(name: String, item: Int, value: ADoubleByRef = DoubleByRef.UNNECESSARY, progDet: ABooleanByRef): Int =
+    fun getOverwrite(name: String, item: Int, value: ADoubleByRef = DoubleByRef.UNNECESSARY, progDet: ABooleanByRef = BooleanByRef.UNNECESSARY): Int =
             callFunctionInt("GetOverwrite", name, item, value, progDet)
 
     /**

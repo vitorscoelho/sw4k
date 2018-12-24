@@ -16,7 +16,7 @@ interface SetupV14 : SapComponent {
      * @param selected This item is True if the specified load case is selected for output.
      * @return 0 if the selected flag is successfully retrieved, otherwise it returns nonzero.
      */
-    fun getCaseSelectedForOutput(name: String, selected: ABooleanByRef): Int =
+    fun getCaseSelectedForOutput(name: String, selected: ABooleanByRef = BooleanByRef.UNNECESSARY): Int =
             callFunctionInt("GetCaseSelectedForOutput", name, selected)
 
     /**
@@ -25,7 +25,7 @@ interface SetupV14 : SapComponent {
      * @param selected This item is True if the specified load combination is selected for output.
      * @return 0 if the selected flag is successfully retrieved, otherwise it returns nonzero.
      */
-    fun getComboSelectedForOutput(name: String, selected: ABooleanByRef): Int =
+    fun getComboSelectedForOutput(name: String, selected: ABooleanByRef = BooleanByRef.UNNECESSARY): Int =
             callFunctionInt("GetComboSelectedForOutput", name, selected)
 
     /**
@@ -43,7 +43,7 @@ interface SetupV14 : SapComponent {
      * @param buckModeAll If this item is True, buckling factors are reported for all calculated buckling modes. If it is False, buckling factors are reported for the buckling modes indicated by the BuckModeStart and BuckModeEnd items.
      * @return 0 if the modes are successfully retrieved, otherwise it returns nonzero.
      */
-    fun getOptionBucklingMode(buckModeStart: AIntByRef = IntByRef.UNNECESSARY, buckModeEnd: AIntByRef = IntByRef.UNNECESSARY, buckModeAll: ABooleanByRef): Int =
+    fun getOptionBucklingMode(buckModeStart: AIntByRef = IntByRef.UNNECESSARY, buckModeEnd: AIntByRef = IntByRef.UNNECESSARY, buckModeAll: ABooleanByRef = BooleanByRef.UNNECESSARY): Int =
             callFunctionInt("GetOptionBucklingMode", buckModeStart, buckModeEnd, buckModeAll)
 
     /**
@@ -75,7 +75,7 @@ interface SetupV14 : SapComponent {
      * @param modeShapesAll If this item is True, results are reported for all calculated modes. If it is False, results are reported for the modes indicated by the ModeShapeStart and ModeShapeEnd items.
      * @return 0 if the modes are successfully retrieved, otherwise it returns nonzero.
      */
-    fun getOptionModeShape(modeShapeStart: AIntByRef = IntByRef.UNNECESSARY, modeShapeEnd: AIntByRef = IntByRef.UNNECESSARY, modeShapesAll: ABooleanByRef): Int =
+    fun getOptionModeShape(modeShapeStart: AIntByRef = IntByRef.UNNECESSARY, modeShapeEnd: AIntByRef = IntByRef.UNNECESSARY, modeShapesAll: ABooleanByRef = BooleanByRef.UNNECESSARY): Int =
             callFunctionInt("GetOptionModeShape", modeShapeStart, modeShapeEnd, modeShapesAll)
 
     /**

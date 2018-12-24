@@ -46,7 +46,7 @@ interface StaticNonlinearStagedV14 : SapComponent {
      * @param timeDepMatProp When this is True, any specified time dependent material properties are considered in the analysis.
      * @return zero if the options are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getMaterialNonlinearity(name: String, timeDepMatProp: ABooleanByRef): Int =
+    fun getMaterialNonlinearity(name: String, timeDepMatProp: ABooleanByRef = BooleanByRef.UNNECESSARY): Int =
             callFunctionInt("GetMaterialNonlinearity", name, timeDepMatProp)
 
     /**
@@ -79,7 +79,7 @@ interface StaticNonlinearStagedV14 : SapComponent {
      * @param lineSearchStepFact The line-search step factor.
      * @return zero if the parameters are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getSolControlParameters(name: String, maxTotalSteps: AIntByRef = IntByRef.UNNECESSARY, maxFailedSubSteps: AIntByRef = IntByRef.UNNECESSARY, maxIterCS: AIntByRef = IntByRef.UNNECESSARY, maxIterNR: AIntByRef = IntByRef.UNNECESSARY, tolConvD: ADoubleByRef = DoubleByRef.UNNECESSARY, useEventStepping: ABooleanByRef, tolEventD: ADoubleByRef = DoubleByRef.UNNECESSARY, maxLineSearchPerIter: AIntByRef = IntByRef.UNNECESSARY, tolLineSearch: ADoubleByRef = DoubleByRef.UNNECESSARY, lineSearchStepFact: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
+    fun getSolControlParameters(name: String, maxTotalSteps: AIntByRef = IntByRef.UNNECESSARY, maxFailedSubSteps: AIntByRef = IntByRef.UNNECESSARY, maxIterCS: AIntByRef = IntByRef.UNNECESSARY, maxIterNR: AIntByRef = IntByRef.UNNECESSARY, tolConvD: ADoubleByRef = DoubleByRef.UNNECESSARY, useEventStepping: ABooleanByRef = BooleanByRef.UNNECESSARY, tolEventD: ADoubleByRef = DoubleByRef.UNNECESSARY, maxLineSearchPerIter: AIntByRef = IntByRef.UNNECESSARY, tolLineSearch: ADoubleByRef = DoubleByRef.UNNECESSARY, lineSearchStepFact: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetSolControlParameters", name, maxTotalSteps, maxFailedSubSteps, maxIterCS, maxIterNR, tolConvD, useEventStepping, tolEventD, maxLineSearchPerIter, tolLineSearch, lineSearchStepFact)
 
     /**
@@ -154,7 +154,7 @@ interface StaticNonlinearStagedV14 : SapComponent {
      * @param noStop If this item is True, the analysis is continued when there is no convergence in the target force iteration.
      * @return zero if the parameters are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getTargetForceParameters(name: String, tolConvF: ADoubleByRef = DoubleByRef.UNNECESSARY, maxIter: AIntByRef = IntByRef.UNNECESSARY, accelFact: ADoubleByRef = DoubleByRef.UNNECESSARY, noStop: ABooleanByRef): Int =
+    fun getTargetForceParameters(name: String, tolConvF: ADoubleByRef = DoubleByRef.UNNECESSARY, maxIter: AIntByRef = IntByRef.UNNECESSARY, accelFact: ADoubleByRef = DoubleByRef.UNNECESSARY, noStop: ABooleanByRef = BooleanByRef.UNNECESSARY): Int =
             callFunctionInt("GetTargetForceParameters", name, tolConvF, maxIter, accelFact, noStop)
 
     /**

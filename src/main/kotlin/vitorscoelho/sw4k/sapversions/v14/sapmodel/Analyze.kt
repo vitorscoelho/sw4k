@@ -67,7 +67,7 @@ interface AnalyzeV14 : SapComponent {
      * @param stiffCase The name of the load case used when outputting the mass and stiffness matrices to text files If this item is blank, no matrices are output.
      * @return zero if the options are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getSolverOption(solverType: AIntByRef = IntByRef.UNNECESSARY, force32BitSolver: ABooleanByRef, stiffCase: AStringByRef = StringByRef.UNNECESSARY): Int =
+    fun getSolverOption(solverType: AIntByRef = IntByRef.UNNECESSARY, force32BitSolver: ABooleanByRef = BooleanByRef.UNNECESSARY, stiffCase: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetSolverOption", solverType, force32BitSolver, stiffCase)
 
     /**

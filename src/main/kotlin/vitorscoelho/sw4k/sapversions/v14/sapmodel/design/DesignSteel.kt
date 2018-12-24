@@ -132,7 +132,7 @@ interface DesignSteelV14 : SapComponent {
      * @param active If this item is True, all specified lateral displacement targets are active. If it is False, they are inactive.
      * @return zero if the targets are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getTargetDispl(numberItems: AIntByRef = IntByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, point: AStringArrayByRef = StringArrayByRef.UNNECESSARY, displ: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, active: ABooleanByRef): Int =
+    fun getTargetDispl(numberItems: AIntByRef = IntByRef.UNNECESSARY, loadCase: AStringArrayByRef = StringArrayByRef.UNNECESSARY, point: AStringArrayByRef = StringArrayByRef.UNNECESSARY, displ: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, active: ABooleanByRef = BooleanByRef.UNNECESSARY): Int =
             callFunctionInt("GetTargetDispl", numberItems, loadCase, point, displ, active)
 
     /**
@@ -144,7 +144,7 @@ interface DesignSteelV14 : SapComponent {
      * @param active If this item is True, all specified target periods are active. If it is False, they are inactive.
      * @return zero if the targets are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getTargetPeriod(numberItems: AIntByRef = IntByRef.UNNECESSARY, modalCase: AStringByRef = StringByRef.UNNECESSARY, mode: AIntArrayByRef = IntArrayByRef.UNNECESSARY, period: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, active: ABooleanByRef): Int =
+    fun getTargetPeriod(numberItems: AIntByRef = IntByRef.UNNECESSARY, modalCase: AStringByRef = StringByRef.UNNECESSARY, mode: AIntArrayByRef = IntArrayByRef.UNNECESSARY, period: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, active: ABooleanByRef = BooleanByRef.UNNECESSARY): Int =
             callFunctionInt("GetTargetPeriod", numberItems, modalCase, mode, period, active)
 
     /**

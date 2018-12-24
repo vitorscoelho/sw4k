@@ -388,7 +388,7 @@ interface LineElmV14 : SapComponent {
      * @param sVarRelStartLoc This is the relative distance along the nonprismatic section to the I-End (start) of the line element. This item is ignored when the [sVarTotalLength] is 0.
      * @return zero if the property data is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getProperty(name: String, propName: AStringByRef = StringByRef.UNNECESSARY, objType: AIntByRef = IntByRef.UNNECESSARY, `var`: ABooleanByRef, sVarRelStartLoc: ADoubleByRef = DoubleByRef.UNNECESSARY, sVarTotalLength: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
+    fun getProperty(name: String, propName: AStringByRef = StringByRef.UNNECESSARY, objType: AIntByRef = IntByRef.UNNECESSARY, `var`: ABooleanByRef = BooleanByRef.UNNECESSARY, sVarRelStartLoc: ADoubleByRef = DoubleByRef.UNNECESSARY, sVarTotalLength: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetProperty", name, propName, objType, `var`, sVarRelStartLoc, sVarTotalLength)
 
     /**
@@ -437,7 +437,7 @@ interface LineElmV14 : SapComponent {
      * @param limitTension The tension force limit for the line element. (F)
      * @return zero if the assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getTCLimits(name: String, limitCompressionExists: ABooleanByRef, limitCompression: ADoubleByRef = DoubleByRef.UNNECESSARY, limitTensionExists: ABooleanByRef, limitTension: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
+    fun getTCLimits(name: String, limitCompressionExists: ABooleanByRef = BooleanByRef.UNNECESSARY, limitCompression: ADoubleByRef = DoubleByRef.UNNECESSARY, limitTensionExists: ABooleanByRef = BooleanByRef.UNNECESSARY, limitTension: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetTCLimits", name, limitCompressionExists, limitCompression, limitTensionExists, limitTension)
 
     /**

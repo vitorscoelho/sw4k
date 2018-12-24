@@ -246,7 +246,7 @@ interface LinkObjV14 : SapComponent {
      * @param plane2 This is 12 or 13, indicating that the local plane determined by the plane reference vector is the 1-2 or 1-3 plane. This item applies only when the Active item is True.
      * @return zero if the advanced local axes assignments are assigned successfully; otherwise it returns a nonzero value.
      */
-    fun getLocalAxesAdvanced(name: String, active: ABooleanByRef, axVectOpt: AIntByRef = IntByRef.UNNECESSARY, axCSys: AStringByRef = StringByRef.UNNECESSARY, axDir: AIntArrayByRef = IntArrayByRef.UNNECESSARY, axPt: AStringArrayByRef = StringArrayByRef.UNNECESSARY, axVect: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, plane2: AIntByRef = IntByRef.UNNECESSARY, plVectOpt: AIntByRef = IntByRef.UNNECESSARY, plCSys: AStringByRef = StringByRef.UNNECESSARY, plDir: AIntArrayByRef = IntArrayByRef.UNNECESSARY, plPt: AStringArrayByRef = StringArrayByRef.UNNECESSARY, plVect: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
+    fun getLocalAxesAdvanced(name: String, active: ABooleanByRef = BooleanByRef.UNNECESSARY, axVectOpt: AIntByRef = IntByRef.UNNECESSARY, axCSys: AStringByRef = StringByRef.UNNECESSARY, axDir: AIntArrayByRef = IntArrayByRef.UNNECESSARY, axPt: AStringArrayByRef = StringArrayByRef.UNNECESSARY, axVect: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, plane2: AIntByRef = IntByRef.UNNECESSARY, plVectOpt: AIntByRef = IntByRef.UNNECESSARY, plCSys: AStringByRef = StringByRef.UNNECESSARY, plDir: AIntArrayByRef = IntArrayByRef.UNNECESSARY, plPt: AStringArrayByRef = StringArrayByRef.UNNECESSARY, plVect: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetLocalAxesAdvanced", name, active, axVectOpt, axCSys, axDir, axPt, axVect, plane2, plVectOpt, plCSys, plDir, plPt, plVect)
 
     /**
@@ -256,7 +256,7 @@ interface LinkObjV14 : SapComponent {
      * @param advanced This item is True if the link object local axes orientation was obtained using advanced local axes parameters.
      * @return zero if the assignment is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLocalAxes(name: String, ang: ADoubleByRef = DoubleByRef.UNNECESSARY, advanced: ABooleanByRef): Int =
+    fun getLocalAxes(name: String, ang: ADoubleByRef = DoubleByRef.UNNECESSARY, advanced: ABooleanByRef = BooleanByRef.UNNECESSARY): Int =
             callFunctionInt("GetLocalAxes", name, ang, advanced)
 
     /**
@@ -302,7 +302,7 @@ interface LinkObjV14 : SapComponent {
      * @param selected This item is True if the specified link object is selected; otherwise it is False.
      * @return zero if the selected status is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getSelected(name: String, selected: ABooleanByRef): Int =
+    fun getSelected(name: String, selected: ABooleanByRef = BooleanByRef.UNNECESSARY): Int =
             callFunctionInt("GetSelected", name, selected)
 
     /**

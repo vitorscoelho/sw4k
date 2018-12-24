@@ -45,7 +45,7 @@ interface PropAreaV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the property.
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getAsolid(name: String, matProp: AStringByRef = StringByRef.UNNECESSARY, matAng: ADoubleByRef = DoubleByRef.UNNECESSARY, arc: ADoubleByRef = DoubleByRef.UNNECESSARY, incompatible: ABooleanByRef, cSys: AStringByRef = StringByRef.UNNECESSARY, color: AIntByRef = IntByRef.UNNECESSARY, notes: AStringByRef = StringByRef.UNNECESSARY, GUID: AStringByRef = StringByRef.UNNECESSARY): Int =
+    fun getAsolid(name: String, matProp: AStringByRef = StringByRef.UNNECESSARY, matAng: ADoubleByRef = DoubleByRef.UNNECESSARY, arc: ADoubleByRef = DoubleByRef.UNNECESSARY, incompatible: ABooleanByRef = BooleanByRef.UNNECESSARY, cSys: AStringByRef = StringByRef.UNNECESSARY, color: AIntByRef = IntByRef.UNNECESSARY, notes: AStringByRef = StringByRef.UNNECESSARY, GUID: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetAsolid", name, matProp, matAng, arc, incompatible, cSys, color, notes, GUID)
 
     /**
@@ -96,7 +96,7 @@ interface PropAreaV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the property.
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getPlane(name: String, myType: AIntByRef = IntByRef.UNNECESSARY, matProp: AStringByRef = StringByRef.UNNECESSARY, matAng: ADoubleByRef = DoubleByRef.UNNECESSARY, thickness: ADoubleByRef = DoubleByRef.UNNECESSARY, incompatible: ABooleanByRef, color: AIntByRef = IntByRef.UNNECESSARY, notes: AStringByRef = StringByRef.UNNECESSARY, GUID: AStringByRef = StringByRef.UNNECESSARY): Int =
+    fun getPlane(name: String, myType: AIntByRef = IntByRef.UNNECESSARY, matProp: AStringByRef = StringByRef.UNNECESSARY, matAng: ADoubleByRef = DoubleByRef.UNNECESSARY, thickness: ADoubleByRef = DoubleByRef.UNNECESSARY, incompatible: ABooleanByRef = BooleanByRef.UNNECESSARY, color: AIntByRef = IntByRef.UNNECESSARY, notes: AStringByRef = StringByRef.UNNECESSARY, GUID: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetPlane", name, myType, matProp, matAng, thickness, incompatible, color, notes, GUID)
 
     /**
@@ -157,7 +157,7 @@ interface PropAreaV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the property.
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getShell_1(name: String, shellType: AIntByRef = IntByRef.UNNECESSARY, includeDrillingDOF: ABooleanByRef, matProp: AStringByRef = StringByRef.UNNECESSARY, matAng: ADoubleByRef = DoubleByRef.UNNECESSARY, thickness: ADoubleByRef = DoubleByRef.UNNECESSARY, bending: ADoubleByRef = DoubleByRef.UNNECESSARY, color: AIntByRef = IntByRef.UNNECESSARY, notes: AStringByRef = StringByRef.UNNECESSARY, GUID: AStringByRef = StringByRef.UNNECESSARY): Int =
+    fun getShell_1(name: String, shellType: AIntByRef = IntByRef.UNNECESSARY, includeDrillingDOF: ABooleanByRef = BooleanByRef.UNNECESSARY, matProp: AStringByRef = StringByRef.UNNECESSARY, matAng: ADoubleByRef = DoubleByRef.UNNECESSARY, thickness: ADoubleByRef = DoubleByRef.UNNECESSARY, bending: ADoubleByRef = DoubleByRef.UNNECESSARY, color: AIntByRef = IntByRef.UNNECESSARY, notes: AStringByRef = StringByRef.UNNECESSARY, GUID: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetShell_1", name, shellType, includeDrillingDOF, matProp, matAng, thickness, bending, color, notes, GUID)
 
     /**

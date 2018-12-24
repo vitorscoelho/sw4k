@@ -344,7 +344,7 @@ interface PropMaterialV14 : SapComponent {
      * This item is the temperature at which the specified data is to be retrieved. The temperature must have been defined previously for the material.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value. The function returns an error if the specified material is not concrete.
      */
-    fun getOConcrete_1(name: String, fc: ADoubleByRef = DoubleByRef.UNNECESSARY, isLightweight: ABooleanByRef, fcsfactor: ADoubleByRef = DoubleByRef.UNNECESSARY, sSType: AIntByRef = IntByRef.UNNECESSARY, sSHysType: AIntByRef = IntByRef.UNNECESSARY, strainAtfc: ADoubleByRef = DoubleByRef.UNNECESSARY, strainUltimate: ADoubleByRef = DoubleByRef.UNNECESSARY, finalSlope: ADoubleByRef = DoubleByRef.UNNECESSARY, frictionAngle: ADoubleByRef = DoubleByRef.UNNECESSARY, dilatationalAngle: ADoubleByRef = DoubleByRef.UNNECESSARY, temp: Double = 0.0): Int =
+    fun getOConcrete_1(name: String, fc: ADoubleByRef = DoubleByRef.UNNECESSARY, isLightweight: ABooleanByRef = BooleanByRef.UNNECESSARY, fcsfactor: ADoubleByRef = DoubleByRef.UNNECESSARY, sSType: AIntByRef = IntByRef.UNNECESSARY, sSHysType: AIntByRef = IntByRef.UNNECESSARY, strainAtfc: ADoubleByRef = DoubleByRef.UNNECESSARY, strainUltimate: ADoubleByRef = DoubleByRef.UNNECESSARY, finalSlope: ADoubleByRef = DoubleByRef.UNNECESSARY, frictionAngle: ADoubleByRef = DoubleByRef.UNNECESSARY, dilatationalAngle: ADoubleByRef = DoubleByRef.UNNECESSARY, temp: Double = 0.0): Int =
             callFunctionInt("GetOConcrete_1", name, fc, isLightweight, fcsfactor, sSType, sSHysType, strainAtfc, strainUltimate, finalSlope, frictionAngle, dilatationalAngle, temp)
 
     /**
@@ -382,7 +382,7 @@ interface PropMaterialV14 : SapComponent {
      * This item is the temperature at which the specified data is to be retrieved. The temperature must have been defined previously for the material.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value. The function returns an error if the specified material is not rebar.
      */
-    fun getORebar_1(name: String, fy: ADoubleByRef = DoubleByRef.UNNECESSARY, fu: ADoubleByRef = DoubleByRef.UNNECESSARY, eFy: ADoubleByRef = DoubleByRef.UNNECESSARY, eFu: ADoubleByRef = DoubleByRef.UNNECESSARY, sSType: AIntByRef = IntByRef.UNNECESSARY, sSHysType: AIntByRef = IntByRef.UNNECESSARY, strainAtHardening: ADoubleByRef = DoubleByRef.UNNECESSARY, strainUltimate: ADoubleByRef = DoubleByRef.UNNECESSARY, finalSlope: ADoubleByRef = DoubleByRef.UNNECESSARY, useCaltransSSDefaults: ABooleanByRef, temp: Double = 0.0): Int =
+    fun getORebar_1(name: String, fy: ADoubleByRef = DoubleByRef.UNNECESSARY, fu: ADoubleByRef = DoubleByRef.UNNECESSARY, eFy: ADoubleByRef = DoubleByRef.UNNECESSARY, eFu: ADoubleByRef = DoubleByRef.UNNECESSARY, sSType: AIntByRef = IntByRef.UNNECESSARY, sSHysType: AIntByRef = IntByRef.UNNECESSARY, strainAtHardening: ADoubleByRef = DoubleByRef.UNNECESSARY, strainUltimate: ADoubleByRef = DoubleByRef.UNNECESSARY, finalSlope: ADoubleByRef = DoubleByRef.UNNECESSARY, useCaltransSSDefaults: ABooleanByRef = BooleanByRef.UNNECESSARY, temp: Double = 0.0): Int =
             callFunctionInt("GetORebar_1", name, fy, fu, eFy, eFu, sSType, sSHysType, strainAtHardening, strainUltimate, finalSlope, useCaltransSSDefaults, temp)
 
     /**

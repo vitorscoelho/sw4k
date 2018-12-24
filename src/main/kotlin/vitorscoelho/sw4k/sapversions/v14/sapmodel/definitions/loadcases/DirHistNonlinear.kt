@@ -87,7 +87,7 @@ interface DirHistNonlinearV14 : SapComponent {
      * @param lineSearchStepFact The line-search step factor.
      * @return zero if the parameters are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getSolControlParameters(name: String, dTMax: ADoubleByRef = DoubleByRef.UNNECESSARY, dTMin: ADoubleByRef = DoubleByRef.UNNECESSARY, maxIterCS: AIntByRef = IntByRef.UNNECESSARY, maxIterNR: AIntByRef = IntByRef.UNNECESSARY, tolConvD: ADoubleByRef = DoubleByRef.UNNECESSARY, useEventStepping: ABooleanByRef, tolEventD: ADoubleByRef = DoubleByRef.UNNECESSARY, maxLineSearchPerIter: AIntByRef = IntByRef.UNNECESSARY, tolLineSearch: ADoubleByRef = DoubleByRef.UNNECESSARY, lineSearchStepFact: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
+    fun getSolControlParameters(name: String, dTMax: ADoubleByRef = DoubleByRef.UNNECESSARY, dTMin: ADoubleByRef = DoubleByRef.UNNECESSARY, maxIterCS: AIntByRef = IntByRef.UNNECESSARY, maxIterNR: AIntByRef = IntByRef.UNNECESSARY, tolConvD: ADoubleByRef = DoubleByRef.UNNECESSARY, useEventStepping: ABooleanByRef = BooleanByRef.UNNECESSARY, tolEventD: ADoubleByRef = DoubleByRef.UNNECESSARY, maxLineSearchPerIter: AIntByRef = IntByRef.UNNECESSARY, tolLineSearch: ADoubleByRef = DoubleByRef.UNNECESSARY, lineSearchStepFact: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetSolControlParameters", name, dTMax, dTMin, maxIterCS, maxIterNR, tolConvD, useEventStepping, tolEventD, maxLineSearchPerIter, tolLineSearch, lineSearchStepFact)
 
     /**

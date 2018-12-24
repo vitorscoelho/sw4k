@@ -29,7 +29,7 @@ interface FuncTHV14 : SapComponent {
      * @param numberFixed This item applies only when the FreeFormat item is False. It is the number of characters per item.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getFromFile(name: String, fileName: AStringByRef = StringByRef.UNNECESSARY, headLines: AIntByRef = IntByRef.UNNECESSARY, preChars: AIntByRef = IntByRef.UNNECESSARY, pointsPerLine: AIntByRef = IntByRef.UNNECESSARY, valueType: AIntByRef = IntByRef.UNNECESSARY, freeFormat: ABooleanByRef, numberFixed: AIntByRef = IntByRef.UNNECESSARY): Int =
+    fun getFromFile(name: String, fileName: AStringByRef = StringByRef.UNNECESSARY, headLines: AIntByRef = IntByRef.UNNECESSARY, preChars: AIntByRef = IntByRef.UNNECESSARY, pointsPerLine: AIntByRef = IntByRef.UNNECESSARY, valueType: AIntByRef = IntByRef.UNNECESSARY, freeFormat: ABooleanByRef = BooleanByRef.UNNECESSARY, numberFixed: AIntByRef = IntByRef.UNNECESSARY): Int =
             callFunctionInt("GetFromFile", name, fileName, headLines, preChars, pointsPerLine, valueType, freeFormat, numberFixed)
 
     /**

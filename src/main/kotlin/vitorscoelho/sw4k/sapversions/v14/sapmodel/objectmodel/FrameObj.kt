@@ -287,7 +287,7 @@ interface FrameObjV14 : SapComponent {
      * @param autoMeshMaxLength This item is applicable only when the AutoMesh item is True. It is the maximum length of auto meshed frame elements. If this item is zero, the element length is not checked when the automatic meshing is done. (L)
      * @return zero if the meshing assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getAutoMesh(name: String, autoMesh: ABooleanByRef, autoMeshAtPoints: ABooleanByRef, autoMeshAtLines: ABooleanByRef, numSegs: AIntByRef = IntByRef.UNNECESSARY, autoMeshMaxLength: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
+    fun getAutoMesh(name: String, autoMesh: ABooleanByRef = BooleanByRef.UNNECESSARY, autoMeshAtPoints: ABooleanByRef = BooleanByRef.UNNECESSARY, autoMeshAtLines: ABooleanByRef = BooleanByRef.UNNECESSARY, numSegs: AIntByRef = IntByRef.UNNECESSARY, autoMeshMaxLength: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetAutoMesh", name, autoMesh, autoMeshAtPoints, autoMeshAtLines, numSegs, autoMeshMaxLength)
 
     /**
@@ -343,7 +343,7 @@ interface FrameObjV14 : SapComponent {
      * @param rz The rigid zone factor. This is the fraction of the end offset length assumed to be rigid for bending and shear deformations.
      * @return zero if the offsets are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getEndLengthOffset(name: String, autoOffset: ABooleanByRef, length1: ADoubleByRef = DoubleByRef.UNNECESSARY, length2: ADoubleByRef = DoubleByRef.UNNECESSARY, rz: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
+    fun getEndLengthOffset(name: String, autoOffset: ABooleanByRef = BooleanByRef.UNNECESSARY, length1: ADoubleByRef = DoubleByRef.UNNECESSARY, length2: ADoubleByRef = DoubleByRef.UNNECESSARY, rz: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetEndLengthOffset", name, autoOffset, length1, length2, rz)
 
     /**
@@ -371,7 +371,7 @@ interface FrameObjV14 : SapComponent {
      * @param tf This item applies only when MyType = 1 or MyType = 3. If this item is True, the fireproofing is assumed to be applied to the top flange of the section. If it is False, the program assumes no fireproofing is applied to the section top flange. This flag applies for I, channel and double channel sections.
      * @return zero if the fireproofing assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getFireproofing(name: String, myType: AIntByRef = IntByRef.UNNECESSARY, thickness: ADoubleByRef = DoubleByRef.UNNECESSARY, perimeter: ADoubleByRef = DoubleByRef.UNNECESSARY, density: ADoubleByRef = DoubleByRef.UNNECESSARY, tf: ABooleanByRef): Int =
+    fun getFireproofing(name: String, myType: AIntByRef = IntByRef.UNNECESSARY, thickness: ADoubleByRef = DoubleByRef.UNNECESSARY, perimeter: ADoubleByRef = DoubleByRef.UNNECESSARY, density: ADoubleByRef = DoubleByRef.UNNECESSARY, tf: ABooleanByRef = BooleanByRef.UNNECESSARY): Int =
             callFunctionInt("GetFireproofing", name, myType, thickness, perimeter, density, tf)
 
     /**
@@ -397,7 +397,7 @@ interface FrameObjV14 : SapComponent {
      * @param cSys This is either Local or the name of a defined coordinate system. It is the coordinate system in which the Offset1 and Offset2 items are specified.
      * @return zero if the insertion point data is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getInsertionPoint(name: String, cardinalPoint: AIntByRef = IntByRef.UNNECESSARY, mirror2: ABooleanByRef, stiffTransform: ABooleanByRef, offset1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, offset2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, cSys: AStringByRef = StringByRef.UNNECESSARY): Int =
+    fun getInsertionPoint(name: String, cardinalPoint: AIntByRef = IntByRef.UNNECESSARY, mirror2: ABooleanByRef = BooleanByRef.UNNECESSARY, stiffTransform: ABooleanByRef = BooleanByRef.UNNECESSARY, offset1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, offset2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, cSys: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetInsertionPoint", name, cardinalPoint, mirror2, stiffTransform, offset1, offset2, cSys)
 
     /**
@@ -668,7 +668,7 @@ interface FrameObjV14 : SapComponent {
      * @param plVect This is an array dimensioned to 3 (3 doubles) that defines the plane reference vector. This item applies when the Active item is True and the PlVectOpt item is 3.
      * @return zero if the advanced local axes assignments are successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLocalAxesAdvanced(name: String, active: ABooleanByRef, plane2: AIntByRef = IntByRef.UNNECESSARY, plVectOpt: AIntByRef = IntByRef.UNNECESSARY, plCSys: AStringByRef = StringByRef.UNNECESSARY, plDir: AIntArrayByRef = IntArrayByRef.UNNECESSARY, plPt: AStringArrayByRef = StringArrayByRef.UNNECESSARY, plVect: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
+    fun getLocalAxesAdvanced(name: String, active: ABooleanByRef = BooleanByRef.UNNECESSARY, plane2: AIntByRef = IntByRef.UNNECESSARY, plVectOpt: AIntByRef = IntByRef.UNNECESSARY, plCSys: AStringByRef = StringByRef.UNNECESSARY, plDir: AIntArrayByRef = IntArrayByRef.UNNECESSARY, plPt: AStringArrayByRef = StringArrayByRef.UNNECESSARY, plVect: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetLocalAxesAdvanced", name, active, plane2, plVectOpt, plCSys, plDir, plPt, plVect)
 
     /**
@@ -678,7 +678,7 @@ interface FrameObjV14 : SapComponent {
      * @param advanced This item is True if the line object local axes orientation was obtained using advanced local axes parameters.
      * @return zero if the assignment is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getLocalAxes(name: String, ang: ADoubleByRef = DoubleByRef.UNNECESSARY, advanced: ABooleanByRef): Int =
+    fun getLocalAxes(name: String, ang: ADoubleByRef = DoubleByRef.UNNECESSARY, advanced: ABooleanByRef = BooleanByRef.UNNECESSARY): Int =
             callFunctionInt("GetLocalAxes", name, ang, advanced)
 
     /**
@@ -748,7 +748,7 @@ interface FrameObjV14 : SapComponent {
      * @param noOutPutAndDesignAtPointLoads If this item is True, no additional output stations are added at point load locations.
      * @return zero if the data is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getOutputStations(name: String, myType: AIntByRef = IntByRef.UNNECESSARY, maxSegSize: ADoubleByRef = DoubleByRef.UNNECESSARY, minSections: AIntByRef = IntByRef.UNNECESSARY, noOutPutAndDesignAtElementEnds: ABooleanByRef, noOutPutAndDesignAtPointLoads: ABooleanByRef): Int =
+    fun getOutputStations(name: String, myType: AIntByRef = IntByRef.UNNECESSARY, maxSegSize: ADoubleByRef = DoubleByRef.UNNECESSARY, minSections: AIntByRef = IntByRef.UNNECESSARY, noOutPutAndDesignAtElementEnds: ABooleanByRef = BooleanByRef.UNNECESSARY, noOutPutAndDesignAtPointLoads: ABooleanByRef = BooleanByRef.UNNECESSARY): Int =
             callFunctionInt("GetOutputStations", name, myType, maxSegSize, minSections, noOutPutAndDesignAtElementEnds, noOutPutAndDesignAtPointLoads)
 
     /**
@@ -827,7 +827,7 @@ interface FrameObjV14 : SapComponent {
      * @param selected This item returns True if the specified frame object is selected, otherwise it returns False.
      * @return zero if the selected status is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getSelected(name: String, selected: ABooleanByRef): Int =
+    fun getSelected(name: String, selected: ABooleanByRef = BooleanByRef.UNNECESSARY): Int =
             callFunctionInt("GetSelected", name, selected)
 
     /**
@@ -869,7 +869,7 @@ interface FrameObjV14 : SapComponent {
      * @param limitTension The tension force limit for the frame object. (F)
      * @return zero if the assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getTCLimits(name: String, limitCompressionExists: ABooleanByRef, limitCompression: ADoubleByRef = DoubleByRef.UNNECESSARY, limitTensionExists: ABooleanByRef, limitTension: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
+    fun getTCLimits(name: String, limitCompressionExists: ABooleanByRef = BooleanByRef.UNNECESSARY, limitCompression: ADoubleByRef = DoubleByRef.UNNECESSARY, limitTensionExists: ABooleanByRef = BooleanByRef.UNNECESSARY, limitTension: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetTCLimits", name, limitCompressionExists, limitCompression, limitTensionExists, limitTension)
 
     /**

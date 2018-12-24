@@ -58,7 +58,7 @@ interface PSDV14 : SapComponent {
      * @param freqSpecified This is an array that includes the added specified frequencies. This item applies only when FreqAddModalDev = True.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getFreqData(name: String, freqFirst: ADoubleByRef = DoubleByRef.UNNECESSARY, freqLast: ADoubleByRef = DoubleByRef.UNNECESSARY, freqNumIncs: AIntByRef = IntByRef.UNNECESSARY, freqAddModal: ABooleanByRef, freqAddModalDev: ABooleanByRef, freqAddSpecified: ABooleanByRef, modalCase: AStringByRef = StringByRef.UNNECESSARY, freqNumModalDev: AIntByRef = IntByRef.UNNECESSARY, freqModalDev: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, freqNumSpecified: AIntByRef = IntByRef.UNNECESSARY, freqSpecified: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
+    fun getFreqData(name: String, freqFirst: ADoubleByRef = DoubleByRef.UNNECESSARY, freqLast: ADoubleByRef = DoubleByRef.UNNECESSARY, freqNumIncs: AIntByRef = IntByRef.UNNECESSARY, freqAddModal: ABooleanByRef = BooleanByRef.UNNECESSARY, freqAddModalDev: ABooleanByRef = BooleanByRef.UNNECESSARY, freqAddSpecified: ABooleanByRef = BooleanByRef.UNNECESSARY, modalCase: AStringByRef = StringByRef.UNNECESSARY, freqNumModalDev: AIntByRef = IntByRef.UNNECESSARY, freqModalDev: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, freqNumSpecified: AIntByRef = IntByRef.UNNECESSARY, freqSpecified: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetFreqData", name, freqFirst, freqLast, freqNumIncs, freqAddModal, freqAddModalDev, freqAddSpecified, modalCase, freqNumModalDev, freqModalDev, freqNumSpecified, freqSpecified)
 
     /**

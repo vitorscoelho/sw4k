@@ -346,7 +346,7 @@ interface TendonObjV14 : SapComponent {
      * @param selected This item returns True if the specified tendon object is selected, otherwise it returns False.
      * @return zero if the selected status is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getSelected(name: String, selected: ABooleanByRef): Int =
+    fun getSelected(name: String, selected: ABooleanByRef = BooleanByRef.UNNECESSARY): Int =
             callFunctionInt("GetSelected", name, selected)
 
     /**
@@ -359,7 +359,7 @@ interface TendonObjV14 : SapComponent {
      * @param limitTension The tension force limit for the tendon object. (F)
      * @return zero if the assignments are successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getTCLimits(name: String, limitCompressionExists: ABooleanByRef, limitCompression: ADoubleByRef = DoubleByRef.UNNECESSARY, limitTensionExists: ABooleanByRef, limitTension: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
+    fun getTCLimits(name: String, limitCompressionExists: ABooleanByRef = BooleanByRef.UNNECESSARY, limitCompression: ADoubleByRef = DoubleByRef.UNNECESSARY, limitTensionExists: ABooleanByRef = BooleanByRef.UNNECESSARY, limitTension: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetTCLimits", name, limitCompressionExists, limitCompression, limitTensionExists, limitTension)
 
     /**

@@ -430,7 +430,7 @@ interface PropLinkV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the property.
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getLinear(name: String, DOF: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, fixed: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, ke: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ce: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dj2: ADoubleByRef = DoubleByRef.UNNECESSARY, dj3: ADoubleByRef = DoubleByRef.UNNECESSARY, keCoupled: ABooleanByRef, ceCoupled: ABooleanByRef, notes: AStringByRef = StringByRef.UNNECESSARY, GUID: AStringByRef = StringByRef.UNNECESSARY): Int =
+    fun getLinear(name: String, DOF: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, fixed: ABooleanArrayByRef = BooleanArrayByRef.UNNECESSARY, ke: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, ce: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, dj2: ADoubleByRef = DoubleByRef.UNNECESSARY, dj3: ADoubleByRef = DoubleByRef.UNNECESSARY, keCoupled: ABooleanByRef = BooleanByRef.UNNECESSARY, ceCoupled: ABooleanByRef = BooleanByRef.UNNECESSARY, notes: AStringByRef = StringByRef.UNNECESSARY, GUID: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetLinear", name, DOF, fixed, ke, ce, dj2, dj3, keCoupled, ceCoupled, notes, GUID)
 
     /**

@@ -48,7 +48,7 @@ interface PropSolidV14 : SapComponent {
      * @param GUID The GUID (global unique identifier), if any, assigned to the property.
      * @return zero if the property data is successfully retrieved; otherwise it returns a nonzero value.
      */
-    fun getProp(name: String, matProp: AStringByRef = StringByRef.UNNECESSARY, a: ADoubleByRef = DoubleByRef.UNNECESSARY, b: ADoubleByRef = DoubleByRef.UNNECESSARY, c: ADoubleByRef = DoubleByRef.UNNECESSARY, incompatible: ABooleanByRef, color: AIntByRef = IntByRef.UNNECESSARY, notes: AStringByRef = StringByRef.UNNECESSARY, GUID: AStringByRef = StringByRef.UNNECESSARY): Int =
+    fun getProp(name: String, matProp: AStringByRef = StringByRef.UNNECESSARY, a: ADoubleByRef = DoubleByRef.UNNECESSARY, b: ADoubleByRef = DoubleByRef.UNNECESSARY, c: ADoubleByRef = DoubleByRef.UNNECESSARY, incompatible: ABooleanByRef = BooleanByRef.UNNECESSARY, color: AIntByRef = IntByRef.UNNECESSARY, notes: AStringByRef = StringByRef.UNNECESSARY, GUID: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetProp", name, matProp, a, b, c, incompatible, color, notes, GUID)
 
     /**

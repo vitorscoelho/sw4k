@@ -24,7 +24,7 @@ interface TimeDepV14 : SapComponent {
      * This item is the temperature at which the specified data is to be retrieved. The temperature must have been previously defined for the material.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value. The function returns an error if the specified material is not concrete.
      */
-    fun getConcreteCEBFIP90(name: String, considerConcreteAge: ABooleanByRef, considerConcreteCreep: ABooleanByRef, considerConcreteShrinkage: ABooleanByRef, CEBFIPsCoefficient: ADoubleByRef = DoubleByRef.UNNECESSARY, relativeHumidity: ADoubleByRef = DoubleByRef.UNNECESSARY, notionalSize: ADoubleByRef = DoubleByRef.UNNECESSARY, shrinkageCoefficient: ADoubleByRef = DoubleByRef.UNNECESSARY, shrinkageStartAge: ADoubleByRef = DoubleByRef.UNNECESSARY, useSeries: AIntByRef = IntByRef.UNNECESSARY, numberSeriesTerms: AIntByRef = IntByRef.UNNECESSARY, temp: Double = 0.0): Int =
+    fun getConcreteCEBFIP90(name: String, considerConcreteAge: ABooleanByRef = BooleanByRef.UNNECESSARY, considerConcreteCreep: ABooleanByRef = BooleanByRef.UNNECESSARY, considerConcreteShrinkage: ABooleanByRef = BooleanByRef.UNNECESSARY, CEBFIPsCoefficient: ADoubleByRef = DoubleByRef.UNNECESSARY, relativeHumidity: ADoubleByRef = DoubleByRef.UNNECESSARY, notionalSize: ADoubleByRef = DoubleByRef.UNNECESSARY, shrinkageCoefficient: ADoubleByRef = DoubleByRef.UNNECESSARY, shrinkageStartAge: ADoubleByRef = DoubleByRef.UNNECESSARY, useSeries: AIntByRef = IntByRef.UNNECESSARY, numberSeriesTerms: AIntByRef = IntByRef.UNNECESSARY, temp: Double = 0.0): Int =
             callFunctionInt("GetConcreteCEBFIP90", name, considerConcreteAge, considerConcreteCreep, considerConcreteShrinkage, CEBFIPsCoefficient, relativeHumidity, notionalSize, shrinkageCoefficient, shrinkageStartAge, useSeries, numberSeriesTerms, temp)
 
     /**
@@ -41,7 +41,7 @@ interface TimeDepV14 : SapComponent {
      * This item is the temperature at which the specified data is to be retrieved. The temperature must have been previously defined for the material.
      * @return zero if the data is successfully retrieved; otherwise it returns a nonzero value. The function returns an error if the specified material is not tendon.
      */
-    fun getTendonCEBFIP90(name: String, considerSteelRelaxation: ABooleanByRef, CEBFIPClass: AIntByRef = IntByRef.UNNECESSARY, useSeries: AIntByRef = IntByRef.UNNECESSARY, numberSeriesTerms: AIntByRef = IntByRef.UNNECESSARY, temp: Double = 0.0): Int =
+    fun getTendonCEBFIP90(name: String, considerSteelRelaxation: ABooleanByRef = BooleanByRef.UNNECESSARY, CEBFIPClass: AIntByRef = IntByRef.UNNECESSARY, useSeries: AIntByRef = IntByRef.UNNECESSARY, numberSeriesTerms: AIntByRef = IntByRef.UNNECESSARY, temp: Double = 0.0): Int =
             callFunctionInt("GetTendonCEBFIP90", name, considerSteelRelaxation, CEBFIPClass, useSeries, numberSeriesTerms, temp)
 
     /**

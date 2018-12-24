@@ -218,7 +218,7 @@ interface CableObjV14 : SapComponent {
      * * Parameter(10) = Undeformed relative length
      * @return zero if the data is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getCableData(name: AStringByRef = StringByRef.UNNECESSARY, cableType: AIntByRef = IntByRef.UNNECESSARY, numSegs: AIntByRef = IntByRef.UNNECESSARY, weight: ADoubleByRef = DoubleByRef.UNNECESSARY, projectedLoad: ADoubleByRef = DoubleByRef.UNNECESSARY, useDeformedGeom: ABooleanByRef, modelUsingFrames: ABooleanByRef, parameter: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
+    fun getCableData(name: AStringByRef = StringByRef.UNNECESSARY, cableType: AIntByRef = IntByRef.UNNECESSARY, numSegs: AIntByRef = IntByRef.UNNECESSARY, weight: ADoubleByRef = DoubleByRef.UNNECESSARY, projectedLoad: ADoubleByRef = DoubleByRef.UNNECESSARY, useDeformedGeom: ABooleanByRef = BooleanByRef.UNNECESSARY, modelUsingFrames: ABooleanByRef = BooleanByRef.UNNECESSARY, parameter: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY): Int =
             callFunctionInt("GetCableData", name, cableType, numSegs, weight, projectedLoad, useDeformedGeom, modelUsingFrames, parameter)
 
     /**
@@ -271,7 +271,7 @@ interface CableObjV14 : SapComponent {
      * @param cSys This is Local or the name of a defined coordinate system. It is the coordinate system in which the Offset1 and Offset2 items are specified.
      * @return zero if the insertion point data is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getInsertionPoint(name: String, stiffTransform: ABooleanByRef, offset1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, offset2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, cSys: AStringByRef = StringByRef.UNNECESSARY): Int =
+    fun getInsertionPoint(name: String, stiffTransform: ABooleanByRef = BooleanByRef.UNNECESSARY, offset1: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, offset2: ADoubleArrayByRef = DoubleArrayByRef.UNNECESSARY, cSys: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetInsertionPoint", name, stiffTransform, offset1, offset2, cSys)
 
     /**
@@ -467,7 +467,7 @@ interface CableObjV14 : SapComponent {
      * @param noOutPutAndDesignAtPointLoads If this item is True, no additional output stations are added at point load locations.
      * @return zero if the data is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getOutputStations(name: String, myType: AIntByRef = IntByRef.UNNECESSARY, maxSegSize: ADoubleByRef = DoubleByRef.UNNECESSARY, minSections: AIntByRef = IntByRef.UNNECESSARY, noOutPutAndDesignAtElementEnds: ABooleanByRef, noOutPutAndDesignAtPointLoads: ABooleanByRef): Int =
+    fun getOutputStations(name: String, myType: AIntByRef = IntByRef.UNNECESSARY, maxSegSize: ADoubleByRef = DoubleByRef.UNNECESSARY, minSections: AIntByRef = IntByRef.UNNECESSARY, noOutPutAndDesignAtElementEnds: ABooleanByRef = BooleanByRef.UNNECESSARY, noOutPutAndDesignAtPointLoads: ABooleanByRef = BooleanByRef.UNNECESSARY): Int =
             callFunctionInt("GetOutputStations", name, myType, maxSegSize, minSections, noOutPutAndDesignAtElementEnds, noOutPutAndDesignAtPointLoads)
 
     /**
@@ -495,7 +495,7 @@ interface CableObjV14 : SapComponent {
      * @param selected This item returns True if the specified cable object is selected, otherwise it returns False.
      * @return zero if the selected status is successfully retrieved, otherwise it returns a nonzero value.
      */
-    fun getSelected(name: String, selected: ABooleanByRef): Int =
+    fun getSelected(name: String, selected: ABooleanByRef = BooleanByRef.UNNECESSARY): Int =
             callFunctionInt("GetSelected", name, selected)
 
     /**
