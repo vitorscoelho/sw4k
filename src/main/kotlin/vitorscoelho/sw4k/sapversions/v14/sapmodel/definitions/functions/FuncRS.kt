@@ -75,8 +75,8 @@ interface FuncRSV14 : SapComponent {
             callFunctionInt("GetBOCA96", name, BOCA96Aa, BOCA96Av, BOCA96S, BOCA96R, dampRatio)
 
     /**
-     * This function retrieves the definition of a Chinese 2002 response spectrum function.
-     * @param name The name of a Chinese 2002 response spectrum function.
+     * This function retrieves the definition of a Chinese_2002 2002 response spectrum function.
+     * @param name The name of a Chinese_2002 2002 response spectrum function.
      * @param JGJ32002AlphaMax The maximum influence factor.
      * @param JGJ32002SI This is 1, 2, 3, 4, 5 or 6, indicating the seismic intensity.
      * * 1 = 6 (0.05g)
@@ -126,8 +126,49 @@ interface FuncRSV14 : SapComponent {
      * @param dampRatio The damping ratio for the function, 0 <= DampRatio < 1.
      * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
      */
+    @Deprecated(
+            message = "The function is obsolete and has been superceded by GetEurocode82004_1 as of version 14.1.0. This function is maintained for backward compatibility. New function added.",
+            replaceWith = ReplaceWith(
+                    expression = "getEurocode82004_1(name,eURO2004Country,eURO2004Direction,eURO2004SpectrumType,eURO2004GroundType,eURO2004ag,eURO2004S,eURO2004AvgoverAg,eURO2004Tb,eURO2004Tc,eURO2004Td,eURO2004Beta,eURO2004q,dampRatio)",
+                    imports = arrayOf("vitorscoelho.sw4k.sap.sapmodel.definitions.functions.FuncRS")
+            ),
+            level = DeprecationLevel.WARNING
+    )
     fun getEurocode82004(name: String, EURO2004GroundType: AIntByRef = IntByRef.UNNECESSARY, EURO2004SpectrumType: AIntByRef = IntByRef.UNNECESSARY, EURO2004ag: ADoubleByRef = DoubleByRef.UNNECESSARY, EURO2004Beta: ADoubleByRef = DoubleByRef.UNNECESSARY, EURO2004q: ADoubleByRef = DoubleByRef.UNNECESSARY, dampRatio: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetEurocode82004", name, EURO2004GroundType, EURO2004SpectrumType, EURO2004ag, EURO2004Beta, EURO2004q, dampRatio)
+
+    /**
+     * This function retrieves the definition of a Eurocode 8 2004 response spectrum function.
+     * @param name The name of a Eurocode 8 2004 response spectrum function.
+     * @param eURO2004Country This is 0, 1, 5, or 10 indicating the country for which the Nationally Determined Parameters (NDPs) are specified.
+     * 0 = Other (NDPs are user specified)
+     * 1 = CEN Default
+     * 5 = Norway
+     * @param eURO2004Direction This is 1 or 2, indicating the ground motion direction.
+     * 1 = Horizontal
+     * 2 = Vertical
+     * @param eURO2004SpectrumType This is 1 or 2, indicating the spectrum type.
+     * 1 = Type 1
+     * 2 = Type 2
+     * @param eURO2004GroundType This is 1, 2, 3, 4 or 5, indicating the ground type. This item only applies when the EURO2004Direction item is 1 (horizontal).
+     * 1 = A
+     * 2 = B
+     * 3 = C
+     * 4 = D
+     * 5 = E
+     * @param eURO2004ag The design ground acceleration in g, ag.
+     * @param eURO2004S The soil factor, S. This item only applies when the EURO2004Direction item is 1 (horizontal).
+     * @param eURO2004AvgoverAg The vertical ground acceleration divided by the horizontal ground acceleration, Avg/Ag. This item only applies when the EURO2004Direction item is 2 (vertical).
+     * @param eURO2004Tb The lower limit of period of the constant spectral acceleration branch, Tb.
+     * @param eURO2004Tc The upper limit of period of the constant spectral acceleration branch, Tc.
+     * @param eURO2004Td The period defining the start of the constant displacement range, Td.
+     * @param eURO2004Beta The lower bound factor, Beta.
+     * @param eURO2004q The behavior factor, q.
+     * @param dampRatio The damping ratio for the function, 0 <= DampRatio < 1.
+     * @return zero if the function definition is successfully retrieved; otherwise it returns a nonzero value.
+     */
+    fun getEurocode82004_1 (name:String,eURO2004Country:AIntByRef=IntByRef.UNNECESSARY,eURO2004Direction:AIntByRef=IntByRef.UNNECESSARY,eURO2004SpectrumType:AIntByRef=IntByRef.UNNECESSARY,eURO2004GroundType:AIntByRef=IntByRef.UNNECESSARY,eURO2004ag:ADoubleByRef=DoubleByRef.UNNECESSARY,eURO2004S:ADoubleByRef=DoubleByRef.UNNECESSARY,eURO2004AvgoverAg:ADoubleByRef=DoubleByRef.UNNECESSARY,eURO2004Tb:ADoubleByRef=DoubleByRef.UNNECESSARY,eURO2004Tc:ADoubleByRef=DoubleByRef.UNNECESSARY,eURO2004Td:ADoubleByRef=DoubleByRef.UNNECESSARY,eURO2004Beta:ADoubleByRef=DoubleByRef.UNNECESSARY,eURO2004q:ADoubleByRef=DoubleByRef.UNNECESSARY,dampRatio:ADoubleByRef=DoubleByRef.UNNECESSARY):Int=
+            callFunctionInt("GetEurocode82004_1",name,eURO2004Country,eURO2004Direction,eURO2004SpectrumType,eURO2004GroundType,eURO2004ag,eURO2004S,eURO2004AvgoverAg,eURO2004Tb,eURO2004Tc,eURO2004Td,eURO2004Beta,eURO2004q,dampRatio)
 
     /**
      * This function retrieves the definition of a response spectrum function from file.
@@ -428,7 +469,7 @@ interface FuncRSV14 : SapComponent {
             callFunctionInt("SetBOCA96", name, BOCA96Aa, BOCA96Av, BOCA96S, BOCA96R, dampRatio)
 
     /**
-     * This function defines a Chinese 2002 response spectrum function.
+     * This function defines a Chinese_2002 2002 response spectrum function.
      * @param name The name of an existing or new function. If this is an existing function, that function is modified; otherwise, a new function is added.
      * @param JGJ32002AlphaMax The maximum influence factor.
      * @param JGJ32002SI This is 1, 2, 3, 4, 5 or 6, indicating the seismic intensity.
@@ -479,8 +520,49 @@ interface FuncRSV14 : SapComponent {
      * @param dampRatio The damping ratio for the function, 0 <= DampRatio < 1.
      * @return zero if the function is successfully defined; otherwise it returns a nonzero value.
      */
+    @Deprecated(
+            message = "The function is obsolete and has been superceded by SetEurocode82004_1 as of version 14.1.0. This function is maintained for backward compatibility. New function added.",
+            replaceWith = ReplaceWith(
+                    expression = "setEurocode82004_1(name,eURO2004Country,eURO2004Direction,eURO2004SpectrumType,eURO2004GroundType,eURO2004ag,eURO2004S,eURO2004AvgoverAg,eURO2004Tb,eURO2004Tc,eURO2004Td,eURO2004Beta,eURO2004q,dampRatio)",
+                    imports = arrayOf("vitorscoelho.sw4k.sap.sapmodel.definitions.functions.FuncRS")
+            ),
+            level = DeprecationLevel.WARNING
+    )
     fun setEurocode82004(name: String, EURO2004GroundType: Int, EURO2004SpectrumType: Int, EURO2004ag: Double, EURO2004Beta: Double, EURO2004q: Double, dampRatio: Double): Int =
             callFunctionInt("SetEurocode82004", name, EURO2004GroundType, EURO2004SpectrumType, EURO2004ag, EURO2004Beta, EURO2004q, dampRatio)
+
+    /**
+     * This function defines a Eurocode 8 2004 response spectrum function.
+     * @param name The name of an existing or new function. If this is an existing function,n that function is modified; otherwise, a new function is added.
+     * @param eURO2004Country This is 0, 1, 5, or 10 indicating the country for which the Nationally Determined Parameters (NDPs) are specified.
+     * 0 = Other (NDPs are user specified)
+     * 1 = CEN Default
+     * 5 = Norway
+     * @param eURO2004Direction This is 1 or 2, indicating the ground motion direction.
+     * 1 = Horizontal
+     * 2 = Vertical
+     * @param eURO2004SpectrumType This is 1 or 2, indicating the spectrum type.
+     * 1 = Type 1
+     * 2 = Type 2
+     * @param eURO2004GroundType This is 1, 2, 3, 4 or 5, indicating the ground type. This item only applies when the EURO2004Direction item is 1 (horizontal).
+     * 1 = A
+     * 2 = B
+     * 3 = C
+     * 4 = D
+     * 5 = E
+     * @param eURO2004ag The design ground acceleration in g, ag.
+     * @param eURO2004S The soil factor, S. This item only applies when the EURO2004Direction item is 1 (horizontal). If the EURO2004Country item is not 0, then the input value for this item is ignored.
+     * @param eURO2004AvgoverAg The vertical ground acceleration divided by the horizontal ground acceleration, Avg/Ag. This item only applies when the EURO2004Direction item is 2 (vertical). If the EURO2004Country item is not 0, then the input value for this item is ignored.
+     * @param eURO2004Tb The lower limit of period of the constant spectral acceleration branch, Tb. If the EURO2004Country item is not 0, then the input value for this item is ignored.
+     * @param eURO2004Tc The upper limit of period of the constant spectral acceleration branch, Tc. If the EURO2004Country item is not 0, then the input value for this item is ignored.
+     * @param eURO2004Td The period defining the start of the constant displacement range, Td. If the EURO2004Country item is not 0, then the input value for this item is ignored.
+     * @param eURO2004Beta The lower bound factor, Beta. If the EURO2004Country item is not 0, then the input value for this item is ignored.
+     * @param eURO2004q The behavior factor, q.
+     * @param dampRatio The damping ratio for the function, 0 <= DampRatio < 1.
+     * @return zero if the function is successfully defined; otherwise it returns a nonzero value.
+     */
+    fun setEurocode82004_1 (name:String,eURO2004Country:Int,eURO2004Direction:Int,eURO2004SpectrumType:Int,eURO2004GroundType:Int,eURO2004ag:Double,eURO2004S:Double,eURO2004AvgoverAg:Double,eURO2004Tb:Double,eURO2004Tc:Double,eURO2004Td:Double,eURO2004Beta:Double,eURO2004q:Double,dampRatio:Double):Int=
+            callFunctionInt("SetEurocode82004_1",name,eURO2004Country,eURO2004Direction,eURO2004SpectrumType,eURO2004GroundType,eURO2004ag,eURO2004S,eURO2004AvgoverAg,eURO2004Tb,eURO2004Tc,eURO2004Td,eURO2004Beta,eURO2004q,dampRatio)
 
     /**
      * This function defines a response spectrum function from file.

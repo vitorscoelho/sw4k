@@ -18,8 +18,33 @@ interface AutoWindV14 : SapComponent {
      * @param sSLFactor The structural safety level multiplier.
      * @return zero if the parameters are successfully assigned; otherwise, it returns a nonzero value.
      */
+    @Deprecated(
+            message = "The function is obsolete and has been superceded by GetAPI4F2008_1 as of version 14.1.0. This function is maintained for backward compatibility. New function added.",
+            replaceWith = ReplaceWith(
+                    expression = "getAPI4F2008_1(name,exposureFrom,dirAngle,userZ,topZ,bottomZ,windSpeed,sSLFactor,shieldingFactor)",
+                    imports = arrayOf("vitorscoelho.sw4k.sap.sapmodel.definitions.loadpatterns.AutoWind")
+            ),
+            level = DeprecationLevel.WARNING
+    )
     fun getAPI4F2008(name: String, exposureFrom: AIntByRef = IntByRef.UNNECESSARY, dirAngle: ADoubleByRef = DoubleByRef.UNNECESSARY, userZ: ABooleanByRef, topZ: ADoubleByRef = DoubleByRef.UNNECESSARY, bottomZ: ADoubleByRef = DoubleByRef.UNNECESSARY, windSpeed: ADoubleByRef = DoubleByRef.UNNECESSARY, sSLFactor: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
             callFunctionInt("GetAPI4F2008", name, exposureFrom, dirAngle, userZ, topZ, bottomZ, windSpeed, sSLFactor)
+
+    /**
+     * This function retrieves auto wind loading parameters for API 4F 2008.
+     * @param name The name of an existing Wind-type load case with an API 4F 2008 auto wind assignment.
+     * @param exposureFrom This is 2, 3, or 4, indicating the source of the wind exposure.
+     * @param dirAngle The direction angle for the wind load.
+     * @param userZ This item is True if the top and bottom elevations of the wind load are user specified.
+     * It is False if the elevations are determined by the program.
+     * @param topZ This item is the global Z-coordinate at the highest level where auto wind loads are applied. (L)
+     * @param bottomZ This item is the global Z-coordinate at the lowest level where auto wind loads are applied. (L)
+     * @param windSpeed The design reference wind velocity, Vref, in knots.
+     * @param sSLFactor The structural safety level multiplier.
+     * @param shieldingFactor The shielding factor.
+     * @return zero if the parameters are successfully assigned; otherwise, it returns a nonzero value.
+     */
+    fun getAPI4F2008_1(name: String, exposureFrom: AIntByRef = IntByRef.UNNECESSARY, dirAngle: ADoubleByRef = DoubleByRef.UNNECESSARY, userZ: ABooleanByRef = BooleanByRef.UNNECESSARY, topZ: ADoubleByRef = DoubleByRef.UNNECESSARY, bottomZ: ADoubleByRef = DoubleByRef.UNNECESSARY, windSpeed: ADoubleByRef = DoubleByRef.UNNECESSARY, sSLFactor: ADoubleByRef = DoubleByRef.UNNECESSARY, shieldingFactor: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
+            callFunctionInt("GetAPI4F2008_1", name, exposureFrom, dirAngle, userZ, topZ, bottomZ, windSpeed, sSLFactor, shieldingFactor)
 
     /**
      * This function retrieves auto wind loading parameters for ASCE 7-02.
@@ -190,8 +215,8 @@ interface AutoWindV14 : SapComponent {
             callFunctionInt("GetBS639995", name, exposureFrom, dirAngle, cpw, cpl, userZ, topZ, bottomZ, ve, ca, cr, userExposure)
 
     /**
-     * This function retrieves auto wind loading parameters for Chinese 2002.
-     * @param name The name of an existing Wind-type load pattern with an Chinese 2002 auto wind assignment.
+     * This function retrieves auto wind loading parameters for Chinese_2002 2002.
+     * @param name The name of an existing Wind-type load pattern with an Chinese_2002 2002 auto wind assignment.
      * @param exposureFrom This is either 1 or 2, indicating the source of the wind exposure.
      * * 1 = From extents of rigid diaphragms
      * * 2 = From area objects
@@ -218,8 +243,50 @@ interface AutoWindV14 : SapComponent {
      * @param userExposure If this item is True, the wind exposure widths are provided by the user. If it is False, the wind exposure widths are calculated by the program from the extents of the diaphragms.
      * @return zero if the parameters are successfully assigned; otherwise it returns a nonzero value.
      */
+    @Deprecated(
+            message = "The function is obsolete and has been superceded by GetChinese2002_1 as of version 14.1.0. This function is maintained for backward compatibility. New function added.",
+            replaceWith = ReplaceWith(
+                    expression = "getChinese2002_1(name,exposureFrom,dirAngle,buildingWidth,us,uniformTaper,bHoverB0,userZ,topZ,bottomZ,wzero,rt,phiZOpt,t1Opt,userT,dampRatio,userExposure)",
+                    imports = arrayOf("vitorscoelho.sw4k.sap.sapmodel.definitions.loadpatterns.AutoWind")
+            ),
+            level = DeprecationLevel.WARNING
+    )
     fun getChinese2002(name: String, exposureFrom: AIntByRef = IntByRef.UNNECESSARY, dirAngle: ADoubleByRef = DoubleByRef.UNNECESSARY, buildingWidth: ADoubleByRef = DoubleByRef.UNNECESSARY, us: ADoubleByRef = DoubleByRef.UNNECESSARY, userZ: ABooleanByRef, topZ: ADoubleByRef = DoubleByRef.UNNECESSARY, bottomZ: ADoubleByRef = DoubleByRef.UNNECESSARY, wzero: ADoubleByRef = DoubleByRef.UNNECESSARY, rt: AIntByRef = IntByRef.UNNECESSARY, phiZOpt: AIntByRef = IntByRef.UNNECESSARY, t1Opt: AIntByRef = IntByRef.UNNECESSARY, userT: ADoubleByRef = DoubleByRef.UNNECESSARY, dampRatio: ADoubleByRef = DoubleByRef.UNNECESSARY, userExposure: ABooleanByRef): Int =
             callFunctionInt("GetChinese2002", name, exposureFrom, dirAngle, buildingWidth, us, userZ, topZ, bottomZ, wzero, rt, phiZOpt, t1Opt, userT, dampRatio, userExposure)
+
+    /**
+     * This function retrieves auto wind loading parameters for Chinese_2002 2002.
+     * @param name The name of an existing Wind-type load pattern with an Chinese_2002 2002 auto wind assignment.
+     * @param exposureFrom This is 1 or 2 indicating the source of the wind exposure.
+     * * 1 = From extents of rigid diaphragms
+     * * 2 = From area objects
+     * @param dirAngle The direction angle for the wind load. This item applies only when ExposureFrom = 1.
+     * @param buildingWidth The building width. (L)
+     * @param us The shape coefficient. This item applies only when ExposureFrom = 1.
+     * @param uniformTaper This item is True if a correction is to be applied to the wind load for a uniform taper.
+     * @param bHoverB0 The taper ratio, Bh/B0. This item applies only when UniformTaper = True.
+     * @param userZ This item is True if the top and bottom elevations of the wind load are user specified. It is False if the elevations are determined by the program.
+     * @param topZ This item applies only when the UserZ item is True. It is the global Z-coordinate at the highest level where auto wind loads are applied. (L)
+     * @param bottomZ This item applies only when the UserZ item is True. It is the global Z-coordinate at the lowest level where auto wind loads are applied. (L)
+     * @param wzero The basic wind pressure in kN/m2.
+     * @param rt This is 1, 2, 3 or 4, indicating the ground roughness.
+     * * 1 = A
+     * * 2 = B
+     * * 3 = C
+     * * 4 = D
+     * @param phiZOpt This is 0 or 1, indicating the Phi Z source.
+     * * 0 = Modal analysis
+     * * 1 = Z/H ratio
+     * @param t1Opt This is 0 or 1, indicating the T1 source.
+     * * 0 = Modal analysis
+     * * 1 = User defined
+     * @param userT This item only applies when the T1 source is user defined (T1Opt = 1). It is the user defined T1 period. (s)
+     * @param dampRatio The damping ratio.
+     * @param userExposure If this item is True, the wind exposure widths are provided by the user. If it is False, the wind exposure widths are calculated by the program from the extents of the diaphragms.
+     * @return zero if the parameters are successfully assigned; otherwise it returns a nonzero value.
+     */
+    fun getChinese2002_1(name: String, exposureFrom: AIntByRef = IntByRef.UNNECESSARY, dirAngle: ADoubleByRef = DoubleByRef.UNNECESSARY, buildingWidth: ADoubleByRef = DoubleByRef.UNNECESSARY, us: ADoubleByRef = DoubleByRef.UNNECESSARY, uniformTaper: ABooleanByRef = BooleanByRef.UNNECESSARY, bHoverB0: ADoubleByRef = DoubleByRef.UNNECESSARY, userZ: ABooleanByRef = BooleanByRef.UNNECESSARY, topZ: ADoubleByRef = DoubleByRef.UNNECESSARY, bottomZ: ADoubleByRef = DoubleByRef.UNNECESSARY, wzero: ADoubleByRef = DoubleByRef.UNNECESSARY, rt: AIntByRef = IntByRef.UNNECESSARY, phiZOpt: AIntByRef = IntByRef.UNNECESSARY, t1Opt: AIntByRef = IntByRef.UNNECESSARY, userT: ADoubleByRef = DoubleByRef.UNNECESSARY, dampRatio: ADoubleByRef = DoubleByRef.UNNECESSARY, userExposure: ABooleanByRef = BooleanByRef.UNNECESSARY): Int =
+            callFunctionInt("GetChinese2002_1", name, exposureFrom, dirAngle, buildingWidth, us, uniformTaper, bHoverB0, userZ, topZ, bottomZ, wzero, rt, phiZOpt, t1Opt, userT, dampRatio, userExposure)
 
     /**
      * This function retrieves auto wind loading parameters for Eurocode 1 2005.
@@ -246,8 +313,45 @@ interface AutoWindV14 : SapComponent {
      * @param userExposure If this item is True, the wind exposure widths are provided by the user. If it is False, the wind exposure widths are calculated by the program from the extents of the diaphragms.
      * @return zero if the parameters are successfully assigned; otherwise it returns a nonzero value.
      */
+    @Deprecated(
+            message = "The function is obsolete and has been superceded by  GetEurocode12005_1 as of version 14.1.0. This function is maintained for backward compatibility. New function added.",
+            replaceWith = ReplaceWith(
+                    expression = "getEurocode12005_1(name,exposureFrom,dirAngle,cpw,cpl,userZ,topZ,bottomZ,windSpeed,terrain,orography,k1,csCd,rho,userExposure)",
+                    imports = arrayOf("vitorscoelho.sw4k.sap.sapmodel.definitions.loadpatterns.AutoWind")
+            ),
+            level = DeprecationLevel.WARNING
+    )
     fun getEurocode12005(name: String, exposureFrom: AIntByRef = IntByRef.UNNECESSARY, dirAngle: ADoubleByRef = DoubleByRef.UNNECESSARY, cpw: ADoubleByRef = DoubleByRef.UNNECESSARY, cpl: ADoubleByRef = DoubleByRef.UNNECESSARY, userZ: ABooleanByRef, topZ: ADoubleByRef = DoubleByRef.UNNECESSARY, bottomZ: ADoubleByRef = DoubleByRef.UNNECESSARY, windSpeed: ADoubleByRef = DoubleByRef.UNNECESSARY, terrain: AIntByRef = IntByRef.UNNECESSARY, orography: ADoubleByRef = DoubleByRef.UNNECESSARY, k1: ADoubleByRef = DoubleByRef.UNNECESSARY, csCd: ADoubleByRef = DoubleByRef.UNNECESSARY, userExposure: ABooleanByRef): Int =
             callFunctionInt("GetEurocode12005", name, exposureFrom, dirAngle, cpw, cpl, userZ, topZ, bottomZ, windSpeed, terrain, orography, k1, csCd, userExposure)
+
+    /**
+     * This function retrieves auto wind loading parameters for Eurocode 1 2005.
+     * @param name The name of an existing Wind-type load pattern with a Eurocode 1 2005 auto wind assignment.
+     * @param exposureFrom This is 1 or 2, indicating the source of the wind exposure.
+     * * 1 = From extents of rigid diaphragms
+     * * 2 = From area objects
+     * @param dirAngle The direction angle for the wind load. This item applies only when ExposureFrom = 1.
+     * @param cpw The windward coefficient, Cp. This item applies only when ExposureFrom = 1.
+     * @param cpl The leeward coefficient, Cp. This item applies only when ExposureFrom = 1.
+     * @param userZ This item is True if the top and bottom elevations of the wind load are user specified. It is False if the elevations are determined by the program.
+     * @param topZ This item is the global Z-coordinate at the highest level where auto wind loads are applied. (L)
+     * @param bottomZ This item is the global Z-coordinate at the lowest level where auto wind loads are applied. (L)
+     * @param windSpeed The basic wind speed, vb, in meters per second.
+     * @param terrain This is 0, 1, 2, 3 or 4, indicating the terrain category.
+     * * 0 = 0
+     * * 1 = I
+     * * 2 = II
+     * * 3 = III
+     * * 4 = IV
+     * @param orography The orography factor, Co.
+     * @param k1 The turbulence factor, k1.
+     * @param csCd The structural factor, CsCd.
+     * @param rho The air density in kg/m3, Rho.
+     * @param userExposure If this item is True, the wind exposure widths are provided by the user. If it is False, the wind exposure widths are calculated by the program from the extents of the diaphragms.
+     * @return zero if the parameters are successfully assigned; otherwise it returns a nonzero value.
+     */
+    fun getEurocode12005_1(name: String, exposureFrom: AIntByRef = IntByRef.UNNECESSARY, dirAngle: ADoubleByRef = DoubleByRef.UNNECESSARY, cpw: ADoubleByRef = DoubleByRef.UNNECESSARY, cpl: ADoubleByRef = DoubleByRef.UNNECESSARY, userZ: ABooleanByRef = BooleanByRef.UNNECESSARY, topZ: ADoubleByRef = DoubleByRef.UNNECESSARY, bottomZ: ADoubleByRef = DoubleByRef.UNNECESSARY, windSpeed: ADoubleByRef = DoubleByRef.UNNECESSARY, terrain: AIntByRef = IntByRef.UNNECESSARY, orography: ADoubleByRef = DoubleByRef.UNNECESSARY, k1: ADoubleByRef = DoubleByRef.UNNECESSARY, csCd: ADoubleByRef = DoubleByRef.UNNECESSARY, rho: ADoubleByRef = DoubleByRef.UNNECESSARY, userExposure: ABooleanByRef = BooleanByRef.UNNECESSARY): Int =
+            callFunctionInt("GetEurocode12005_1", name, exposureFrom, dirAngle, cpw, cpl, userZ, topZ, bottomZ, windSpeed, terrain, orography, k1, csCd, rho, userExposure)
 
     /**
      * This function retrieves exposure parameters for auto wind loads determined from extents of rigid diaphragms. This function does not apply for User-type auto wind loads.
@@ -429,8 +533,32 @@ interface AutoWindV14 : SapComponent {
      * @param sSLFactor The structural safety level multiplier.
      * @return zero if the parameters are successfully assigned; otherwise, it returns a nonzero value.
      */
+    @Deprecated(
+            message = "The function is obsolete and has been superceded by SetAPI4F2008_1 as of version 14.1.0. This function is maintained for backward compatibility. New function added.",
+            replaceWith = ReplaceWith(
+                    expression = "setAPI4F2008_1(name,exposureFrom,dirAngle,userZ,topZ,bottomZ,windSpeed,sSLFactor,shieldingFactor)",
+                    imports = arrayOf("vitorscoelho.sw4k.sap.sapmodel.definitions.loadpatterns.AutoWind")
+            ),
+            level = DeprecationLevel.WARNING
+    )
     fun setAPI4F2008(name: String, exposureFrom: Int, dirAngle: Double, userZ: Boolean, topZ: Double, bottomZ: Double, windSpeed: Double, sSLFactor: Double): Int =
             callFunctionInt("SetAPI4F2008", name, exposureFrom, dirAngle, userZ, topZ, bottomZ, windSpeed, sSLFactor)
+
+    /**
+     * This function assigns auto wind loading parameters for API 4F 2008.
+     * @param name The name of an existing Wind-type load case.
+     * @param exposureFrom This is 2, 3, or 4, indicating the source of the wind exposure.
+     * @param dirAngle The direction angle for the wind load.
+     * @param userZ This item is True if the top and bottom elevations of the wind load are user specified. It is False if the elevations are determined by the program.
+     * @param topZ This item is the global Z-coordinate at the highest level where auto wind loads are applied. (L)
+     * @param bottomZ This item is the global Z-coordinate at the lowest level where auto wind loads are applied. (L)
+     * @param windSpeed The design reference wind velocity, Vref, in knots.
+     * @param sSLFactor The structural safety level multiplier.
+     * @param shieldingFactor The shielding factor.
+     * @return zero if the parameters are successfully assigned; otherwise, it returns a nonzero value.
+     */
+    fun setAPI4F2008_1(name: String, exposureFrom: Int, dirAngle: Double, userZ: Boolean, topZ: Double, bottomZ: Double, windSpeed: Double, sSLFactor: Double, shieldingFactor: Double): Int =
+            callFunctionInt("SetAPI4F2008_1", name, exposureFrom, dirAngle, userZ, topZ, bottomZ, windSpeed, sSLFactor, shieldingFactor)
 
     /**
      * This function assigns auto wind loading parameters for ASCE 7-02.
@@ -601,7 +729,7 @@ interface AutoWindV14 : SapComponent {
             callFunctionInt("SetBS639995", name, exposureFrom, dirAngle, cpw, cpl, userZ, topZ, bottomZ, ve, ca, cr, userExposure)
 
     /**
-     * This function assigns auto wind loading parameters for Chinese 2002.
+     * This function assigns auto wind loading parameters for Chinese_2002 2002.
      * @param name The name of an existing Wind-type load pattern.
      * @param exposureFrom This is either 1 or 2, indicating the source of the wind exposure.
      * * 1 = From extents of rigid diaphragms
@@ -629,8 +757,50 @@ interface AutoWindV14 : SapComponent {
      * @param userExposure If this item is True, the wind exposure widths are provided by the user. If it is False, the wind exposure widths are calculated by the program from the extents of the diaphragms.
      * @return zero if the parameters are successfully assigned; otherwise it returns a nonzero value.
      */
+    @Deprecated(
+            message = "The function is obsolete and has been superceded by SetChinese2002_1 as of version 14.1.0. This function is maintained for backward compatibility. New function added.",
+            replaceWith = ReplaceWith(
+                    expression = "setChinese2002_1(name,exposureFrom,dirAngle,buildingWidth,us,uniformTaper,bHoverB0,userZ,topZ,bottomZ,wzero,rt,phiZOpt,t1Opt,userT,dampRatio,userExposure)",
+                    imports = arrayOf("vitorscoelho.sw4k.sap.sapmodel.definitions.loadpatterns.AutoWind")
+            ),
+            level = DeprecationLevel.WARNING
+    )
     fun setChinese2002(name: String, exposureFrom: Int, dirAngle: Double, buildingWidth: Double, us: Double, userZ: Boolean, topZ: Double, bottomZ: Double, wzero: Double, rt: Int, phiZOpt: Int, t1Opt: Int, userT: Double, dampRatio: Double, userExposure: Boolean = false): Int =
             callFunctionInt("SetChinese2002", name, exposureFrom, dirAngle, buildingWidth, us, userZ, topZ, bottomZ, wzero, rt, phiZOpt, t1Opt, userT, dampRatio, userExposure)
+
+    /**
+     * This function assigns auto wind loading parameters for Chinese 2002.
+     * @param name The name of an existing Wind-type load pattern.
+     * @param exposureFrom This is 1 or 2, indicating the source of the wind exposure.
+     * * 1 = From extents of rigid diaphragms
+     * * 2 = From area objects
+     * @param dirAngle The direction angle for the wind load. This item only applies when ExposureFrom = 1.
+     * @param buildingWidth The building width. (L)
+     * @param us The shape coefficient. This item applies only when ExposureFrom = 1.
+     * @param uniformTaper This item is True if a correction is to be applied to the wind load for a uniform taper.
+     * @param bHoverB0 The taper ratio, Bh/B0. This item applies only when UniformTaper = True.
+     * @param userZ This item is True if the top and bottom elevations of the wind load are user specified. It is False if the elevations are determined by the program.
+     * @param topZ This item applies only when the UserZ item is True. It is the global Z-coordinate at the highest level where auto wind loads are applied. (L)
+     * @param bottomZ This item applies only when the UserZ item is True. It is the global Z-coordinate at the lowest level where auto wind loads are applied. (L)
+     * @param wzero The basic wind pressure in kN/m2.
+     * @param rt This is 1, 2, 3 or 4, indicating the ground roughness.
+     * * 1 = A
+     * * 2 = B
+     * * 3 = C
+     * * 4 = D
+     * @param phiZOpt This is 0 or 1, indicating the Phi Z source.
+     * * 0 = Modal analysis
+     * * 1 = Z/H ratio
+     * @param t1Opt This is 0 or 1, indicating the T1 source.
+     * * 0 = Modal analysis
+     * * 1 = User defined
+     * @param userT This item applies only when the T1 source is user defined (T1Opt = 1). It is the user defined T1 period. (s)
+     * @param dampRatio The damping ratio.
+     * @param userExposure If this item is True, the wind exposure widths are provided by the user. If it is False, the wind exposure widths are calculated by the program from the extents of the diaphragms.
+     * @return zero if the parameters are successfully assigned; otherwise it returns a nonzero value.
+     */
+    fun setChinese2002_1(name: String, exposureFrom: Int, dirAngle: Double, buildingWidth: Double, us: Double, uniformTaper: Boolean, bHoverB0: Double, userZ: Boolean, topZ: Double, bottomZ: Double, wzero: Double, rt: Int, phiZOpt: Int, t1Opt: Int, userT: Double, dampRatio: Double, userExposure: Boolean = false): Int =
+            callFunctionInt("SetChinese2002_1", name, exposureFrom, dirAngle, buildingWidth, us, uniformTaper, bHoverB0, userZ, topZ, bottomZ, wzero, rt, phiZOpt, t1Opt, userT, dampRatio, userExposure)
 
     /**
      * This function assigns auto wind loading parameters for Eurocode 1 2005.
@@ -657,8 +827,45 @@ interface AutoWindV14 : SapComponent {
      * @param userExposure If this item is True, the wind exposure widths are provided by the user. If it is False, the wind exposure widths are calculated by the program from the extents of the diaphragms.
      * @return zero if the parameters are successfully assigned; otherwise it returns a nonzero value.
      */
+    @Deprecated(
+            message = "The function is obsolete and has been superceded by SetEurocode12005_1 as of version 14.1.0. This function is maintained for backward compatibility. New function added.",
+            replaceWith = ReplaceWith(
+                    expression = "setEurocode12005_1(name,exposureFrom,dirAngle,cpw,cpl,userZ,topZ,bottomZ,windSpeed,terrain,orography,k1,csCd,rho,userExposure)",
+                    imports = arrayOf("vitorscoelho.sw4k.sap.sapmodel.definitions.loadpatterns.AutoWind")
+            ),
+            level = DeprecationLevel.WARNING
+    )
     fun setEurocode12005(name: String, exposureFrom: Int, dirAngle: Double, cpw: Double, cpl: Double, userZ: Boolean, topZ: Double, bottomZ: Double, windSpeed: Double, terrain: Int, orography: Double, k1: Double, csCd: Double, userExposure: Boolean = false): Int =
             callFunctionInt("SetEurocode12005", name, exposureFrom, dirAngle, cpw, cpl, userZ, topZ, bottomZ, windSpeed, terrain, orography, k1, csCd, userExposure)
+
+    /**
+     * This function assigns auto wind loading parameters for Eurocode 1 2005.
+     * @param name The name of an existing Wind-type load pattern.
+     * @param exposureFrom This is 1 or 2, indicating the source of the wind exposure.
+     * * 1 = From extents of rigid diaphragms
+     * * 2 = From area objects
+     * @param dirAngle The direction angle for the wind load. This item applies only when ExposureFrom = 1.
+     * @param cpw The windward coefficient, Cp. This item applies only when ExposureFrom = 1.
+     * @param cpl The leeward coefficient, Cp. This item applies only when ExposureFrom = 1.
+     * @param userZ This item is True if the top and bottom elevations of the wind load are user specified. It is False if the elevations are determined by the program.
+     * @param topZ This item applies only when the UserZ item is True. It is the global Z-coordinate at the highest level where auto wind loads are applied. (L)
+     * @param bottomZ This item applies only when the UserZ item is True. It is the global Z-coordinate at the lowest level where auto wind loads are applied. (L)
+     * @param windSpeed The basic wind speed, vb, in meters per second.
+     * @param terrain This is 0, 1, 2, 3 or 4, indicating the terrain category.
+     * * 0 = 0
+     * * 1 = I
+     * * 2 = II
+     * * 3 = III
+     * * 4 = IV
+     * @param orography The orography factor, Co.
+     * @param k1 The turbulence factor, k1.
+     * @param csCd The structural factor, CsCd.
+     * @param rho The air density in kg/m3, Rho.
+     * @param userExposure If this item is True, the wind exposure widths are provided by the user. If it is False, the wind exposure widths are calculated by the program from the extents of the diaphragms.
+     * @return zero if the parameters are successfully assigned; otherwise it returns a nonzero value.
+     */
+    fun setEurocode12005_1(name: String, exposureFrom: Int, dirAngle: Double, cpw: Double, cpl: Double, userZ: Boolean, topZ: Double, bottomZ: Double, windSpeed: Double, terrain: Int, orography: Double, k1: Double, csCd: Double, rho: Double, userExposure: Boolean = false): Int =
+            callFunctionInt("SetEurocode12005_1", name, exposureFrom, dirAngle, cpw, cpl, userZ, topZ, bottomZ, windSpeed, terrain, orography, k1, csCd, rho, userExposure)
 
     /**
      * This function assigns exposure parameters for auto wind loads determined from extents of rigid diaphragms. This function does not apply for User-type auto wind loads.

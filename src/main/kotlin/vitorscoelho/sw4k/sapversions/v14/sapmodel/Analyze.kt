@@ -67,8 +67,27 @@ interface AnalyzeV14 : SapComponent {
      * @param stiffCase The name of the load case used when outputting the mass and stiffness matrices to text files If this item is blank, no matrices are output.
      * @return zero if the options are successfully retrieved; otherwise it returns a nonzero value.
      */
+    @Deprecated(
+            message = "This function is obsolete and has been superceded by GetSolverOption_1 as of version 14.2.2. This function is maintained for backwards compatibility.",
+            replaceWith = ReplaceWith(
+                    expression = "getSolverOption_1(solverType,solverProcessType,force32BitSolver,stiffCase)",
+                    imports = arrayOf("vitorscoelho.sw4k.sap.sapmodel.Analyze")
+            ),
+            level = DeprecationLevel.WARNING
+    )
     fun getSolverOption(solverType: AIntByRef = IntByRef.UNNECESSARY, force32BitSolver: ABooleanByRef = BooleanByRef.UNNECESSARY, stiffCase: AStringByRef = StringByRef.UNNECESSARY): Int =
             callFunctionInt("GetSolverOption", solverType, force32BitSolver, stiffCase)
+
+    /**
+     * This function retrieves the model solver options.
+     * @param solverType This is 0, 1 or 2, indicating the solver type.
+     * @param solverProcessType This is 0, 1 or 2, indicating the process the analysis is run.
+     * @param force32BitSolver This is True if the analysis is always run using 32-bit, even on 64-bit computers.
+     * @param stiffCase The name of the load case used when outputting the mass and stiffness matrices to text files. If this item is blank, no matrices are output.
+     * @return zero if the options are successfully retrieved; otherwise it returns a nonzero value.
+     */
+    fun getSolverOption_1(solverType: AIntByRef = IntByRef.UNNECESSARY, solverProcessType: AIntByRef = IntByRef.UNNECESSARY, force32BitSolver: ABooleanByRef = BooleanByRef.UNNECESSARY, stiffCase: AStringByRef = StringByRef.UNNECESSARY): Int =
+            callFunctionInt("GetSolverOption", solverType, solverProcessType, force32BitSolver, stiffCase)
 
     /**
      * This function modifies the undeformed geometry based on displacements obtained from a specified load case.
@@ -121,6 +140,26 @@ interface AnalyzeV14 : SapComponent {
      * @param stiffCase The name of the load case used when outputting the mass and stiffness matrices to text files If this item is blank, no matrices are output.
      * @return zero if the options are successfully set; otherwise it returns a nonzero value.
      */
+    @Deprecated(
+            message = "This function is obsolete and has been superceded by SetSolverOption_1 as of version 14.2.2. This function is maintained for backwards compatibility.",
+            replaceWith = ReplaceWith(
+                    expression = "setSolverOption_1(solverType,solverProcessType,force32BitSolver,stiffCase)",
+                    imports = arrayOf("vitorscoelho.sw4k.sap.sapmodel.Analyze")
+            ),
+            level = DeprecationLevel.WARNING
+    )
     fun setSolverOption(solverType: Int, force32BitSolver: Boolean, stiffCase: String = ""): Int =
             callFunctionInt("SetSolverOption", solverType, force32BitSolver, stiffCase)
+
+    /**
+     * This function sets the model solver options.
+     * @param solverType This is 0, 1 or 2, indicating the solver type.
+     * @param solverProcessType This is 0, 1 or 2, indicating the process the analysis is run.
+     * @param force32BitSolver This is True if the analysis is always run using 32-bit, even on 64-bit computers.
+     * @param stiffCase The name of the load case used when outputting the mass and stiffness matrices to text files If this item is blank, no matrices are output.
+     * @return zero if the options are successfully set; otherwise it returns a nonzero value.
+     */
+    fun setSolverOption_1(solverType: Int, solverProcessType: Int, force32BitSolver: Boolean, stiffCase: String = ""): Int =
+            callFunctionInt("SetSolverOption", solverType, solverProcessType, force32BitSolver, stiffCase)
+
 }

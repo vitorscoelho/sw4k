@@ -26,8 +26,8 @@ class BS8110_97 internal constructor(programName: String) : BS8110_97V15 {
     override val activeXComponentName: String = "$programName.cDCoBS8110_97"
 }
 
-class Chinese internal constructor(programName: String) : ChineseV15 {
-    override val activeXComponentName: String = "$programName.cDCoChinese"
+class Chinese_2002 internal constructor(programName: String) : Chinese_2002V15 {
+    override val activeXComponentName: String = "$programName.cDCoChinese_2002"
 }
 
 class CSA_A23304 internal constructor(programName: String) : CSA_A23304V15 {

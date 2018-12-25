@@ -11,7 +11,7 @@ interface DesignConcreteV14 : SapComponent {
     val Australian_AS_3600_01: Australian_AS_3600_01V14
     val BS8110_89: BS8110_89V14
     val BS8110_97: BS8110_97V14
-    val Chinese: ChineseV14
+    val Chinese_2002: Chinese_2002V14
     val CSA_A23304: CSA_A23304V14
     val CSA_A23394: CSA_A23394V14
     val Eurocode_2_1992: Eurocode_2_1992V14
@@ -43,7 +43,7 @@ interface DesignConcreteV14 : SapComponent {
      * * AS 3600-01
      * * BS8110 89
      * * BS8110 97
-     * * Chinese 2002
+     * * Chinese_2002 2002
      * * CSA A23.3-04
      * * CSA-A23.3-94
      * * EUROCODE 2-1992
@@ -189,7 +189,7 @@ interface DesignConcreteV14 : SapComponent {
      * * AS 3600-01
      * * BS8110 89
      * * BS8110 97
-     * * Chinese 2002
+     * * Chinese_2002 2002
      * * CSA A23.3-04
      * * CSA-A23.3-94
      * * EUROCODE 2-1992

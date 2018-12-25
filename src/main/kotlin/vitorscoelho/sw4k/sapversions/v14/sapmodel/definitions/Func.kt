@@ -82,7 +82,7 @@ interface FuncV14 : SapComponent {
      * * 7 = NEHRP 97
      * * 8 = EuroCode 8
      * * 9 = NZS4203 1992
-     * * 10 = Chinese 2002
+     * * 10 = Chinese_2002 2002
      * * 11 = Italian Ordinanza 3274
      * * 12 = IS1893:2002
      * * 13 = AASHTO LRFD 2006

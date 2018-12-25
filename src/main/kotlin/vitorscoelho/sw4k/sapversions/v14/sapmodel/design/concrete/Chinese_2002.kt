@@ -3,7 +3,7 @@ package vitorscoelho.sw4k.sapversions.v14.sapmodel.design.concrete
 import vitorscoelho.sw4k.comutils.*
 import vitorscoelho.sw4k.sapenums.ItemType
 
-interface ChineseV14 : SapComponent {
+interface Chinese_2002V14 : SapComponent {
     /**
      * This function retrieves the value of a concrete design overwrite item.
      * @param name The name of a frame object with a concrete frame design procedure.
@@ -73,6 +73,10 @@ interface ChineseV14 : SapComponent {
      * * Value >= 0; 0 means use program determined value.
      * * 16 = Concrete cover for closed stirrup
      * * Value >= 0; 0 means use program determined value.
+     * * 17 = Effective length factor for gravity, K Major
+     * * Value >= 0; 0 means use program default value.
+     * * 18 = Effective length factor for gravity, K Minor
+     * * Value >= 0; 0 means use program default value.
      * @param progDet If this item is True, the specified value is program determined.
      * @return zero if the item is successfully retrieved; otherwise it returns a nonzero value.
      */
@@ -101,22 +105,36 @@ interface ChineseV14 : SapComponent {
      * * 3 = Importance factor gamma 0
      * * Value > 0
      * * 4 = Column design procedure
-     * * 1 = Appendix F
-     * * 2 = Simplified
+     * * * 1 = Appendix F
+     * * * 2 = Simplified
      * * 5 = Seismic design grade
-     * * 1 = Super I
-     * * 2 = Grade I
-     * * 3 = Grade II
-     * * 4 = Grade III
-     * * 5 = Grade IV
-     * * 6 = Nonseismic
+     * * * 1 = Super I
+     * * * 2 = Grade I
+     * * * 3 = Grade II
+     * * * 4 = Grade III
+     * * * 5 = Grade IV
+     * * * 6 = Nonseismic
      * * 6 = Pattern live load factor
      * * Value >= 0
      * * 7 = Utilization factor limit
      * * Value > 0
      * * 8 = Time history design
-     * * 1 = Envelopes
-     * * 2 = Step-by step
+     * * * 1 = Envelopes
+     * * * 2 = Step-by step
+     * * 9 = Structural system
+     * * * 1 = Frame only
+     * * * 2 = Shearwall only
+     * * * 3 = Frame-shearwall
+     * * * 4 = Braced frame only
+     * * * 5 = Frame-braced frame
+     * * 10 =  Is tall building?
+     * * * 0 = No
+     * * * 1 = Yes
+     * * 11 =  Seismic field type
+     * * * 1 = I
+     * * * 2 = II
+     * * * 3 = III
+     * * * 4 = IV
      * @return zero if the item is successfully retrieved; otherwise it returns a nonzero value.
      */
     fun getPreference(item: Int, value: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
@@ -142,6 +160,10 @@ interface ChineseV14 : SapComponent {
      * * 14 = Torsion modification factor
      * * 15 = Torsion design factor, Zeta
      * * 16 = Concrete cover for closed stirrup
+     * * 17 = Effective length factor for gravity, K Major
+     * * Value >= 0; 0 means use program default value.
+     * * 18 = Effective length factor for gravity, K Minor
+     * * Value >= 0; 0 means use program default value.
      * @param value The value of the considered overwrite item.
      * * 1 = Seismic design grade
      * * 0 = As specified in preferences
@@ -189,6 +211,10 @@ interface ChineseV14 : SapComponent {
      * * Value >= 0; 0 means use program determined value.
      * * 16 = Concrete cover for closed stirrup
      * * Value >= 0; 0 means use program determined value.
+     * * 17 = Effective length factor for gravity, K Major
+     * * Value >= 0; 0 means use program default value.
+     * * 18 = Effective length factor for gravity, K Minor
+     * * Value >= 0; 0 means use program default value.
      * @param itemType This is one of the following items in the eItemType enumeration:
      * * Object = 0
      * * Group = 1
@@ -223,25 +249,38 @@ interface ChineseV14 : SapComponent {
      * * 3 = Importance factor gamma 0
      * * Value > 0
      * * 4 = Column design procedure
-     * * 1 = Appendix F
-     * * 2 = Simplified
+     * * * 1 = Appendix F
+     * * * 2 = Simplified
      * * 5 = Seismic design grade
-     * * 1 = Super I
-     * * 2 = Grade I
-     * * 3 = Grade II
-     * * 4 = Grade III
-     * * 5 = Grade IV
-     * * 6 = Nonseismic
+     * * * 1 = Super I
+     * * * 2 = Grade I
+     * * * 3 = Grade II
+     * * * 4 = Grade III
+     * * * 5 = Grade IV
+     * * * 6 = Nonseismic
      * * 6 = Pattern live load factor
      * * Value >= 0
      * * 7 = Utilization factor limit
      * * Value > 0
      * * 8 = Time history design
-     * * 1 = Envelopes
-     * * 2 = Step-by step
+     * * * 1 = Envelopes
+     * * * 2 = Step-by step
+     * * 9 = Structural system
+     * * * 1 = Frame only
+     * * * 2 = Shearwall only
+     * * * 3 = Frame-shearwall
+     * * * 4 = Braced frame only
+     * * * 5 = Frame-braced frame
+     * * 10 =  Is tall building?
+     * * * 0 = No
+     * * * 1 = Yes
+     * * 11 =  Seismic field type
+     * * * 1 = I
+     * * * 2 = II
+     * * * 3 = III
+     * * * 4 = IV
      * @return zero if the item is successfully set; otherwise it returns a nonzero value.
      */
     fun setPreference(item: Int, value: Double): Int =
             callFunctionInt("SetPreference", item, value)
-
 }

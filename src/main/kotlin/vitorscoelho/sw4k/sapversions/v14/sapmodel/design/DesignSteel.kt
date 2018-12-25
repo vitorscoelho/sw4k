@@ -45,7 +45,7 @@ interface DesignSteelV14 : SapComponent {
      * * ASCE 10-97
      * * BS5950 90
      * * BS5950 2000
-     * * Chinese 2002
+     * * Chinese_2002 2002
      * * CISC 95
      * * EUROCODE 3-1993
      * * EUROCODE 3-2005
@@ -184,7 +184,7 @@ interface DesignSteelV14 : SapComponent {
      * * ASCE 10-97
      * * BS5950 90
      * * BS5950 2000
-     * * Chinese 2002
+     * * Chinese_2002 2002
      * * CISC 95
      * * EUROCODE 3-1993
      * * EUROCODE 3-2005

@@ -61,54 +61,56 @@ interface Chinese_2002V14 : SapComponent {
      * * 51 = L/r limit in tension
      * @param value The value of the considered overwrite item.
      * * 1 = Framing type
-     * * 0 = As specified in preferences
-     * * 1 = Moment Frame
-     * * 2 = Braced Frame, CBF
-     * * 3 = Braced Frame, EBF
-     * * 2 = Element type
-     * * 0 = Program Determined
-     * * 1 = Column
-     * * 2 = Beam
-     * * 3 = Brace
+     * * * 0 = As specified in preferences
+     * * * 1 = Sway Moment Frame, SMF
+     * * * 2 = Concentrically Braced Frame, CBF
+     * * * 3 = Eccentrically Braced Frame, EBF
+     * * * 4 = NonSway Moment Frame, NMF
+     * *  2 = Element type
+     * * * 0 = Program Determined
+     * * * 1 = Column
+     * * * 2 = Beam
+     * * * 3 = Brace
+     * * * 4 = Truss
      * * 3 = Is transfer column
-     * * 0 = Program Determined
-     * * 1 = No
-     * * 2 = Yes
+     * * * 0 = Program Determined
+     * * * 1 = No
+     * * * 2 = Yes
      * * 4 = Seismic magnification factor
      * * Value >= 0; 0 means no check for this item.
      * * 5 = Is rolled section
-     * * 0 = Program Determined
-     * * 1 = No
-     * * 2 = Yes
+     * * * 0 = Program Determined
+     * * * 1 = No
+     * * * 2 = Yes
      * * 6 = Is flange edge cut by gas
-     * * 0 = Program Determined
-     * * 1 = No
-     * * 2 = Yes
+     * * * 0 = Program Determined
+     * * * 1 = No
+     * * * 2 = Yes
      * * 7 = Is both end pinned
-     * * 0 = Program Determined
-     * * 1 = No
-     * * 2 = Yes
+     * * * 0 = Program Determined
+     * * * 1 = No
+     * * * 2 = Yes
      * * 8 = Ignore b/t check
-     * * 0 = Program Determined
-     * * 1 = No
-     * * 2 = Yes
+     * * * 0 = Program Determined
+     * * * 1 = No
+     * * * 2 = Yes
      * * 9 = Classify beam as flexo-compression member
-     * * 0 = Program Determined
-     * * 1 = No
-     * * 2 = Yes
+     * * * 0 = Program Determined
+     * * * 1 = No
+     * * * 2 = Yes
      * * 10 = Is beam top loaded
-     * * 0 = Program Determined
-     * * 1 = No
-     * * 2 = Yes
+     * * * 0 = Program Determined
+     * * * 1 = No
+     * * * 2 = Yes
      * * 11 = Consider deflection
-     * * 0 = Program Determined
-     * * 1 = No
-     * * 2 = Yes
+     * * * 0 = Program Determined
+     * * * 1 = No
+     * * * 2 = Yes
      * * 12 = Deflection check type
-     * * 0 = Program default
-     * * 1 = Ratio
-     * * 2 = Absolute
-     * * 3 = Both
+     * * * 0 = Program default
+     * * * 1 = Ratio
+     * * * 2 = Absolute
+     * * * 3 = Both
      * * 13 = DL deflection limit, L/Value
      * * Value >= 0; 0 means no check for this item.
      * * 14 = SDL + LL deflection limit, L/Value
@@ -178,10 +180,16 @@ interface Chinese_2002V14 : SapComponent {
      * * 46 = Allowable shear stress, fv
      * * Value >= 0; 0 means use program determined value. (F/L2)
      * * 47 = Consider fictitious shear
-     * * 0 = Program Determined
-     * * 1 = No
-     * * 2 = Yes
+     * * * 0 = Program Determined
+     * * * 1 = No
+     * * * 2 = Yes
      * * 48 = Demand/capacity ratio limit
+     * * 49 = Dual system magnification factor
+     * * Value >= 0; 0 means use program default value.
+     * * 50 = Lo/r limit in compression
+     * * Value >= 0; 0 means use program determined value.
+     * * 51 = L/r limit in tension
+     * * Value >= 0; 0 means use program determined value.
      * * Value >= 0; 0 means use program determined value.
      * @param progDet If this item is True, the specified value is program determined.
      * @return zero if the item is successfully retrieved; otherwise it returns a nonzero value.
@@ -208,19 +216,22 @@ interface Chinese_2002V14 : SapComponent {
      * * 14 = Is tall building?
      * @param value The value of the considered preference item.
      * * 1 = Framing type
-     * * 1 = Moment Frame
-     * * 2 = Brace Frame
+     * * * 0 = As specified in preferences
+     * * * 1 = Sway Moment Frame, SMF
+     * * * 2 = Concentrically Braced Frame, CBF
+     * * * 3 = Eccentrically Braced Frame, EBF
+     * * * 4 = NonSway Moment Frame, NMF
      * * 2 = Gamma0
      * * Value > 0
      * * 3 = Ignore b/t check
-     * * 0 = No
-     * * Any other value = Yes
+     * * * 0 = No
+     * * * Any other value = Yes
      * * 4 = Classify beam as flexo compression member
-     * * 0 = No
-     * * Any other value = Yes
+     * * * 0 = No
+     * * * Any other value = Yes
      * * 5 = Consider deflection
-     * * 0 = No
-     * * Any other value = Yes
+     * * * 0 = No
+     * * * Any other value = Yes
      * * 6 = DL deflection limit, L/Value
      * * Value > 0
      * * 7 = SDL + LL deflection limit, L/Value
@@ -236,8 +247,11 @@ interface Chinese_2002V14 : SapComponent {
      * * 12 = Demand/capacity ratio limit
      * * Value > 0
      * * 13 = Time history design
-     * * 1 = Envelopes
-     * * 2 = Step-by step
+     * * * 1 = Envelopes
+     * * * 2 = Step-by step
+     * * 14 = Tall building
+     * * * 0 = No
+     * * * 1 = Yes
      * @return zero if the item is successfully retrieved; otherwise it returns a nonzero value.
      */
     fun getPreference(item: Int, value: ADoubleByRef = DoubleByRef.UNNECESSARY): Int =
@@ -301,14 +315,16 @@ interface Chinese_2002V14 : SapComponent {
      * @param value The value of the considered overwrite item.
      * * 1 = Framing type
      * * 0 = As specified in preferences
-     * * 1 = Moment Frame
-     * * 2 = Braced Frame, CBF
-     * * 3 = Braced Frame, EBF
+     * * 1 = Sway Moment Frame, SMF
+     * * 2 = Concentrically Braced Frame, CBF
+     * * 3 = Eccentrically Braced Frame, EBF
+     * * 4 = NonSway Moment Frame, NMF
      * * 2 = Element type
      * * 0 = Program Determined
      * * 1 = Column
      * * 2 = Beam
      * * 3 = Brace
+     * * 4 = Truss
      * * 3 = Is transfer column
      * * 0 = Program Determined
      * * 1 = No
@@ -453,19 +469,22 @@ interface Chinese_2002V14 : SapComponent {
      * * 14 = Is tall building?
      * @param value The value of the considered preference item.
      * * 1 = Framing type
-     * * 1 = Moment Frame
-     * * 2 = Brace Frame
+     * * * 0 = As specified in preferences
+     * * * 1 = Sway Moment Frame, SMF
+     * * * 2 = Concentrically Braced Frame, CBF
+     * * * 3 = Eccentrically Braced Frame, EBF
+     * * * 4 = NonSway Moment Frame, NMF
      * * 2 = Gamma0
      * * Value > 0
      * * 3 = Ignore b/t check
-     * * 0 = No
-     * * Any other value = Yes
+     * * * 0 = No
+     * * * Any other value = Yes
      * * 4 = Classify beam as flexo compression member
-     * * 0 = No
-     * * Any other value = Yes
+     * * * 0 = No
+     * * * Any other value = Yes
      * * 5 = Consider deflection
-     * * 0 = No
-     * * Any other value = Yes
+     * * * 0 = No
+     * * * Any other value = Yes
      * * 6 = DL deflection limit, L/Value
      * * Value > 0
      * * 7 = SDL + LL deflection limit, L/Value
@@ -481,11 +500,13 @@ interface Chinese_2002V14 : SapComponent {
      * * 12 = Demand/capacity ratio limit
      * * Value > 0
      * * 13 = Time history design
-     * * 1 = Envelopes
-     * * 2 = Step-by step
+     * * * 1 = Envelopes
+     * * * 2 = Step-by step
+     * * 14 = Tall building
+     * * * 0 = No
+     * * * 1 = Yes
      * @return zero if the item is successfully set; otherwise it returns a nonzero value.
      */
     fun setPreference(item: Int, value: Double): Int =
             callFunctionInt("SetPreference", item, value)
-
 }

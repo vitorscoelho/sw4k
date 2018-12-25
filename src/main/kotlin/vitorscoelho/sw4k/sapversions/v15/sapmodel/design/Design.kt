@@ -4,6 +4,7 @@ import vitorscoelho.sw4k.sapversions.v14.sapmodel.design.*
 import vitorscoelho.sw4k.sapversions.v15.sapmodel.design.aluminum.*
 import vitorscoelho.sw4k.sapversions.v15.sapmodel.design.coldformed.*
 import vitorscoelho.sw4k.sapversions.v15.sapmodel.design.concrete.*
+import vitorscoelho.sw4k.sapversions.v15.sapmodel.design.concrete.Chinese_2002V15
 import vitorscoelho.sw4k.sapversions.v15.sapmodel.design.steel.*
 
 interface DesignAluminumV15 : DesignAluminumV14 {
@@ -23,7 +24,7 @@ interface DesignConcreteV15 : DesignConcreteV14 {
     override val Australian_AS_3600_01: Australian_AS_3600_01V15
     override val BS8110_89: BS8110_89V15
     override val BS8110_97: BS8110_97V15
-    override val Chinese: ChineseV15
+    override val Chinese_2002: vitorscoelho.sw4k.sapversions.v15.sapmodel.design.concrete.Chinese_2002V15
     override val CSA_A23304: CSA_A23304V15
     override val CSA_A23394: CSA_A23394V15
     override val Eurocode_2_1992: Eurocode_2_1992V15
@@ -49,7 +50,7 @@ interface DesignSteelV15 : DesignSteelV14 {
     override val ASCE_10_97: ASCE_10_97V15
     override val BS5950_2000: BS5950_2000V15
     override val BS5950_90: BS5950_90V15
-    override val Chinese_2002: Chinese_2002V15
+    override val Chinese_2002: vitorscoelho.sw4k.sapversions.v15.sapmodel.design.steel.Chinese_2002V15
     override val CISC_95: CISC_95V15
     override val Eurocode_3_1993: Eurocode_3_1993V15
     override val Eurocode_3_2005: Eurocode_3_2005V15
