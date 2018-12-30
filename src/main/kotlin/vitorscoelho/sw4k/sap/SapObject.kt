@@ -19,5 +19,11 @@ class SapObject private constructor(override val activeXComponentName: String, v
             LoaderJacobDll.load()
             return SapObject(activeXComponentName = "Sap2000v15.SapObject", programName = "Sap2000v15")
         }
+
+        @JvmStatic
+        fun v20(): SapObjectV14 {
+            LoaderJacobDll.load()
+            return SapObject(activeXComponentName = "CSI.SAP2000.API.SapObject", programName = "cOAPI")
+        }
     }
 }
